@@ -8,6 +8,10 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sunita
 // Leave empty until the GA4 property exists; analytics only loads when set.
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
+// Web3Forms access key. Public by design: the free plan only accepts submissions sent from the
+// visitor's browser, so the key ships in the page. It can only send mail to the owner's inbox.
+export const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'bb355377-a175-45ce-9c0a-e68317f53d47';
+
 export const COMPANY = {
   name: 'Sunita Agri Exports',
   legalName: 'Sunita Agri Exports Pvt. Ltd.',

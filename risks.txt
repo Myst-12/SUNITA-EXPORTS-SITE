@@ -22,7 +22,7 @@ SEO / TECHNICAL
    its files. Ask the client to take it down, or redirect the old domain to the new site (301) once it is clean.
 
 OPEN TASKS TO REMIND THE OWNER ABOUT
-- Web3Forms access key (inquiries to sunitaexportsindia@gmail.com) - owner will provide later. Forms will not email until set.
+- Web3Forms key is set (in src/config/site.js; public by design - free plan only allows browser submissions). Quote form emails sunitaexportsindia@gmail.com.
 - Google Analytics 4 ID (placeholder G-XXXXXXXXXX is in layout.js) - to do later.
 - Domain name not chosen yet - one config value will control it. Set it before launch (canonical URLs, sitemap, schema).
 - Google Search Console verification after domain is live.

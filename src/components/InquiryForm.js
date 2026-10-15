@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Icon from './Icon';
-import { CONTACT, whatsappLink } from '@/config/site';
+import { CONTACT, WEB3FORMS_KEY, whatsappLink } from '@/config/site';
 import styles from './InquiryForm.module.css';
 
 const COUNTRIES = [
@@ -28,18 +28,36 @@ export default function InquiryForm() {
 
   const submit = async (e) => {
     e.preventDefault();
+    if (data.website) { setStatus('sent'); return; } // honeypot: bots fill hidden fields
     setStatus('sending');
     setError('');
+    const fields = [
+      ['Name', data.name], ['Company', data.company], ['Email', data.email], ['Phone / WhatsApp', data.phone],
+      ['Country', data.country], ['Business type', data.buyerType], ['Products', data.productInterest],
+      ['Quantity', data.estimatedQuantity], ['Packing', data.packaging], ['Price terms', data.incoterm],
+      ['Destination port', data.port], ['Notes', data.message],
+    ];
     try {
-      const res = await fetch('/api/inquiry', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      // Sent from the browser: Web3Forms' free plan rejects server-side submissions.
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `[Quote request] ${data.productInterest.slice(0, 60)} — ${data.company} (${data.country})`,
+          from_name: 'Sunita Exports Website',
+          name: `${data.name} (${data.company})`,
+          email: data.email,
+          replyto: data.email,
+          message: fields.map(([k, v]) => `${k}: ${v || '—'}`).join('\n'),
+        }),
+      });
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
         setStatus('sent');
       } else {
         setStatus('error');
-        setError(json.needsApiKey
-          ? 'Our online form is being set up. Please send your enquiry by WhatsApp or email for now.'
-          : json.error || 'Could not send your enquiry. Please try WhatsApp or email.');
+        setError(json.message || 'Could not send your enquiry. Please try WhatsApp or email.');
       }
     } catch {
       setStatus('error');
