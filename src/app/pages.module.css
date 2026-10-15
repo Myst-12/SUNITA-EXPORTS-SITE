@@ -56,8 +56,8 @@
 .badge small { color: var(--muted); font-size: 0.78rem; line-height: 1.35; display: block; }
 .badge :global(.icon-tile) { margin: 0; }
 
-.tintLime { background: var(--lime-100); }
-.tintWarm { background: var(--bg-cream); }
-.tintCream { background: var(--turmeric-100); }
+.tintLime { background: var(--bg-mist); }
+.tintWarm { background: var(--bg-mist); }
+.tintCream { background: var(--bg-mist); }
 
 @media (max-width: 900px) { .split, .splitWide { grid-template-columns: 1fr; } }

@@ -31,6 +31,7 @@
   --bg: #ffffff;
   --bg-soft: #f1f7f1;
   --bg-cream: #fdf8e8;
+  --bg-mist: #f6f7f4; /* calm neutral band for alternating sections */
 
   /* Type */
   --font-display: var(--font-fraunces), 'Georgia', serif;
@@ -51,7 +52,7 @@
   /* Layout */
   --container: 1240px;
   --gutter: 20px;
-  --header-h: 72px;
+  --header-h: 68px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   /* ---- Legacy aliases (pages not yet migrated) ---- */
@@ -84,7 +85,7 @@
 }
 
 @media (max-width: 640px) {
-  :root { --gutter: 16px; --header-h: 64px; }
+  :root { --gutter: 16px; --header-h: 60px; }
 }
 
 /* ===== RESET ===== */
@@ -111,7 +112,7 @@ ul, ol { list-style: none; }
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 { color: var(--ink); line-height: 1.15; font-weight: 700; letter-spacing: -0.015em; }
-h1, h2, .display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; font-optical-sizing: auto; }
+h1, h2, .display { font-family: var(--font-display); font-weight: 500; text-wrap: balance; letter-spacing: -0.02em; font-optical-sizing: auto; }
 h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
 h2 { font-size: clamp(1.65rem, 3.2vw, 2.5rem); margin-bottom: 0.75rem; }
 h3 { font-size: 1.15rem; font-family: var(--font-sans); margin-bottom: 0.4rem; }
@@ -146,16 +147,16 @@ strong { font-weight: 700; }
 /* ===== LAYOUT ===== */
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 .container-narrow { max-width: 860px; }
-.section, .section-padding { padding-block: clamp(48px, 7vw, 88px); }
-.section-sm { padding-block: clamp(32px, 4.5vw, 56px); }
+.section, .section-padding { padding-block: clamp(64px, 9vw, 120px); }
+.section-sm { padding-block: clamp(40px, 5.5vw, 72px); }
 .section-white { background: var(--bg); }
-.section-soft, .section-ivory { background: var(--bg-soft); }
-.section-cream { background: var(--bg-cream); }
+.section-soft, .section-ivory { background: var(--bg-mist); }
+.section-cream { background: var(--bg-mist); }
 .section-dark, .section-deep { background: var(--green-900); color: rgba(255, 255, 255, 0.82); }
 .section-dark h2, .section-dark h3, .section-deep h2, .section-deep h3 { color: #fff; }
-.section-gradient { background: var(--bg-soft); }
+.section-gradient { background: var(--bg-mist); }
 
-.section-head, .section-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(24px, 3.5vw, 40px); }
+.section-head, .section-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(32px, 4.5vw, 56px); }
 .section-head > div { max-width: 680px; }
 .section-head.center, .section-header { flex-direction: column; align-items: center; text-align: center; }
 .section-head.center .lead, .section-header .section-subtitle { margin-inline: auto; }
@@ -279,12 +280,12 @@ a.card:hover, .card.hoverable:hover { border-color: var(--green-200); box-shadow
 .faq-item .faq-answer { padding: 0 1.1rem 1.1rem; color: var(--muted); font-size: 0.95rem; }
 
 /* ===== PAGE HERO (inner pages) ===== */
-.page-hero { position: relative; padding-block: clamp(40px, 6vw, 72px); background: var(--green-50); }
+.page-hero { position: relative; padding-block: clamp(48px, 7vw, 96px); background: var(--bg); }
 .page-hero h1 { font-size: clamp(1.9rem, 4vw, 3rem); margin-bottom: 0.75rem; }
 .page-hero .lead { margin-bottom: 1.25rem; }
 
 /* ===== SCROLL REVEAL — content is always visible without JS ===== */
-.js .scroll-reveal, .js [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.js .scroll-reveal, .js [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .js .scroll-reveal.revealed, .js [data-reveal].revealed { opacity: 1; transform: none; }
 /* Safety net: if JS never hydrates, reveal content anyway */
 .js:not(.hydrated) .scroll-reveal { animation: srFallback 0.6s ease 2.5s forwards; }

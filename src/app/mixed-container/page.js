@@ -4,6 +4,7 @@ import PageHero from '@/components/PageHero';
 import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
+import ContainerPlanner from '@/components/ContainerPlanner';
 import { COMPANY, CONTACT, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
 
@@ -48,7 +49,7 @@ export default function MixedContainerPage() {
         image="/images/scenes/port-day.webp"
         imageAlt="Shipping containers at port"
       >
-        <Link href="/contact/?product=Mixed%20container" className="btn btn-primary btn-lg">Plan my container <Icon name="arrow-right" /></Link>
+        <a href="#planner" className="btn btn-primary btn-lg">Plan my container <Icon name="arrow-right" /></a>
         <a href={whatsappLink('Hello, I would like to plan a mixed container from India.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> Send list on WhatsApp</a>
       </PageHero>
 
@@ -71,6 +72,18 @@ export default function MixedContainerPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="planner" className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2>Plan your mixed container</h2>
+              <p className="lead">Pick the products you need and see how much of a 20 ft or 40 ft container they fill, then send the list to us for a quote.</p>
+            </div>
+          </div>
+          <ContainerPlanner />
         </div>
       </section>
 

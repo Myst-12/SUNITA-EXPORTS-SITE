@@ -1,0 +1,6 @@
+.globe { position: relative; width: 100%; aspect-ratio: 1; max-width: 640px; margin-inline: auto; }
+.fallback, .canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fallback { object-fit: contain; transition: opacity 1.2s var(--ease); }
+.canvas { opacity: 0; transition: opacity 1.2s var(--ease); contain: layout paint size; }
+.ready .canvas { opacity: 1; }
+.ready .fallback { opacity: 0; }

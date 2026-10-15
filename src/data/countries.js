@@ -1,7 +1,11 @@
+// Homepage globe: arcs run from Mumbai to each destination's `coords` (main port or city, [lat, lng]).
+export const exportOrigin = { name: 'Mumbai', coords: [19.076, 72.878] };
+
 export const exportDestinations = [
   {
     name: 'USA',
     slug: 'usa',
+    coords: [40.71, -74.01],
     region: 'North America',
     flag: '🇺🇸',
     seoTitle: 'Indian FMCG & Spices Exporter to USA',
@@ -14,6 +18,7 @@ export const exportDestinations = [
   {
     name: 'UAE',
     slug: 'uae',
+    coords: [25.2, 55.27],
     region: 'Middle East',
     flag: '🇦🇪',
     seoTitle: 'Indian Foodstuff & FMCG Exporter to UAE',
@@ -26,6 +31,7 @@ export const exportDestinations = [
   {
     name: 'UK',
     slug: 'uk',
+    coords: [51.51, -0.13],
     region: 'Europe',
     flag: '🇬🇧',
     seoTitle: 'BRC Certified Indian Spices & FMCG Exporter to UK',
@@ -38,6 +44,7 @@ export const exportDestinations = [
   {
     name: 'Saudi Arabia',
     slug: 'saudi-arabia',
+    coords: [21.49, 39.19],
     region: 'Middle East',
     flag: '🇸🇦',
     seoTitle: 'Indian Basmati Rice & Spices Exporter to Saudi Arabia',
@@ -50,6 +57,7 @@ export const exportDestinations = [
   {
     name: 'Canada',
     slug: 'canada',
+    coords: [43.65, -79.38],
     region: 'North America',
     flag: '🇨🇦',
     seoTitle: 'Indian Grocery & FMCG Exporter to Canada',
@@ -62,6 +70,7 @@ export const exportDestinations = [
   {
     name: 'Australia',
     slug: 'australia',
+    coords: [-33.87, 151.21],
     region: 'Oceania',
     flag: '🇦🇺',
     seoTitle: 'Indian Spices & Food Exporter to Australia',
@@ -74,6 +83,7 @@ export const exportDestinations = [
   {
     name: 'Singapore',
     slug: 'singapore',
+    coords: [1.35, 103.82],
     region: 'Asia',
     flag: '🇸🇬',
     seoTitle: 'Indian Spices & FMCG Exporter to Singapore',
@@ -86,6 +96,7 @@ export const exportDestinations = [
   {
     name: 'Europe',
     slug: 'europe',
+    coords: [51.92, 4.48],
     region: 'Europe',
     flag: '🇪🇺',
     seoTitle: 'BRC Certified Indian Exporter to EU | Spices & Foodstuff',
@@ -98,6 +109,7 @@ export const exportDestinations = [
   {
     name: 'Kuwait',
     slug: 'kuwait',
+    coords: [29.37, 47.98],
     region: 'Middle East',
     flag: '🇰🇼',
     seoTitle: 'Indian Spices, Rice & Grocery Exporter to Kuwait',
@@ -110,6 +122,7 @@ export const exportDestinations = [
   {
     name: 'Oman',
     slug: 'oman',
+    coords: [23.59, 58.41],
     region: 'Middle East',
     flag: '🇴🇲',
     seoTitle: 'Indian Foodstuff & Spices Exporter to Oman',
@@ -122,6 +135,7 @@ export const exportDestinations = [
   {
     name: 'Qatar',
     slug: 'qatar',
+    coords: [25.29, 51.53],
     region: 'Middle East',
     flag: '🇶🇦',
     seoTitle: 'Indian Grocery & Spices Exporter to Qatar',
@@ -134,6 +148,7 @@ export const exportDestinations = [
   {
     name: 'New Zealand',
     slug: 'new-zealand',
+    coords: [-36.85, 174.76],
     region: 'Oceania',
     flag: '🇳🇿',
     seoTitle: 'Indian Spices & Grocery Exporter to New Zealand',
@@ -146,6 +161,7 @@ export const exportDestinations = [
   {
     name: 'Malaysia',
     slug: 'malaysia',
+    coords: [3.14, 101.69],
     region: 'Asia',
     flag: '🇲🇾',
     seoTitle: 'Indian Spices & Rice Exporter to Malaysia',
@@ -158,6 +174,7 @@ export const exportDestinations = [
   {
     name: 'Japan',
     slug: 'japan',
+    coords: [35.68, 139.65],
     region: 'Asia',
     flag: '🇯🇵',
     seoTitle: 'Indian Spices & Sesame Exporter to Japan',
@@ -170,6 +187,7 @@ export const exportDestinations = [
   {
     name: 'Turkey',
     slug: 'turkey',
+    coords: [41.01, 28.98],
     region: 'Europe / Middle East',
     flag: '🇹🇷',
     seoTitle: 'Indian Spices & Oilseeds Exporter to Turkey',
@@ -182,6 +200,7 @@ export const exportDestinations = [
   {
     name: 'Uganda & East Africa',
     slug: 'east-africa',
+    coords: [0.35, 32.58],
     region: 'Africa',
     flag: '🇺🇬',
     seoTitle: 'Indian Rice, Spices & Grocery Exporter to Uganda, Kenya & East Africa',
