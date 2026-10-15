@@ -107,6 +107,8 @@ export default function Footer({ categories = [] }) {
         <div className={`container ${styles.bottomInner}`}>
           <p>© {year} {COMPANY.legalName}. All rights reserved.</p>
           <p className={styles.bottomLinks}>
+            <Link href="/privacy/">Privacy</Link>
+            <Link href="/terms/">Terms</Link>
             <Link href="/credits/">Image credits</Link>
             <Link href="/sitemap.xml">Sitemap</Link>
           </p>

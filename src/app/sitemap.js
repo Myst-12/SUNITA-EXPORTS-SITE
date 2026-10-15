@@ -22,6 +22,8 @@ export default function sitemap() {
     '/mixed-container',
     '/private-label',
     '/knowledge',
+    '/privacy',
+    '/terms',
   ].map((route) => ({
     url: `${baseUrl}${route}/`,
     lastModified: new Date().toISOString().split('T')[0],

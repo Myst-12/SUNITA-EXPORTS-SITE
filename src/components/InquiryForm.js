@@ -161,7 +161,7 @@ export default function InquiryForm() {
         <button type="submit" className="btn btn-primary btn-lg" disabled={status === 'sending'}>
           {status === 'sending' ? 'Sending…' : <>Send enquiry <Icon name="arrow-right" /></>}
         </button>
-        <p className={styles.privacy}>We reply within 24 hours. Your details are used only to answer this enquiry.</p>
+        <p className={styles.privacy}>We reply within 24 hours. Your details are used only to answer this enquiry. See our <a href="/privacy/" className="text-green">privacy policy</a>.</p>
       </div>
     </form>
   );
