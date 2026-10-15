@@ -1,0 +1,44 @@
+SUNITA AGRI EXPORTS - RISKS & OPEN ITEMS
+(Remind the owner of this file when the project is done.)
+
+LEGAL / TRUST
+1. Certification claims (BRC, FDA, ISO, FSSAI, APEDA, FIEO, IMC) are shown with NO certificates on hand.
+   Buyers, customs or competitors can ask for proof. A false claim can lose a deal or cause legal trouble.
+   Owner decision: keep the claims. Action later: collect real certificates + numbers, or remove the ones the
+   client does not hold. Site will have a "documents available on request" line and a slot for certificate numbers.
+2. Numbers such as "40+ countries" and "30+ years" (founded 1994) - owner confirmed 40+ is true. Keep a record of proof.
+3. Brand names (Haldiram's, Parle, MDH etc.) are NOT used. Trademark and "authorised distributor" risk. Only brands
+   listed on the old site may be named.
+4. Stock photos are generic, not the client's own products. A buyer who visits or receives samples may notice.
+   Replace with real warehouse / product / packaging / exhibition photos as soon as possible.
+   Any "exhibition highlights" content must be real events, or it must be left as clearly marked placeholders.
+
+SEO / TECHNICAL
+5. Nobody can guarantee rank #1 in every country. Plan: strong country pages for the top markets, fast load,
+   schema, sitemap, llms.txt. Avoid hundreds of near-duplicate pages (Google treats that as doorway spam).
+6. Meta keywords are ignored by Google. Keywords go into real page content, headings and FAQs instead.
+7. New domain has no history, so ranking takes months. Submit to Google Search Console and Bing right after launch.
+8. The old site (sunitaexports.com) was HACKED (PHP web shells in /admin/upload/). Do not reuse that hosting or
+   its files. Ask the client to take it down, or redirect the old domain to the new site (301) once it is clean.
+
+OPEN TASKS TO REMIND THE OWNER ABOUT
+- Web3Forms access key (inquiries to sunitaexportsindia@gmail.com) - owner will provide later. Forms will not email until set.
+- Google Analytics 4 ID (placeholder G-XXXXXXXXXX is in layout.js) - to do later.
+- Domain name not chosen yet - one config value will control it. Set it before launch (canonical URLs, sitemap, schema).
+- Google Search Console verification after domain is live.
+- Real photos and certificates to replace stock images.
+- Phones: both numbers shown site-wide (+91 8169282942, +91 9004041889), but the Get a Quote page shows only 8169282942.
+
+- Hosting: site switched from static export to Next.js server mode (needed for the inquiry form API, image
+  optimisation, redirects). Best host: Vercel (free tier is enough). Cheap shared/cPanel hosting will NOT run it as-is.
+- Some images are CC BY / CC BY-SA from Wikimedia Commons: they legally need attribution. Keep the /credits page
+  (and public/images/CREDITS.md) live until those images are replaced with the client's own photos.
+- Gulfood 2026 participation (Hall N10, Stand N10-E23) comes from the public Gulfood exhibitor listing - confirm with client.
+- Founder name "Mr. Alok Dhanuka" (from the earlier draft) was REMOVED from the site because it is unverified. Add it back only if the client confirms.
+
+BUSINESS
+- The brochure confirms FMCG/grocery is a real product line (snacks, biscuits, instant food, sweets, beverages,
+  pickles, papad, oils/ghee, incense, cosmetics, household...). So FMCG is legitimate as the 2nd pillar.
+- Client wanted "FMCG" positioning but the company mainly exports spices. Site leads with spices; FMCG is a
+  secondary section. Buyers asking for FMCG brands we cannot supply will bounce, so keep claims honest.
+- Do not publish a fixed price list. Use "Request current export price".

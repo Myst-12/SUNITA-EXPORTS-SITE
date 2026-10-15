@@ -1,110 +1,102 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import PageHero from '@/components/PageHero';
 import ScrollReveal from '@/components/ScrollReveal';
+import CountUp from '@/components/CountUp';
+import Icon from '@/components/Icon';
+import { COMPANY, EXHIBITIONS, CONTACT, yearsInBusiness } from '@/config/site';
+import { getAllProducts } from '@/data/products';
+import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'About Sunita Agri Exports | 30 Years of Indian Agri Export Excellence',
-  description: 'Since 1994, Sunita Agri Exports has been a trusted Indian exporter of spices, rice, and agri commodities. FDA, BRC, FSSAI, ISO certified. Based in Mumbai.',
+  title: 'About Us — Indian Spice & Food Exporter Since 1994',
+  description:
+    'Sunita Agri Exports Pvt. Ltd. is a Govt. recognised Star Export House in Mumbai exporting Indian spices, rice, pulses and FMCG groceries since 1994 to 40+ countries. Our story, values and trade fairs.',
+  alternates: { canonical: '/about/' },
 };
 
+const VALUES = [
+  { icon: 'shield', title: 'Quality first', text: 'Every lot is cleaned, graded and checked under experienced supervisors before it is packed.' },
+  { icon: 'handshake', title: 'Commitment', text: 'Clear specifications, honest timelines and documents that clear customs the first time.' },
+  { icon: 'users', title: 'Teamwork', text: 'Sourcing, processing, packing and logistics working as one team under one roof in Mumbai.' },
+  { icon: 'globe', title: 'Serving the diaspora', text: 'We started by bringing authentic Indian flavours to Asian communities abroad — and still do.' },
+];
+
+const MILESTONES = [
+  { when: '1994', what: 'Founded in Mumbai to serve the Asian community worldwide with Indian foods, spices, pulses and provisions.' },
+  { when: '2000s', what: 'Steady growth in the United States, Canada, Australia and Africa; consolidated (mixed) containers become our speciality.' },
+  { when: '2010s', what: 'Processing support with destoner, gravity separator, Sortex and pulveriser; private label and customised consumer packaging added.' },
+  { when: 'Today', what: `${COMPANY.status} serving importers, supermarkets and distributors in ${COMPANY.countriesServed} countries.` },
+];
+
+const WHY = [
+  { title: 'One-stop sourcing', text: 'Spices, rice, pulses, oilseeds, herbs, dehydrated products and FMCG from one exporter.' },
+  { title: 'Consolidation experts', text: 'Decades of planning mixed containers for importers who need range, not just volume.' },
+  { title: 'Processing support', text: 'Cleaning, grading, Sortex and grinding to buyer specification.' },
+  { title: 'Export compliance', text: 'Certifications, lab reports and complete paperwork for every destination.' },
+  { title: 'Private label', text: 'Products in your brand with customised consumer packaging.' },
+  { title: 'Mumbai port advantage', text: `Close to ${CONTACT.port} for frequent sailings worldwide.` },
+];
+
 export default function AboutPage() {
-  const values = [
-    { title: 'Quality Assurance', desc: 'Every consignment is subject to testing in our in-house laboratory for pesticide residues, heavy metals, and toxins before dispatch.' },
-    { title: 'Export Reliability', desc: 'Three decades of operational knowledge allows us to guarantee smooth logistics, container consolidation, and on-time shipments.' },
-    { title: 'Operational Transparency', desc: 'We maintain clear, documented tracking of all shipments, offering full transparency from farm sourcing to destination ports.' },
-    { title: 'Client Partnerships', desc: 'We build long-term relationships with global distributors, wholesalers, and retail buyers, adapting to their specific packaging and quality demands.' }
-  ];
-
-  const processSteps = [
-    { step: '01', title: 'Sourcing at Origin', desc: 'We source raw materials directly from farmers and primary market yards in verified cultivating zones to ensure traceablity.' },
-    { step: '02', title: 'In-House Laboratory Testing', desc: 'Raw material samples are analyzed in our lab for moisture content, purity, and microbial parameters before acceptance.' },
-    { step: '03', title: 'Precision Processing', desc: 'Materials undergo cleaning, destoning, gravity separation, and sortex optical grading. Spices are steam-sterilized as required.' },
-    { step: '04', title: 'Custom Packaging & Coding', desc: 'Products are packed in our BRC-compliant facility. We support bulk bags and private-label consumer packs with custom coding.' },
-    { step: '05', title: 'Documentation & Clearance', desc: 'Our logistics team prepares all export paperwork, including phytosanitary certificates, Certificates of Analysis (COA), and customs filings.' },
-    { step: '06', title: 'Container stuffing & Dispatch', desc: 'Containers (20ft/40ft FCL) are carefully stuffed, secured under CCTV supervision, and dispatched via Nhava Sheva Port (JNPT), Mumbai.' }
-  ];
-
+  const total = getAllProducts().length;
   return (
     <>
-      {/* ===== HERO HEADER ===== */}
-      <section className="section-ivory section-padding" style={{ borderBottom: '1px solid var(--color-border)', textAlign: 'center' }}>
+      <PageHero
+        crumbs={[{ label: 'About Us', href: '/about/' }]}
+        eyebrow={`Since ${COMPANY.foundingYear} · Mumbai, India`}
+        title="Bringing India’s flavours to the world for over three decades"
+        lead={`${COMPANY.legalName} is a ${COMPANY.status} exporting Indian spices, rice, pulses, fresh produce and general provisions — one stop for all your food requirements from India.`}
+        image="/images/scenes/market-sorting.webp"
+        imageAlt="Spices being sorted and packed"
+      />
+
+      <section className={`section-sm ${s.tintLime}`}>
         <div className="container">
+          <div className={s.stats}>
+            <div className={s.stat}><strong><CountUp value={yearsInBusiness()} suffix="+" /></strong><span>years in export</span></div>
+            <div className={s.stat}><strong><CountUp value={parseInt(COMPANY.countriesServed, 10)} suffix="+" /></strong><span>countries served</span></div>
+            <div className={s.stat}><strong><CountUp value={total} suffix="+" /></strong><span>products listed</span></div>
+            <div className={s.stat}><strong>Star</strong><span>Export House (Govt. of India)</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className={`container ${s.split}`}>
           <ScrollReveal>
-            <span className="label gold-accent">Est. 1994</span>
-            <h1>Our Story & Agricultural Expertise</h1>
-            <p className="section-subtitle" style={{ maxWidth: '720px', margin: '0 auto' }}>
-              For over three decades, Sunita Agri Exports has connected premium Indian farming origin with global food importers, built on a foundation of quality, compliance, and trade trust.
-            </p>
+            <span className="eyebrow">Our story</span>
+            <h2>Started for the Indian diaspora. Built on trust.</h2>
+            <div className="prose">
+              <p>Sunita Agri Exports was established in {COMPANY.foundingYear} with one intent: to serve the Asian community all over the world — especially everyone who loves Indian food and flavours. From the start we dealt in food, spices, pulses, fresh fruits and general provisions.</p>
+              <p>Over the years the business has grown substantially, especially in the United States, Canada, Australia and Africa, promoting Indian tastes worldwide. Today we specialise in exports of Indian spices, rice, fruits and branded products, products in our customers’ own brands, and customised consumer packaging.</p>
+              <p>Above all, we specialise in <strong>consolidated (miscellaneous) container stuffing</strong> to each customer’s needs — so every requirement from India can ship from under one roof.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <div className={`${s.img} ${s.imgTall}`}><Image src="/images/scenes/whole-spices.webp" alt="Assorted whole Indian spices" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ===== OUR STORY & STORY PROGRESSION ===== */}
-      <section className="section-white section-padding">
-        <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center', gap: 'var(--space-6)' }}>
-            <ScrollReveal>
-              <span className="label gold-accent">30+ Years in Business</span>
-              <h2>A Legacy of Agricultural Exports</h2>
-              <p>
-                Founded in 1994 by Mr. Alok Dhanuka, Sunita Agri Exports started as a proprietary concern focusing on local sourcing and trade of agricultural commodities in Mumbai. Recognizing the growing global demand for authentic, high-quality Indian ingredients, the company expanded into international export operations.
-              </p>
-              <p>
-                In 2007, to accommodate our growing scale and establish a corporate framework for international clients, the business was restructured into a Private Limited entity: **Sunita Agri Exports Pvt. Ltd.** Today, we ship over 200+ FCL containers annually to clients across the USA, UK, Europe, Australia, and the Middle East.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div style={{ backgroundColor: 'var(--color-ivory)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--space-5)' }}>
-                <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600' }}>Company Milestone Timeline</h3>
-                <ul style={{ listStyle: 'none', paddingLeft: 0, marginTop: 'var(--space-3)' }}>
-                  <li style={{ marginBottom: 'var(--space-3)', display: 'flex', gap: 'var(--space-2)' }}>
-                    <strong className="gold-accent">1994:</strong>
-                    <span>Founded as a proprietary firm in Mumbai, sourcing spices and grains at origin.</span>
-                  </li>
-                  <li style={{ marginBottom: 'var(--space-3)', display: 'flex', gap: 'var(--space-2)' }}>
-                    <strong className="gold-accent">2007:</strong>
-                    <span>Restructured as a Private Limited Company to support global B2B operations.</span>
-                  </li>
-                  <li style={{ marginBottom: 'var(--space-3)', display: 'flex', gap: 'var(--space-2)' }}>
-                    <strong className="gold-accent">2014:</strong>
-                    <span>Established our hi-tech quality control laboratory and built warehouse facilities.</span>
-                  </li>
-                  <li style={{ marginBottom: 0, display: 'flex', gap: 'var(--space-2)' }}>
-                    <strong className="gold-accent">Today:</strong>
-                    <span>BRCGS, US FDA, and ISO certified exporter serving clients in 40+ countries.</span>
-                  </li>
-                </ul>
-              </div>
-            </ScrollReveal>
+      <section className={`section ${s.tintWarm}`}>
+        <div className={`container ${s.split}`}>
+          <div>
+            <span className="eyebrow">Milestones</span>
+            <h2>Three decades of steady growth</h2>
+            <ol className={`${s.timeline} mt-3`}>
+              {MILESTONES.map((m) => (
+                <li key={m.when}><strong>{m.when}</strong><p>{m.what}</p></li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
-
-      {/* ===== MISSION, VISION, VALUES ===== */}
-      <section className="section-ivory section-padding">
-        <div className="container">
-          <div className="grid-2" style={{ gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
-            <ScrollReveal>
-              <span className="label gold-accent">Our Mission</span>
-              <h2 style={{ fontSize: '1.75rem' }}>Responsible Sourcing, Global Delivery</h2>
-              <p style={{ fontSize: '1.1rem' }}>
-                To supply the world\'s food industries with premium, quality-assured Indian agricultural products. We achieve this by sourcing directly from farmers, utilizing advanced processing technology, and maintaining complete compliance with international food safety standards.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <span className="label gold-accent">Our Vision</span>
-              <h2 style={{ fontSize: '1.75rem' }}>The Trusted Link to Indian Origin</h2>
-              <p style={{ fontSize: '1.1rem' }}>
-                To be the primary sourcing partner for global food manufacturers and retail brands seeking Indian agricultural commodities, recognized for our commitment to quality, transparency, and sustainable B2B partnerships.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid-4">
-            {values.map((v, idx) => (
-              <ScrollReveal key={idx} delay={idx * 50}>
-                <div className="card" style={{ height: '100%' }}>
-                  <h3 style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', color: 'var(--color-primary)', fontWeight: '600' }}>{v.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-mid)', lineHeight: '1.6' }}>{v.desc}</p>
+          <div className={s.features} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+            {VALUES.map((v, i) => (
+              <ScrollReveal key={v.title} delay={i * 60}>
+                <div className={s.feature}>
+                  <span className={`icon-tile ${i % 2 ? 'turmeric' : 'lime'}`}><Icon name={v.icon} /></span>
+                  <h3>{v.title}</h3>
+                  <p>{v.text}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -112,102 +104,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== PROCESSING EQUIPMENT & INFRASTRUCTURE ===== */}
-      <section className="section-white section-padding">
+      <section className="section">
         <div className="container">
-          <ScrollReveal>
-            <div className="section-header">
-              <span className="label gold-accent">Facilities & Processing</span>
-              <h2>Advanced Processing Infrastructure</h2>
-              <p className="section-subtitle">
-                We invest in state-of-the-art machinery and processing technologies to ensure that every grain, seed, and spice matches the physical and chemical purity standards of global markets.
-              </p>
+          <div className="section-head center">
+            <div>
+              <span className="eyebrow">Why buyers work with us</span>
+              <h2>What makes us different</h2>
             </div>
-          </ScrollReveal>
-          
-          <div className="grid-3">
-            <ScrollReveal>
-              <div className="card" style={{ height: '100%' }}>
-                <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 'var(--space-2)' }} aria-hidden="true">🔬</span>
-                <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600' }}>In-House Testing Laboratory</h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--color-mid)' }}>
-                  Our facility houses a high-tech quality control laboratory staffed by qualified chemists. We perform analysis on raw materials and processed batches for moisture, ash content, and chemical metrics, and regularly submit batches for NABL-accredited third-party validation.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="card" style={{ height: '100%' }}>
-                <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 'var(--space-2)' }} aria-hidden="true">⚙️</span>
-                <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600' }}>Sortex & Optical Grading</h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--color-mid)' }}>
-                  We utilize Sortex optical color sorters, gravity separators, and destoners. This equipment chain removes chaff, stones, glass, off-color grains, and physical defects, ensuring a purity level of up to 99.9% for seeds and grains.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="card" style={{ height: '100%' }}>
-                <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 'var(--space-2)' }} aria-hidden="true">💨</span>
-                <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600' }}>Steam Sterilization</h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--color-mid)' }}>
-                  To meet the strict microbiological limits of UK, EU, and US markets, we operate a chemical-free steam sterilization facility. This process reduces total plate count (TPC) and eliminates pathogens while preserving the volatile oils, color, and aroma of spices.
-                </p>
-              </div>
-            </ScrollReveal>
           </div>
-        </div>
-      </section>
-
-      {/* ===== OUR PROCESS TIMELINE ===== */}
-      <section className="section-ivory section-padding">
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-header">
-              <span className="label gold-accent">Quality Control Workflow</span>
-              <h2>Our End-to-End Export Process</h2>
-            </div>
-          </ScrollReveal>
-          <div className="grid-3" style={{ gap: 'var(--space-4)' }}>
-            {processSteps.map((step, idx) => (
-              <ScrollReveal key={idx} delay={idx * 50}>
-                <div className="card" style={{ height: '100%', position: 'relative' }}>
-                  <span style={{ fontSize: '2.25rem', fontWeight: '800', color: 'rgba(200, 146, 42, 0.15)', position: 'absolute', top: 'var(--space-3)', right: 'var(--space-4)' }}>
-                    {step.step}
-                  </span>
-                  <h3 style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', fontWeight: '600', marginRight: 'var(--space-6)' }}>{step.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-mid)', lineHeight: '1.6' }}>{step.desc}</p>
-                </div>
-              </ScrollReveal>
+          <div className={s.steps}>
+            {WHY.map((w) => (
+              <div key={w.title} className={s.step}><h3>{w.title}</h3><p>{w.text}</p></div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== LEADERSHIP SECTION ===== */}
-      <section className="section-white section-padding" style={{ borderBottom: '1px solid var(--color-border)' }}>
-        <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center', gap: 'var(--space-6)' }}>
-            <ScrollReveal>
-              <div style={{ aspectRatio: '4/5', backgroundColor: 'var(--color-ivory)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '5rem' }} aria-hidden="true">👨‍💼</span>
+      <section id="exhibitions" className="section section-dark">
+        <div className={`container ${s.split}`}>
+          <div>
+            <span className="eyebrow on-dark">Trade fairs &amp; exhibitions</span>
+            <h2>Meet us in person</h2>
+            <p>We exhibit at leading international food trade fairs to meet importers face to face, show samples and plan new business.</p>
+            {EXHIBITIONS.map((e) => (
+              <div key={e.name} className="mt-3" style={{ padding: 18, borderRadius: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)' }}>
+                <span className="chip chip-dark"><Icon name="calendar" size={14} /> {e.edition}</span>
+                <h3 className="mt-1" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.4rem' }}>{e.name} · {e.city}</h3>
+                <p style={{ margin: 0 }}>{e.venue}</p>
+                <p style={{ margin: '0.3rem 0 0', color: 'var(--lime-400)', fontWeight: 700 }}><Icon name="pin" size={15} /> {e.stand}</p>
               </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <span className="label gold-accent">Leadership</span>
-              <h2>Mr. Alok Dhanuka</h2>
-              <span className="label" style={{ color: 'var(--color-mid)', marginBottom: 'var(--space-3)', display: 'block' }}>Founder & Managing Director</span>
-              <p>
-                Mr. Alok Dhanuka has over 30 years of direct trade experience in the Indian agricultural sector. In 1994, he established Sunita Exports with a simple vision: to bridge the gap between Indian agricultural origins and international food standards.
-              </p>
-              <p>
-                Under his leadership, the firm successfully navigated the transition from local trading to international B2B shipments, implementing systematic quality management systems and securing global food safety certifications.
-              </p>
-              <div style={{ marginTop: 'var(--space-4)' }}>
-                <Link href="/contact" className="btn-primary">
-                  Partner With Us
-                </Link>
-              </div>
-            </ScrollReveal>
+            ))}
+            <Link href="/contact/" className="btn btn-accent mt-3">Book a meeting <Icon name="arrow-right" /></Link>
           </div>
+          <div className={s.img}><Image src={EXHIBITIONS[0].image} alt="Dubai skyline — Gulfood venue city" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
         </div>
       </section>
     </>

@@ -1,4 +1,6 @@
-export const categories = [
+import { extraCategories, extraProducts, imageOverrides, categoryGallery } from './catalog-extra.js';
+
+const baseCategories = [
   {
     slug: 'indian-spices',
     name: 'Indian Spices',
@@ -1045,6 +1047,52 @@ export const categories = [
     ]
   }
 ];
+
+const BRAND_SUFFIX = /\s*\|\s*Sunita (Agri )?Exports\s*$/;
+const DEFAULT_PACKAGING = ['25 kg / 50 kg PP or jute bags', 'Retail pouches 100 g – 1 kg', 'Private label packs'];
+
+function normalizeProduct(prod, cat) {
+  const image = imageOverrides[prod.slug] || prod.image;
+  const name = prod.name;
+  const shortName = name.split(' (')[0];
+  return {
+    forms: [],
+    grades: [],
+    specifications: {},
+    packaging: DEFAULT_PACKAGING,
+    shelfLife: '12–24 months',
+    origin: 'India',
+    steamSterilized: false,
+    privateLabelAvailable: true,
+    ...prod,
+    category: cat.slug,
+    categoryName: cat.name,
+    image,
+    gallery: prod.gallery || [image, ...(categoryGallery[cat.slug] || [])],
+    seoKeyword: prod.seoKeyword || `${shortName} exporter India`,
+    metaTitle: (prod.metaTitle || `${shortName} Exporter from India | Bulk & Private Label`).replace(BRAND_SUFFIX, ''),
+    metaDescription:
+      prod.metaDescription ||
+      `${shortName} exported from Mumbai, India by Sunita Agri Exports (since 1994). ${prod.description}`.slice(0, 155),
+    relatedProducts: prod.relatedProducts || [],
+  };
+}
+
+const CATEGORY_ORDER = ['indian-spices', 'blended-spices', 'rice', 'pulses-grains', 'foodstuff-fmcg', 'oilseeds', 'herbs', 'dehydrated-products', 'other-products', 'raisins-dry-fruits', 'fruits-vegetables', 'animal-bird-feed'];
+const CATEGORY_NAMES = { 'foodstuff-fmcg': 'Indian FMCG & Grocery', 'blended-spices': 'Masalas & Spice Blends', 'pulses-grains': 'Pulses, Grains & Millets' };
+
+export const categories = [...baseCategories, ...extraCategories]
+  .sort((a, b) => CATEGORY_ORDER.indexOf(a.slug) - CATEGORY_ORDER.indexOf(b.slug))
+  .map((c) => ({ ...c, name: CATEGORY_NAMES[c.slug] || c.name, metaTitle: (c.metaTitle || '').replace(BRAND_SUFFIX, '') }))
+  .map((cat) => {
+  const products = [...cat.products, ...(extraProducts[cat.slug] || [])].map((p) => normalizeProduct(p, cat));
+  // Default related products: neighbours in the same category.
+  products.forEach((p, i) => {
+    const valid = p.relatedProducts.filter((slug) => products.some((q) => q.slug === slug));
+    p.relatedProducts = valid.length >= 3 ? valid : [...new Set([...valid, ...products.filter((_, j) => j !== i).slice(0, 4).map((q) => q.slug)])].slice(0, 4);
+  });
+  return { ...cat, products, productCount: products.length };
+});
 
 export function getAllCategories() {
   return categories.map(({ products, ...cat }) => cat);

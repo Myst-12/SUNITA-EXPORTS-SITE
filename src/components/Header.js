@@ -1,232 +1,207 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Icon from './Icon';
+import { CONTACT, COMPANY, whatsappLink } from '@/config/site';
 import styles from './Header.module.css';
 
-const categories = [
-  { name: 'Indian Spices', slug: 'indian-spices', icon: '🌶️' },
-  { name: 'Blended Spices & Masalas', slug: 'blended-spices', icon: '🫙' },
-  { name: 'Rice', slug: 'rice', icon: '🍚' },
-  { name: 'Pulses & Grains', slug: 'pulses-grains', icon: '🫘' },
-  { name: 'Oilseeds', slug: 'oilseeds', icon: '🌻' },
-  { name: 'Herbs', slug: 'herbs', icon: '🌿' },
-  { name: 'Dehydrated Products', slug: 'dehydrated-products', icon: '🧅' },
-  { name: 'Fruits & Vegetables', slug: 'fruits-vegetables', icon: '🍎' },
-  { name: 'Foodstuff & FMCG', slug: 'foodstuff-fmcg', icon: '🛒' },
-  { name: 'Animal & Bird Feed', slug: 'animal-bird-feed', icon: '🐄' },
-  { name: 'Raisins & Dry Fruits', slug: 'raisins-dry-fruits', icon: '🍇' },
+const COMPANY_LINKS = [
+  { label: 'About Us', href: '/about/', desc: 'Our story since 1994' },
+  { label: 'Quality & Certifications', href: '/certifications/', desc: 'ISO, FSSAI, FDA, APEDA & more' },
+  { label: 'Export Markets', href: '/exports/', desc: '40+ countries we ship to' },
+  { label: 'Trade Fairs', href: '/about/#exhibitions', desc: 'Meet us at Gulfood' },
+  { label: 'Buyer Guides', href: '/knowledge/', desc: 'How to import from India' },
+  { label: 'FAQ', href: '/faq/', desc: 'MOQ, payment, shelf life' },
 ];
 
-export default function Header() {
-  const [isSticky, setIsSticky] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [mobileActiveSub, setMobileActiveSub] = useState(null); // 'about' or 'products' or null
-  const pathname = usePathname();
+const SERVICE_LINKS = [
+  { label: 'Mixed Container', href: '/mixed-container/', icon: 'container' },
+  { label: 'Private Label', href: '/private-label/', icon: 'tag' },
+  { label: 'Indian FMCG & Grocery', href: '/fmcg/', icon: 'package' },
+];
+
+const TOP_LINKS = [
+  { label: 'Mixed Container', href: '/mixed-container/' },
+  { label: 'Indian FMCG', href: '/fmcg/' },
+  { label: 'Private Label', href: '/private-label/' },
+];
+
+export default function Header({ categories = [] }) {
+  const pathname = usePathname() || '/';
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [mobileSub, setMobileSub] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on page change
-  useEffect(() => {
-    setIsMobileOpen(false);
-    setMobileActiveSub(null);
-  }, [pathname]);
+  // Close the mobile menu when the route changes (state reset during render, no effect needed).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+    setMobileSub(null);
+  }
 
-  const toggleMobileSub = (menuName) => {
-    if (mobileActiveSub === menuName) {
-      setMobileActiveSub(null);
-    } else {
-      setMobileActiveSub(menuName);
-    }
-  };
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href.replace(/\/$/, '')));
 
   return (
     <>
-      {/* ===== TOP BAR ===== */}
       <div className={styles.topBar}>
-        <div className={`container ${styles.topBarContainer}`}>
-          <ul className={styles.topBarContact}>
-            <li>
-              <span>📞</span>
-              <a href="tel:+918169282942">+91 8169282942</a>
-            </li>
-            <li>
-              <span>📞</span>
-              <a href="tel:+919004041889">+91 9004041889</a>
-            </li>
-            <li>
-              <span>✉️</span>
-              <a href="mailto:sales@sunitaexports.com">sales@sunitaexports.com</a>
-            </li>
-          </ul>
-          <div>
-            <span className={styles.topBarTagline}>Est. 1994 • 30+ Years of Excellence</span>
+        <div className={`container ${styles.topBarInner}`}>
+          <p className={styles.topBarNote}>
+            <Icon name="award" size={15} /> {COMPANY.status} · Exporting since {COMPANY.foundingYear}
+          </p>
+          <div className={styles.topBarLinks}>
+            {CONTACT.phones.map((p, i) => (
+              <a key={p.tel} href={`tel:${p.tel}`} data-secondary-phone={i > 0 || undefined}><Icon name="phone" size={14} />{p.display}</a>
+            ))}
+            <a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={14} />{CONTACT.email}</a>
           </div>
         </div>
       </div>
 
-      {/* ===== MAIN NAVIGATION ===== */}
-      <header className={`${styles.header} ${isSticky ? styles.headerSticky : ''}`}>
-        <div className={`container ${styles.navContainer}`}>
-          {/* Logo */}
-          <Link href="/" className={styles.logo}>
-            <span>SUNITA AGRI EXPORTS</span>
-            <span className={styles.logoSub}>Pvt. Ltd. • ISO 22000 & BRC Certified</span>
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+        <div className={`container ${styles.inner}`}>
+          <Link href="/" className={styles.brand} aria-label={`${COMPANY.name} home`}>
+            <img src="/images/logo-mark.png" alt="" width={44} height={44} className={styles.brandMark} />
+            <span className={styles.brandText}>
+              <span className={styles.brandName}>Sunita Agri Exports</span>
+              <span className={styles.brandSub}>Since {COMPANY.foundingYear} · Mumbai, India</span>
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className={styles.desktopNav}>
-            <div className={styles.navItem}>
-              <Link href="/" className={`${styles.navLink} ${pathname === '/' ? styles.navLinkActive : ''}`}>
-                Home
+          <nav className={styles.nav} aria-label="Main">
+            <div className={styles.item}>
+              <Link href="/products/" className={`${styles.link} ${isActive('/products') ? styles.active : ''}`}>
+                Products <Icon name="chevron-down" size={15} />
               </Link>
-            </div>
-
-            <div className={styles.navItem}>
-              <button className={`${styles.navLink} ${pathname.startsWith('/about') || pathname.startsWith('/why-choose-us') ? styles.navLinkActive : ''}`}>
-                About <span>▾</span>
-              </button>
-              <div className={styles.dropdown}>
-                <Link href="/about" className={styles.dropdownLink}>Our Story</Link>
-                <Link href="/why-choose-us" className={styles.dropdownLink}>Why Choose Us</Link>
+              <div className={styles.mega}>
+                <div className={styles.megaGrid}>
+                  {categories.map((c) => (
+                    <Link key={c.slug} href={`/products/${c.slug}/`} className={styles.megaLink}>
+                      <img src={c.image} alt="" width={44} height={44} loading="lazy" />
+                      <span>
+                        <strong>{c.name}</strong>
+                        <small>{c.count} products</small>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <aside className={styles.megaAside}>
+                  <p className={styles.megaTitle}>Services</p>
+                  {SERVICE_LINKS.map((s) => (
+                    <Link key={s.href} href={s.href} className={styles.megaService}>
+                      <Icon name={s.icon} size={18} /> {s.label}
+                    </Link>
+                  ))}
+                  <a href="/downloads/sunita-agri-exports-catalogue.pdf" className={`btn btn-outline btn-sm ${styles.megaBtn}`} download>
+                    <Icon name="download" /> Download catalogue
+                  </a>
+                </aside>
               </div>
             </div>
 
-            <div className={styles.navItem}>
-              <Link href="/products" className={`${styles.navLink} ${pathname.startsWith('/products') ? styles.navLinkActive : ''}`}>
-                Products <span>▾</span>
-              </Link>
-              <div className={styles.megaMenu}>
-                {categories.map((cat) => (
-                  <Link
-                    key={cat.slug}
-                    href={`/products/${cat.slug}`}
-                    className={styles.megaMenuLink}
-                  >
-                    <span className={styles.megaMenuIcon} aria-hidden="true">{cat.icon}</span>
-                    <span className={styles.megaMenuName}>{cat.name}</span>
+            {TOP_LINKS.map((l) => (
+              <div className={styles.item} key={l.href}>
+                <Link href={l.href} className={`${styles.link} ${isActive(l.href) ? styles.active : ''}`}>{l.label}</Link>
+              </div>
+            ))}
+
+            <div className={styles.item}>
+              <button type="button" className={`${styles.link} ${COMPANY_LINKS.some((l) => isActive(l.href)) ? styles.active : ''}`}>
+                Company <Icon name="chevron-down" size={15} />
+              </button>
+              <div className={styles.dropdown}>
+                {COMPANY_LINKS.map((l) => (
+                  <Link key={l.href} href={l.href} className={styles.dropLink}>
+                    <strong>{l.label}</strong>
+                    <small>{l.desc}</small>
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className={styles.navItem}>
-              <Link href="/certifications" className={`${styles.navLink} ${pathname === '/certifications/' ? styles.navLinkActive : ''}`}>
-                Certifications
-              </Link>
-            </div>
-
-            <div className={styles.navItem}>
-              <Link href="/shipments" className={`${styles.navLink} ${pathname === '/shipments/' ? styles.navLinkActive : ''}`}>
-                Shipments
-              </Link>
-            </div>
-
-            <div className={styles.navItem}>
-              <Link href="/b2b-presence" className={`${styles.navLink} ${pathname === '/b2b-presence/' ? styles.navLinkActive : ''}`}>
-                B2B Presence
-              </Link>
-            </div>
-
-            <div className={styles.navItem}>
-              <Link href="/contact" className={`${styles.navLink} ${pathname === '/contact/' ? styles.navLinkActive : ''}`}>
-                Contact
-              </Link>
-            </div>
-            
-            <div className={styles.headerCTA}>
-              <Link href="/contact" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem' }}>
-                Get a Quote
-              </Link>
+            <div className={styles.item}>
+              <Link href="/contact/" className={`${styles.link} ${isActive('/contact') ? styles.active : ''}`}>Contact</Link>
             </div>
           </nav>
 
-          {/* Mobile Hamburger Toggle */}
-          <button
-            className={`${styles.hamburger} ${isMobileOpen ? styles.hamburgerActive : ''}`}
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMobileOpen}
-          >
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
-          </button>
-
-          {/* Mobile Navigation Drawer */}
-          <div className={`${styles.mobileOverlay} ${isMobileOpen ? styles.mobileOverlayOpen : ''}`}>
-            <ul className={styles.mobileNavList}>
-              <li>
-                <Link href="/" className={styles.mobileNavLink}>Home</Link>
-              </li>
-              <li>
-                <button
-                  className={styles.mobileNavLink}
-                  onClick={() => toggleMobileSub('about')}
-                  style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left' }}
-                >
-                  About <span>{mobileActiveSub === 'about' ? '▴' : '▾'}</span>
-                </button>
-                {mobileActiveSub === 'about' && (
-                  <ul className={styles.mobileSubList}>
-                    <li><Link href="/about" className={styles.mobileSubLink}>Our Story</Link></li>
-                    <li><Link href="/why-choose-us" className={styles.mobileSubLink}>Why Choose Us</Link></li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <button
-                  className={styles.mobileNavLink}
-                  onClick={() => toggleMobileSub('products')}
-                  style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left' }}
-                >
-                  Products <span>{mobileActiveSub === 'products' ? '▴' : '▾'}</span>
-                </button>
-                {mobileActiveSub === 'products' && (
-                  <ul className={styles.mobileSubList}>
-                    <li><Link href="/products" className={styles.mobileSubLink}>All Categories</Link></li>
-                    {categories.map((cat) => (
-                      <li key={cat.slug}>
-                        <Link href={`/products/${cat.slug}`} className={styles.mobileSubLink}>
-                          {cat.icon} {cat.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-              <li>
-                <Link href="/certifications" className={styles.mobileNavLink}>Certifications</Link>
-              </li>
-              <li>
-                <Link href="/shipments" className={styles.mobileNavLink}>Shipments</Link>
-              </li>
-              <li>
-                <Link href="/b2b-presence" className={styles.mobileNavLink}>B2B Presence</Link>
-              </li>
-              <li>
-                <Link href="/contact" className={styles.mobileNavLink}>Contact</Link>
-              </li>
-            </ul>
-            <div className={styles.mobileCTA}>
-              <Link href="/contact" className="btn-primary" style={{ display: 'block', textAlign: 'center' }}>
-                Get a Quote
-              </Link>
-            </div>
+          <div className={styles.actions}>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={styles.waBtn} aria-label="Chat on WhatsApp">
+              <Icon name="whatsapp" size={20} />
+            </a>
+            <Link href="/contact/" className={`btn btn-primary btn-sm ${styles.quoteBtn}`}>
+              Get a Quote <Icon name="arrow-right" />
+            </Link>
+            <button
+              type="button"
+              className={styles.burger}
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+            >
+              <Icon name={open ? 'close' : 'menu'} size={24} />
+            </button>
           </div>
         </div>
       </header>
+
+      <div id="mobile-menu" className={`${styles.drawer} ${open ? styles.drawerOpen : ''}`} aria-hidden={!open}>
+        <nav className={styles.drawerNav} aria-label="Mobile">
+          <button type="button" className={styles.drawerLink} onClick={() => setMobileSub(mobileSub === 'products' ? null : 'products')} aria-expanded={mobileSub === 'products'}>
+            Products <Icon name="chevron-down" size={18} className={mobileSub === 'products' ? styles.rotate : ''} />
+          </button>
+          {mobileSub === 'products' && (
+            <div className={styles.drawerSub}>
+              <Link href="/products/" className={styles.drawerSubLink}><strong>All products</strong></Link>
+              {categories.map((c) => (
+                <Link key={c.slug} href={`/products/${c.slug}/`} className={styles.drawerSubLink}>
+                  <img src={c.image} alt="" width={32} height={32} loading="lazy" /> {c.name}
+                </Link>
+              ))}
+            </div>
+          )}
+          <Link href="/mixed-container/" className={styles.drawerLink}>Mixed Container</Link>
+          <Link href="/fmcg/" className={styles.drawerLink}>Indian FMCG & Grocery</Link>
+          <Link href="/private-label/" className={styles.drawerLink}>Private Label</Link>
+          <button type="button" className={styles.drawerLink} onClick={() => setMobileSub(mobileSub === 'company' ? null : 'company')} aria-expanded={mobileSub === 'company'}>
+            Company <Icon name="chevron-down" size={18} className={mobileSub === 'company' ? styles.rotate : ''} />
+          </button>
+          {mobileSub === 'company' && (
+            <div className={styles.drawerSub}>
+              {COMPANY_LINKS.map((l) => (
+                <Link key={l.href} href={l.href} className={styles.drawerSubLink}>{l.label}</Link>
+              ))}
+            </div>
+          )}
+          <Link href="/contact/" className={styles.drawerLink}>Contact</Link>
+        </nav>
+        <div className={styles.drawerFoot}>
+          <Link href="/contact/" className="btn btn-primary btn-block">Get a Quote</Link>
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-block">
+            <Icon name="whatsapp" /> WhatsApp us
+          </a>
+          <div className={styles.drawerContacts}>
+            {CONTACT.phones.map((p, i) => (
+              <a key={p.tel} href={`tel:${p.tel}`} data-secondary-phone={i > 0 || undefined}><Icon name="phone" size={15} /> {p.display}</a>
+            ))}
+            <a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={15} /> {CONTACT.email}</a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -3,27 +3,25 @@
  * Sunita Agri Exports Pvt. Ltd.
  */
 
+import { SITE_URL, COMPANY as SITE_COMPANY, CONTACT, SOCIAL } from '@/config/site';
+
 const COMPANY = {
-  name: 'Sunita Agri Exports Pvt. Ltd.',
-  legalName: 'Sunita Agri Exports Pvt. Ltd.',
-  url: 'https://www.sunitaexports.com',
-  logo: 'https://www.sunitaexports.com/images/logo.png',
-  phone: '+918169282942',
-  email: 'sales@sunitaexports.com',
+  name: SITE_COMPANY.legalName,
+  legalName: SITE_COMPANY.legalName,
+  url: SITE_URL,
+  logo: `${SITE_URL}${SITE_COMPANY.logo}`,
+  phone: CONTACT.phones[0].tel,
+  email: CONTACT.email,
   address: {
-    streetAddress: '1014, Ghanshyam Enclave, Laljipada, Link Road, Kandivali (West)',
-    addressLocality: 'Mumbai',
-    addressRegion: 'Maharashtra',
-    postalCode: '400067',
-    addressCountry: 'IN',
+    streetAddress: CONTACT.address.street,
+    addressLocality: CONTACT.address.city,
+    addressRegion: CONTACT.address.region,
+    postalCode: CONTACT.address.postalCode,
+    addressCountry: CONTACT.address.countryCode,
   },
-  foundingDate: '1994',
-  description:
-    'Leading Indian exporter of premium spices, rice, pulses, oilseeds, and agri commodities serving importers and distributors across 40+ countries since 1994.',
-  sameAs: [
-    'https://www.linkedin.com/company/sunita-agri-exports',
-    'https://www.facebook.com/sunitaagriexports',
-  ],
+  foundingDate: String(SITE_COMPANY.foundingYear),
+  description: SITE_COMPANY.description,
+  sameAs: SOCIAL.map((s) => s.url),
 };
 
 export function organizationSchema() {
@@ -72,8 +70,8 @@ export function localBusinessSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '19.2042',
-      longitude: '72.8347',
+      latitude: String(CONTACT.geo.lat),
+      longitude: String(CONTACT.geo.lng),
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',

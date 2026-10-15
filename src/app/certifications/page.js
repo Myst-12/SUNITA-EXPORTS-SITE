@@ -1,67 +1,112 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import PageHero from '@/components/PageHero';
+import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
-import CertCard from '@/components/CertCard';
-import { certifications } from '@/data/certifications';
+import Icon from '@/components/Icon';
+import { CERTIFICATIONS, CONTACT } from '@/config/site';
+import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'Export Certifications | BRC, FDA, FSSAI, ISO, APEDA | Sunita Agri Exports',
-  description: 'Sunita Agri Exports holds BRC Global Food Standard, FDA registration, FSSAI, ISO, APEDA, Spice Board, FIEO, and IMC certifications — ensuring compliance for global buyers.',
+  title: 'Quality, Certifications & Export Logistics',
+  description:
+    'How Sunita Agri Exports controls quality — sourcing, cleaning, Sortex grading, lab testing and packing — plus our certifications (ISO 22000, FSSAI, US FDA registered, APEDA, Spices Board, FIEO) and export documentation.',
+  alternates: { canonical: '/certifications/' },
 };
 
-export default function CertificationsPage() {
+const PROCESS = [
+  { img: '/images/scenes/farmer.webp', title: 'Source at origin', text: 'Procurement from established growing belts and trusted mills, with pre-purchase samples checked.' },
+  { img: '/images/scenes/market-sorting.webp', title: 'Clean & grade', text: 'Destoner, gravity separator and Sortex lines remove stones, dust, stems and discoloured grains.' },
+  { img: '/images/scenes/lab.webp', title: 'Test', text: 'Moisture, purity, ash and extraneous matter checked; residue and microbiology testing through accredited labs on request.' },
+  { img: '/images/scenes/pack-kraft-bag.webp', title: 'Pack', text: 'Food-grade bags, pouches and cartons, batch-coded and labelled to buyer and country requirements.' },
+  { img: '/images/scenes/port-crane.webp', title: 'Stuff & ship', text: 'Containers inspected, fumigated where required, stuffed with photo records and sealed for Nhava Sheva.' },
+];
+
+const DOCS = ['Commercial invoice', 'Packing list', 'Bill of lading', 'Certificate of origin', 'Phytosanitary certificate', 'Fumigation certificate', 'Certificate of analysis', 'Health certificate (where required)', 'Halal / other certificates on request'];
+
+const FAQS = [
+  { question: 'Can I see your certificates before ordering?', answer: `Yes. Copies of our registrations and certificates are shared on request with serious buyers. Email ${CONTACT.email} or ask on WhatsApp.` },
+  { question: 'Do you offer steam-sterilised spices?', answer: 'Yes. Steam sterilisation can be arranged for spices and herbs destined for the USA, EU, UK, Australia and New Zealand to meet microbiological requirements.' },
+  { question: 'Can you test for pesticide residues and aflatoxins?', answer: 'Yes. On request we arrange third-party testing at accredited laboratories against the limits of your destination market, and share the reports before shipment.' },
+  { question: 'Which port do you ship from?', answer: `Most shipments sail from ${CONTACT.port}. Other Indian ports can be arranged depending on product origin.` },
+];
+
+export default function QualityPage() {
   return (
     <>
-      {/* ===== HERO HEADER ===== */}
-      <section className="section-ivory section-padding" style={{ borderBottom: '1px solid var(--color-border)', textAlign: 'center' }}>
-        <div className="container">
-          <ScrollReveal>
-            <span className="label gold-accent">Quality Assurance</span>
-            <h1>International Compliance & Certifications</h1>
-            <p className="section-subtitle" style={{ maxWidth: '720px', margin: '0 auto' }}>
-              We maintain 8 quality, safety, and trade certifications to ensure our products comply with the food import regulations of any destination country.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Quality & Certifications', href: '/certifications/' }]}
+        eyebrow="Quality, compliance & logistics"
+        title="Quality you can check — from farm to port"
+        lead="Clean, graded, tested and properly documented. Here is how we make sure every shipment matches the specification you approved."
+        image="/images/scenes/lab.webp"
+        imageAlt="Food quality testing laboratory"
+      >
+        <Link href="/contact/" className="btn btn-primary btn-lg">Request specifications <Icon name="arrow-right" /></Link>
+      </PageHero>
 
-      {/* ===== CERTIFICATIONS GRID ===== */}
-      <section className="section-white section-padding">
+      <section className={`section ${s.tintLime}`}>
         <div className="container">
-          <div className="grid-3" style={{ gap: 'var(--space-4)' }}>
-            {certifications.map((cert, index) => (
-              <ScrollReveal key={cert.id} delay={index * 50}>
-                <CertCard
-                  name={cert.name}
-                  shortName={cert.shortName}
-                  issuingBody={cert.issuingBody}
-                  description={cert.description}
-                />
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Certifications &amp; memberships</span>
+              <h2>Registered, certified and recognised</h2>
+              <p className="lead">Documents are available to buyers on request.</p>
+            </div>
+          </div>
+          <div className={s.badges}>
+            {CERTIFICATIONS.map((c, i) => (
+              <ScrollReveal key={c.key} delay={(i % 4) * 50}>
+                <div className={s.badge}>
+                  <span className={`icon-tile ${i % 3 === 1 ? 'lime' : i % 3 === 2 ? 'turmeric' : ''}`}><Icon name={c.key === 'star' ? 'award' : 'shield'} /></span>
+                  <div><strong>{c.name}</strong><small>{c.full}</small></div>
+                </div>
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Verification / Request Box */}
-          <ScrollReveal>
-            <div style={{ marginTop: 'var(--space-8)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--space-5)', backgroundColor: 'var(--color-ivory)', textAlign: 'center' }}>
-              <span className="label gold-accent">Document Verification</span>
-              <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600', marginBottom: 'var(--space-2)' }}>
-                Need Copies of Our Certifications or Audits?
-              </h3>
-              <p style={{ color: 'var(--color-mid)', fontSize: '0.95rem', maxWidth: '600px', margin: '0 auto var(--space-4) auto' }}>
-                We provide complete verification documents, recent lab testing audits, and certification copies during vendor onboarding. Let us know if your quality team requires custom parameters.
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-3)' }}>
-                <Link href="/contact" className="btn-primary">
-                  Request Cert Copies
-                </Link>
-                <Link href="/why-choose-us" className="btn-secondary">
-                  Our Testing Methods
-                </Link>
-              </div>
+      <section className="section">
+        <div className="container">
+          <div className="section-head center">
+            <div>
+              <span className="eyebrow">Our process</span>
+              <h2>Five checkpoints on every order</h2>
             </div>
+          </div>
+          <div className={s.cards}>
+            {PROCESS.map((p, i) => (
+              <ScrollReveal key={p.title} delay={(i % 3) * 70}>
+                <div className={s.imgCard}>
+                  <div className={s.cardImg}><Image src={p.img} alt={p.title} fill sizes="(max-width: 640px) 100vw, 33vw" /></div>
+                  <div className={s.cardBody}><h3>{String(i + 1).padStart(2, '0')} · {p.title}</h3><p>{p.text}</p></div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="logistics" className={`section ${s.tintWarm}`}>
+        <div className={`container ${s.split}`}>
+          <ScrollReveal>
+            <div className={s.img}><Image src="/images/scenes/warehouse-forklift.webp" alt="Warehouse with goods ready for container loading" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <span className="eyebrow">Shipping &amp; logistics</span>
+            <h2>Containers that clear customs smoothly</h2>
+            <p className="lead">Full container loads (FCL), mixed consolidated containers and selected LCL shipments, quoted FOB, CFR or CIF.</p>
+            <p className="small text-muted mt-2" style={{ fontWeight: 700 }}>Documents supplied with every shipment</p>
+            <div className="chip-row mt-1">
+              {DOCS.map((d) => <span key={d} className="chip"><Icon name="file" size={14} /> {d}</span>)}
+            </div>
+            <Link href="/mixed-container/" className="btn btn-outline mt-3">Mixed container service <Icon name="arrow-right" /></Link>
           </ScrollReveal>
         </div>
       </section>
+
+      <FaqSection faqs={FAQS} eyebrow="Quality FAQ" title="Compliance questions" />
     </>
   );
 }

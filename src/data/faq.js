@@ -87,6 +87,6 @@ export const faqs = [
     id: 15,
     category: 'general',
     question: 'How can we initiate a partnership or request a quote?',
-    answer: 'To get started, please submit an inquiry through our contact page, email us at sales@sunitaexports.com, or message us directly on WhatsApp. Specify the products, grades, packaging preferences, estimated quantities, and destination port. A dedicated export manager will respond with specifications and pricing within 24 hours.'
+    answer: 'To get started, please submit an inquiry through our contact page, email us at sunitaexportsindia@gmail.com, or message us directly on WhatsApp. Specify the products, grades, packaging preferences, estimated quantities, and destination port. A dedicated export manager will respond with specifications and pricing within 24 hours.'
   }
 ];

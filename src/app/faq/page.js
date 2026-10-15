@@ -1,71 +1,62 @@
-import ScrollReveal from '@/components/ScrollReveal';
-import { faqs } from '@/data/faq';
 import Link from 'next/link';
-import FaqAccordion from './FaqAccordion';
+import PageHero from '@/components/PageHero';
+import Icon from '@/components/Icon';
+import { faqs } from '@/data/faq';
+import { faqSchema } from '@/lib/schemas';
+import { CONTACT, whatsappLink } from '@/config/site';
+import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'FAQs for International Buyers | Sunita Agri Exports',
-  description: 'Common questions from importers about buying Indian spices, minimum orders, documentation, certifications, and shipping from Sunita Agri Exports.',
+  title: 'FAQ for Importers — MOQ, Payment, Shipping & Quality',
+  description:
+    'Answers for international buyers: minimum order quantity, payment terms, mixed containers, private label, certifications, documents, shelf life and shipping from India.',
+  alternates: { canonical: '/faq/' },
 };
 
-export default function FAQPage() {
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
+const GROUPS = [
+  { key: 'ordering', title: 'Ordering & payment', icon: 'file' },
+  { key: 'shipping', title: 'Shipping & documents', icon: 'ship' },
+  { key: 'quality', title: 'Quality & certifications', icon: 'shield' },
+  { key: 'general', title: 'General', icon: 'globe' },
+];
 
+export default function FaqPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+      <PageHero
+        compact
+        crumbs={[{ label: 'FAQ', href: '/faq/' }]}
+        eyebrow="Buyer FAQ"
+        title="Everything importers ask before ordering"
+        lead="Minimum quantities, payment, documents, shelf life and quality — answered plainly. Can’t find yours? Ask us on WhatsApp."
+      >
+        <a href={whatsappLink('Hello, I have a question about importing from India.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> Ask on WhatsApp</a>
+        <Link href="/contact/" className="btn btn-outline">Get a quote</Link>
+      </PageHero>
 
-      {/* ===== HERO HEADER ===== */}
-      <section className="section-ivory section-padding" style={{ borderBottom: '1px solid var(--color-border)', textAlign: 'center' }}>
-        <div className="container">
-          <ScrollReveal>
-            <span className="label gold-accent">FAQ</span>
-            <h1>Frequently Asked Questions</h1>
-            <p className="section-subtitle" style={{ maxWidth: '720px', margin: '0 auto' }}>
-              Find quick answers to common regulatory, logistical, quality, and commercial questions from international agricultural commodity buyers.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== ACCORDION LIST ===== */}
-      <section className="section-white section-padding">
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <ScrollReveal>
-            <FaqAccordion faqs={faqs} />
-          </ScrollReveal>
-
-          {/* Sourcing CTA */}
-          <ScrollReveal>
-            <div style={{ marginTop: 'var(--space-8)', padding: 'var(--space-5)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', backgroundColor: 'var(--color-ivory)', textAlign: 'center' }}>
-              <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: '600', marginBottom: 'var(--space-2)' }}>Have Another Question?</h3>
-              <p style={{ color: 'var(--color-mid)', fontSize: '0.95rem', maxWidth: '600px', margin: '0 auto var(--space-4) auto' }}>
-                Our logistics and trade compliance specialists are standing by to clarify custom requirements, shipping lines, and local certificate needs.
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-3)' }}>
-                <Link href="/contact" className="btn-primary">
-                  Inquire Now
-                </Link>
-                <a href="tel:+918169282942" className="btn-secondary">
-                  Call Sales Team
-                </a>
+      <section className={`section ${s.tintLime}`}>
+        <div className="container container-narrow" style={{ display: 'grid', gap: 40 }}>
+          {GROUPS.map((g) => {
+            const items = faqs.filter((f) => f.category === g.key);
+            if (!items.length) return null;
+            return (
+              <div key={g.key} id={g.key}>
+                <h2 style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: '1.5rem' }}>
+                  <span className="icon-tile" style={{ margin: 0 }}><Icon name={g.icon} /></span> {g.title}
+                </h2>
+                <div className="faq-list mt-2">
+                  {items.map((f) => (
+                    <details key={f.id} className="faq-item">
+                      <summary>{f.question}</summary>
+                      <div className="faq-answer">{f.answer}</div>
+                    </details>
+                  ))}
+                </div>
               </div>
-            </div>
-          </ScrollReveal>
+            );
+          })}
+          <p className="text-muted center">Still have a question? Email <a className="text-green" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
         </div>
       </section>
     </>

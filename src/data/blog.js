@@ -1,10 +1,11 @@
 export const blogPosts = [
   {
     slug: 'how-to-import-spices-from-india',
+    image: '/images/scenes/port-crane.webp',
     title: 'How to Import Spices from India: A Complete Guide for International Buyers',
     excerpt: 'An industry-focused, step-by-step guide for food procurement managers on navigating regulations, quality standards, shipping, and documentation when sourcing bulk spices from India.',
     date: '2026-05-12',
-    author: 'Alok Dhanuka',
+    author: 'Sunita Agri Exports Export Team',
     readTime: '8 min',
     tags: ['Importing Guide', 'Indian Spices', 'Trade Regulations'],
     seoKeyword: 'import spices from India',
@@ -48,10 +49,11 @@ export const blogPosts = [
   },
   {
     slug: 'top-spices-exported-from-india',
+    image: '/images/scenes/hero-colour.webp',
     title: 'Top Spices Exported From India: Demand, Quality Grades, and Sourcing Seasonality',
     excerpt: 'Analyze the highest-demand Indian spices, their global import regulations, quality grading parameters, and the agricultural calendar for planning purchases.',
     date: '2026-05-28',
-    author: 'Alok Dhanuka',
+    author: 'Sunita Agri Exports Export Team',
     readTime: '6 min',
     tags: ['Product Analysis', 'Market Trends', 'Sourcing Calendar'],
     seoKeyword: 'top Indian spices export',
@@ -97,10 +99,11 @@ export const blogPosts = [
   },
   {
     slug: 'brc-fda-certified-spice-exporter-india',
+    image: '/images/scenes/lab.webp',
     title: 'Why Global Retailers Require BRCGS and FDA Compliance from Spice Suppliers',
     excerpt: 'Examine the critical roles of BRCGS and FDA food safety standards in international spice supply chains and how compliance mitigates supplier risk.',
     date: '2026-06-05',
-    author: 'Alok Dhanuka',
+    author: 'Sunita Agri Exports Export Team',
     readTime: '7 min',
     tags: ['Food Safety', 'Compliance', 'Certifications'],
     seoKeyword: 'BRC certified spice exporter',

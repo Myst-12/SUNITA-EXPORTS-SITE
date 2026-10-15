@@ -2,22 +2,26 @@ export const dynamic = 'force-static';
 
 import { categories } from '@/data/products';
 import { blogPosts } from '@/data/blog';
+import { exportDestinations } from '@/data/countries';
+import { SITE_URL } from '@/config/site';
 
 export default function sitemap() {
-  const baseUrl = 'https://www.sunitaexports.com';
+  const baseUrl = SITE_URL;
 
   // Core pages
   const routes = [
     '',
     '/about',
-    '/why-choose-us',
     '/products',
     '/certifications',
-    '/shipments',
-    '/b2b-presence',
+    '/exports',
     '/contact',
     '/faq',
     '/blog',
+    '/fmcg',
+    '/mixed-container',
+    '/private-label',
+    '/knowledge',
   ].map((route) => ({
     url: `${baseUrl}${route}/`,
     lastModified: new Date().toISOString().split('T')[0],
@@ -46,6 +50,14 @@ export default function sitemap() {
     });
   });
 
+  // Country destinations dynamic pages
+  const countryRoutes = exportDestinations.map((country) => ({
+    url: `${baseUrl}/exports/${country.slug}/`,
+    lastModified: new Date().toISOString().split('T')[0],
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+
   // Blog posts dynamic pages
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}/`,
@@ -54,5 +66,5 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...routes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  return [...routes, ...categoryRoutes, ...productRoutes, ...countryRoutes, ...blogRoutes];
 }

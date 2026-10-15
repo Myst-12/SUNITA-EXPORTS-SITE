@@ -1,235 +1,168 @@
 'use client';
 
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Icon from './Icon';
+import { CONTACT, whatsappLink } from '@/config/site';
 import styles from './InquiryForm.module.css';
 
-const countries = [
-  'United States', 'Canada', 'United Kingdom', 'United Arab Emirates', 'Australia',
-  'Germany', 'Netherlands', 'Saudi Arabia', 'Singapore', 'Malaysia', 'Japan',
-  'South Africa', 'New Zealand', 'Vietnam', 'Indonesia', 'Egypt', 'Other'
+const COUNTRIES = [
+  'United States', 'Canada', 'United Kingdom', 'Australia', 'New Zealand', 'United Arab Emirates', 'Saudi Arabia',
+  'Kuwait', 'Oman', 'Qatar', 'Bahrain', 'Singapore', 'Malaysia', 'Japan', 'Turkey', 'Uganda', 'Kenya', 'Tanzania',
+  'South Africa', 'Nigeria', 'Ghana', 'Mauritius', 'Germany', 'Netherlands', 'France', 'Italy', 'Spain', 'Egypt', 'Other',
 ];
+const BUYER_TYPES = ['Importer / Distributor', 'Supermarket / Retail chain', 'Wholesaler / Cash & carry', 'Food manufacturer', 'Restaurant / HoReCa', 'Trader / Agent', 'Other'];
+const PACKING = ['Bulk (25–50 kg)', 'Retail packs', 'Private label', 'Mixed container', 'Not sure yet'];
+const TERMS = ['FOB Nhava Sheva', 'CFR', 'CIF', 'Not sure'];
 
-const categories = [
-  'Indian Spices', 'Blended Spices & Masalas', 'Rice', 'Pulses & Grains',
-  'Oilseeds', 'Herbs', 'Dehydrated Products', 'Fruits & Vegetables',
-  'Foodstuff & FMCG', 'Animal & Bird Feed', 'Raisins & Dry Fruits'
-];
+const EMPTY = { name: '', company: '', email: '', phone: '', country: '', buyerType: '', productInterest: '', estimatedQuantity: '', packaging: '', incoterm: '', port: '', message: '', website: '' };
 
-export default function InquiryForm({ initialProduct = '' }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    country: '',
-    productInterest: initialProduct,
-    estimatedQuantity: '',
-    message: '',
-  });
+export default function InquiryForm() {
+  const params = useSearchParams();
+  const [data, setData] = useState({ ...EMPTY, productInterest: params?.get('product') || '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [error, setError] = useState('');
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const set = (e) => setData((d) => ({ ...d, [e.target.name]: e.target.value }));
+  const pick = (name, value) => setData((d) => ({ ...d, [name]: d[name] === value ? '' : value }));
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(false);
-
+    setStatus('sending');
+    setError('');
     try {
-      // Since it's a static site, we generate a mailto link fallback
-      const subject = `B2B Sourcing Inquiry from ${formData.company} (${formData.country})`;
-      const body = `
-Name: ${formData.name}
-Company: ${formData.company}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Country: ${formData.country}
-Product Interest: ${formData.productInterest}
-Estimated Quantity: ${formData.estimatedQuantity}
-
-Message:
-${formData.message}
-      `;
-
-      // Trigger the local success state
-      setSubmitSuccess(true);
-      
-      // Also open user's mail client as fallback
-      window.location.href = `mailto:sales@sunitaexports.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    } catch (err) {
-      setSubmitError(true);
-    } finally {
-      setIsSubmitting(false);
+      const res = await fetch('/api/inquiry', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.success) {
+        setStatus('sent');
+      } else {
+        setStatus('error');
+        setError(json.needsApiKey
+          ? 'Our online form is being set up. Please send your enquiry by WhatsApp or email for now.'
+          : json.error || 'Could not send your enquiry. Please try WhatsApp or email.');
+      }
+    } catch {
+      setStatus('error');
+      setError('Network error. Please check your connection, or contact us on WhatsApp.');
     }
   };
 
-  if (submitSuccess) {
+  const waSummary = `Hello Sunita Agri Exports, I'd like a quote.\nName: ${data.name}\nCompany: ${data.company}\nCountry: ${data.country}\nProducts: ${data.productInterest}\nQuantity: ${data.estimatedQuantity}\n${data.message}`;
+
+  if (status === 'sent') {
     return (
-      <div className={styles.successMessage}>
-        <span className={styles.successIcon} aria-hidden="true">✓</span>
-        <h2>Inquiry Submitted Successfully</h2>
-        <p>
-          Thank you for contacting Sunita Agri Exports. We have received your B2B inquiry. Our export procurement team will review your specifications and contact you at <strong>{formData.email}</strong> within 24 hours.
-        </p>
-        <button
-          onClick={() => {
-            setSubmitSuccess(false);
-            setFormData({
-              name: '',
-              company: '',
-              email: '',
-              phone: '',
-              country: '',
-              productInterest: '',
-              estimatedQuantity: '',
-              message: '',
-            });
-          }}
-          className="btn-secondary"
-          style={{ marginTop: '1rem' }}
-        >
-          Send Another Inquiry
-        </button>
+      <div className={styles.success}>
+        <span className={styles.successIcon}><Icon name="check" size={28} /></span>
+        <h2>Thank you — enquiry received</h2>
+        <p>Our export team will reply to <strong>{data.email}</strong> within 24 hours (Mon–Sat). For anything urgent, message us on WhatsApp.</p>
+        <div className="btn-row">
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> WhatsApp {CONTACT.quotePhone.display}</a>
+          <button type="button" className="btn btn-outline" onClick={() => { setData(EMPTY); setStatus('idle'); }}>Send another enquiry</button>
+        </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <div className="form-group">
-        <label htmlFor="name" className="form-label">Contact Name *</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="form-control"
-          placeholder="e.g. John Doe"
-        />
-      </div>
-
-      <div className="grid-2">
-        <div className="form-group">
-          <label htmlFor="company" className="form-label">Company Name *</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="e.g. Acme Food Importers"
-          />
+    <form onSubmit={submit} className={styles.form} noValidate={false}>
+      <fieldset className={styles.group}>
+        <legend>1 · What do you need?</legend>
+        <div className="field">
+          <label htmlFor="productInterest">Products *</label>
+          <textarea id="productInterest" name="productInterest" rows={3} required value={data.productInterest} onChange={set}
+            placeholder="e.g. Turmeric fingers (Salem), Cumin 99.5%, 1121 Basmati sella, Toor dal — or paste your full list" />
         </div>
-        <div className="form-group">
-          <label htmlFor="country" className="form-label">Destination Country *</label>
-          <select
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            required
-            className="form-control"
-          >
-            <option value="">-- Select Country --</option>
-            {countries.map((c) => (
-              <option key={c} value={c}>{c}</option>
+        <div className={styles.row}>
+          <div className="field">
+            <label htmlFor="estimatedQuantity">Quantity</label>
+            <input id="estimatedQuantity" name="estimatedQuantity" value={data.estimatedQuantity} onChange={set} placeholder="e.g. 1 × 20 ft FCL, 5 MT each" />
+          </div>
+          <div className="field">
+            <label htmlFor="port">Destination port</label>
+            <input id="port" name="port" value={data.port} onChange={set} placeholder="e.g. Jebel Ali, New York, Mombasa" />
+          </div>
+        </div>
+        <div className="field">
+          <span className={styles.pillLabel}>Packing</span>
+          <div className={styles.pills}>
+            {PACKING.map((p) => (
+              <button key={p} type="button" className={data.packaging === p ? styles.pillOn : ''} aria-pressed={data.packaging === p} onClick={() => pick('packaging', p)}>{p}</button>
             ))}
-          </select>
+          </div>
         </div>
-      </div>
+        <div className="field">
+          <span className={styles.pillLabel}>Price terms</span>
+          <div className={styles.pills}>
+            {TERMS.map((t) => (
+              <button key={t} type="button" className={data.incoterm === t ? styles.pillOn : ''} aria-pressed={data.incoterm === t} onClick={() => pick('incoterm', t)}>{t}</button>
+            ))}
+          </div>
+        </div>
+      </fieldset>
 
-      <div className="grid-2">
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">Business Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="e.g. procurement@acmefood.com"
-          />
+      <fieldset className={styles.group}>
+        <legend>2 · About you</legend>
+        <div className={styles.row}>
+          <div className="field">
+            <label htmlFor="name">Your name *</label>
+            <input id="name" name="name" required autoComplete="name" value={data.name} onChange={set} />
+          </div>
+          <div className="field">
+            <label htmlFor="company">Company *</label>
+            <input id="company" name="company" required autoComplete="organization" value={data.company} onChange={set} />
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="phone" className="form-label">Contact Number (WhatsApp Preferred)</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="e.g. +1 (555) 019-2834"
-          />
+        <div className={styles.row}>
+          <div className="field">
+            <label htmlFor="email">Business email *</label>
+            <input id="email" name="email" type="email" required autoComplete="email" value={data.email} onChange={set} />
+          </div>
+          <div className="field">
+            <label htmlFor="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" autoComplete="tel" value={data.phone} onChange={set} placeholder="+1 555 000 0000" />
+          </div>
         </div>
-      </div>
+        <div className={styles.row}>
+          <div className="field">
+            <label htmlFor="country">Country *</label>
+            <select id="country" name="country" required value={data.country} onChange={set}>
+              <option value="">Select country</option>
+              {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
+            </select>
+          </div>
+          <div className="field">
+            <label htmlFor="buyerType">Business type</label>
+            <select id="buyerType" name="buyerType" value={data.buyerType} onChange={set}>
+              <option value="">Select</option>
+              {BUYER_TYPES.map((b) => <option key={b}>{b}</option>)}
+            </select>
+          </div>
+        </div>
+        <div className="field">
+          <label htmlFor="message">Specifications or notes</label>
+          <textarea id="message" name="message" rows={4} value={data.message} onChange={set}
+            placeholder="Grades, purity, pack sizes, labelling, certificates or sterilisation needed…" />
+        </div>
+        {/* Honeypot for bots */}
+        <div className={styles.hp} aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" tabIndex={-1} autoComplete="off" value={data.website} onChange={set} />
+        </div>
+      </fieldset>
 
-      <div className="grid-2">
-        <div className="form-group">
-          <label htmlFor="productInterest" className="form-label">Product of Interest *</label>
-          <input
-            type="text"
-            id="productInterest"
-            name="productInterest"
-            value={formData.productInterest}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="e.g. Turmeric Powder, 1121 Basmati Rice"
-          />
+      {status === 'error' && (
+        <div className={styles.error} role="alert">
+          <p>{error}</p>
+          <a href={whatsappLink(waSummary)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-sm"><Icon name="whatsapp" /> Send this on WhatsApp</a>
         </div>
-        <div className="form-group">
-          <label htmlFor="estimatedQuantity" className="form-label">Estimated Order Quantity (in MT / Containers)</label>
-          <input
-            type="text"
-            id="estimatedQuantity"
-            name="estimatedQuantity"
-            value={formData.estimatedQuantity}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="e.g. 1 FCL, 20 MT"
-          />
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="message" className="form-label">Required Specifications / Custom Remarks *</label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          className="form-control"
-          placeholder="Please specify grades, purity %, packaging sizes, and any sterilization or certification needs."
-        ></textarea>
-      </div>
-
-      {submitError && (
-        <p style={{ color: 'red', fontSize: '0.9rem', marginBottom: '1rem' }}>
-          An error occurred. Please try emailing sales@sunitaexports.com directly.
-        </p>
       )}
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={`btn-primary ${styles.submitBtn}`}
-      >
-        {isSubmitting ? 'Sending Request...' : 'Send Inquiry (Get Quote)'}
-      </button>
+      <div className={styles.submitRow}>
+        <button type="submit" className="btn btn-primary btn-lg" disabled={status === 'sending'}>
+          {status === 'sending' ? 'Sending…' : <>Send enquiry <Icon name="arrow-right" /></>}
+        </button>
+        <p className={styles.privacy}>We reply within 24 hours. Your details are used only to answer this enquiry.</p>
+      </div>
     </form>
   );
 }

@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import styles from './Breadcrumb.module.css';
+import { SITE_URL } from '@/config/site';
 
-export default function Breadcrumb({ items = [] }) {
+export default function Breadcrumb({ items = [], inline = false }) {
   // Always prepend Home to the breadcrumbs list
   const allItems = [{ label: 'Home', href: '/' }, ...items];
 
@@ -12,17 +13,17 @@ export default function Breadcrumb({ items = [] }) {
       '@type': 'ListItem',
       position: idx + 1,
       name: item.label,
-      item: `https://www.sunitaexports.com${item.href}`,
+      item: `${SITE_URL}${item.href}`,
     })),
   };
 
   return (
-    <div className={styles.breadcrumbContainer}>
+    <div className={inline ? styles.inline : styles.breadcrumbContainer}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <div className="container">
+      <div className={inline ? undefined : 'container'}>
         <nav aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
             {allItems.map((item, idx) => {

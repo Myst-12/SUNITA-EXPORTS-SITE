@@ -1,31 +1,39 @@
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Script from 'next/script';
+import { SITE_URL, GA_ID } from '@/config/site';
+import { organizationSchema as buildOrganizationSchema } from '@/lib/schemas';
+import { categories } from '@/data/products';
 
-const playfair = Playfair_Display({
+const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name, image: c.image, count: c.productCount }));
+
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-fraunces',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  axes: ['opsz'],
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-manrope',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
 });
+
+export const viewport = {
+  themeColor: '#086639',
+};
 
 export const metadata = {
-  metadataBase: new URL('https://www.sunitaexports.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Indian Spices Exporter & Agri Commodities Supplier | Sunita Agri Exports, Mumbai',
+    default: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports, Mumbai',
     template: '%s | Sunita Agri Exports',
   },
-  description: 'Sunita Agri Exports — 30+ years of exporting premium Indian spices, rice, pulses and agri commodities to 40+ countries. BRC, FDA, FSSAI, APEDA certified. Request a sample.',
-  keywords: ['Indian spices exporter', 'spice supplier India', 'bulk spices', 'basmati rice exporter', 'agri commodities India', 'Mumbai exporter'],
+  description: 'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries. Mixed containers, private label, FOB/CIF. Request a quote.',
   authors: [{ name: 'Sunita Agri Exports Pvt. Ltd.' }],
   creator: 'Sunita Agri Exports Pvt. Ltd.',
   publisher: 'Sunita Agri Exports Pvt. Ltd.',
@@ -37,13 +45,13 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.sunitaexports.com',
+    url: SITE_URL,
     siteName: 'Sunita Agri Exports',
-    title: 'Indian Spices Exporter & Agri Commodities Supplier | Sunita Agri Exports',
-    description: 'Sunita Agri Exports — 30+ years of exporting premium Indian spices, rice, pulses and agri commodities to 40+ countries.',
+    title: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports',
+    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries.',
     images: [
       {
-        url: '/images/hero/og-image.webp',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Sunita Agri Exports — Premium Indian Spices & Agri Commodities',
@@ -52,9 +60,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Indian Spices Exporter & Agri Commodities Supplier | Sunita Agri Exports',
-    description: 'Sunita Agri Exports — 30+ years of exporting premium Indian spices, rice, pulses and agri commodities to 40+ countries.',
-    images: ['/images/hero/og-image.webp'],
+    title: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports',
+    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries.',
+    images: ['/images/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -68,69 +76,38 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.sunitaexports.com',
+    canonical: '/',
   },
 };
 
 export default function RootLayout({ children }) {
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Sunita Agri Exports Pvt. Ltd.',
-    url: 'https://www.sunitaexports.com',
-    logo: 'https://www.sunitaexports.com/images/logo.webp',
-    foundingDate: '1994',
-    description: 'Leading Indian exporter of premium spices, rice, pulses, oilseeds, and agri commodities to 40+ countries worldwide. BRC, FDA, FSSAI, ISO, and APEDA certified.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '1014, Ghanshyam Enclave, Laljipada, Link Road, Kandivali (West)',
-      addressLocality: 'Mumbai',
-      addressRegion: 'Maharashtra',
-      postalCode: '400067',
-      addressCountry: 'IN',
-    },
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: '+91-8169282942',
-        contactType: 'sales',
-        email: 'sales@sunitaexports.com',
-        areaServed: 'Worldwide',
-        availableLanguage: ['English', 'Hindi'],
-      },
-      {
-        '@type': 'ContactPoint',
-        telephone: '+91-9004041889',
-        contactType: 'customer service',
-        email: 'info@sunitaexports.com',
-        areaServed: 'Worldwide',
-        availableLanguage: ['English', 'Hindi'],
-      },
-    ],
-    sameAs: [],
-    numberOfEmployees: {
-      '@type': 'QuantitativeValue',
-      minValue: 20,
-      maxValue: 25,
-    },
-  };
+  const organizationSchema = buildOrganizationSchema();
 
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
       <body>
-        <Header />
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <Header categories={navCategories} />
         <main id="main-content">
           {children}
         </main>
-        <Footer />
+        <Footer categories={navCategories} />
         <WhatsAppButton />
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
