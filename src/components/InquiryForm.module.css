@@ -4,7 +4,7 @@
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .pillLabel { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.pills button { padding: 0.45rem 0.9rem; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font-size: 0.85rem; font-weight: 650; color: var(--ink-2); transition: all 0.2s; }
+.pills button { padding: 0.45rem 0.9rem; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font-size: 0.85rem; font-weight: 650; color: var(--ink-2); transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .pills button:hover { border-color: var(--green-600); color: var(--green-700); }
 .pills .pillOn { background: var(--green-700); border-color: var(--green-700); color: #fff; }
 .pills .pillOn:hover { color: #fff; }

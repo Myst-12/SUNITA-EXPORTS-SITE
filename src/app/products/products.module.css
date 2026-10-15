@@ -1,4 +1,4 @@
-.catHero { padding-block: 18px clamp(32px, 5vw, 56px); background: linear-gradient(180deg, var(--green-50), #fff); border-bottom: 1px solid var(--line); }
+.catHero { padding-block: 18px clamp(32px, 5vw, 56px); background: var(--green-50); }
 .catHeroGrid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 4.5vw, 56px); align-items: center; }
 .catHeroGrid h1 { font-size: clamp(1.9rem, 4vw, 3rem); margin-bottom: 0.75rem; }
 .catHeroImg { position: relative; aspect-ratio: 16 / 11; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }

@@ -1,5 +1,5 @@
 .gallery { display: grid; gap: 10px; }
-.main { position: relative; aspect-ratio: 1 / 0.86; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-soft); border: 1px solid var(--line); }
+.main { position: relative; aspect-ratio: 1 / 0.86; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-soft); border: 1px solid transparent; }
 .main img { object-fit: cover; transition: opacity 0.35s var(--ease); }
 .visible { opacity: 1; }
 .hidden { opacity: 0; }

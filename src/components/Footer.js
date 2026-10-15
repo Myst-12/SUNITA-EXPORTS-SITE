@@ -27,8 +27,8 @@ export default function Footer({ categories = [] }) {
             <h2 className={styles.ctaTitle}>Tell us what you need. Get an export quote within 24 hours.</h2>
           </div>
           <div className="btn-row">
-            <Link href="/contact/" className="btn btn-accent btn-lg">Request a Quote <Icon name="arrow-right" /></Link>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light btn-lg">
+            <Link href="/contact/" className="btn btn-primary btn-lg">Request a Quote <Icon name="arrow-right" /></Link>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg">
               <Icon name="whatsapp" /> WhatsApp
             </a>
           </div>

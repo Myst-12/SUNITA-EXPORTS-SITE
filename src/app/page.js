@@ -4,6 +4,7 @@ import Icon from '@/components/Icon';
 import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
+import ContainerPlanner from '@/components/ContainerPlanner';
 import { categories, getAllProducts } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
 import { COMPANY, CERTIFICATIONS, EXHIBITIONS, whatsappLink, yearsInBusiness, flagCode } from '@/config/site';
@@ -20,12 +21,6 @@ export const metadata = {
 const FEATURED = ['turmeric-fingers', 'cumin-seeds', 'red-chilli', 'cardamom', 'black-pepper', 'traditional-basmati-rice', 'coriander-seeds', 'kalonji-nigella-seeds'];
 
 const RIBBON = ['red-chilli', 'turmeric-fingers', 'cardamom', 'traditional-basmati-rice', 'star-anise', 'cinnamon', 'chana-dal', 'black-pepper', 'cloves', 'rajma-kidney-beans', 'sesame-seeds-white', 'garam-masala', 'jaggery', 'tea-beverages'];
-
-const STEPS = [
-  { icon: 'search', title: 'Share your list', text: 'Send product names, grades, pack sizes and destination port — or just a photo of your shelf.' },
-  { icon: 'layers', title: 'We source & consolidate', text: 'Spices, staples and FMCG from our network, cleaned, packed and checked under one roof in Mumbai.' },
-  { icon: 'ship', title: 'One container ships', text: 'A single 20 ft or 40 ft load, one set of documents, FOB / CFR / CIF to your port.' },
-];
 
 const FMCG_CHIPS = ['Snacks & namkeen', 'Biscuits & rusk', 'Instant food & mixes', 'Sweets', 'Tea & beverages', 'Pickles & pastes', 'Papad & fryums', 'Ghee & oils', 'Flours & atta', 'Pooja & incense', 'Personal care', 'Household'];
 
@@ -79,23 +74,16 @@ export default function HomePage() {
 
       {/* ===== HERO ===== */}
       <section className={styles.hero}>
-        <span className={`${styles.blob} ${styles.blobA}`} aria-hidden="true" />
-        <span className={`${styles.blob} ${styles.blobB}`} aria-hidden="true" />
-        <svg className={`${styles.leaf} ${styles.leafA}`} viewBox="0 0 64 64" aria-hidden="true"><path d="M8 56C8 26 26 8 56 8c0 30-18 48-48 48z" /><path d="M8 56 40 24" /></svg>
-        <svg className={`${styles.leaf} ${styles.leafB}`} viewBox="0 0 64 64" aria-hidden="true"><path d="M8 56C8 26 26 8 56 8c0 30-18 48-48 48z" /><path d="M8 56 40 24" /></svg>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
-            <span className={styles.heroBadge}><Icon name="award" size={16} /> {COMPANY.status} · Mumbai, India</span>
-            <h1 className={styles.heroTitle}>
-              Indian spices &amp; groceries, <span className={styles.heroAccent}>exported right</span> since {COMPANY.foundingYear}.
-            </h1>
+            <h1 className={styles.heroTitle}>One container. Every Indian staple.</h1>
             <p className={styles.heroLead}>
-              Whole &amp; ground spices, basmati rice, pulses and 100+ Indian food products — sourced, cleaned, packed and
-              shipped from Mumbai. Mix any products in one container, under our brand or yours.
+              Spices, rice, pulses and 100+ Indian grocery products, packed together in Mumbai and shipped as one load.
+              A {COMPANY.status} exporting since {COMPANY.foundingYear}.
             </p>
             <div className="btn-row">
-              <Link href="/contact/" className="btn btn-primary btn-lg">Get an Export Quote <Icon name="arrow-right" /></Link>
-              <Link href="/products/" className="btn btn-outline btn-lg">Explore Products</Link>
+              <a href="#planner" className="btn btn-primary btn-lg">Plan your container <Icon name="arrow-right" /></a>
+              <Link href="/contact/" className={styles.textLink}>or get a quote</Link>
             </div>
             <dl className={styles.heroStats}>
               <div><dt><CountUp value={yearsInBusiness()} suffix="+" /></dt><dd>years exporting</dd></div>
@@ -111,13 +99,6 @@ export default function HomePage() {
             </div>
             <div className={styles.heroImgSmall}>
               <Image src="/images/scenes/market-chilli-sacks.webp" alt="Dried red chillies in jute sacks" fill sizes="200px" />
-            </div>
-            <div className={`${styles.floatCard} ${styles.floatTop}`}>
-              <span className="icon-tile lime"><Icon name="container" /></span>
-              <div>
-                <strong>Mixed containers</strong>
-                <small>Spices + rice + FMCG in one load</small>
-              </div>
             </div>
             <div className={`${styles.floatCard} ${styles.floatBottom}`}>
               <span className="icon-tile turmeric"><Icon name="calendar" /></span>
@@ -153,6 +134,17 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== CONTAINER PLANNER (the idea + live tool) ===== */}
+      <section id="planner" className={`section ${styles.plannerSection}`}>
+        <div className="container">
+          <div className={styles.plannerHead}>
+            <h2>Plan your mixed container</h2>
+            <p>Since {COMPANY.foundingYear} our speciality has been one container holding many products. Pick what you need and see how much of a 20 ft or 40 ft it fills, then send the list to us.</p>
+          </div>
+          <ContainerPlanner />
         </div>
       </section>
 
@@ -208,52 +200,6 @@ export default function HomePage() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ===== MIXED CONTAINER ===== */}
-      <section className={`section ${styles.mixed}`}>
-        <div className={`container ${styles.split}`}>
-          <ScrollReveal>
-            <span className="eyebrow on-dark">Our speciality since 1994</span>
-            <h2>One supplier. Many products. <span className={styles.lime}>One container.</span></h2>
-            <p className={styles.mixedLead}>
-              Small and mid-size importers shouldn’t need ten Indian suppliers. Tell us your list — spices, rice, pulses,
-              snacks, pickles, pooja items — and we consolidate it into a single shipment.
-            </p>
-            <ol className={styles.steps}>
-              {STEPS.map((s, i) => (
-                <li key={s.title}>
-                  <span className={styles.stepNum}>{i + 1}</span>
-                  <div>
-                    <strong>{s.title}</strong>
-                    <p>{s.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="btn-row mt-3">
-              <Link href="/mixed-container/" className="btn btn-accent">How mixed containers work <Icon name="arrow-right" /></Link>
-              <a href={whatsappLink('Hello, I would like to plan a mixed container from India.')} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light"><Icon name="whatsapp" /> Send your list</a>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={120} className={styles.manifestWrap}>
-            <div className={styles.manifestImg}>
-              <Image src="/images/scenes/port-day.webp" alt="Shipping containers at port" fill sizes="(max-width: 900px) 100vw, 45vw" />
-            </div>
-            <div className={styles.manifest}>
-              <p className={styles.manifestTitle}><Icon name="container" size={18} /> Sample 20 ft mixed load</p>
-              <ul>
-                <li><span>Whole &amp; ground spices</span><b>4.0 MT</b></li>
-                <li><span>Basmati &amp; Sona Masoori rice</span><b>6.0 MT</b></li>
-                <li><span>Dals &amp; pulses</span><b>5.0 MT</b></li>
-                <li><span>Snacks, papad &amp; sweets</span><b>420 ctns</b></li>
-                <li><span>Pickles, pastes &amp; ghee</span><b>180 ctns</b></li>
-              </ul>
-              <p className={styles.manifestNote}>Illustrative — every load is planned to your list.</p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -324,7 +270,6 @@ export default function HomePage() {
             {PROCESS.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 70} className={styles.processItem}>
                 <div className="media ratio-43"><Image src={s.img} alt={s.title} fill sizes="(max-width: 860px) 50vw, 25vw" /></div>
-                <span className={styles.processNum}>0{i + 1}</span>
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
               </ScrollReveal>

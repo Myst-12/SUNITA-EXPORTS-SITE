@@ -10,13 +10,10 @@
 /* ---------- Header ---------- */
 .header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: saturate(1.6) blur(12px);
-  -webkit-backdrop-filter: saturate(1.6) blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s, box-shadow 0.25s;
+  background: #fff;
+  transition: box-shadow 0.25s;
 }
-.scrolled { border-bottom-color: var(--line); box-shadow: 0 4px 18px rgba(18, 33, 26, 0.05); }
+.scrolled { box-shadow: 0 1px 0 var(--green-100); }
 .inner { display: flex; align-items: center; gap: 1.5rem; height: var(--header-h); }
 
 .brand { display: flex; align-items: center; gap: 0.6rem; flex: none; }
@@ -41,8 +38,8 @@
 /* Dropdowns */
 .mega, .dropdown {
   position: absolute; top: calc(100% + 10px); left: 0;
-  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  background: #fff; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
   opacity: 0; visibility: hidden; transform: translateY(6px);
   transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
 }
