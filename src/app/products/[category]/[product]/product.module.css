@@ -4,6 +4,15 @@
 .title { font-size: clamp(1.8rem, 3.6vw, 2.75rem); margin: 0.75rem 0 0.35rem; }
 .kicker { font-size: 0.85rem; font-weight: 700; color: var(--green-700); margin-bottom: 0.9rem; }
 .desc { color: var(--ink-2); font-size: 1.02rem; max-width: 60ch; }
+.botanical { font-style: italic; color: var(--green-700); font-size: 1rem; margin: 0 0 0.8rem; }
+.nameCard { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-lg); overflow: hidden; }
+.notice { display: flex; gap: 0.5rem; align-items: flex-start; width: 100%; margin: 0.4rem 0 0.2rem; padding: 0.75rem 0.9rem; border-radius: 12px; background: var(--turmeric-100); color: var(--ink); font-size: 0.86rem; font-weight: 600; line-height: 1.45; }
+.notice svg { flex: none; margin-top: 2px; color: var(--turmeric-600); }
+.ctaNote { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
+.onRequest { display: grid; gap: 0.6rem; justify-items: start; padding: 1.1rem 1.2rem; border-radius: var(--radius); background: var(--bg-soft); }
+.onRequest p { margin: 0; color: var(--ink-2); }
+.alsoIn { font-size: 0.84rem; color: var(--muted); padding: 0 0.25rem; }
+.alsoIn a { color: var(--green-700); font-weight: 650; }
 
 .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; width: 100%; margin: 0.5rem 0 1.1rem; }
 .fact { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.7rem 0.8rem; background: #fff; border: 1px solid transparent; border-radius: 12px; }
@@ -34,12 +43,8 @@
 
 .side { position: sticky; top: calc(var(--header-h) + 16px); display: grid; gap: 12px; }
 .quoteCard { display: grid; gap: 10px; padding: 20px; border-radius: var(--radius-lg); background: var(--green-900); color: rgba(255, 255, 255, 0.78); box-shadow: var(--shadow-md); }
-.quoteEyebrow { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime-400); margin: 0; }
 .quoteCard h3 { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 1.4rem; margin: 0; }
 .quoteCard p { font-size: 0.9rem; margin: 0; }
-.quoteSteps { counter-reset: q; display: grid; gap: 6px; margin: 4px 0 6px; font-size: 0.86rem; }
-.quoteSteps li { counter-increment: q; display: flex; align-items: center; gap: 0.5rem; }
-.quoteSteps li::before { content: counter(q); display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(188, 214, 61, 0.18); color: var(--lime-400); font-size: 0.72rem; font-weight: 800; }
 .quoteMail { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.84rem; color: rgba(255, 255, 255, 0.8); }
 .quoteMail:hover { color: #fff; }
 .sideLink { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; border: 1px solid transparent; border-radius: var(--radius); background: #fff; color: var(--green-800); transition: border-color 0.2s, box-shadow 0.2s; }

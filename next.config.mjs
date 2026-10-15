@@ -1,3 +1,5 @@
+import { catalogueRedirects } from './src/data/catalog/redirects.mjs';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Server mode (not static export) so the inquiry API route, image optimisation
@@ -16,6 +18,7 @@ const nextConfig = {
       { source: '/packaging', destination: '/private-label/#packaging', permanent: true },
       // Old site (sunitaexports.com) PHP URLs
       { source: '/:page(index|Products|products|contact|about)\\.php', destination: '/', permanent: true },
+      ...catalogueRedirects.map(([source, destination]) => ({ source, destination, statusCode: 301 })),
     ];
   },
 };

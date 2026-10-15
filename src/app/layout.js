@@ -8,7 +8,7 @@ import { SITE_URL, GA_ID } from '@/config/site';
 import { organizationSchema as buildOrganizationSchema } from '@/lib/schemas';
 import { categories } from '@/data/products';
 
-const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name, image: c.image, count: c.productCount }));
+const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name, image: c.image, count: c.productCount, href: c.href, service: !!c.service }));
 
 const fraunces = Fraunces({
   subsets: ['latin'],

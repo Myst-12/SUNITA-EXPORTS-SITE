@@ -5,7 +5,7 @@ import ProductCard from '@/components/ProductCard';
 import ScrollReveal from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
 import ContainerPlanner from '@/components/ContainerPlanner';
-import { categories, getAllProducts } from '@/data/products';
+import { productCategories as categories, getAllProducts } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
 import { COMPANY, CERTIFICATIONS, EXHIBITIONS, whatsappLink, yearsInBusiness, flagCode } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
@@ -18,9 +18,9 @@ export const metadata = {
   alternates: { canonical: '/' },
 };
 
-const FEATURED = ['turmeric-fingers', 'cumin-seeds', 'red-chilli', 'cardamom', 'black-pepper', 'traditional-basmati-rice', 'coriander-seeds', 'kalonji-nigella-seeds'];
+const FEATURED = ['turmeric-fingers', 'cumin-seeds', 'dried-red-chillies', 'green-cardamom', 'black-pepper', 'coriander-seeds', 'star-anise', 'cloves'];
 
-const RIBBON = ['red-chilli', 'turmeric-fingers', 'cardamom', 'traditional-basmati-rice', 'star-anise', 'cinnamon', 'chana-dal', 'black-pepper', 'cloves', 'rajma-kidney-beans', 'sesame-seeds-white', 'garam-masala', 'jaggery', 'tea-beverages'];
+const RIBBON = ['dried-red-chillies', 'turmeric-fingers', 'green-cardamom', '1121-basmati-rice', 'star-anise', 'cinnamon', 'chana-dal', 'black-pepper', 'cloves', 'kabuli-chickpeas', 'raw-groundnuts', 'garam-masala', 'jaggery', 'tea-instant-beverages'];
 
 const FMCG_CHIPS = ['Snacks & namkeen', 'Biscuits & rusk', 'Instant food & mixes', 'Sweets', 'Tea & beverages', 'Pickles & pastes', 'Papad & fryums', 'Ghee & oils', 'Flours & atta', 'Pooja & incense', 'Personal care', 'Household'];
 

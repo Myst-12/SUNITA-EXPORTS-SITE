@@ -1,5 +1,5 @@
 import { SITE_URL, COMPANY, CONTACT, CERTIFICATIONS, EXHIBITIONS, fullAddress } from '@/config/site';
-import { categories } from '@/data/products';
+import { productCategories, getAllProducts, productUrl, specSheetUrl } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
 
 export const dynamic = 'force-static';
@@ -15,7 +15,7 @@ export function GET() {
     `- Founded: ${COMPANY.foundingYear}, Mumbai, India`,
     `- Status: ${COMPANY.status}`,
     `- Countries served: ${COMPANY.countriesServed} (incl. USA, UK, Canada, Australia, New Zealand, UAE, Saudi Arabia, Kuwait, Oman, Qatar, Singapore, Malaysia, Japan, Turkey, East Africa)`,
-    '- Business type: merchant exporter, processor and consolidator — spices, rice, pulses, oilseeds, herbs, dehydrated products and Indian FMCG groceries',
+    `- Business type: merchant exporter, processor and consolidator — ${getAllProducts().length} products in ${productCategories.length} categories: ${productCategories.map((c) => c.name).join(', ')}`,
     '- Services: mixed / consolidated containers (many products in one 20ft or 40ft container), private label and custom consumer packaging, bulk packing, FOB / CFR / CIF shipments from Nhava Sheva (JNPT)',
     `- Certifications & memberships: ${CERTIFICATIONS.map((c) => c.name).join(', ')}`,
     ...EXHIBITIONS.map((e) => `- Exhibitor: ${e.name} ${e.edition}, ${e.city} (${e.stand})`),
@@ -28,11 +28,21 @@ export function GET() {
     `- Request a quote: ${SITE_URL}/contact/`,
     '',
     '## Product categories',
-    ...categories.map((c) => `- [${c.name}](${SITE_URL}/products/${c.slug}/): ${c.products.map((p) => p.name).join('; ')}`),
+    'Every product page lists botanical name, forms, grades, packing, container load and documented specifications, with a PDF specification sheet and a quote link.',
+    '',
+    ...productCategories.flatMap((c) => [
+      `### [${c.name}](${SITE_URL}/products/${c.slug}/)`,
+      c.description,
+      ...(c.flat || c.subcategories.length < 2 ? [c.products] : c.subcategories.map((s) => s.products)).flatMap((list, i, arr) => [
+        ...(arr.length > 1 ? [`- ${c.subcategories[i].name}:`] : []),
+        ...list.map((p) => `${arr.length > 1 ? '  ' : ''}- [${p.name}](${SITE_URL}${productUrl(p)})${p.latin ? ` — ${p.latin}` : ''} · [spec sheet](${SITE_URL}${specSheetUrl(p)})`),
+      ]),
+      '',
+    ]),
     '',
     '## Services',
     `- [Mixed container consolidation](${SITE_URL}/mixed-container/)`,
-    `- [Private label & packaging](${SITE_URL}/private-label/)`,
+    `- [Private label & OEM](${SITE_URL}/private-label/): private-label sourcing, custom packaging, multi-product containers, specification sheets and samples, export documentation`,
     `- [Indian FMCG & grocery export](${SITE_URL}/fmcg/)`,
     '',
     '## Export markets',

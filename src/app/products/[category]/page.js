@@ -1,24 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { categories, getCategoryBySlug } from '@/data/products';
+import { productCategories, getCategoryBySlug } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
-import { COMPANY, whatsappLink } from '@/config/site';
+import { COMPANY, SITE_URL, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
 import styles from '../products.module.css';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return categories.map((cat) => ({ category: cat.slug }));
+  return productCategories.map((cat) => ({ category: cat.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
   const cat = getCategoryBySlug(category);
-  if (!cat) return { title: 'Category not found' };
+  if (!cat || cat.service) return { title: 'Category not found' };
   const url = `/products/${cat.slug}/`;
   return {
     title: cat.metaTitle,
@@ -31,47 +31,51 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
   const { category } = await params;
   const cat = getCategoryBySlug(category);
-  if (!cat) notFound();
+  if (!cat || cat.service) notFound();
 
   const name = cat.name;
   const lower = name.toLowerCase();
+  const grouped = !cat.flat && cat.subcategories.length > 1;
   const faqs = [
     {
-      question: `Do you export ${lower} in bulk and retail packs?`,
-      answer: `Yes. We export ${lower} in bulk 25–50 kg bags as well as retail packs and private label packaging. All ${cat.productCount} items in this range can also be combined in a mixed container with other products.`,
+      question: `Which ${lower} do you export?`,
+      answer: `${cat.productCount} products${grouped ? ` across ${cat.subcategories.length} groups — ${cat.subcategories.map((s) => s.name).join(', ')}` : ''}. Each product page has a downloadable specification sheet and a quote button.`,
     },
     {
       question: `How can I get a price list for ${lower}?`,
-      answer: `Prices change with crop and market conditions, so we quote fresh for every enquiry. Send your product list, grades, quantities and destination port and we will reply with FOB / CFR / CIF prices within 24 hours.`,
+      answer: 'Prices change with crop and market conditions, so we quote fresh for every enquiry. Send your product list, grades, quantities and destination port and we reply with FOB / CFR / CIF prices within 24 hours.',
     },
     {
-      question: `Which countries do you ship ${lower} to?`,
-      answer: `We ship to ${COMPANY.countriesServed} countries including the USA, Canada, UK, Australia, New Zealand, the Gulf (UAE, Saudi Arabia, Kuwait, Oman, Qatar), Singapore, Malaysia, Japan and East Africa.`,
+      question: `Can I combine ${lower} with other products in one container?`,
+      answer: `Yes. Any product in this range can travel in a mixed 20 ft or 40 ft container with spices, rice, pulses and Indian groceries. We ship to ${COMPANY.countriesServed} countries.`,
     },
   ];
-  const others = categories.filter((c) => c.slug !== cat.slug);
+  const others = productCategories.filter((c) => c.slug !== cat.slug);
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${name} exported by ${COMPANY.name}`,
+    numberOfItems: cat.productCount,
+    itemListElement: cat.products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/products/${p.category}/${p.slug}/` })),
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
 
       <section className={styles.catHero}>
         <div className="container">
           <Breadcrumb inline items={[{ label: 'Products', href: '/products/' }, { label: name, href: `/products/${cat.slug}/` }]} />
           <div className={styles.catHeroGrid}>
             <div>
-              <span className="eyebrow">{cat.productCount} export products</span>
               <h1>{name} exporter from India</h1>
               <p className="lead">{cat.description}</p>
+              <p className={styles.catCount}>{cat.productCount} products · specification sheet and quote on every product</p>
               <div className="btn-row mt-3">
                 <Link href={`/contact/?product=${encodeURIComponent(name)}`} className="btn btn-primary">Request a quote <Icon name="arrow-right" /></Link>
                 <a href={whatsappLink(`Hello, please share your ${lower} price list.`)} target="_blank" rel="noopener noreferrer" className="btn btn-outline"><Icon name="whatsapp" /> WhatsApp</a>
               </div>
-              <ul className={styles.catPoints}>
-                <li><Icon name="check-circle" size={16} /> Bulk, retail &amp; private label</li>
-                <li><Icon name="check-circle" size={16} /> Mixed container friendly</li>
-                <li><Icon name="check-circle" size={16} /> FOB · CFR · CIF</li>
-              </ul>
             </div>
             <div className={styles.catHeroImg}>
               <Image src={cat.image} alt={`${name} from India`} fill priority sizes="(max-width: 900px) 100vw, 45vw" />
@@ -82,20 +86,34 @@ export default async function CategoryPage({ params }) {
 
       <section className="section-sm">
         <div className="container">
-          <div className="grid-4">
-            {cat.products.map((p, i) => (
-              <ProductCard key={p.slug} product={p} priority={i < 4} />
-            ))}
-          </div>
+          {cat.note && <p className={styles.catNote}><Icon name="shield" size={16} /> {cat.note}</p>}
+          {grouped && (
+            <nav className={`chip-row ${styles.subNav}`} aria-label={`${name} groups`}>
+              {cat.subcategories.map((s) => <a key={s.slug} href={`#${s.slug}`} className="chip">{s.name} <span className="text-muted">· {s.products.length}</span></a>)}
+            </nav>
+          )}
+          {grouped ? (
+            cat.subcategories.map((s, si) => (
+              <div key={s.slug} id={s.slug} className={styles.subSection}>
+                <h2 className={styles.subTitle}>{s.name}</h2>
+                <div className="grid-4">
+                  {s.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={si === 0 && i < 4} />)}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="grid-4">
+              {cat.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
+            </div>
+          )}
         </div>
       </section>
 
       <section className="section-sm section-soft">
         <div className={`container ${styles.catFaq}`}>
           <div>
-            <span className="eyebrow">Buying {lower}</span>
             <h2>Questions importers ask</h2>
-            <p className="lead">Need a product that isn’t listed? We source most Indian food products on request.</p>
+            <p className="lead">Need something that isn’t listed? Send us the product and specification and we will check supply.</p>
           </div>
           <div className="faq-list">
             {faqs.map((f, i) => (
@@ -110,11 +128,12 @@ export default async function CategoryPage({ params }) {
 
       <section className="section-sm">
         <div className="container">
-          <h2 className={styles.otherTitle}>Explore other categories</h2>
+          <h2 className={styles.otherTitle}>Other categories</h2>
           <div className="chip-row">
             {others.map((c) => (
               <Link key={c.slug} href={`/products/${c.slug}/`} className="chip">{c.name} <span className="text-muted">· {c.productCount}</span></Link>
             ))}
+            <Link href="/private-label/" className="chip">Private Label &amp; OEM</Link>
           </div>
         </div>
       </section>

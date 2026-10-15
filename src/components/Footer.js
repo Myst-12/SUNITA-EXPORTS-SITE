@@ -57,7 +57,7 @@ export default function Footer({ categories = [] }) {
           <p className={styles.heading}>Products</p>
           <ul className={styles.list}>
             {categories.map((c) => (
-              <li key={c.slug}><Link href={`/products/${c.slug}/`}>{c.name}</Link></li>
+              <li key={c.slug}><Link href={c.href}>{c.name}</Link></li>
             ))}
           </ul>
         </div>

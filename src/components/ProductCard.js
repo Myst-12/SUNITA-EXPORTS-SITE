@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Icon from './Icon';
+import NameCard from './NameCard';
 import styles from './ProductCard.module.css';
 
 /**
@@ -13,7 +14,7 @@ export default function ProductCard({ product, name, href, description, image, p
   const link = product ? `/products/${product.category}/${product.slug}/` : href;
   const img = product ? product.image : image;
   const meta = product
-    ? [product.hsCode && `HS ${product.hsCode}`, product.forms?.[0]].filter(Boolean).join(' · ')
+    ? [product.forms?.[0], product.hsCode && `HS ${product.hsCode}`].filter(Boolean).join(' · ')
     : productCount ? `${productCount} products` : '';
 
   return (
@@ -21,6 +22,8 @@ export default function ProductCard({ product, name, href, description, image, p
       <div className={styles.media}>
         {img ? (
           <Image src={img} alt={title} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" priority={priority} />
+        ) : product ? (
+          <NameCard name={product.shortName || title} botanical={product.latin} size="sm" toneKey={product.slug} />
         ) : (
           <span className={styles.placeholder}><Icon name="leaf" size={32} /></span>
         )}

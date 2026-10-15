@@ -42,3 +42,19 @@ BUSINESS
 - Client wanted "FMCG" positioning but the company mainly exports spices. Site leads with spices; FMCG is a
   secondary section. Buyers asking for FMCG brands we cannot supply will bounce, so keep claims honest.
 - Do not publish a fixed price list. Use "Request current export price".
+
+CATALOGUE REBUILD (Phase 1, Oct 2026)
+- All 295 sheet rows are published as the owner asked (280 product pages; 10 rows are the same product listed in two
+  categories, 5 Private Label & OEM rows are services on /private-label/). The sheet itself still marks every row
+  "Needs validation" - ask the client to confirm availability, especially herbs and FMCG families.
+- Regulated items are published with a "regulated / permits required" notice: Kuth, Jatamansi (CITES), Kutki, Chirata,
+  Sarpagandha, Sandalwood, Devdaru, 100% broken rice. Confirm the client can legally supply each one, or unpublish it.
+- FMCG rows are product families, not brands. Replace with real brand / SKU / pack / carton rows when the FMCG master exists.
+- Specifications, shelf life and grades are shown only where earlier documented data existed (about 30 products).
+  Everything else says "full specification on request". Get real spec sheets / CoAs from the client to fill these in.
+- Container loads are shown only for weight-limited goods (rice, pulses, flours, grains, sesame, groundnuts, green coffee)
+  and marked indicative. HS codes are marked indicative.
+- 136 products have a correctly-identified photo (old stock + Wikimedia Commons, credited in public/images/CREDITS.md);
+  144 show a clean name card. Replace with the client's own product photos when available.
+- PDF spec sheets print the site URL from SITE_URL (src/config/site.js). Set the final domain before launch so the PDFs
+  carry the right address.

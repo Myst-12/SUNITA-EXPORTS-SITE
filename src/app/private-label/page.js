@@ -5,6 +5,7 @@ import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
 import { whatsappLink } from '@/config/site';
+import { getCategoryBySlug } from '@/data/products';
 import s from '../pages.module.css';
 
 export const metadata = {
@@ -40,6 +41,7 @@ const FAQS = [
 ];
 
 export default function PrivateLabelPage() {
+  const { services } = getCategoryBySlug('private-label-oem');
   return (
     <>
       <PageHero
@@ -53,6 +55,25 @@ export default function PrivateLabelPage() {
         <Link href="/contact/?product=Private%20label" className="btn btn-primary btn-lg">Start a private label project <Icon name="arrow-right" /></Link>
         <a href={whatsappLink('Hello, I am interested in private label packing.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
+
+      <section id="services" className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2>Private label &amp; OEM services</h2>
+              <p className="lead">Services around every product in our catalogue — from one private-label SKU to a full mixed container.</p>
+            </div>
+          </div>
+          <div className={s.steps}>
+            {services.map((sv) => (
+              <div key={sv.name} className={s.step}>
+                <h3>{sv.href ? <Link href={sv.href}>{sv.name}</Link> : sv.name}</h3>
+                <p>{sv.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="packaging" className={`section ${s.tintCream}`}>
         <div className="container">

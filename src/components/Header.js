@@ -90,11 +90,11 @@ export default function Header({ categories = [] }) {
               <div className={styles.mega}>
                 <div className={styles.megaGrid}>
                   {categories.map((c) => (
-                    <Link key={c.slug} href={`/products/${c.slug}/`} className={styles.megaLink}>
+                    <Link key={c.slug} href={c.href} className={styles.megaLink}>
                       <img src={c.image} alt="" width={44} height={44} loading="lazy" />
                       <span>
                         <strong>{c.name}</strong>
-                        <small>{c.count} products</small>
+                        <small>{c.service ? 'Services' : `${c.count} products`}</small>
                       </span>
                     </Link>
                   ))}
@@ -168,7 +168,7 @@ export default function Header({ categories = [] }) {
             <div className={styles.drawerSub}>
               <Link href="/products/" className={styles.drawerSubLink}><strong>All products</strong></Link>
               {categories.map((c) => (
-                <Link key={c.slug} href={`/products/${c.slug}/`} className={styles.drawerSubLink}>
+                <Link key={c.slug} href={c.href} className={styles.drawerSubLink}>
                   <img src={c.image} alt="" width={32} height={32} loading="lazy" /> {c.name}
                 </Link>
               ))}

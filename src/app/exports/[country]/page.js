@@ -35,7 +35,7 @@ const HERO_IMG = {
   Africa: '/images/scenes/port-truck.webp',
 };
 
-const FEATURED = ['turmeric-fingers', 'cumin-seeds', 'red-chilli', 'traditional-basmati-rice', 'toor-dal', 'indian-snacks-namkeen', 'cardamom', 'garam-masala'];
+const FEATURED = ['turmeric-fingers', 'cumin-seeds', 'dried-red-chillies', '1121-basmati-rice', 'chana-dal', 'snacks-namkeen', 'green-cardamom', 'garam-masala'];
 
 export default async function CountryPage({ params }) {
   const { country } = await params;

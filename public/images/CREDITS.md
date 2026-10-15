@@ -143,3 +143,96 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/turmeric-fingers.webp | Shobha Tai Gaydhane | CC0 | https://commons.wikimedia.org/wiki/File:Waigaon_Turmeric_fingers_in_dried_form.jpg |
 | products/urad-whole.webp | Sanjay Acharya | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Black_gram.jpg |
 | scenes/chilli-drying-tarp.webp | Dr. Chinchu C. | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Drying_Guntur_Chilli.jpg |
+
+## Wikimedia Commons — product photos added October 2026 (attribution required)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| products/acacia-catechu.webp | Salil Kumar Mukherjee | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Catechu.jpg |
+| products/adzuki-beans.webp | 維基小霸王 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Adzuki_beans_01.jpg |
+| products/ajwain-seeds.webp | Yercaud-elango | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Trachyspermum_ammi-3-xavier_cottage-yercaud-salem-India.jpg |
+| products/ambrette-seeds.webp | Maša Sinreih in Valentina Vivod | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Abelmoschi1.JPG |
+| products/amla.webp | Ranjithkumar Murugesan | CC0 | https://commons.wikimedia.org/wiki/File:DRY_AMLA.jpg |
+| products/bael.webp | Салига Павло | Public domain | https://commons.wikimedia.org/wiki/File:Dried_bael.jpg |
+| products/basil-seeds.webp | Marjeeva | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Basil_seeds.jpg |
+| products/benzoin-resin.webp | Wibowo Djatmiko (Wie146) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Kemenyan_110112-11054_tdp.jpg |
+| products/bibhitaki.webp | Salil Kumar Mukherjee | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bahera_(Terminalia_bellirica)_fruits.jpg |
+| products/bird-feed-millet.webp | CNEcija12345 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Millet_textures.jpg |
+| products/black-himej.webp | Piyush Kothari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Black_Himej.jpg |
+| products/black-pepper-powder.webp | Eliška Jindříšková | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Ground_black_pepper.jpg |
+| products/black-sesame.webp | পাপৰি বৰা | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Black_sesame_seeds.jpg |
+| products/boswellia-resin.webp | formulatehealth | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Boswellia_Resin_Close_Up.jpg |
+| products/broad-beans.webp | Miansari66 | CC0 | https://commons.wikimedia.org/wiki/File:Fava_Beans_Dried.JPG |
+| products/brown-rice.webp | Gaurav Dhwaj Khadka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Brown_Rice.jpg |
+| products/butterfly-pea-flowers.webp | François Nguyen | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Dried_butterfly_pea_flowers.jpg |
+| products/byadgi-chilli.webp | Rajaramraok | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Byadgi_Chilli.jpg |
+| products/canary-seed.webp | CNEcija12345 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bird_seed_(canary).jpg |
+| products/cassia.webp | H. Zell | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cinnamomum_cassia_003.jpg |
+| products/chaat-masala.webp | Khurram Shehzad / Flickr user: Lekum's ( https://www.flickr.com/photos/29072273@ | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Chaatmasala.jpg |
+| products/chironji-seeds.webp | Badagnani at en.wikipedia | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Charoli.JPG |
+| products/copra.webp | Rajesh dangi at English Wikipedia | CC BY 2.5 | https://commons.wikimedia.org/wiki/File:Copra_full.JPG |
+| products/coriander-powder.webp | Gaurav Dhwaj Khadka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Coriander_Powder.jpg |
+| products/corn-flour.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Makai_ka_Atta.JPG |
+| products/crushed-chilli.webp | J.smith | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Red_pepper_flakes,_closeup.jpg |
+| products/cut-ginger.webp | Fumikas Sagisavas | CC0 | https://commons.wikimedia.org/wiki/File:Dried_ginger_slices_(1).jpg |
+| products/cut-turmeric.webp | Akopoly | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Drying_turmeric,_sliced_turmeric,_medicinal_plants.jpg |
+| products/dammar-resin.webp | Metoc | CC BY-SA 2.5 | https://commons.wikimedia.org/wiki/File:Dammar.jpg |
+| products/dehydrated-garlic-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
+| products/dehydrated-onion-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Onion_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
+| products/desi-chickpeas.webp | Biswarup Ganguly | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Cicer_arietinum_-_Kolkata_2003-10-31_00533.JPG |
+| products/dry-ginger-powder.webp | Fumikas Sagisavas | CC0 | https://commons.wikimedia.org/wiki/File:Ginger_powder_(1).jpg |
+| products/feed-millet.webp | Sengai Podhuvan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Food_grain_pearl_millet_1.jpg |
+| products/feed-sorghum.webp | Salil Kumar Mukherjee | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:A_plate_of_sorghum_grain.jpg |
+| products/garcinia-cambogia.webp | Subin.a.mathew | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Sun_Dried_and_Smoked_Gambooge_Close_Up.jpg |
+| products/green-coffee-beans.webp | Michael Allen Smith@INeedCoffee from Seattle, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Green_Coffee_Beans_(4075921494).jpg |
+| products/green-peas.webp | Gaurav Dhwaj Khadka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dried_Green_Peas.jpg |
+| products/ground-coffee.webp | Kulmalukko | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Coffee_powdered.jpg |
+| products/gum-arabic.webp | Tarig A. Eltom | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Gum_Arabic.jpg |
+| products/haritaki.webp | Salil Kumar Mukherjee | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Haritaki_(Terminalia_chebula)_fruits_01.jpg |
+| products/hibiscus-flowers.webp | Friday musa | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dried_hibiscus_tea_flower_01.jpg |
+| products/horse-gram.webp | Yercaud-elango | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Macrotyloma_uniflorum-1-market-yercaud-salem-India.JPG |
+| products/indian-robusta-coffee.webp | This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but pl | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Beans_Drying_Coffee_Robusta_Balamuri_Coorg_Feb24_A7C_09491.jpg |
+| products/jowar-flour.webp | Martin Hipangwa | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sorghum_flour.jpg |
+| products/kalanamak-rice.webp | Anay.m.tripathi | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Kalanamak_rice_grains.jpg |
+| products/karaya-gum.webp | François Nguyen | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Gum_karaya_(1).jpg |
+| products/kokum.webp | Badagnani | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Kokumfruitsdried.jpg |
+| products/kulanjan.webp | Eddyback | CC0 | https://commons.wikimedia.org/wiki/File:Alpinia_galanga_dried.jpg |
+| products/kuth-root.webp | Plantagenet | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Saussurea_costus_fresh_dry_roots.jpg |
+| products/lavender-flowers.webp | No machine-readable author provided. MatthiasKabel assumed (based on copyright c | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Dried_lavender.jpg |
+| products/licorice-root.webp | Salil Kumar Mukherjee | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sections_of_liquorice_root.jpg |
+| products/mace.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Mace_1.JPG |
+| products/mahua-flowers.webp | SMarndi | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Madhuca_longifolia_5.jpg |
+| products/maida.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Maida_flour.jpg |
+| products/malkangni-seeds.webp | DrLee | CC0 | https://commons.wikimedia.org/wiki/File:Celastrus_paniculatus_seeds.jpg |
+| products/matta-rice.webp | Mathewdf | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Kerala_matta_rice.jpg |
+| products/moringa-leaf-powder.webp | Satyalatha | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Moringa_leaves_powder.jpg |
+| products/moringa-leaves.webp | Kambai Akau | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dried_moringa_leaves_on_sale_at_the_Monday_Market_in_Kakuri,_Kaduna_01.jpg |
+| products/moringa-seeds.webp | Zarate123 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Moringa_oleifera_(seeds)_07.jpg |
+| products/mucuna-seeds.webp | Piyush Kothari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Black_mucuna_Seed.jpg |
+| products/myrrh-resin.webp | No machine-readable author provided. Gaius Cornelius assumed (based on copyright | Public domain | https://commons.wikimedia.org/wiki/File:Myrrh.JPG |
+| products/neem-seeds.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Azadirachta_indica_MHNT.BOT.2007.40.124.jpg |
+| products/nirmali-seeds.webp | Omar hoftun | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Strychnos_potatorum_seeds,_by_Omar_Hoftun.jpg |
+| products/ponni-rice.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_of_Ponni_Rice.JPG |
+| products/psyllium-seeds.webp | Rillke | CC BY-SA 3.0 de | https://commons.wikimedia.org/wiki/File:Plantaginis_ovatae_semen_069206.jpg |
+| products/red-chilli-flakes.webp | Takeaway | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Chilli_flakes.jpg |
+| products/red-kidney-beans.webp | Tiia Monto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Kidney_beans_2.jpg |
+| products/rice-bran.webp | Palagiri | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Rice_bran.jpg |
+| products/rice-flour.webp | 경빈마마 | CC BY 2.0 kr | https://commons.wikimedia.org/wiki/File:Rice_flour_2.jpg |
+| products/roasted-chana.webp | Nizil Shah | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Roasted_Chickpea_Chana_with_Salt_and_Turmeric.jpg |
+| products/roasted-coffee-beans.webp | MarkSweep | Public domain | https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans.jpg |
+| products/safed-musli.webp | Dharmesh T. Shah | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:%E2%80%9CSafed_Musli_roots_cultivated_in_Gujarat%E2%80%9D.jpg |
+| products/saffron.webp | Hubertl | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Safran-Weinviertel_Niederreiter_2_Gramm_8285.jpg |
+| products/sariva.webp | రహ్మానుద్దీన్ | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Nannari_root.jpg |
+| products/seedlac-shellac.webp | Nuberger13 at en.wikipedia | Public domain | https://commons.wikimedia.org/wiki/File:Shellac_flakes_closeup.JPG |
+| products/shilajit-resin.webp | Valentin | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Purified_Shilajit,_Mumio.jpg |
+| products/split-red-lentils.webp | Sanjay Acharya | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Split_Red_Lentil.jpg |
+| products/split-toor-dal.webp | BaluBFA12 | CC0 | https://commons.wikimedia.org/wiki/File:Split_pigeon_peas.jpg |
+| products/traditional-basmati-rice.webp | cookbookman17 | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Basmati_Rice_India,_raw.jpg |
+| products/tragacanth-gum.webp | Miansari66 | CC0 | https://commons.wikimedia.org/wiki/File:Katira_Gond.JPG |
+| products/vacha.webp | Kostka Martin | CC0 | https://commons.wikimedia.org/wiki/File:Acorus_calamus_rhizomes.jpg |
+| products/vidanga.webp | Earthshine.. at English Wikipedia | Public domain | https://commons.wikimedia.org/wiki/File:Vidanga_Seeds.JPG |
+| products/wheat-bran.webp | No machine-readable author provided. Alistair1978 assumed (based on copyright cl | CC BY-SA 2.5 | https://commons.wikimedia.org/wiki/File:WheatBran.jpg |
+| products/white-peas.webp | Billjones94 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Raw_(dried)_yellow_peas.jpg |
+| products/whole-toor.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cajanus_cajan_MHNT.BOT.2015.2.47.jpg |
+| products/whole-white-urad.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Vigna_mungo_without_skin.jpg |
+| products/yellow-moong-dal.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_scene_of_green_gram.JPG |

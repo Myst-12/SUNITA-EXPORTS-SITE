@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 
-import { categories } from '@/data/products';
+import { productCategories, getAllProducts, productUrl } from '@/data/products';
 import { blogPosts } from '@/data/blog';
 import { exportDestinations } from '@/data/countries';
 import { SITE_URL } from '@/config/site';
@@ -32,25 +32,20 @@ export default function sitemap() {
   }));
 
   // Categories dynamic pages
-  const categoryRoutes = categories.map((cat) => ({
+  const categoryRoutes = productCategories.map((cat) => ({
     url: `${baseUrl}/products/${cat.slug}/`,
     lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
 
-  // Products dynamic pages
-  const productRoutes = [];
-  categories.forEach((cat) => {
-    cat.products.forEach((prod) => {
-      productRoutes.push({
-        url: `${baseUrl}/products/${cat.slug}/${prod.slug}/`,
-        lastModified: new Date().toISOString().split('T')[0],
-        changeFrequency: 'monthly',
-        priority: 0.65,
-      });
-    });
-  });
+  // Product pages (canonical URL only, even when a product is listed in two categories)
+  const productRoutes = getAllProducts().map((prod) => ({
+    url: `${baseUrl}${productUrl(prod)}`,
+    lastModified: new Date().toISOString().split('T')[0],
+    changeFrequency: 'monthly',
+    priority: 0.65,
+  }));
 
   // Country destinations dynamic pages
   const countryRoutes = exportDestinations.map((country) => ({

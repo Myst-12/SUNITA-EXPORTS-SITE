@@ -1,0 +1,19 @@
+.card {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 0.35rem;
+  padding: clamp(14px, 6%, 28px);
+  overflow: hidden;
+}
+.green { background: var(--green-700); color: #fff; }
+.lime { background: var(--lime-100); color: var(--green-900); }
+.turmeric { background: var(--turmeric-100); color: var(--green-900); }
+.cream { background: var(--bg-cream); color: var(--green-900); }
+
+.label { position: absolute; top: clamp(12px, 5%, 22px); left: clamp(14px, 6%, 28px); font-size: 0.7rem; font-weight: 750; opacity: 0.75; }
+.name { font-family: var(--font-display); font-weight: 600; line-height: 1.08; text-wrap: balance; }
+.botanical { font-style: italic; font-size: 0.82rem; opacity: 0.8; }
+
+.sm .name { font-size: clamp(1.05rem, 2.2vw, 1.3rem); }
+.sm .botanical { font-size: 0.75rem; }
+.md .name { font-size: clamp(1.6rem, 3.6vw, 2.6rem); }
+.md .botanical { font-size: 0.95rem; }

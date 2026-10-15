@@ -12,9 +12,10 @@ export default function ProductExplorer({ products, categories }) {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return products.filter((p) => {
-      if (cat !== 'all' && p.category !== cat) return false;
+      if (cat !== 'all' && !p.categories.includes(cat)) return false;
       if (!q) return true;
-      return [p.name, p.categoryName, p.hsCode, ...(p.grades || [])].join(' ').toLowerCase().includes(q);
+      const hay = [p.name, p.latin, p.categoryName, p.subcategoryName, p.hsCode, ...p.forms, ...p.grades].join(' ').toLowerCase();
+      return q.split(/\s+/).every((w) => hay.includes(w));
     });
   }, [products, query, cat]);
 
@@ -26,7 +27,7 @@ export default function ProductExplorer({ products, categories }) {
           <span className="visually-hidden">Search products</span>
           <input
             type="search"
-            placeholder="Search turmeric, basmati, HS 0910…"
+            placeholder="Search cumin, ashwagandha, 1121, Withania, 0910…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
