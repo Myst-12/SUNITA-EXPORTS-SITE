@@ -6,6 +6,7 @@ const nextConfig = {
   // and redirects work. Deploy target: Vercel (or any Node host).
   images: {
     formats: ['image/avif', 'image/webp'],
+    qualities: [75, 90], // 90 for the full-screen homepage hero
   },
   trailingSlash: true,
   async redirects() {
