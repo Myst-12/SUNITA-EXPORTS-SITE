@@ -232,7 +232,7 @@ export const categoryList = [
     slug: 'private-label-oem',
     name: 'Private Label & OEM',
     shortName: 'Private Label',
-    image: '/images/catalog/categories/private-label-oem.webp',
+    image: '/images/scenes/pack-kraft-pouch.webp',
     href: '/private-label/',
     service: true,
     description:

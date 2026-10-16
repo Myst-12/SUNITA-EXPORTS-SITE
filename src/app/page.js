@@ -20,7 +20,7 @@ export const metadata = {
 const destinations = exportDestinations.map(({ slug, coords }) => ({ slug, coords }));
 
 export default function HomePage() {
-  const { hero, about, categories: cat, reach, quote } = HOME;
+  const { hero, about, process, categories: cat, reach, quote } = HOME;
   const totalProducts = Math.floor(getAllProducts().length / 10) * 10;
 
   return (
@@ -44,6 +44,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={80}>
             <p className={styles.text}>{about.text}</p>
+            <p className={styles.credentials}>{about.credentials}</p>
             <Link href="/about/" className="link-arrow">{about.link} <Icon name="arrow-right" /></Link>
           </ScrollReveal>
           <ScrollReveal delay={140} className={styles.statsWrap}>
@@ -56,8 +57,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — Product categories */}
+      {/* 3 — How we operate: text left, image right */}
       <section className={`${styles.section} ${styles.soft}`}>
+        <div className={`container ${styles.process}`}>
+          <ScrollReveal>
+            <h2 className={styles.title}>{process.title}</h2>
+            <p className={styles.text}>{process.text}</p>
+            <ol className={styles.steps}>
+              {process.steps.map((s, i) => (
+                <li key={s.title}>
+                  <span className={styles.stepNo}>{String(i + 1).padStart(2, '0')}</span>
+                  <div><h3>{s.title}</h3><p>{s.text}</p></div>
+                </li>
+              ))}
+            </ol>
+          </ScrollReveal>
+          <ScrollReveal delay={120} className={styles.processImg}>
+            <Image src={process.image} alt={process.imageAlt} fill sizes="(max-width: 860px) 100vw, 45vw" />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 4 — Product categories */}
+      <section className={styles.section}>
         <div className={`container ${styles.catGrid}`}>
           <ScrollReveal className={styles.catHead}>
             <h2 className={styles.title}>{cat.title}</h2>
@@ -78,7 +100,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Global reach */}
+      {/* 5 — Global reach */}
       <section className={styles.section}>
         <div className={`container ${styles.reach}`}>
           <ScrollReveal className={styles.reachCopy}>
@@ -92,7 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 — Get a quote */}
+      {/* 6 — Get a quote */}
       <section className={styles.quoteSection}>
         <div className="container">
           <ScrollReveal className={styles.quote}>

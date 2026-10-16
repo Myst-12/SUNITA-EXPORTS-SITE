@@ -1,4 +1,4 @@
-// Homepage copy, kept here so it can be translated per locale later (Phase 3).
+// Homepage copy, kept in one place so wording changes don't touch layout code.
 export const HOME = {
   hero: {
     title: 'Indian spices, shipped worldwide',
@@ -8,10 +8,23 @@ export const HOME = {
     imageAlt: 'Ripening rice fields and coconut palms in South India',
   },
   about: {
-    title: 'A Mumbai export house you can verify',
+    title: 'Govt. recognised Star Export House',
     text: 'Sunita Agri Exports is a Government-recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label, or as many products in one container — for importers, wholesalers and supermarkets abroad.',
     link: 'About the company',
+    credentials: 'Registered and certified: ISO 22000 · FSSAI · APEDA · US FDA · Spices Board India · BRCGS',
     stats: { years: 'years exporting', countries: 'countries served', products: 'export products' },
+  },
+  process: {
+    title: 'From India’s growing belts to your port',
+    text: 'Every step happens under one roof in Mumbai, so a single team answers for quality, timing and paperwork.',
+    image: '/images/catalog/process-facility.webp',
+    imageAlt: 'Clean food processing line with optical sorting machines',
+    steps: [
+      { title: 'Source', text: 'Direct from growing belts such as Unjha, Guntur, Kerala and Punjab.' },
+      { title: 'Clean & grade', text: 'Destoner, gravity separator, Sortex and pulveriser lines, to your specification.' },
+      { title: 'Pack', text: 'Bulk bags, retail packs or your own label, from 50 g to 50 kg.' },
+      { title: 'Ship', text: 'Sealed and documented at Nhava Sheva, alone or in one mixed container.' },
+    ],
   },
   categories: {
     title: 'What we export',

@@ -25,12 +25,24 @@
 
 /* 2 — Who we are */
 .about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 24px clamp(32px, 6vw, 96px); align-items: start; }
-.about .title { max-width: 14em; }
+.about .title { max-width: 16em; }
+.credentials { font-size: 0.85rem; line-height: 1.6; color: var(--ink-2); margin: -0.5rem 0 1.5rem; max-width: 56ch; }
 .statsWrap { grid-column: 1 / -1; margin-top: clamp(40px, 6vw, 80px); }
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .stats > div { padding-top: 28px; border-top: 1px solid var(--line); }
 .stats dt { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.03em; color: var(--green-700); font-variant-numeric: tabular-nums; }
 .stats dd { margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted); }
+
+/* How we operate */
+.process { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.steps { display: grid; gap: 0; margin-top: 8px; counter-reset: none; }
+.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.stepNo { font-family: var(--font-display); font-size: 1.05rem; color: var(--green-700); line-height: 1.5; font-variant-numeric: tabular-nums; }
+.steps h3 { font-size: 1rem; font-weight: 650; margin: 0 0 2px; }
+.steps p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+.processImg { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-lg); background: #e7ebe5; }
+.processImg img { object-fit: cover; }
 
 /* 3 — Categories: heading takes two cells, so 14 cards + heading fill a clean 4 × 4 grid */
 .catGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px) clamp(16px, 2vw, 28px); }
@@ -57,7 +69,8 @@
 .quoteLink:hover { text-decoration-color: currentColor; }
 
 @media (max-width: 860px) {
-  .about, .reach { grid-template-columns: 1fr; }
+  .about, .reach, .process { grid-template-columns: 1fr; }
+  .processImg { aspect-ratio: 4 / 3; }
   .catGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catHead { padding-right: 0; margin-bottom: 8px; }
   .reachGlobe { max-width: 460px; width: 100%; margin-inline: auto; }
