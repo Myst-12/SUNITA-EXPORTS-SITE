@@ -17,7 +17,7 @@ export async function POST(req, { params }) {
   // Keep only this form's questions, trimmed and length-limited.
   const data = {};
   for (const f of form.fields) {
-    const v = String(body[f.key] ?? '').trim().slice(0, f.type === 'textarea' ? 2000 : 300);
+    const v = String(body[f.key] ?? '').trim().slice(0, f.type === 'textarea' || f.type === 'products' ? 2000 : 300);
     if (f.required && !v) return Response.json({ error: `Please fill in “${f.label}”.` }, { status: 400 });
     if (v && f.type === 'email' && !EMAIL.test(v)) return Response.json({ error: 'Please enter a valid email.' }, { status: 400 });
     if (v && f.type === 'select' && !f.options.includes(v)) return Response.json({ error: `Please choose a valid “${f.label}”.` }, { status: 400 });

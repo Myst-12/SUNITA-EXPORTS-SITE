@@ -99,3 +99,14 @@ export async function deleteForm(id) {
   db.responses = db.responses.filter((r) => r.form_id !== id);
   await writeFile(db);
 }
+
+/** Updates a form's heading, intro or questions (slug, status and responses are untouched). */
+export async function updateForm(id, { title, intro, fields }) {
+  const patch = { title, intro, fields };
+  if (usingDatabase) return (await sb(`forms?id=eq.${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify(patch) }))[0];
+  const db = await readFile();
+  const f = db.forms.find((x) => x.id === id);
+  if (f) Object.assign(f, patch);
+  await writeFile(db);
+  return f;
+}

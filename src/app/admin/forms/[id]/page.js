@@ -4,9 +4,32 @@ import QRCode from 'qrcode';
 import { isAdmin } from '@/lib/forms/auth';
 import { getForm, listResponses } from '@/lib/forms/store';
 import { formUrl } from '@/lib/forms/url';
-import { closeFormAction, reopenFormAction, deleteFormAction } from '../../actions';
+import { closeFormAction, reopenFormAction, deleteFormAction, copyFormAction } from '../../actions';
+import { formStats } from '@/lib/forms/stats';
+import { SITE_URL } from '@/config/site';
 import { CopyLink, LiveRefresh, ConfirmButton } from './AdminTools';
 import s from '../../admin.module.css';
+
+// Ready-to-send follow-up message for one buyer.
+const followUp = (form, r) => `Hello ${r.data.name || ''}, this is Sunita Agri Exports — thank you for visiting us${form.title ? ` at ${form.title}` : ''}. Please tell us the products and quantities you need and we will send our best prices. Our range: ${SITE_URL}/products/`;
+const waLink = (form, r) => { const n = String(r.data.phone || '').replace(/\D/g, ''); return n.length >= 8 ? `https://wa.me/${n}?text=${encodeURIComponent(followUp(form, r))}` : null; };
+
+function Bars({ title, rows, total }) {
+  if (!rows.length) return null;
+  const max = Math.max(...rows.map(([, c]) => c));
+  return (
+    <div className={s.stat}>
+      <h3>{title}</h3>
+      {rows.map(([label, c]) => (
+        <div key={label} className={s.bar}>
+          <span className={s.barLabel}>{label}</span>
+          <span className={s.barTrack}><span style={{ width: `${(c / max) * 100}%` }} /></span>
+          <span className={s.barNum}>{c}{total ? <small> · {Math.round((c / total) * 100)}%</small> : null}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 const ist = (iso, opts) => new Date(iso).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', ...opts });
 
@@ -21,6 +44,7 @@ export default async function FormDetail({ params, searchParams }) {
   const qr = await QRCode.toDataURL(url, { width: 600, margin: 1, color: { dark: '#0f3d22' } });
   const open = form.status === 'open';
   const latest = [...responses].reverse().slice(0, 20);
+  const stats = formStats(responses);
   const line = (r) => [r.data.company, r.data.country, r.data.email || r.data.phone].filter(Boolean).join(' · ');
 
   return (
@@ -35,6 +59,10 @@ export default async function FormDetail({ params, searchParams }) {
             <b style={{ color: 'var(--ink)' }}>{responses.length}</b> response{responses.length === 1 ? '' : 's'}
             {open ? ' · updates live' : form.closed_at ? ` · closed ${ist(form.closed_at, { dateStyle: 'medium', timeStyle: 'short' })}` : ''}
           </p>
+        </div>
+        <div className={s.headActions}>
+          <Link href={`/admin/forms/${id}/edit/`} className="btn btn-outline">Edit</Link>
+          <form action={copyFormAction}><input type="hidden" name="id" value={id} /><button type="submit" className="btn btn-outline">Copy</button></form>
         </div>
       </div>
 
@@ -78,6 +106,23 @@ export default async function FormDetail({ params, searchParams }) {
         </div>
       </div>
 
+      {stats.total > 0 && (
+        <div className={s.card} style={{ marginTop: 14 }}>
+          <h2 className={s.h2}>Dashboard</h2>
+          <div className={s.kpis}>
+            <div><b>{stats.total}</b><span>Total leads</span></div>
+            <div><b>{stats.today}</b><span>Today</span></div>
+            <div><b>{stats.withPhone}</b><span>With WhatsApp</span></div>
+          </div>
+          <div className={s.stats}>
+            <Bars title="Leads per day" rows={stats.byDay} />
+            <Bars title="Top countries" rows={stats.countries} total={stats.total} />
+            <Bars title="Most asked-for products" rows={stats.products} />
+            <Bars title="Business type" rows={stats.business} total={stats.total} />
+          </div>
+        </div>
+      )}
+
       <div className={s.card} style={{ marginTop: 14 }}>
         <h2 className={s.h2}>Latest responses</h2>
         {latest.length === 0 ? <p className={s.meta} style={{ margin: '6px 0 0' }}>No responses yet. They appear here as soon as someone submits.</p> : (
@@ -86,7 +131,14 @@ export default async function FormDetail({ params, searchParams }) {
               <div key={r.id} className={s.resp}>
                 <b>{r.data.name || r.data.company || 'Response'}</b>
                 {line(r) && <span>{line(r)}</span>}
+                {r.data.products && <span>{r.data.products}</span>}
                 <span>{ist(r.created_at, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}</span>
+                {(waLink(form, r) || r.data.email) && (
+                  <div className={s.respActions}>
+                    {waLink(form, r) && <a href={waLink(form, r)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-sm">WhatsApp</a>}
+                    {r.data.email && <a href={`mailto:${r.data.email}?subject=${encodeURIComponent(`Sunita Agri Exports — ${form.title}`)}&body=${encodeURIComponent(followUp(form, r))}`} className="btn btn-outline btn-sm">Email</a>}
+                  </div>
+                )}
               </div>
             ))}
           </div>
