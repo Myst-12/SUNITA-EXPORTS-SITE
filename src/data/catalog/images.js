@@ -245,4 +245,20 @@ export const productImages = {
   'mucuna-seeds': '/images/catalog/mucuna-seeds.webp', // generated
   'neem-seeds': '/images/catalog/neem-seeds.webp', // generated
   'psyllium-seeds': '/images/catalog/psyllium-seeds.webp', // generated
+  'bird-feed-millet': '/images/catalog/bird-feed-millet.webp', // generated
+  'biscuits-bakery': '/images/catalog/biscuits-bakery.webp', // generated
+  'canary-seed': '/images/catalog/canary-seed.webp', // generated
+  'cottonseed-meal': '/images/catalog/cottonseed-meal.webp', // generated
+  'feed-maize': '/images/catalog/feed-maize.webp', // generated
+  'feed-millet': '/images/catalog/feed-millet.webp', // generated
+  'mustard-meal': '/images/catalog/mustard-meal.webp', // generated
+  'other-basmati-varieties': '/images/catalog/other-basmati-varieties.webp', // generated
+  'other-oilseed-meals': '/images/catalog/other-oilseed-meals.webp', // generated
+  'packaged-pulses-dals': '/images/catalog/packaged-pulses-dals.webp', // generated
+  'packaged-rice-staples': '/images/catalog/packaged-rice-staples.webp', // generated
+  'packaged-spices-masalas': '/images/catalog/packaged-spices-masalas.webp', // generated
+  'ready-to-eat-instant-food': '/images/catalog/ready-to-eat-instant-food.webp', // generated
+  'rice-bran': '/images/catalog/rice-bran.webp', // generated
+  'sooji-rava': '/images/catalog/sooji-rava.webp', // generated
+  'sweets-confectionery': '/images/catalog/sweets-confectionery.webp', // generated
 };
