@@ -4,8 +4,8 @@ export const HOME = {
     title: 'Indian spices, shipped worldwide',
     lead: 'Spices, rice, pulses and Indian groceries, sourced and packed in Mumbai since 2010.',
     cta: 'Explore our products',
-    image: '/images/hero/fields-palms.webp',
-    imageAlt: 'Ripening rice fields and coconut palms in South India',
+    image: '/images/hero/spices-wood.webp', // AI-generated illustration
+    imageAlt: 'Bowls of colourful Indian spices on a dark wooden table',
   },
   about: {
     title: 'Govt. recognised Star Export House',

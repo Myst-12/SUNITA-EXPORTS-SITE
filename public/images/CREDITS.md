@@ -122,7 +122,6 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | scenes/grocery-store.webp | https://images.unsplash.com/photo-1739066598279-1297113f5c6a |
 | scenes/supermarket.webp | https://images.unsplash.com/photo-1604719312566-8912e9227c6a |
 | scenes/supermarket-aisle.webp | https://images.unsplash.com/photo-1578916171728-46686eac8d58 |
-| hero/fields-palms.webp | https://unsplash.com/photos/-u7_Bu8hya8 (Milin John) |
 
 ## Wikimedia Commons (attribution required)
 

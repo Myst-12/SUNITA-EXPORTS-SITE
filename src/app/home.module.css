@@ -6,8 +6,9 @@
 .text { font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.75; color: var(--muted); max-width: 56ch; margin-bottom: 1.5rem; text-wrap: pretty; }
 
 /* 1 — Hero */
-.hero { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: 100svh; color: #fff; background: #5d7a52; }
-.heroImg { z-index: -2; object-fit: cover; object-position: center 70%; animation: heroSettle 2.4s var(--ease) both; }
+.hero { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: 100svh; color: #fff; background: #1f1813; }
+.heroImg { z-index: -2; object-fit: cover; object-position: center; animation: heroSettle 2.4s var(--ease) both; }
+@media (max-width: 860px) { .heroImg { object-position: 78% center; } }
 .heroScrim {
   position: absolute; inset: 0; z-index: -1;
   background:
