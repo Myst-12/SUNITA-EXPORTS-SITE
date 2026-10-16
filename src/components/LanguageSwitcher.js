@@ -84,8 +84,11 @@ export default function LanguageSwitcher() {
     location.reload();
   };
 
+  const current = LANGUAGES.find((l) => l.code === lang) || LANGUAGES[0];
+
   const list = (
     <ul className={styles.menu} role="listbox" aria-label="Choose language">
+      <li className={styles.menuHead}>Language · Idioma · اللغة · Langue</li>
       {LANGUAGES.map((l) => (
         <li key={l.code}>
           <button type="button" role="option" aria-selected={l.code === lang} lang={l.code}
@@ -99,8 +102,11 @@ export default function LanguageSwitcher() {
 
   return (
     <div ref={ref} className={`notranslate ${styles.wrap}`} translate="no">
-      <button type="button" className={styles.toggle} onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-label="Change language">
-        <Icon name="globe" size={17} /> <span>{lang.split('-')[0].toUpperCase()}</span>
+      <button type="button" className={styles.toggle} onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-label="Change language" title="Change language">
+        <Icon name="globe" size={16} />
+        <span className={styles.full}>{current.label}</span>
+        <span className={styles.short}>{lang.split('-')[0].toUpperCase()}</span>
+        <Icon name="chevron-down" size={14} className={`${styles.chev} ${open ? styles.chevOpen : ''}`} />
       </button>
       {open && list}
       <div id="google_translate_element" hidden />

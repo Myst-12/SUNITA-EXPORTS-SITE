@@ -1,8 +1,15 @@
 .wrap { position: relative; }
 .toggle {
-  display: inline-flex; align-items: center; gap: 0.3rem; height: 38px; padding: 0 0.6rem; border-radius: 999px;
-  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; color: inherit; transition: background 0.25s;
+  display: inline-flex; align-items: center; gap: 0.4rem; height: 38px; padding: 0 0.7rem 0 0.75rem; border-radius: 999px;
+  border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 35%, transparent);
+  font-size: 0.85rem; font-weight: 600; color: inherit; transition: background 0.25s, border-color 0.25s;
 }
+.toggle:hover { border-color: currentColor; }
+.short { display: none; }
+.chev { opacity: 0.75; transition: transform 0.25s var(--ease); }
+.chevOpen { transform: rotate(180deg); }
+.menuHead { grid-column: 1 / -1; padding: 0.4rem 0.75rem 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+@media (max-width: 520px) { .full { display: none; } .short { display: inline; } .toggle { padding: 0 0.55rem; } }
 .toggle:hover { background: rgba(127, 127, 127, 0.12); }
 .menu {
   position: absolute; right: 0; top: calc(100% + 8px); z-index: 120; width: min(360px, calc(100vw - 32px)); padding: 6px;
