@@ -146,6 +146,19 @@ export const exportDestinations = [
     shippingPorts: ['Hamad Port (Doha)']
   },
   {
+    name: 'Bahrain',
+    slug: 'bahrain',
+    coords: [26.2, 50.6],
+    region: 'Middle East',
+    flag: '🇧🇭',
+    seoTitle: 'Indian Grocery, Rice & Spices Exporter to Bahrain',
+    seoDescription: 'Indian groceries, basmati rice, pulses, spices and FMCG exported from Mumbai to Bahrain. Mixed containers with Arabic/English labelling.',
+    introText: 'We supply Bahraini importers, supermarkets and wholesalers with Indian rice, pulses, spices and packaged groceries in mixed containers from Mumbai.',
+    keyProducts: ['Basmati Rice', 'Pulses & Dals', 'Spices & Masalas', 'Indian Snacks & FMCG'],
+    certificationsRequired: ['Health Certificate', 'Certificate of Origin', 'Halal Certificate (where applicable)'],
+    shippingPorts: ['Khalifa Bin Salman Port', 'Via Jebel Ali transhipment']
+  },
+  {
     name: 'New Zealand',
     slug: 'new-zealand',
     coords: [-36.85, 174.76],

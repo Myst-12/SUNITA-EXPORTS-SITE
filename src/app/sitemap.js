@@ -19,6 +19,8 @@ export default function sitemap() {
     '/faq',
     '/blog',
     '/fmcg',
+    '/indian-grocery-exporter',
+    '/indian-spices-exporter',
     '/mixed-container',
     '/private-label',
     '/knowledge',

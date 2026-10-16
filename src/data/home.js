@@ -2,7 +2,7 @@
 export const HOME = {
   hero: {
     title: 'Indian spices, shipped worldwide',
-    lead: 'A Govt. recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
+    lead: 'Indian spices, rice, pulses and grocery exporter — a Govt. recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
     trust: 'Since 2010 · 40+ countries · ISO 22000 · FSSAI · APEDA · US FDA',
     cta: 'Explore our products',
     image: '/images/hero/spices-wood.webp', // AI-generated illustration

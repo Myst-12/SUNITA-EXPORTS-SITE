@@ -6,6 +6,8 @@ const COMPANY_LINKS = [
   { label: 'About us', href: '/about/' },
   { label: 'Quality & certifications', href: '/certifications/' },
   { label: 'Export markets', href: '/exports/' },
+  { label: 'Indian grocery exporter', href: '/indian-grocery-exporter/' },
+  { label: 'Indian spices exporter', href: '/indian-spices-exporter/' },
   { label: 'Mixed container', href: '/mixed-container/' },
   { label: 'Private label', href: '/private-label/' },
   { label: 'Buyer guides', href: '/knowledge/' },

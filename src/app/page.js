@@ -10,9 +10,9 @@ import { whatsappLink } from '@/config/site';
 import styles from './home.module.css';
 
 export const metadata = {
-  title: { absolute: 'Indian Spices Exporter & Indian Grocery Supplier | Sunita Agri Exports, Mumbai' },
+  title: { absolute: 'Indian Grocery, FMCG & Spices Exporter | Sunita Agri Exports, Mumbai' },
   description:
-    'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
+    'Indian grocery and FMCG exporter: spices, rice, pulses and branded Indian groceries shipped from Mumbai since 2010 to the UAE, Saudi Arabia, the Gulf and 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
   alternates: { canonical: '/' },
 };
 
