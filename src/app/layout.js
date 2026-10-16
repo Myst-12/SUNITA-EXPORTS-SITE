@@ -33,7 +33,7 @@ export const metadata = {
     default: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports, Mumbai',
     template: '%s | Sunita Agri Exports',
   },
-  description: 'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries. Mixed containers, private label, FOB/CIF. Request a quote.',
+  description: 'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries. Mixed containers, private label, FOB/CIF. Request a quote.',
   authors: [{ name: 'Sunita Agri Exports Pvt. Ltd.' }],
   creator: 'Sunita Agri Exports Pvt. Ltd.',
   publisher: 'Sunita Agri Exports Pvt. Ltd.',
@@ -48,7 +48,7 @@ export const metadata = {
     url: SITE_URL,
     siteName: 'Sunita Agri Exports',
     title: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports',
-    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries.',
+    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries.',
     images: [
       {
         url: '/images/og-image.jpg',
@@ -61,7 +61,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Indian Spices Exporter & Indian FMCG Supplier | Sunita Agri Exports',
-    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries.',
+    description: 'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries.',
     images: ['/images/og-image.jpg'],
   },
   robots: {

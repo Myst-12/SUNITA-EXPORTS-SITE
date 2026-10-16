@@ -8,3 +8,5 @@
 .thumb img { object-fit: cover; }
 .thumb:hover { opacity: 1; }
 .thumbActive { border-color: var(--green-600); opacity: 1; }
+
+.note { margin: 8px 0 0; font-size: 0.75rem; color: var(--muted); }

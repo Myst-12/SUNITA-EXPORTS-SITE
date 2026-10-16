@@ -26,7 +26,7 @@ export default function CreditsPage() {
   const rows = readCredits();
   return (
     <>
-      <PageHero compact crumbs={[{ label: 'Image credits', href: '/credits/' }]} eyebrow="Credits" title="Image credits" lead="Some photographs on this site are licensed stock images used for illustration. We thank the photographers below." />
+      <PageHero compact crumbs={[{ label: 'Image credits', href: '/credits/' }]} eyebrow="Credits" title="Image credits" lead="Product photographs are supplied by Sunita Agri Exports or are AI-generated illustrations. Some other photographs on this site are licensed stock images; we thank the photographers below." />
       <section className="section-sm">
         <div className="container">
           <div style={{ overflowX: 'auto', border: '1px solid var(--line)', borderRadius: 14 }}>

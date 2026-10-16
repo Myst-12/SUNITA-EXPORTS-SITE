@@ -24,6 +24,7 @@ export default function ProductGallery({ images = [], alt }) {
           />
         ))}
       </div>
+      <p className={styles.note}>Image for illustration; actual product may vary by grade and lot.</p>
       {list.length > 1 && (
         <div className={styles.thumbs} role="tablist" aria-label="Product images">
           {list.map((src, i) => (

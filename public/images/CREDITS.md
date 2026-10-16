@@ -1,6 +1,8 @@
 # Image credits
 
 Placeholder stock imagery until real company photos are available.
+
+Product photos in images/catalog/ are supplied by Sunita Agri Exports or AI-generated illustrations (src/data/catalog/images.js says which); they are not third-party stock. Rows below remain for images still used elsewhere on the site.
 Unsplash images: Unsplash License (free commercial use, no attribution required).
 
 | File | Source |

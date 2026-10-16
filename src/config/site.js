@@ -17,11 +17,11 @@ export const COMPANY = {
   legalName: 'Sunita Agri Exports Pvt. Ltd.',
   shortName: 'Sunita Exports',
   tagline: 'Giving superior quality products to the world',
-  foundingYear: 1994,
+  foundingYear: 2010,
   status: 'Govt. Recognised Star Export House',
   countriesServed: '40+',
   description:
-    'Mumbai-based exporter of Indian spices, rice, pulses, oilseeds, herbs, dehydrated products and Indian FMCG groceries since 1994. Govt. recognised Star Export House shipping consolidated and full containers to 40+ countries.',
+    'Mumbai-based exporter of Indian spices, rice, pulses, oilseeds, herbs, dehydrated products and Indian FMCG groceries since 2010. Govt. recognised Star Export House shipping consolidated and full containers to 40+ countries.',
   logo: '/images/logo-mark.png',
 };
 

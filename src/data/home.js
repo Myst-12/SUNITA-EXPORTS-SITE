@@ -2,13 +2,13 @@
 export const HOME = {
   hero: {
     title: 'Indian spices, shipped worldwide',
-    lead: 'Spices, rice, pulses and Indian groceries, sourced and packed in Mumbai since 1994.',
+    lead: 'Spices, rice, pulses and Indian groceries, sourced and packed in Mumbai since 2010.',
     cta: 'Explore our products',
     image: '/images/hero/fields-palms.webp',
     imageAlt: 'Ripening rice fields and coconut palms in South India',
   },
   about: {
-    title: 'A Mumbai export house, three decades on',
+    title: 'A Mumbai export house you can verify',
     text: 'Sunita Agri Exports is a Government-recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label, or as many products in one container — for importers, wholesalers and supermarkets abroad.',
     link: 'About the company',
     stats: { years: 'years exporting', countries: 'countries served', products: 'export products' },

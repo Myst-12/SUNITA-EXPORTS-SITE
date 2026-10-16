@@ -205,7 +205,7 @@ export const exportDestinations = [
     flag: '🇺🇬',
     seoTitle: 'Indian Rice, Spices & Grocery Exporter to Uganda, Kenya & East Africa',
     seoDescription: 'Indian rice, spices, pulses and FMCG groceries exported to Uganda, Kenya and Tanzania via Mombasa and Dar es Salaam.',
-    introText: 'Africa has been one of our growth markets for decades. We ship rice, spices, pulses and Indian groceries to Uganda, Kenya and Tanzania through Mombasa and Dar es Salaam, with inland transit coordinated by our forwarding partners.',
+    introText: 'Africa has been one of our growth markets for years. We ship rice, spices, pulses and Indian groceries to Uganda, Kenya and Tanzania through Mombasa and Dar es Salaam, with inland transit coordinated by our forwarding partners.',
     keyProducts: ['Parboiled & Basmati Rice', 'Spices', 'Pulses', 'Indian FMCG'],
     certificationsRequired: ['Pre-Export Verification of Conformity (PVoC)', 'Certificate of Origin', 'Phytosanitary Certificate'],
     shippingPorts: ['Mombasa (for Uganda & Kenya)', 'Dar es Salaam']

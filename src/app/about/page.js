@@ -9,9 +9,9 @@ import { getAllProducts } from '@/data/products';
 import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'About Us — Indian Spice & Food Exporter Since 1994',
+  title: 'About Us — Indian Spice & Food Exporter Since 2010',
   description:
-    'Sunita Agri Exports Pvt. Ltd. is a Govt. recognised Star Export House in Mumbai exporting Indian spices, rice, pulses and FMCG groceries since 1994 to 40+ countries. Our story, values and trade fairs.',
+    'Sunita Agri Exports Pvt. Ltd. is a Govt. recognised Star Export House in Mumbai exporting Indian spices, rice, pulses and FMCG groceries since 2010 to 40+ countries. Our story, values and trade fairs.',
   alternates: { canonical: '/about/' },
 };
 
@@ -23,15 +23,15 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { when: '1994', what: 'Founded in Mumbai to serve the Asian community worldwide with Indian foods, spices, pulses and provisions.' },
-  { when: '2000s', what: 'Steady growth in the United States, Canada, Australia and Africa; consolidated (mixed) containers become our speciality.' },
-  { when: '2010s', what: 'Processing support with destoner, gravity separator, Sortex and pulveriser; private label and customised consumer packaging added.' },
+  { when: '2010', what: 'Founded in Mumbai to serve the Asian community worldwide with Indian foods, spices, pulses and provisions.' },
+  { when: '2010s', what: 'Steady growth in the United States, Canada, Australia and Africa; consolidated (mixed) containers become our speciality.' },
+  { when: '2020s', what: 'Processing support with destoner, gravity separator, Sortex and pulveriser; private label and customised consumer packaging added.' },
   { when: 'Today', what: `${COMPANY.status} serving importers, supermarkets and distributors in ${COMPANY.countriesServed} countries.` },
 ];
 
 const WHY = [
   { title: 'One-stop sourcing', text: 'Spices, rice, pulses, oilseeds, herbs, dehydrated products and FMCG from one exporter.' },
-  { title: 'Consolidation experts', text: 'Decades of planning mixed containers for importers who need range, not just volume.' },
+  { title: 'Consolidation experts', text: 'Years of planning mixed containers for importers who need range, not just volume.' },
   { title: 'Processing support', text: 'Cleaning, grading, Sortex and grinding to buyer specification.' },
   { title: 'Export compliance', text: 'Certifications, lab reports and complete paperwork for every destination.' },
   { title: 'Private label', text: 'Products in your brand with customised consumer packaging.' },
@@ -45,7 +45,7 @@ export default function AboutPage() {
       <PageHero
         crumbs={[{ label: 'About Us', href: '/about/' }]}
         eyebrow={`Since ${COMPANY.foundingYear} · Mumbai, India`}
-        title="Bringing India’s flavours to the world for over three decades"
+        title="Bringing India’s flavours to the world since 2010"
         lead={`${COMPANY.legalName} is a ${COMPANY.status} exporting Indian spices, rice, pulses, fresh produce and general provisions — one stop for all your food requirements from India.`}
         image="/images/scenes/market-sorting.webp"
         imageAlt="Spices being sorted and packed"
@@ -83,7 +83,7 @@ export default function AboutPage() {
         <div className={`container ${s.split}`}>
           <div>
             <span className="eyebrow">Milestones</span>
-            <h2>Three decades of steady growth</h2>
+            <h2>Steady growth, year after year</h2>
             <ol className={`${s.timeline} mt-3`}>
               {MILESTONES.map((m) => (
                 <li key={m.when}><strong>{m.when}</strong><p>{m.what}</p></li>

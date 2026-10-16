@@ -13,7 +13,7 @@ import styles from './home.module.css';
 export const metadata = {
   title: { absolute: 'Indian Spices Exporter & Indian Grocery Supplier | Sunita Agri Exports, Mumbai' },
   description:
-    'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 1994 to 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
+    'Sunita Agri Exports — Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
   alternates: { canonical: '/' },
 };
 

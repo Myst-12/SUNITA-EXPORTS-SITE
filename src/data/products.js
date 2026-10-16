@@ -1,5 +1,6 @@
 import { categoryList } from './catalog/categories.js';
 import { products as productList } from './catalog/products.js';
+import { productImages } from './catalog/images.js';
 
 /**
  * Catalogue API used by pages. Data lives in ./catalog/ (categories + products).
@@ -17,7 +18,10 @@ export const productUrl = (p) => `/products/${p.category}/${p.slug}/`;
 export const specSheetUrl = (p) => `/spec-sheets/${p.slug}.pdf`;
 export const quoteUrl = (p) => `/contact/?product=${encodeURIComponent(p.name)}`;
 
-function normalize(p) {
+function normalize(raw) {
+  // Approved catalogue photos (client-supplied or generated) take precedence over the original stock images.
+  const image = productImages[raw.slug] || raw.image;
+  const p = image === raw.image ? raw : { ...raw, image, gallery: [image] };
   const n = shortName(p.name);
   // Scientific name worth showing next to the product name (not "Spice blend", "Various"…).
   const latin = p.botanicalName && p.type !== 'fmcg' && !/blend|various/i.test(p.botanicalName) ? p.botanicalName : null;

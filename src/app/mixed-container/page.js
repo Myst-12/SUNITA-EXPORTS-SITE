@@ -11,7 +11,7 @@ import s from '../pages.module.css';
 export const metadata = {
   title: 'Mixed Container from India — Consolidated Spices, Rice & Grocery',
   description:
-    'Ship Indian spices, rice, pulses and FMCG groceries together in one mixed 20 ft or 40 ft container. Consolidation, documentation and FOB / CIF shipping from Mumbai by Sunita Agri Exports since 1994.',
+    'Ship Indian spices, rice, pulses and FMCG groceries together in one mixed 20 ft or 40 ft container. Consolidation, documentation and FOB / CIF shipping from Mumbai by Sunita Agri Exports since 2010.',
   alternates: { canonical: '/mixed-container/' },
 };
 
@@ -43,7 +43,7 @@ export default function MixedContainerPage() {
     <>
       <PageHero
         crumbs={[{ label: 'Mixed Container', href: '/mixed-container/' }]}
-        eyebrow="Our speciality since 1994"
+        eyebrow="Our speciality since 2010"
         title="Many products. One container. One supplier."
         lead="Combine whole and ground spices, rice, pulses, oilseeds and Indian FMCG groceries in a single 20 ft or 40 ft load — consolidated, documented and shipped from Mumbai."
         image="/images/scenes/port-day.webp"
