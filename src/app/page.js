@@ -18,6 +18,13 @@ export const metadata = {
 
 const destinations = exportDestinations.map(({ slug, coords }) => ({ slug, coords }));
 
+// Markets grouped by region for the reach section (Turkey's 'Europe / Middle East' sits with Europe).
+const REGION_ORDER = ['Middle East', 'North America', 'Europe', 'Asia', 'Oceania', 'Africa'];
+const regions = REGION_ORDER.map((r) => ({
+  name: r,
+  markets: exportDestinations.filter((d) => d.region.split(' / ')[0] === r),
+})).filter((r) => r.markets.length);
+
 export default function HomePage() {
   const { hero, process, categories: cat, reach, quote } = HOME;
 
@@ -79,11 +86,21 @@ export default function HomePage() {
       </section>
 
       {/* 4 — Global reach */}
-      <section className={styles.section}>
+      <section className={`${styles.section} ${styles.reachSection}`}>
         <div className={`container ${styles.reach}`}>
           <ScrollReveal className={styles.reachCopy}>
             <h2 className={styles.title}>{reach.title}</h2>
             <p className={styles.text}>{reach.text}</p>
+            <dl className={styles.regions}>
+              {regions.map((r) => (
+                <div key={r.name}>
+                  <dt>{r.name}</dt>
+                  <dd>{r.markets.map((m, i) => (
+                    <span key={m.slug}>{i > 0 && ', '}<Link href={`/exports/${m.slug}/`}>{m.name}</Link></span>
+                  ))}</dd>
+                </div>
+              ))}
+            </dl>
             <Link href="/exports/" className="link-arrow">{reach.link} <Icon name="arrow-right" /></Link>
           </ScrollReveal>
           <ScrollReveal delay={120} className={styles.reachGlobe}>

@@ -55,6 +55,13 @@
 /* 4 — Global reach */
 .reach { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
 .reachCopy .title { max-width: 12em; }
+.reachSection { background: radial-gradient(ellipse 60% 70% at 72% 50%, #ffffff 0%, var(--green-50) 62%), var(--green-50); }
+.reach { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; margin: 0.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--green-200); }
+.regions dt { font-size: 0.78rem; font-weight: 700; color: var(--green-700); margin-bottom: 4px; }
+.regions dd { font-size: 0.95rem; line-height: 1.55; color: var(--ink); }
+.regions a { transition: color 0.2s var(--ease); }
+.regions a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
 
 /* 5 — Quote band */
 .quoteSection { padding-bottom: clamp(80px, 11vw, 152px); }
