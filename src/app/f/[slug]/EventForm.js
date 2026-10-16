@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { track } from '@/lib/track';
 import { whatsappLink, CONTACT } from '@/config/site';
 import { COUNTRY_META } from '@/lib/forms/fields';
 import { FORM_LANGS, RTL, BUSINESS_TYPES, strings, detectLang } from '@/lib/forms/i18n';
@@ -116,6 +117,8 @@ export default function EventForm({ slug, title, intro, brand, open, fields, pro
       const res = await fetch(`/api/forms/${slug}/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       const json = await res.json().catch(() => ({}));
       if (res.ok) {
+        track('event_form_submit', { form: title, language: lang, country: body.country || '' });
+        track('generate_lead', { form: 'event', event: title });
         formEl.reset(); setPicked([]); setPhone(''); setCountry('');
         setStatus('sent'); window.scrollTo({ top: 0, behavior: 'smooth' });
       } else { setStatus('error'); setError(json.error || t.err); }

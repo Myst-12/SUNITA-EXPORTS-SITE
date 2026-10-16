@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Icon from './Icon';
 import LanguagePrompt from './LanguagePrompt';
+import { track } from '@/lib/track';
 import styles from './LanguageSwitcher.module.css';
 
 // Interim machine translation via the Google Translate widget, until real translated pages (Phase 3) replace it.
@@ -81,6 +82,7 @@ export default function LanguageSwitcher() {
   const choose = (code) => {
     setOpen(false);
     if (code === lang) return;
+    track('language_change', { language: code });
     writeCookie(code === 'en' ? '' : `/en/${code}`);
     location.reload();
   };

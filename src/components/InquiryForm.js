@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Icon from './Icon';
+import { track } from '@/lib/track';
 import { CONTACT, WEB3FORMS_KEY, whatsappLink } from '@/config/site';
 import styles from './InquiryForm.module.css';
 
@@ -54,6 +55,7 @@ export default function InquiryForm() {
       });
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
+        track('generate_lead', { form: 'quote', country: data.country, products: data.productInterest.slice(0, 100) });
         setStatus('sent');
       } else {
         setStatus('error');

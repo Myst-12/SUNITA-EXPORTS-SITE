@@ -50,7 +50,7 @@ export default function LanguagePrompt({ current, onSwitch }) {
   const [question, yes] = ASK[code];
 
   return (
-    <div className={`notranslate ${styles.prompt}`} translate="no" role="dialog" aria-label="Language">
+    <div data-lang-prompt className={`notranslate ${styles.prompt}`} translate="no" role="dialog" aria-label="Language">
       <p lang={code} dir={RTL.has(code) ? 'rtl' : 'ltr'}>{question}</p>
       <div className={styles.promptActions}>
         <button type="button" className={styles.promptYes} lang={code} onClick={() => { done(); onSwitch(code); }}>{yes}</button>

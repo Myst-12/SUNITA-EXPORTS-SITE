@@ -1,0 +1,15 @@
+.bar {
+  position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 125; width: min(380px, calc(100vw - 32px));
+  padding: 14px 16px; background: #fff; color: var(--ink); border-radius: var(--radius); box-shadow: var(--shadow-float);
+  transition: opacity 240ms var(--ease), transform 240ms var(--ease);
+}
+@starting-style { .bar { opacity: 0; transform: translateY(8px); } }
+.bar p { margin: 0 0 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-2); }
+.bar a { color: var(--green-700); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.actions { display: flex; gap: 8px; }
+.yes, .no { flex: 1; min-height: 42px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; transition: transform 100ms var(--ease); }
+.yes { background: var(--green-700); color: #fff; }
+.no { color: var(--ink-2); border: 1px solid var(--line-strong); }
+.yes:active, .no:active { transform: scale(0.97); }
+@media (max-width: 520px) { .bar { bottom: calc(84px + env(safe-area-inset-bottom)); } }
+@media (prefers-reduced-motion: reduce) { .bar { transition: opacity 200ms; } }
