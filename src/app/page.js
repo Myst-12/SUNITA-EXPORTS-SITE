@@ -35,7 +35,6 @@ export default function HomePage() {
         <Image src={hero.image} alt={hero.imageAlt} fill priority quality={90} sizes="100vw" className={styles.heroImg} />
         <span className={styles.heroScrim} aria-hidden="true" />
         <div className={`container ${styles.heroInner}`}>
-          <Image src="/images/logo-mark.png" alt="Sunita Agri Exports logo" width={176} height={176} priority className={styles.heroLogo} />
           <h1 className={styles.heroTitle}>{hero.title}</h1>
           <p className={styles.heroLead}>{hero.lead}</p>
           <p className={styles.heroTrust}>{hero.trust}</p>
