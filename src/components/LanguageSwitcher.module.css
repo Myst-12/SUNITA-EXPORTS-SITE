@@ -24,3 +24,12 @@
 @starting-style { .menu { opacity: 0; transform: translateY(-4px) scale(0.98); } }
 .toggle:active { transform: scale(0.97); }
 .toggle { transition: background 0.25s, border-color 0.25s, transform 100ms var(--ease); }
+
+/* Phones: the toggle sits mid-header, so anchor the menu to the screen instead of the button. */
+@media (max-width: 640px) {
+  .menu {
+    position: fixed; left: 16px; right: 16px; top: calc(var(--header-h) + 8px); width: auto;
+    max-height: calc(100dvh - var(--header-h) - 32px - env(safe-area-inset-bottom, 0px));
+    transform-origin: top center;
+  }
+}
