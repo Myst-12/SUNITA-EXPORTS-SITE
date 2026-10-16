@@ -9,7 +9,7 @@
 .heading { margin-bottom: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--ink); }
 .list { display: grid; gap: 0.6rem; }
 .list a { transition: color 0.2s var(--ease); }
-.list a:hover, .bottomLinks a:hover { color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .list a:hover, .bottomLinks a:hover { color: var(--green-700); } }
 .more { font-weight: 650; color: var(--green-700); }
 .address { display: block; max-width: 30ch; line-height: 1.6; }
 

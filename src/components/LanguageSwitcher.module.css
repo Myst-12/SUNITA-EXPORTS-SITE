@@ -4,18 +4,23 @@
   border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 35%, transparent);
   font-size: 0.85rem; font-weight: 600; color: inherit; transition: background 0.25s, border-color 0.25s;
 }
-.toggle:hover { border-color: currentColor; }
+@media (hover: hover) and (pointer: fine) { .toggle:hover { border-color: currentColor; } }
 .short { display: none; }
 .chev { opacity: 0.75; transition: transform 0.25s var(--ease); }
 .chevOpen { transform: rotate(180deg); }
 .menuHead { grid-column: 1 / -1; padding: 0.4rem 0.75rem 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); margin-bottom: 4px; }
 @media (max-width: 520px) { .full { display: none; } .short { display: inline; } .toggle { padding: 0 0.55rem; } }
-.toggle:hover { background: rgba(127, 127, 127, 0.12); }
+@media (hover: hover) and (pointer: fine) { .toggle:hover { background: rgba(127, 127, 127, 0.12); } }
 .menu {
   position: absolute; right: 0; top: calc(100% + 8px); z-index: 120; width: min(360px, calc(100vw - 32px)); padding: 6px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 0 4px; max-height: min(70vh, 520px); overflow-y: auto; overscroll-behavior: contain;
   background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-float);
 }
 .option { display: block; width: 100%; padding: 0.5rem 0.75rem; border-radius: 8px; text-align: left; font-size: 0.9rem; color: var(--ink-2); }
-.option:hover { background: var(--bg-mist); color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .option:hover { background: var(--bg-mist); color: var(--green-700); } }
 .current { font-weight: 700; color: var(--green-700); }
+
+.menu { transform-origin: top right; transition: opacity 180ms var(--ease), transform 180ms var(--ease); }
+@starting-style { .menu { opacity: 0; transform: translateY(-4px) scale(0.98); } }
+.toggle:active { transform: scale(0.97); }
+.toggle { transition: background 0.25s, border-color 0.25s, transform 100ms var(--ease); }

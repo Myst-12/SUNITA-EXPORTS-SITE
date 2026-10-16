@@ -9,7 +9,7 @@
 .cta p { margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--ink-2); }
 .more { display: grid; gap: 10px; margin-top: 1rem; }
 .moreItem { display: flex; gap: 0.85rem; align-items: center; padding: 10px; border-radius: var(--radius); background: #fff; border: 1px solid transparent; transition: box-shadow 0.2s; }
-.moreItem:hover { box-shadow: var(--shadow-sm); }
+@media (hover: hover) and (pointer: fine) { .moreItem:hover { box-shadow: var(--shadow-sm); } }
 .moreImg { position: relative; width: 84px; height: 64px; border-radius: 10px; overflow: hidden; flex: none; }
 .moreImg img { object-fit: cover; }
 .moreItem strong { display: block; color: var(--ink); font-size: 0.95rem; line-height: 1.35; }

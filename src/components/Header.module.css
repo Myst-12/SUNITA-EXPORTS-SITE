@@ -39,11 +39,12 @@
   width: 260px; padding: 10px;
   background: #fff; border-radius: var(--radius);
   box-shadow: var(--shadow-float);
-  opacity: 0; visibility: hidden; transform: translateY(6px);
-  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  opacity: 0; visibility: hidden; transform: translateY(4px) scale(0.98); transform-origin: top left;
+  /* Exit is quicker than entry: the system responds fast, the user isn't waiting on a fade-out. */
+  transition: opacity 0.15s var(--ease), transform 0.15s var(--ease), visibility 0.15s;
 }
 .dropdown::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
-.item:hover > .dropdown, .item:focus-within > .dropdown { opacity: 1; visibility: visible; transform: none; }
+.item:hover > .dropdown, .item:focus-within > .dropdown { opacity: 1; visibility: visible; transform: none; transition-duration: 0.2s; }
 .dropWide { width: 520px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; }
 .dropLink { display: flex; align-items: center; gap: 0.35rem; padding: 0.55rem 0.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--ink-2); transition: background 0.2s, color 0.2s; }
 .dropLink:hover { background: var(--bg-mist); color: var(--green-700); }
@@ -87,7 +88,7 @@
 .rotate { transform: rotate(180deg); }
 .drawerSub { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; padding: 8px 0 14px; border-bottom: 1px solid var(--line); }
 .drawerSubLink { padding: 0.5rem 0.25rem; font-size: 0.9rem; font-weight: 500; color: var(--ink-2); }
-.drawerFoot { margin-top: auto; padding: 20px var(--gutter) 28px; display: grid; gap: 10px; }
+.drawerFoot { margin-top: auto; padding: 20px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; }
 .drawerContacts { display: grid; gap: 0.5rem; margin-top: 8px; font-size: 0.9rem; font-weight: 600; color: var(--green-800); }
 .drawerContacts a { display: flex; align-items: center; gap: 0.5rem; }
 @media (min-width: 1025px) { .drawer { display: none; } }

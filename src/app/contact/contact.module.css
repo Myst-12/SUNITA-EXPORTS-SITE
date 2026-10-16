@@ -3,7 +3,7 @@
 .formCard { padding: clamp(20px, 3vw, 32px); background: #fff; border: 1px solid transparent; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
 .side { position: sticky; top: calc(var(--header-h) + 16px); display: grid; gap: 14px; }
 .waCard { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.85rem; padding: 18px; border-radius: var(--radius-lg); background: #1faa53; color: #fff; box-shadow: 0 12px 28px rgba(31, 170, 83, 0.3); transition: transform 0.25s var(--ease); }
-.waCard:hover { transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) { .waCard:hover { transform: translateY(-2px); } }
 .waCard small { display: block; font-size: 0.78rem; opacity: 0.85; }
 .waCard strong { font-size: 1.3rem; letter-spacing: 0.01em; }
 .infoCard { padding: 6px 18px; background: #fff; border: 1px solid transparent; border-radius: var(--radius-lg); }
@@ -12,7 +12,7 @@
 .info :global(.icon-tile) { margin: 0; width: 40px; height: 40px; }
 .info small { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .info a, .info span { font-size: 0.92rem; font-weight: 650; color: var(--ink); word-break: break-word; }
-.info a:hover { color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .info a:hover { color: var(--green-700); } }
 .promise { padding: 18px; border-radius: var(--radius-lg); background: var(--lime-100); border: 1px solid #e3edb3; }
 .promiseTitle { font-weight: 800; color: var(--green-900); margin-bottom: 0.5rem; }
 .promise ol { list-style: decimal; padding-left: 1.2rem; display: grid; gap: 0.35rem; font-size: 0.9rem; color: var(--ink-2); margin-bottom: 0.75rem; }

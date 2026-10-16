@@ -5,9 +5,9 @@
 .pillLabel { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .pills button { padding: 0.45rem 0.9rem; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font-size: 0.85rem; font-weight: 650; color: var(--ink-2); transition: background 0.2s, color 0.2s, border-color 0.2s; }
-.pills button:hover { border-color: var(--green-600); color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .pills button:hover { border-color: var(--green-600); color: var(--green-700); } }
 .pills .pillOn { background: var(--green-700); border-color: var(--green-700); color: #fff; }
-.pills .pillOn:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .pills .pillOn:hover { color: #fff; } }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .error { display: grid; gap: 10px; justify-items: start; padding: 14px 16px; border-radius: var(--radius-sm); background: #fff6e0; border: 1px solid #f3d27a; color: #6b4d00; font-size: 0.92rem; }
 .submitRow { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }

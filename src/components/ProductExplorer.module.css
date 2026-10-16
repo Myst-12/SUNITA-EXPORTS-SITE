@@ -5,8 +5,8 @@
 .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
 .chips::-webkit-scrollbar { display: none; }
 .chips button { flex: none; padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid transparent; background: var(--bg-soft); background: #fff; font-size: 0.84rem; font-weight: 650; color: var(--ink-2); transition: background 0.2s, color 0.2s; }
-.chips button:hover { border-color: var(--green-200); color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .chips button:hover { border-color: var(--green-200); color: var(--green-700); } }
 .chips .on { background: var(--green-700); border-color: var(--green-700); color: #fff; }
-.chips .on:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .chips .on:hover { color: #fff; } }
 .count { font-size: 0.85rem; color: var(--muted); font-weight: 600; margin: 8px 0 14px; }
 .empty { display: grid; justify-items: start; gap: 12px; padding: 24px; border: 1px dashed var(--line-strong); border-radius: var(--radius); background: var(--bg-soft); }

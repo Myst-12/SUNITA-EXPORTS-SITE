@@ -24,7 +24,9 @@ const manrope = Manrope({
 });
 
 export const viewport = {
-  themeColor: '#086639',
+  themeColor: '#ffffff', // matches the white header on every page except the homepage hero
+  viewportFit: 'cover',
+  interactiveWidget: 'resizes-content',
 };
 
 export const metadata = {

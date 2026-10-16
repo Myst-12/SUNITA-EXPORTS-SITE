@@ -47,9 +47,9 @@
 .cat { display: block; }
 .catImg { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: #e7ebe5; }
 .catImg img { object-fit: cover; transition: transform 0.9s var(--ease); }
-.cat:hover .catImg img { transform: scale(1.04); }
+@media (hover: hover) and (pointer: fine) { .cat:hover .catImg img { transform: scale(1.04); } }
 .catName { display: block; margin-top: 14px; font-size: 1rem; font-weight: 650; line-height: 1.35; color: var(--ink); transition: color 0.25s var(--ease); }
-.cat:hover .catName { color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .cat:hover .catName { color: var(--green-700); } }
 .catMeta { display: block; margin-top: 2px; font-size: 0.85rem; color: var(--muted); }
 
 /* 4 — Global reach */
@@ -61,7 +61,7 @@
 .regions dt { font-size: 0.78rem; font-weight: 700; color: var(--green-700); margin-bottom: 4px; }
 .regions dd { font-size: 0.95rem; line-height: 1.55; color: var(--ink); }
 .regions a { transition: color 0.2s var(--ease); }
-.regions a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .regions a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; } }
 
 /* 5 — Quote band */
 .quoteSection { padding-block: clamp(56px, 7.5vw, 112px); }
@@ -69,7 +69,7 @@
 .quote .text { margin-inline: auto; text-wrap: balance; }
 .quoteActions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.5rem; margin-top: 0.5rem; }
 .quoteLink { font-weight: 600; color: var(--green-800); text-decoration: underline; text-decoration-color: var(--green-200); text-underline-offset: 4px; transition: text-decoration-color 0.25s var(--ease); }
-.quoteLink:hover { text-decoration-color: currentColor; }
+@media (hover: hover) and (pointer: fine) { .quoteLink:hover { text-decoration-color: currentColor; } }
 
 @media (max-width: 860px) {
   .reach, .process { grid-template-columns: 1fr; }
@@ -81,3 +81,7 @@
 @media (max-width: 480px) {
   .catName { font-size: 0.92rem; }
 }
+
+/* Press feedback on the category cards */
+.cat { transition: transform 160ms var(--ease); }
+.cat:active { transform: scale(0.985); }

@@ -4,5 +4,5 @@
 .breadcrumbItem { display: inline-flex; align-items: center; gap: 0.25rem; color: var(--muted); }
 .separator { color: var(--line-strong); margin-inline: 0.15rem; }
 .link { color: var(--muted); font-weight: 600; transition: color 0.2s; }
-.link:hover { color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .link:hover { color: var(--green-700); } }
 .activeItem { color: var(--ink); font-weight: 700; }
