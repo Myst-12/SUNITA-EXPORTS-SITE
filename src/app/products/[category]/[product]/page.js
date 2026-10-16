@@ -8,6 +8,7 @@ import NameCard from '@/components/NameCard';
 import Icon from '@/components/Icon';
 import { SITE_URL, COMPANY, CONTACT, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
+import { getLocalNames } from '@/data/catalog/localNames';
 import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_NOTE, REGULATED_NOTE, FMCG_NOTE, ON_REQUEST } from '@/lib/productDetails';
 import styles from './product.module.css';
 
@@ -74,6 +75,7 @@ export default async function ProductDetailPage({ params }) {
   const faqs = buildFaqs(product);
   const specs = Object.entries(product.specifications);
   const rows = detailRows(product);
+  const localNames = getLocalNames(product.slug);
   const quoteHref = quoteUrl(product);
   const pdfHref = specSheetUrl(product);
   const pdfName = `${product.slug}-specification-sunita-agri-exports.pdf`;
@@ -86,6 +88,7 @@ export default async function ProductDetailPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
+    ...(localNames.length ? { alternateName: localNames.map(([, , name]) => name) } : {}),
     description: product.description,
     url,
     ...(product.image ? { image: product.gallery.map((g) => `${SITE_URL}${g}`) } : {}),
@@ -189,6 +192,20 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
             </div>
+
+            {localNames.length > 0 && (
+              <div className={styles.block}>
+                <h2 className={styles.blockTitle}>{n} in other languages</h2>
+                <dl className={`notranslate ${styles.names}`} translate="no">
+                  {localNames.map(([code, language, name]) => (
+                    <div key={code}>
+                      <dt>{language}</dt>
+                      <dd lang={code}>{name}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
 
             <div className={styles.block}>
               <h2 className={styles.blockTitle}>{n}: questions buyers ask</h2>

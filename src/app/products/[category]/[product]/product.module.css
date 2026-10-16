@@ -70,3 +70,11 @@
   }
   .top { padding-top: 12px; }
 }
+
+/* Product names in other languages — visible, crawlable, quiet. */
+.names { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; border-top: 1px solid var(--line); }
+.names > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.names dt { font-size: 0.8rem; color: var(--muted); flex: none; }
+.names dd { font-size: 0.98rem; color: var(--ink); text-align: end; }
+@media (max-width: 860px) { .names { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .names { grid-template-columns: 1fr; } }
