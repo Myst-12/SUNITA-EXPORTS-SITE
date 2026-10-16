@@ -2,17 +2,11 @@
 export const HOME = {
   hero: {
     title: 'Indian spices, shipped worldwide',
-    lead: 'Spices, rice, pulses and Indian groceries, sourced and packed in Mumbai since 2010.',
+    lead: 'A Govt. recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
+    trust: 'Since 2010 · 40+ countries · ISO 22000 · FSSAI · APEDA · US FDA',
     cta: 'Explore our products',
     image: '/images/hero/spices-wood.webp', // AI-generated illustration
     imageAlt: 'Bowls of colourful Indian spices on a dark wooden table',
-  },
-  about: {
-    title: 'Govt. recognised Star Export House',
-    text: 'Sunita Agri Exports is a Government-recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label, or as many products in one container — for importers, wholesalers and supermarkets abroad.',
-    link: 'About the company',
-    credentials: 'Registered and certified: ISO 22000 · FSSAI · APEDA · US FDA · Spices Board India · BRCGS',
-    stats: { years: 'years exporting', countries: 'countries served', products: 'export products' },
   },
   process: {
     title: 'From India’s growing belts to your port',

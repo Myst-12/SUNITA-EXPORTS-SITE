@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from '@/components/Icon';
 import ScrollReveal from '@/components/ScrollReveal';
-import CountUp from '@/components/CountUp';
 import Globe from '@/components/Globe';
-import { categories, getAllProducts } from '@/data/products';
+import { categories } from '@/data/products';
 import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
-import { COMPANY, whatsappLink, yearsInBusiness } from '@/config/site';
+import { whatsappLink } from '@/config/site';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -20,8 +19,7 @@ export const metadata = {
 const destinations = exportDestinations.map(({ slug, coords }) => ({ slug, coords }));
 
 export default function HomePage() {
-  const { hero, about, process, categories: cat, reach, quote } = HOME;
-  const totalProducts = Math.floor(getAllProducts().length / 10) * 10;
+  const { hero, process, categories: cat, reach, quote } = HOME;
 
   return (
     <>
@@ -32,28 +30,30 @@ export default function HomePage() {
         <div className={`container ${styles.heroInner}`}>
           <h1 className={styles.heroTitle}>{hero.title}</h1>
           <p className={styles.heroLead}>{hero.lead}</p>
+          <p className={styles.heroTrust}>{hero.trust}</p>
           <Link href="/products/" className="btn btn-light btn-lg">{hero.cta} <Icon name="arrow-right" /></Link>
         </div>
       </section>
 
-      {/* 2 — Who we are */}
+      {/* 2 — Product categories */}
       <section className={styles.section}>
-        <div className={`container ${styles.about}`}>
-          <ScrollReveal>
-            <h2 className={styles.title}>{about.title}</h2>
+        <div className={`container ${styles.catGrid}`}>
+          <ScrollReveal className={styles.catHead}>
+            <h2 className={styles.title}>{cat.title}</h2>
+            <p className={styles.text}>{cat.text}</p>
+            <Link href="/products/" className="link-arrow">{cat.link} <Icon name="arrow-right" /></Link>
           </ScrollReveal>
-          <ScrollReveal delay={80}>
-            <p className={styles.text}>{about.text}</p>
-            <p className={styles.credentials}>{about.credentials}</p>
-            <Link href="/about/" className="link-arrow">{about.link} <Icon name="arrow-right" /></Link>
-          </ScrollReveal>
-          <ScrollReveal delay={140} className={styles.statsWrap}>
-            <dl className={styles.stats}>
-              <div><dt><CountUp value={yearsInBusiness()} suffix="+" /></dt><dd>{about.stats.years}</dd></div>
-              <div><dt><CountUp value={parseInt(COMPANY.countriesServed, 10)} suffix="+" /></dt><dd>{about.stats.countries}</dd></div>
-              <div><dt><CountUp value={totalProducts} suffix="+" /></dt><dd>{about.stats.products}</dd></div>
-            </dl>
-          </ScrollReveal>
+          {categories.map((c, i) => (
+            <ScrollReveal key={c.slug} delay={(i % 4) * 60}>
+              <Link href={c.href} className={styles.cat}>
+                <span className={styles.catImg}>
+                  <Image src={c.image} alt="" fill sizes="(max-width: 860px) 50vw, 25vw" />
+                </span>
+                <span className={styles.catName}>{c.name}</span>
+                <span className={styles.catMeta}>{c.service ? 'Services' : `${c.productCount} products`}</span>
+              </Link>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
@@ -78,29 +78,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Product categories */}
-      <section className={styles.section}>
-        <div className={`container ${styles.catGrid}`}>
-          <ScrollReveal className={styles.catHead}>
-            <h2 className={styles.title}>{cat.title}</h2>
-            <p className={styles.text}>{cat.text}</p>
-            <Link href="/products/" className="link-arrow">{cat.link} <Icon name="arrow-right" /></Link>
-          </ScrollReveal>
-          {categories.map((c, i) => (
-            <ScrollReveal key={c.slug} delay={(i % 4) * 60}>
-              <Link href={c.href} className={styles.cat}>
-                <span className={styles.catImg}>
-                  <Image src={c.image} alt="" fill sizes="(max-width: 860px) 50vw, 25vw" />
-                </span>
-                <span className={styles.catName}>{c.name}</span>
-                <span className={styles.catMeta}>{c.service ? 'Services' : `${c.productCount} products`}</span>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* 5 — Global reach */}
+      {/* 4 — Global reach */}
       <section className={styles.section}>
         <div className={`container ${styles.reach}`}>
           <ScrollReveal className={styles.reachCopy}>
@@ -114,7 +92,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — Get a quote */}
+      {/* 5 — Get a quote */}
       <section className={styles.quoteSection}>
         <div className="container">
           <ScrollReveal className={styles.quote}>
