@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { isAdmin, adminConfigured } from '@/lib/forms/auth';
 import { listForms, usingDatabase } from '@/lib/forms/store';
 import { login, logout } from './actions';
+import PasswordInput from './PasswordInput';
 import s from './admin.module.css';
 
 export default async function AdminHome({ searchParams }) {
-  const { error } = await searchParams;
+  const { error, note } = await searchParams;
 
   if (!(await isAdmin())) {
     return (
@@ -18,7 +19,7 @@ export default async function AdminHome({ searchParams }) {
           {!adminConfigured() && <p className={s.err}>ADMIN_PASSWORD is not set on the server yet.</p>}
           <div>
             <label htmlFor="password" className={s.label}>Password</label>
-            <input id="password" name="password" type="password" className={s.input} required autoComplete="current-password" />
+            <PasswordInput id="password" name="password" required autoComplete="current-password" />
           </div>
           {error && <p className={s.err}>Wrong password.</p>}
           <button className={`btn btn-primary btn-lg ${s.submit}`} type="submit">Log in</button>
@@ -41,6 +42,7 @@ export default async function AdminHome({ searchParams }) {
         </div>
       </div>
 
+      {note && <p className={s.note}>{note}</p>}
       {!usingDatabase && <p className={s.warn}>Test mode: responses are saved on this computer only. Connect the database before using this at an exhibition.</p>}
 
       {forms.length === 0 ? (

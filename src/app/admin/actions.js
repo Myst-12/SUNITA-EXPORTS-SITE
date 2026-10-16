@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { isAdmin, passwordMatches, startSession, endSession } from '@/lib/forms/auth';
-import { createForm, getForm, setFormStatus, listResponses } from '@/lib/forms/store';
+import { createForm, getForm, setFormStatus, listResponses, deleteForm } from '@/lib/forms/store';
 import { buildFields, FIELD_LIBRARY } from '@/lib/forms/fields';
 import { buildWorkbook, excelName } from '@/lib/forms/excel';
 import { emailWorkbook } from '@/lib/forms/mail';
@@ -51,4 +51,12 @@ export async function reopenFormAction(formData) {
   if (!(await getForm({ id }))) redirect('/admin/');
   await setFormStatus(id, 'open');
   redirect(`/admin/forms/${id}/?note=${encodeURIComponent('Form reopened — it is accepting responses again.')}`);
+}
+
+export async function deleteFormAction(formData) {
+  await requireAdmin();
+  const id = String(formData.get('id'));
+  const form = await getForm({ id });
+  if (form) await deleteForm(id);
+  redirect(`/admin/?note=${encodeURIComponent(form ? `“${form.title}” and its responses were deleted.` : 'Form already deleted.')}`);
 }

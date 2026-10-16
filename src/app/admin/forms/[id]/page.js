@@ -4,7 +4,7 @@ import QRCode from 'qrcode';
 import { isAdmin } from '@/lib/forms/auth';
 import { getForm, listResponses } from '@/lib/forms/store';
 import { formUrl } from '@/lib/forms/url';
-import { closeFormAction, reopenFormAction } from '../../actions';
+import { closeFormAction, reopenFormAction, deleteFormAction } from '../../actions';
 import { CopyLink, LiveRefresh, ConfirmButton } from './AdminTools';
 import s from '../../admin.module.css';
 
@@ -93,6 +93,12 @@ export default async function FormDetail({ params, searchParams }) {
         )}
         {responses.length > 20 && <p className={s.meta} style={{ marginTop: 10 }}>Showing the latest 20 — the Excel file has all {responses.length}.</p>}
       </div>
+
+      <form action={deleteFormAction} className={`${s.card} ${s.danger}`}>
+        <input type="hidden" name="id" value={id} />
+        <p className={s.meta}>Delete this form and its {responses.length} response{responses.length === 1 ? '' : 's'} for good. Download the Excel first if you need it.</p>
+        <ConfirmButton className={s.deleteBtn} message={`Delete “${form.title}” and all ${responses.length} responses? This cannot be undone.`}>Delete form</ConfirmButton>
+      </form>
     </div>
   );
 }

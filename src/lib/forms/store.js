@@ -90,3 +90,12 @@ export async function listResponses(formId) {
   const db = await readFile();
   return db.responses.filter((r) => r.form_id === formId).sort((a, b) => a.created_at.localeCompare(b.created_at));
 }
+
+/** Deletes a form and all its responses. */
+export async function deleteForm(id) {
+  if (usingDatabase) return sb(`forms?id=eq.${encodeURIComponent(id)}`, { method: 'DELETE', headers: { Prefer: 'return=minimal' } }); // responses cascade
+  const db = await readFile();
+  db.forms = db.forms.filter((f) => f.id !== id);
+  db.responses = db.responses.filter((r) => r.form_id !== id);
+  await writeFile(db);
+}

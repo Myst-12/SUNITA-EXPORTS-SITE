@@ -89,3 +89,19 @@ textarea.input { min-height: 96px; resize: vertical; line-height: 1.5; }
   .qrCard { grid-column: 2; grid-row: 1 / span 2; }
   .submit { width: auto; padding-inline: 2rem; }
 }
+
+/* Password field with show/hide button */
+.pw { position: relative; }
+.pw .input { padding-right: 56px; }
+.eye { position: absolute; top: 50%; right: 4px; transform: translateY(-50%); display: grid; place-items: center; width: 48px; height: 44px; border-radius: var(--radius-sm); color: var(--muted); -webkit-tap-highlight-color: transparent; }
+.eye:active { background: var(--bg-mist); }
+@media (hover: hover) and (pointer: fine) { .eye:hover { color: var(--ink); } }
+.eye:focus-visible { outline: 3px solid rgba(15, 122, 70, 0.35); outline-offset: -2px; }
+
+/* Delete form */
+.danger { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.danger p { margin: 0; flex: 1 1 220px; }
+.deleteBtn { min-height: 48px; padding: 0 1.2rem; border-radius: 999px; border: 1.5px solid #f1c3bd; color: #b42318; font-weight: 700; font-size: 0.92rem; background: #fff; }
+.deleteBtn:active { background: #fdecea; }
+@media (hover: hover) and (pointer: fine) { .deleteBtn:hover { background: #fdecea; } }
+@media (max-width: 759px) { .deleteBtn { width: 100%; } }
