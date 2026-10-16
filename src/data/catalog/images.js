@@ -231,4 +231,18 @@ export const productImages = {
   'yellow-moong-dal': '/images/catalog/yellow-moong-dal.webp', // client
   'zedoary': '/images/catalog/zedoary.webp', // client
   'dehydrated-white-onion-flakes': '/images/catalog/dehydrated-white-onion-flakes.webp', // generated (Antigravity)
+  'basil-seeds': '/images/catalog/basil-seeds.webp', // generated
+  'botanical-extracts': '/images/catalog/botanical-extracts.webp', // generated
+  'copra': '/images/catalog/copra.webp', // generated
+  'crushed-chilli': '/images/catalog/crushed-chilli.webp', // generated
+  'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // generated
+  'dehydrated-garlic-granules': '/images/catalog/dehydrated-garlic-granules.webp', // generated
+  'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // generated
+  'dehydrated-onion-granules': '/images/catalog/dehydrated-onion-granules.webp', // generated
+  'dehydrated-onion-kibbled': '/images/catalog/dehydrated-onion-kibbled.webp', // generated
+  'dehydrated-onion-minced': '/images/catalog/dehydrated-onion-minced.webp', // generated
+  'malkangni-seeds': '/images/catalog/malkangni-seeds.webp', // generated
+  'mucuna-seeds': '/images/catalog/mucuna-seeds.webp', // generated
+  'neem-seeds': '/images/catalog/neem-seeds.webp', // generated
+  'psyllium-seeds': '/images/catalog/psyllium-seeds.webp', // generated
 };
