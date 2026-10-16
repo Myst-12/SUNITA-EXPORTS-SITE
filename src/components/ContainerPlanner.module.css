@@ -1,16 +1,16 @@
 .planner { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(20px, 3vw, 36px); align-items: start; }
 .picker { display: grid; gap: 18px; }
-.groupName { font-weight: 800; color: #fff; margin-bottom: 8px; font-size: 0.95rem; }
+.groupName { font-weight: 700; color: var(--ink); margin-bottom: 10px; font-size: 0.95rem; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chips button { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 0.85rem; border-radius: 999px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.88rem; font-weight: 650; transition: background 0.2s, color 0.2s, transform 0.15s; }
-.chips button:hover { background: rgba(255, 255, 255, 0.18); }
+.chips button { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 0.85rem; border-radius: 999px; background: #fff; border: 1px solid var(--line-strong); color: var(--ink-2); font-size: 0.88rem; font-weight: 600; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s; }
+.chips button:hover { border-color: var(--green-700); color: var(--green-700); }
 .chips button:active { transform: scale(0.97); }
-.chips .chipOn { background: var(--lime-500); color: var(--green-950); }
-.chips .chipOn:hover { background: var(--lime-400); }
+.chips .chipOn { background: var(--green-700); border-color: var(--green-700); color: #fff; }
+.chips .chipOn:hover { background: var(--green-800); color: #fff; }
 .swatch { width: 12px; height: 12px; border-radius: 4px; flex: none; }
 
-.result { background: #fff; color: var(--ink-2); border-radius: var(--radius-lg); padding: clamp(18px, 2.4vw, 26px); }
-.sizeRow { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg-soft); margin-bottom: 16px; }
+.result { background: #fff; color: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(18px, 2.4vw, 26px); }
+.sizeRow { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg-mist); margin-bottom: 16px; }
 .sizeRow button { padding: 0.4rem 1rem; border-radius: 999px; font-weight: 750; font-size: 0.88rem; color: var(--ink-2); transition: background 0.2s, color 0.2s; }
 .sizeRow .sizeOn { background: var(--green-700); color: #fff; }
 
@@ -25,7 +25,7 @@
 .hint { font-size: 0.9rem; color: var(--ink-2); margin-bottom: 12px; }
 
 .rows { display: grid; gap: 6px; max-height: 260px; overflow-y: auto; margin-bottom: 14px; }
-.rows li { display: flex; align-items: center; gap: 0.6rem; padding: 6px 8px; border-radius: 10px; background: var(--bg-soft); }
+.rows li { display: flex; align-items: center; gap: 0.6rem; padding: 6px 8px; border-radius: 10px; background: var(--bg-mist); }
 .rowName { flex: 1; font-weight: 650; font-size: 0.9rem; color: var(--ink); }
 .stepper { display: inline-flex; align-items: center; gap: 6px; }
 .stepper button { width: 30px; height: 30px; border-radius: 8px; background: #fff; font-weight: 800; color: var(--green-800); transition: background 0.2s, transform 0.15s; }
