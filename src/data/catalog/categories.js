@@ -9,7 +9,7 @@ export const categoryList = [
     slug: 'indian-spices',
     name: 'Indian Spices',
     shortName: 'Spices',
-    image: '/images/categories/indian-spices.webp',
+    image: '/images/catalog/categories/indian-spices.webp',
     description:
       'Whole spices, spice powders, masala blends and cut spices from India’s main growing regions — machine-cleaned, Sortex-graded and steam-sterilised on request.',
     metaTitle: 'Indian Spices Exporter — Whole, Ground & Blended Spices',
@@ -26,7 +26,7 @@ export const categoryList = [
     slug: 'herbs-botanicals',
     name: 'Herbs & Botanicals',
     shortName: 'Herbs',
-    image: '/images/categories/herbs.webp',
+    image: '/images/catalog/categories/herbs-botanicals.webp',
     description:
       'Roots, rhizomes, barks, leaves, fruits, seeds, flowers, gums and resins used by herbal, Ayurvedic, cosmetic and extraction companies — identity-checked by botanical name.',
     metaTitle: 'Indian Herbs & Botanicals Exporter — Roots, Leaves, Gums & Resins',
@@ -48,7 +48,7 @@ export const categoryList = [
     slug: 'dehydrated-onion-garlic',
     name: 'Dehydrated Onion & Garlic',
     shortName: 'Dehydrated',
-    image: '/images/categories/dehydrated-products.webp',
+    image: '/images/catalog/categories/dehydrated-onion-garlic.webp',
     description:
       'Dehydrated white onion and garlic from Gujarat in every standard cut — flakes, kibbled, minced, granules and powder — for seasoning and food manufacturers.',
     metaTitle: 'Dehydrated Onion & Garlic Exporter — Flakes, Minced, Granules, Powder',
@@ -63,7 +63,7 @@ export const categoryList = [
     slug: 'coconut-products',
     name: 'Coconut Products',
     shortName: 'Coconut',
-    image: '/images/products/coconut.webp',
+    image: '/images/catalog/categories/coconut-products.webp',
     description:
       'Desiccated coconut, coconut chips, flakes, powder and copra from Kerala, Tamil Nadu and Karnataka for bakery, confectionery and food manufacturers.',
     metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Chips, Copra',
@@ -75,7 +75,7 @@ export const categoryList = [
     slug: 'pulses-legumes',
     name: 'Pulses & Legumes',
     shortName: 'Pulses',
-    image: '/images/categories/pulses-grains.webp',
+    image: '/images/catalog/categories/pulses-legumes.webp',
     description:
       'Chickpeas, pigeon peas, moong, urad, lentils, peas and beans — whole or split, skin-on or skinless, polished or unpolished — cleaned and graded for export.',
     metaTitle: 'Indian Pulses & Lentils Exporter — Chana, Toor, Moong, Urad, Masoor',
@@ -94,7 +94,7 @@ export const categoryList = [
     slug: 'rice',
     name: 'Rice',
     shortName: 'Rice',
-    image: '/images/categories/rice.webp',
+    image: '/images/catalog/categories/rice.webp',
     description:
       'Basmati varieties (1121, 1509, 1718, traditional) and non-basmati varieties (IR64, Sona Masuri, Ponni and more), in raw, steam, parboiled, sella, brown and broken forms.',
     metaTitle: 'Basmati & Non-Basmati Rice Exporter India — 1121, 1509, IR64, Sona Masuri',
@@ -110,7 +110,7 @@ export const categoryList = [
     slug: 'flours-milling',
     name: 'Flours & Milling Products',
     shortName: 'Flours',
-    image: '/images/products/wheat-flour.webp',
+    image: '/images/catalog/categories/flours-milling.webp',
     description:
       'Chakki atta, maida, sooji, besan, rice flour and millet flours, plus wheat and rice bran — food-grade and feed-grade products clearly separated.',
     metaTitle: 'Indian Flour Exporter — Atta, Maida, Sooji, Besan, Millet Flours',
@@ -126,7 +126,7 @@ export const categoryList = [
     slug: 'oilseeds',
     name: 'Oilseeds & Oilseed Products',
     shortName: 'Oilseeds',
-    image: '/images/categories/oilseeds.webp',
+    image: '/images/catalog/categories/oilseeds.webp',
     description:
       'Hulled and natural white sesame, black sesame, groundnuts, mustard seeds and soybeans, plus oilseed meals and de-oiled cakes for feed manufacturers.',
     metaTitle: 'Sesame, Groundnut & Oilseed Exporter India — Seeds and Meals',
@@ -142,7 +142,7 @@ export const categoryList = [
     slug: 'indian-coffee',
     name: 'Indian Coffee',
     shortName: 'Coffee',
-    image: '/images/products/green-coffee-beans.webp',
+    image: '/images/catalog/categories/indian-coffee.webp',
     description:
       'Shade-grown Indian Arabica and Robusta from Karnataka, Kerala and Tamil Nadu — green beans in Coffee Board grades, and roasted or ground coffee.',
     metaTitle: 'Indian Coffee Exporter — Green Arabica & Robusta, Roasted, Ground',
@@ -154,7 +154,7 @@ export const categoryList = [
     slug: 'superfoods-functional-seeds',
     name: 'Superfoods & Functional Seeds',
     shortName: 'Superfoods',
-    image: '/images/products/psyllium-husk.webp',
+    image: '/images/catalog/categories/superfoods-functional-seeds.webp',
     description:
       'Psyllium seeds, husk and husk powder, moringa seeds and leaf powder, and basil seeds — ingredients for health-food, supplement and beverage brands.',
     metaTitle: 'Psyllium Husk, Moringa & Basil Seeds Exporter India',
@@ -169,7 +169,7 @@ export const categoryList = [
     slug: 'animal-bird-feed',
     name: 'Animal & Bird Feeds',
     shortName: 'Feeds',
-    image: '/images/categories/animal-bird-feed.webp',
+    image: '/images/catalog/categories/animal-bird-feed.webp',
     description:
       'Feed maize, sorghum and millet, oilseed meals, brans and bird-feed seeds — sold for animal feed use only and labelled that way on every contract.',
     metaTitle: 'Animal Feed & Bird Feed Ingredients Exporter India',
@@ -185,7 +185,7 @@ export const categoryList = [
     slug: 'foodstuff-fmcg',
     name: 'Foodstuff & FMCG',
     shortName: 'FMCG',
-    image: '/images/categories/foodstuff-fmcg.webp',
+    image: '/images/catalog/categories/foodstuff-fmcg.webp',
     description:
       'Packaged Indian groceries for importers and supermarkets — flours, staples, snacks, sweets, ready-to-eat, pickles, tea, oils, personal and home care — consolidated with bulk products in one container.',
     metaTitle: 'Indian FMCG & Grocery Exporter — Packaged Food for Importers',
@@ -220,7 +220,7 @@ export const categoryList = [
     slug: 'raisins',
     name: 'Raisins',
     shortName: 'Raisins',
-    image: '/images/categories/raisins-dry-fruits.webp',
+    image: '/images/catalog/categories/raisins.webp',
     description:
       'Green, golden and black raisins from Sangli, Nashik and Vijayapura, graded by size, colour and moisture for retail, bakery and confectionery buyers.',
     metaTitle: 'Indian Raisins Exporter — Green, Golden & Black Raisins',
@@ -232,7 +232,7 @@ export const categoryList = [
     slug: 'private-label-oem',
     name: 'Private Label & OEM',
     shortName: 'Private Label',
-    image: '/images/scenes/pack-kraft-pouch.webp',
+    image: '/images/catalog/categories/private-label-oem.webp',
     href: '/private-label/',
     service: true,
     description:
