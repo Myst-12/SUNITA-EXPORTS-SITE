@@ -261,4 +261,12 @@ export const productImages = {
   'rice-bran': '/images/catalog/rice-bran.webp', // generated
   'sooji-rava': '/images/catalog/sooji-rava.webp', // generated
   'sweets-confectionery': '/images/catalog/sweets-confectionery.webp', // generated
+  'pickles-chutneys': '/images/catalog/pickles-chutneys.webp', // generated
+  'papad-traditional-foods': '/images/catalog/papad-traditional-foods.webp', // generated
+  'tea-instant-beverages': '/images/catalog/tea-instant-beverages.webp', // generated
+  'dairy-products': '/images/catalog/dairy-products.webp', // generated
+  'sauces-condiments': '/images/catalog/sauces-condiments.webp', // generated
+  'jaggery': '/images/catalog/jaggery.webp', // generated
+  'personal-care': '/images/catalog/personal-care.webp', // generated
+  'other-raisin-grades': '/images/catalog/other-raisin-grades.webp', // generated
 };
