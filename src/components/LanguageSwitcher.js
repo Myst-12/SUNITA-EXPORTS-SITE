@@ -1,0 +1,90 @@
+'use client';
+
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import Icon from './Icon';
+import styles from './LanguageSwitcher.module.css';
+
+// Interim machine translation via the Google Translate widget, until real translated pages (Phase 3) replace it.
+export const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'ar', label: 'العربية' },
+  { code: 'es', label: 'Español' },
+  { code: 'pt', label: 'Português' },
+  { code: 'fr', label: 'Français' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'ru', label: 'Русский' },
+  { code: 'id', label: 'Bahasa Indonesia' },
+  { code: 'tr', label: 'Türkçe' },
+];
+
+const readLang = () => {
+  const m = document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([a-z-]+)/i);
+  return m ? m[1] : 'en';
+};
+
+const writeCookie = (value) => {
+  const host = location.hostname;
+  const expiry = value ? '' : '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  for (const domain of ['', `; domain=${host}`, `; domain=.${host}`]) {
+    document.cookie = `googtrans=${value}${expiry}; path=/${domain}`;
+  }
+};
+
+// Google's script is only loaded when a non-English language is chosen, so English visitors pay nothing.
+function loadGoogle() {
+  if (window.google?.translate || document.getElementById('gt-script')) return;
+  window.googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: LANGUAGES.slice(1).map((l) => l.code).join(','), autoDisplay: false },
+      'google_translate_element'
+    );
+  };
+  const s = document.createElement('script');
+  s.id = 'gt-script';
+  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(s);
+}
+
+export default function LanguageSwitcher() {
+  // The cookie only changes with a full reload, so there is nothing to subscribe to; the server always renders English.
+  const lang = useSyncExternalStore(() => () => {}, readLang, () => 'en');
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (readLang() !== 'en') loadGoogle();
+    const close = (e) => { if (!ref.current?.contains(e.target)) setOpen(false); };
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, []);
+
+  const choose = (code) => {
+    setOpen(false);
+    if (code === lang) return;
+    writeCookie(code === 'en' ? '' : `/en/${code}`);
+    location.reload();
+  };
+
+  const list = (
+    <ul className={styles.menu} role="listbox" aria-label="Choose language">
+      {LANGUAGES.map((l) => (
+        <li key={l.code}>
+          <button type="button" role="option" aria-selected={l.code === lang} lang={l.code}
+            className={`${styles.option} ${l.code === lang ? styles.current : ''}`} onClick={() => choose(l.code)}>
+            {l.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+
+  return (
+    <div ref={ref} className={`notranslate ${styles.wrap}`} translate="no">
+      <button type="button" className={styles.toggle} onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-label="Change language">
+        <Icon name="globe" size={17} /> <span>{lang.toUpperCase()}</span>
+      </button>
+      {open && list}
+      <div id="google_translate_element" hidden />
+    </div>
+  );
+}

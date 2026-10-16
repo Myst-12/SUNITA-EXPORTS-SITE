@@ -317,3 +317,8 @@ body:has([data-quote-page]) [data-secondary-phone] { display: none !important; }
 .flag { font-size: 1.5rem; }
 .value-prop-list { display: grid; gap: 0.75rem; }
 .value-prop { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; padding: 0.9rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
+
+/* ===== Google Translate widget (interim, see LanguageSwitcher): hide Google's banner, tooltips and highlights ===== */
+iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame, .goog-te-gadget, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight, font[style] { background: none !important; box-shadow: none !important; }

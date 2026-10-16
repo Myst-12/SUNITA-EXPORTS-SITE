@@ -55,6 +55,8 @@
 .waBtn:hover { background: #eaf8ef; }
 .clear .waBtn { color: #fff; }
 .clear .waBtn:hover { background: rgba(255, 255, 255, 0.14); }
+.lang { color: var(--ink-2); transition: color 0.25s; }
+.clear .lang { color: #fff; }
 .burger { display: none; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--green-900); transition: color 0.25s; }
 .burger:hover { background: var(--bg-mist); }
 .clear .burger { color: #fff; }

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Icon from './Icon';
+import LanguageSwitcher from './LanguageSwitcher';
 import { CONTACT, COMPANY, whatsappLink } from '@/config/site';
 import styles from './Header.module.css';
 
@@ -59,7 +60,7 @@ export default function Header({ categories = [] }) {
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.brand} aria-label={`${COMPANY.name} home`}>
             <img src="/images/logo-mark.png" alt="" width={40} height={40} className={styles.brandMark} />
-            <span className={styles.brandName}>Sunita Agri Exports</span>
+            <span className={`${styles.brandName} notranslate`} translate="no">Sunita Agri Exports</span>
           </Link>
 
           <nav className={styles.nav} aria-label="Main">
@@ -94,6 +95,7 @@ export default function Header({ categories = [] }) {
           </nav>
 
           <div className={styles.actions}>
+            <span className={styles.lang}><LanguageSwitcher /></span>
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={styles.waBtn} aria-label="Chat on WhatsApp">
               <Icon name="whatsapp" size={19} />
             </a>
