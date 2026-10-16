@@ -5,7 +5,8 @@ import styles from './Globe.module.css';
 
 const GREEN = [0.03, 0.4, 0.22];
 const GREEN_SOFT = [0.2, 0.62, 0.4];
-const SPIN = 0.0016; // radians per frame — one turn every ~65 s
+const SWAY = 0.75; // radians either side of Mumbai, so India and its arcs always stay in view
+const SWAY_SPEED = 0.004; // per frame — one full sway every ~26 s
 const TILT = 0.32;
 
 // Rotation that brings a longitude to the front of the globe.
@@ -14,7 +15,7 @@ const facing = (lng) => Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2);
 /**
  * Light dotted 3D globe (cobe, loaded client-side only) with arcs from `origin` to each destination.
  * A static image sits underneath, so no-JS, no-WebGL and loading states still show a globe.
- * Spins slowly while on screen; holds still when the visitor prefers reduced motion.
+ * Sways slowly around Mumbai while on screen; holds still when the visitor prefers reduced motion.
  */
 export default function Globe({ origin, destinations, fallback, label }) {
   const wrapRef = useRef(null);
@@ -34,14 +35,17 @@ export default function Globe({ origin, destinations, fallback, label }) {
     let raf = 0;
     let visible = false;
     let cancelled = false;
-    let phi = facing(origin.coords[1]) - 0.5;
+    const home = facing(origin.coords[1]) - 0.5;
+    let phi = home;
+    let s = 0;
     let t = 0;
 
     const base = destinations.map((d) => ({ location: d.coords, size: 0.028, color: GREEN_SOFT }));
     const markers = (pulse) => [{ location: origin.coords, size: 0.07 + pulse * 0.025, color: GREEN }, ...base];
 
     const frame = () => {
-      phi += SPIN;
+      s += SWAY_SPEED;
+      phi = home + Math.sin(s) * SWAY;
       t += 0.03;
       globe.update({ phi, markers: markers((Math.sin(t) + 1) / 2) });
       raf = requestAnimationFrame(frame);

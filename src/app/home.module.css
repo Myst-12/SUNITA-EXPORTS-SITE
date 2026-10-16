@@ -1,5 +1,5 @@
 /* ===== Homepage — five calm sections ===== */
-.section { padding-block: clamp(80px, 11vw, 152px); }
+.section { padding-block: clamp(56px, 7.5vw, 112px); }
 .soft { background: var(--bg-mist); }
 
 .title { font-size: clamp(1.9rem, 3.4vw, 2.85rem); font-weight: 500; line-height: 1.12; text-wrap: balance; margin-bottom: 1.25rem; }
@@ -64,7 +64,7 @@
 .regions a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
 
 /* 5 — Quote band */
-.quoteSection { padding-bottom: clamp(80px, 11vw, 152px); }
+.quoteSection { padding-block: clamp(56px, 7.5vw, 112px); }
 .quote { padding: clamp(48px, 7vw, 96px) clamp(24px, 5vw, 64px); border-radius: var(--radius-lg); background: var(--green-50); text-align: center; }
 .quote .text { margin-inline: auto; text-wrap: balance; }
 .quoteActions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.5rem; margin-top: 0.5rem; }
