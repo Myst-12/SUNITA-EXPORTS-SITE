@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Icon from './Icon';
+import LanguagePrompt from './LanguagePrompt';
 import styles from './LanguageSwitcher.module.css';
 
 // Interim machine translation via the Google Translate widget, until real translated pages (Phase 3) replace it.
@@ -109,6 +110,7 @@ export default function LanguageSwitcher() {
         <Icon name="chevron-down" size={14} className={`${styles.chev} ${open ? styles.chevOpen : ''}`} />
       </button>
       {open && list}
+      <LanguagePrompt current={lang} onSwitch={choose} />
       <div id="google_translate_element" hidden />
     </div>
   );
