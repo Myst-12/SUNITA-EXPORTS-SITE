@@ -8,6 +8,9 @@ import styles from './LanguageSwitcher.module.css';
 export const LANGUAGES = [
   { code: 'en', label: 'English' },
   { code: 'ar', label: 'العربية' },
+  { code: 'fa', label: 'فارسی' },
+  { code: 'iw', label: 'עברית' },
+  { code: 'ku', label: 'Kurdî' },
   { code: 'es', label: 'Español' },
   { code: 'pt', label: 'Português' },
   { code: 'fr', label: 'Français' },
@@ -15,6 +18,22 @@ export const LANGUAGES = [
   { code: 'ru', label: 'Русский' },
   { code: 'id', label: 'Bahasa Indonesia' },
   { code: 'tr', label: 'Türkçe' },
+  { code: 'ja', label: '日本語' },
+  { code: 'zh-CN', label: '中文' },
+  { code: 'ko', label: '한국어' },
+  { code: 'ms', label: 'Bahasa Melayu' },
+  { code: 'vi', label: 'Tiếng Việt' },
+  { code: 'th', label: 'ไทย' },
+  { code: 'tl', label: 'Filipino' },
+  { code: 'sw', label: 'Kiswahili' },
+  { code: 'nl', label: 'Nederlands' },
+  { code: 'it', label: 'Italiano' },
+  { code: 'hi', label: 'हिन्दी' },
+  { code: 'ur', label: 'اردو' },
+  { code: 'bn', label: 'বাংলা' },
+  { code: 'gu', label: 'ગુજરાતી' },
+  { code: 'ta', label: 'தமிழ்' },
+  { code: 'pa', label: 'ਪੰਜਾਬੀ' },
 ];
 
 const readLang = () => {
@@ -81,7 +100,7 @@ export default function LanguageSwitcher() {
   return (
     <div ref={ref} className={`notranslate ${styles.wrap}`} translate="no">
       <button type="button" className={styles.toggle} onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-label="Change language">
-        <Icon name="globe" size={17} /> <span>{lang.toUpperCase()}</span>
+        <Icon name="globe" size={17} /> <span>{lang.split('-')[0].toUpperCase()}</span>
       </button>
       {open && list}
       <div id="google_translate_element" hidden />
