@@ -100,7 +100,6 @@
 .directorPic figcaption span { color: var(--muted); font-size: 0.82rem; }
 @media (max-width: 860px) {
   .directors { grid-template-columns: 1fr; }
-  .directorsPics { order: -1; }
   .directorPic:nth-child(2) { margin-top: 32px; }
 }
 .directorsSection { padding-top: clamp(24px, 3vw, 48px); }
