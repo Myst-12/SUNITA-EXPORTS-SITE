@@ -85,3 +85,23 @@
 /* Press feedback on the category cards */
 .cat { transition: transform 160ms var(--ease); }
 .cat:active { transform: scale(0.985); }
+
+/* Directors' message */
+.directors { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.directorsEyebrow { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-700); margin-bottom: 1rem; }
+.directorsQuote { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 1.5rem; text-wrap: balance; }
+.directorsSign { font-weight: 600; color: var(--ink-2); margin-top: 0.5rem; }
+.directorsPics { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.directorPic { margin: 0; }
+.directorPic:nth-child(2) { margin-top: 48px; }
+.directorImg { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-lg); background: #e7ebe5; }
+.directorImg img { object-fit: cover; }
+.directorPic figcaption { margin-top: 0.7rem; display: flex; flex-direction: column; font-size: 0.9rem; }
+.directorPic figcaption span { color: var(--muted); font-size: 0.82rem; }
+@media (max-width: 860px) {
+  .directors { grid-template-columns: 1fr; }
+  .directorsPics { order: -1; }
+  .directorPic:nth-child(2) { margin-top: 32px; }
+}
+.directorsSection { padding-top: clamp(24px, 3vw, 48px); }
+.directorsEyebrow::before { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; background: var(--green-700); margin-bottom: 1.1rem; }

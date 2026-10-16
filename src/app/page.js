@@ -26,7 +26,7 @@ const regions = REGION_ORDER.map((r) => ({
 })).filter((r) => r.markets.length);
 
 export default function HomePage() {
-  const { hero, process, categories: cat, reach, quote } = HOME;
+  const { hero, process, categories: cat, directors, reach, quote } = HOME;
 
   return (
     <>
@@ -64,7 +64,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — How we operate: text left, image right */}
+      {/* 3 — Directors' message: text left, portraits right */}
+      <section className={`${styles.section} ${styles.directorsSection}`}>
+        <div className={`container ${styles.directors}`}>
+          <ScrollReveal className={styles.directorsCopy}>
+            <span className={styles.directorsEyebrow}>{directors.eyebrow}</span>
+            <blockquote className={styles.directorsQuote}>“{directors.quote}”</blockquote>
+            {directors.paras.map((p) => <p key={p.slice(0, 30)} className={styles.text}>{p}</p>)}
+            <p className={styles.directorsSign}>— {directors.sign}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={120} className={styles.directorsPics}>
+            {directors.people.map((d, i) => (
+              <figure key={d.image} className={styles.directorPic}>
+                <div className={styles.directorImg}><Image src={d.image} alt={`${d.name}, ${d.role}`} fill sizes="(max-width: 860px) 50vw, 28vw" /></div>
+                <figcaption><b>{d.name}</b><span>{d.role}</span></figcaption>
+              </figure>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 4 — How we operate: text left, image right */}
       <section className={`${styles.section} ${styles.soft}`}>
         <div className={`container ${styles.process}`}>
           <ScrollReveal>
@@ -85,7 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Global reach */}
+      {/* 5 — Global reach */}
       <section className={`${styles.section} ${styles.reachSection}`}>
         <div className={`container ${styles.reach}`}>
           <ScrollReveal className={styles.reachCopy}>
@@ -109,7 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 — Get a quote */}
+      {/* 6 — Get a quote */}
       <section className={styles.quoteSection}>
         <div className="container">
           <ScrollReveal className={styles.quote}>

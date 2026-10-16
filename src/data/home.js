@@ -25,6 +25,19 @@ export const HOME = {
     text: 'Fourteen categories, each product with its own specification sheet. Bulk, retail packs or private label.',
     link: 'View all products',
   },
+  directors: {
+    eyebrow: 'From the directors',
+    quote: 'We’re a business bringing the taste of India’s farms to kitchens in 40+ countries — and every buyer is treated like family.',
+    paras: [
+      'We started Sunita Agri Exports in 2010 with one promise to our buyers: what we show in the sample is what arrives in the container. Today, shipping to 40+ countries, that promise still decides how we source, grade and pack every order.',
+      'Whether you buy one mixed container of groceries or a full load of spices, you deal with us directly — one team in Mumbai answering for quality, timing and paperwork.',
+    ],
+    sign: 'Alok Dhanuka & Ankit Dhanuka, Directors',
+    people: [
+      { name: 'Alok Dhanuka', role: 'Director', image: '/images/team/alok-dhanuka.webp' },
+      { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka.webp' },
+    ],
+  },
   reach: {
     title: 'From Mumbai to 40+ countries',
     text: 'Regular sailings from Nhava Sheva to North America, the Gulf, the UK and Europe, East Asia, Australia, New Zealand and East Africa — with labels and documents for each market.',
