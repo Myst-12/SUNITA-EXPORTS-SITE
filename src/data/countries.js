@@ -141,7 +141,7 @@ export const exportDestinations = [
     seoTitle: 'Indian Grocery & Spices Exporter to Qatar',
     seoDescription: 'Indian spices, rice, pulses and packaged food exported to Doha, Qatar. Consolidated containers for supermarkets and food service.',
     introText: 'We supply Qatari importers, hypermarkets and catering companies with Indian spices, rice, pulses and packaged foods in consolidated containers through Hamad Port.',
-    keyProducts: ['Basmati Rice', 'Spices & Masalas', 'Pulses', 'Ghee & Oils'],
+    keyProducts: ['Basmati Rice', 'Spices & Masalas', 'Pulses', 'Ghee & Dairy'],
     certificationsRequired: ['Health Certificate', 'Certificate of Origin', 'Halal Certificate (meat-free products as applicable)'],
     shippingPorts: ['Hamad Port (Doha)']
   },

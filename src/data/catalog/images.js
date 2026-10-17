@@ -332,21 +332,6 @@ export const productImages = {
   'jasmine-flowers': '/images/catalog/jasmine-flowers.webp', // stock (commons, CC BY 2.0)
   'calendula-flowers': '/images/catalog/calendula-flowers.webp', // stock (commons, CC BY-SA 4.0)
   'gum-ghatti': '/images/catalog/gum-ghatti.webp', // stock (commons, CC BY 2.0)
-  'peppermint-oil': '/images/catalog/peppermint-oil.webp', // stock (commons, CC BY 3.0)
-  'spearmint-oil': '/images/catalog/spearmint-oil.webp', // stock (commons, CC BY-SA 3.0)
-  'lemongrass-oil': '/images/catalog/lemongrass-oil.webp', // stock (commons, CC BY 2.0)
-  'palmarosa-oil': '/images/catalog/palmarosa-oil.webp', // stock (commons, Public domain)
-  'citronella-oil': '/images/catalog/citronella-oil.webp', // stock (commons, CC BY-SA 3.0)
-  'eucalyptus-oil': '/images/catalog/eucalyptus-oil.webp', // stock (commons, Public domain)
-  'basil-oil': '/images/catalog/basil-oil.webp', // stock (commons, CC BY 2.0)
-  'ajwain-oil': '/images/catalog/ajwain-oil.webp', // stock (commons, CC BY-SA 4.0)
-  'cumin-seed-oil': '/images/catalog/cumin-seed-oil.webp', // stock (commons, Public domain)
-  'coriander-seed-oil': '/images/catalog/coriander-seed-oil.webp', // stock (commons, Public domain)
-  'ginger-oil': '/images/catalog/ginger-oil.webp', // stock (commons, Public domain)
-  'vetiver-oil': '/images/catalog/vetiver-oil.webp', // stock (commons, CC BY-SA 4.0)
-  'patchouli-oil': '/images/catalog/patchouli-oil.webp', // stock (commons, Public domain)
-  'geranium-oil': '/images/catalog/geranium-oil.webp', // stock (commons, Public domain)
-  'rose-oil': '/images/catalog/rose-oil.webp', // stock (commons, CC BY-SA 3.0)
   'curcumin-extract': '/images/catalog/curcumin-extract.webp', // stock (commons, CC BY-SA 4.0)
   'henna-leaves': '/images/catalog/henna-leaves.webp', // stock (commons, CC0)
   'neutral-henna': '/images/catalog/neutral-henna.webp', // stock (commons, CC BY-SA 2.0)
@@ -389,10 +374,6 @@ export const productImages = {
   'moringa-extract': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
   'green-tea-extract': '/images/catalog/green-tea-leaves.webp', // PLACEHOLDER reuses green-tea-leaves
   'aloe-vera-extract': '/images/catalog/aloe-vera-leaf.webp', // PLACEHOLDER reuses aloe-vera-leaf
-  'mentha-oil': '/images/catalog/peppermint-oil.webp', // PLACEHOLDER reuses peppermint-oil
-  'turmeric-oil': '/images/catalog/turmeric-fingers.webp', // PLACEHOLDER reuses turmeric-fingers
-  'karanj-oil': '/images/catalog/karanj-seeds.webp', // PLACEHOLDER reuses karanj-seeds
-  'mahua-oil': '/images/catalog/mahua-seeds.webp', // PLACEHOLDER reuses mahua-seeds
   'kokum-butter': '/images/catalog/kokum.webp', // PLACEHOLDER reuses kokum
   'sal-butter': '/images/catalog/sal-seeds.webp', // PLACEHOLDER reuses sal-seeds
   'baq-henna-powder': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
@@ -406,7 +387,6 @@ export const productImages = {
   'wheatgrass-powder': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
   'tamarind-kernel-powder': '/images/catalog/tamarind-seed.webp', // PLACEHOLDER reuses tamarind-seed
   'beverages': '/images/scenes/grocery-shelf.webp', // PLACEHOLDER generic scene
-  'cooking-oils': '/images/scenes/jars-shelf.webp', // PLACEHOLDER generic scene
   'household-home-care': '/images/scenes/supermarket-aisle.webp', // PLACEHOLDER generic scene
   'ajwain-powder': '/images/catalog/ajwain-seeds.webp', // PLACEHOLDER reuses ajwain-seeds
 };

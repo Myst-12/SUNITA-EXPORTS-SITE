@@ -301,21 +301,6 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | catalog/jasmine-flowers.webp | François Nguyen | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Jasmine_tea_(1).jpg |
 | catalog/calendula-flowers.webp | Naturpuur | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sonnentor,_Produzent_von_Kr%C3%A4utern,_Tees_und_Gew%C3%BCrzen_aus_biologischem_Anbau_in_Spr%C3%B6gnitz_19.jpg |
 | catalog/gum-ghatti.webp | Lalithamba | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Anogeissus_latifolia_(Roxb_ex_DC)_Wall_ex_Gill.jpg |
-| catalog/peppermint-oil.webp | Unknown | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Pfefferminze_natur_peppermint.jpg |
-| catalog/spearmint-oil.webp | Simon Eugster --Simon 13:07, 2 July 2006 (UTC) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Minze.jpg |
-| catalog/lemongrass-oil.webp | Unknown | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:YosriNov04Pokok_Serai.JPG |
-| catalog/palmarosa-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:PalmarosaEssentialOil.png |
-| catalog/citronella-oil.webp | Feen | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:%C3%93leo_de_citronela.jpg |
-| catalog/eucalyptus-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:EucalyptusStaigerianaEssOil.png |
-| catalog/basil-oil.webp | Cliff Hutson | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Basil_(Ocimum_basilicum).jpg |
-| catalog/ajwain-oil.webp | Yercaud-elango | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Trachyspermum_ammi-1-xavier_cottage-yercaud-salem-India.jpg |
-| catalog/cumin-seed-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:CuminEssOil.png |
-| catalog/coriander-seed-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:CorianderEssOil.png |
-| catalog/ginger-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:GingerEssOil.png |
-| catalog/vetiver-oil.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sprout_Chrysopogon_zizanioides.jpg |
-| catalog/patchouli-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:PatchouliEssentialOil.png |
-| catalog/geranium-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:RoseGeraniumEssentialOil.png |
-| catalog/rose-oil.webp | Animsaj | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Rose_oil.jpg |
 | catalog/curcumin-extract.webp | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:C%C3%BArcuma_(Curcuma_longa)_molida,_2020-06-23,_DD_16-24_FS.jpg |
 | catalog/henna-leaves.webp | Harsha099 | CC0 | https://commons.wikimedia.org/wiki/File:Henna_Tree_leaves.jpg |
 | catalog/neutral-henna.webp | Bernard DUPONT from FRANCE | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Eland%27s_Pea_(Senna_italica)_(50111366221).jpg |

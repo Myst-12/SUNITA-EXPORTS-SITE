@@ -24,9 +24,9 @@ const RANGE = [
   { icon: 'leaf', title: 'Tea, coffee & beverages', text: 'CTC and leaf tea, masala chai, instant coffee, sherbets and syrups.' },
   { icon: 'flask', title: 'Pickles, pastes & sauces', text: 'Mango and lime pickles, ginger-garlic paste, chutneys and cooking sauces.' },
   { icon: 'layers', title: 'Flours, rice & dals', text: 'Atta, besan, suji, poha, basmati and regional rice, every everyday dal.' },
-  { icon: 'thermometer', title: 'Ghee & cooking oils', text: 'Cow and buffalo ghee, mustard, groundnut and sesame oils in tins and PET.' },
+  { icon: 'thermometer', title: 'Ghee & dairy', text: 'Cow and buffalo ghee and shelf-stable dairy, where the destination allows import from India.' },
   { icon: 'sparkle', title: 'Pooja & festive', text: 'Agarbatti, dhoop, camphor and festive items for Diwali, Navratri and Eid.' },
-  { icon: 'users', title: 'Personal & home care', text: 'Herbal toiletries, hair oils, soaps, household cleaners and utensils.' },
+  { icon: 'users', title: 'Personal & home care', text: 'Herbal toiletries, soaps, household cleaners and utensils.' },
 ];
 
 const BUYERS = [
@@ -37,7 +37,7 @@ const BUYERS = [
 ];
 
 const FAQS = [
-  { question: 'Which Indian FMCG products do you export?', answer: 'Snacks and namkeen, biscuits, instant foods and mixes, sweets, tea and beverages, pickles and pastes, papad, ghee and oils, flours, rice, dals, spices and masalas, pooja items, personal care and household products. We source genuine products from established Indian manufacturers, subject to brand and export availability, or pack under your private label.' },
+  { question: 'Which Indian FMCG products do you export?', answer: 'Snacks and namkeen, biscuits, instant foods and mixes, sweets, tea and beverages, pickles and pastes, papad, ghee, flours, rice, dals, spices and masalas, pooja items, personal care and household products. We source genuine products from established Indian manufacturers, subject to brand and export availability, or pack under your private label.' },
   { question: 'Can I combine FMCG with spices and rice in one container?', answer: 'Yes — that is our speciality. Most of our grocery buyers order a mixed 20 ft or 40 ft container combining packaged foods with bulk or retail spices, rice and pulses.' },
   { question: 'How do you manage shelf life for sea shipments?', answer: 'We plan stock so products leave India with the maximum possible remaining shelf life, check manufacturing dates before stuffing and share batch details with the packing list.' },
   { question: 'Do you handle labelling for my country?', answer: 'We supply products with English labelling as standard and can arrange importer stickers, ingredient translations or private-label packs to meet your country’s food labelling rules.' },

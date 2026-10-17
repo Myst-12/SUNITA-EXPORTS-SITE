@@ -74,12 +74,12 @@ export const MARKET_CONTENT = {
   },
 
   qatar: {
-    featured: ['1121-basmati-rice', 'chana-dal', 'turmeric-powder', 'garam-masala', 'dairy-products', 'cooking-oils', 'snacks-namkeen', 'packaged-spices-masalas'],
+    featured: ['1121-basmati-rice', 'chana-dal', 'turmeric-powder', 'garam-masala', 'dairy-products', 'chakki-atta', 'snacks-namkeen', 'packaged-spices-masalas'],
     sections: [
       {
         title: 'Indian groceries for Doha’s hypermarkets and caterers',
         paras: [
-          'Qatar’s hypermarkets, labour-camp caterers and restaurants buy Indian rice, pulses, spices, ghee and oils in large volumes. We ship consolidated containers to Hamad Port with catering-size packs for food service and retail packs for supermarkets, all with Arabic/English labelling.',
+          'Qatar’s hypermarkets, labour-camp caterers and restaurants buy Indian rice, pulses, spices and ghee in large volumes. We ship consolidated containers to Hamad Port with catering-size packs for food service and retail packs for supermarkets, all with Arabic/English labelling.',
           GULF_LABEL,
         ],
       },

@@ -12,7 +12,7 @@ const SECTIONS = [
     title: 'A complete Indian grocery range from one exporter',
     paras: [
       `Sunita Agri Exports is a Mumbai-based Indian grocery exporter and Govt. recognised Star Export House, supplying importers, wholesalers, supermarkets and restaurant suppliers since ${COMPANY.foundingYear}. Instead of buying rice from one supplier, spices from another and packaged foods from a third, our buyers send one list and receive one container.`,
-      'The range covers everything on an Indian grocery shelf: basmati and regional rice, atta and flours, every everyday dal, whole and ground spices, ready masalas, snacks and namkeen, biscuits, sweets, tea and coffee, pickles, papad, ghee and cooking oils, plus personal and home care. Products are sourced from established Indian manufacturers — branded where export availability allows, or packed under your own label.',
+      'The range covers everything on an Indian grocery shelf: basmati and regional rice, atta and flours, every everyday dal, whole and ground spices, ready masalas, snacks and namkeen, biscuits, sweets, tea and coffee, pickles, papad, ghee, plus personal and home care. Products are sourced from established Indian manufacturers — branded where export availability allows, or packed under your own label.',
     ],
   },
   {
@@ -35,12 +35,12 @@ const RANGE = [
   { title: 'Pulses & dals', text: 'Chana, toor, moong, urad, masoor, rajma, kabuli chana and every split dal.', href: '/products/pulses-legumes/' },
   { title: 'Spices & masalas', text: 'Whole spices, powders and blended masalas in bulk or retail packs.', href: '/products/indian-spices/' },
   { title: 'Flours', text: 'Chakki atta, maida, besan, sooji, rice and millet flours.', href: '/products/flours-milling/' },
-  { title: 'Packaged Indian FMCG', text: 'Snacks, biscuits, sweets, instant food, pickles, papad, tea, ghee and oils.', href: '/fmcg/' },
+  { title: 'Packaged Indian FMCG', text: 'Snacks, biscuits, sweets, instant food, pickles, papad, tea, ghee.', href: '/fmcg/' },
   { title: 'Private label', text: 'Your brand on rice, atta, dals and spices, packed in Mumbai.', href: '/private-label/' },
 ];
 
 const FAQS = [
-  { question: 'What Indian grocery products do you export?', answer: 'Rice, flours, pulses and dals, spices and masalas, snacks and namkeen, biscuits, sweets, instant foods, pickles, papad, tea and coffee, ghee and cooking oils, jaggery, makhana, and personal and home care products.' },
+  { question: 'What Indian grocery products do you export?', answer: 'Rice, flours, pulses and dals, spices and masalas, snacks and namkeen, biscuits, sweets, instant foods, pickles, papad, tea and coffee, ghee, jaggery, makhana, and personal and home care products.' },
   { question: 'Can I mix many products in one container?', answer: 'Yes. Mixed containers are our speciality — packaged FMCG cartons, bulk spices, rice and pulses all in one 20 ft or 40 ft load, with one invoice and one set of documents.' },
   { question: 'Do you export Indian grocery brands?', answer: 'Yes, we source genuine branded products from established Indian manufacturers, subject to brand and export availability. We can also pack staples under your own label.' },
   { question: 'Which countries do you supply?', answer: `${COMPANY.countriesServed} countries, mainly the UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain, plus the USA, UK, Canada, Australia, Europe and Asia.` },

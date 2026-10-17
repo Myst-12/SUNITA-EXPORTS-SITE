@@ -6586,25 +6586,6 @@ export const products = [
     ]
   },
   {
-    "slug": "cooking-oils",
-    "name": "Cooking Oils",
-    "category": "foodstuff-fmcg",
-    "subcategory": "cooking-oils",
-    "type": "fmcg",
-    "origin": "India",
-    "forms": [
-      "Bottles",
-      "Tins",
-      "Jars"
-    ],
-    "description": "Mustard, groundnut, sesame, coconut and other cooking oils in retail bottles and tins.",
-    "packaging": [
-      "Retail packs to brand or buyer specification",
-      "Export master cartons",
-      "Consolidated in mixed containers"
-    ]
-  },
-  {
     "slug": "sauces-condiments",
     "name": "Sauces & Condiments",
     "category": "foodstuff-fmcg",
