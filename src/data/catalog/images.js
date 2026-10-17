@@ -347,9 +347,9 @@ export const productImages = {
   'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // stock (commons, CC BY-SA 4.0)
   'menthol-crystals': '/images/catalog/menthol-crystals.webp', // stock (commons, Public domain)
   'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // stock (commons, CC BY-SA 2.0)
-  'moth-beans': '/images/catalog/moth-beans.webp', // PLACEHOLDER closest match (commons, CC BY 2.0)
-  'safflower-seeds': '/images/catalog/safflower-seeds.webp', // PLACEHOLDER closest match (commons, Public domain)
-  'guar-churi-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER closest match (commons, CC BY-SA 2.0)
+  'moth-beans': '/images/catalog/moth-beans.webp', // generated
+  'safflower-seeds': '/images/catalog/safflower-seeds.webp', // generated
+  'guar-churi-meal': '/images/catalog/guar-churi-meal.webp', // generated
   'ashwagandha-extract': '/images/catalog/ashwagandha-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
   'gymnema-extract': '/images/catalog/gymnema-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
   'bacopa-extract': '/images/catalog/bacopa-extract.webp', // PLACEHOLDER closest match (commons, CC BY 3.0)
@@ -357,16 +357,16 @@ export const productImages = {
   'ginger-extract': '/images/catalog/ginger-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
   'pomegranate-peel': '/images/catalog/pomegranate-peel.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
   'papain': '/images/catalog/papain.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
-  'tibar-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
-  'dubar-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
-  'mogra-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
-  'microfine-guar-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
-  'roasted-guar-korma-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
-  'toasted-guar-korma-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
-  'guar-gum': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
-  'cassia-tora-meal': '/images/catalog/cassia-tora-seeds.webp', // PLACEHOLDER reuses cassia-tora-seeds
-  'de-oiled-rice-bran': '/images/catalog/rice-bran.webp', // PLACEHOLDER reuses rice-bran
-  'corn-gluten-meal': '/images/catalog/maize-grits.webp', // PLACEHOLDER reuses maize-grits
+  'tibar-basmati': '/images/catalog/tibar-basmati.webp', // generated
+  'dubar-basmati': '/images/catalog/dubar-basmati.webp', // generated
+  'mogra-basmati': '/images/catalog/mogra-basmati.webp', // generated
+  'microfine-guar-meal': '/images/catalog/microfine-guar-meal.webp', // generated
+  'roasted-guar-korma-meal': '/images/catalog/roasted-guar-korma-meal.webp', // generated
+  'toasted-guar-korma-meal': '/images/catalog/toasted-guar-korma-meal.webp', // generated
+  'guar-gum': '/images/catalog/microfine-guar-meal.webp', // PLACEHOLDER reuses microfine-guar-meal
+  'cassia-tora-meal': '/images/catalog/cassia-tora-meal.webp', // generated
+  'de-oiled-rice-bran': '/images/catalog/de-oiled-rice-bran.webp', // generated
+  'corn-gluten-meal': '/images/catalog/corn-gluten-meal.webp', // generated
   'fenugreek-extract': '/images/catalog/fenugreek-seeds.webp', // PLACEHOLDER reuses fenugreek-seeds
   'garcinia-extract': '/images/catalog/garcinia-cambogia.webp', // PLACEHOLDER reuses garcinia-cambogia
   'forskolin-extract': '/images/catalog/coleus-root.webp', // PLACEHOLDER reuses coleus-root

@@ -316,9 +316,6 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | catalog/jaggery-chikki.webp | Divya4232 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palli_laddu-_Sri_Sai_Telangana_foods,Hafeezpet-Telangana-DSC_0003.webp |
 | catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |
 | catalog/tamarind-pulp-powder.webp | einalem | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Tamarind_pulp.jpg |
-| catalog/moth-beans.webp | Dick Culbert from Gibsons, B.C., Canada | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Vigna_adenantha_(24976489486).jpg |
-| catalog/safflower-seeds.webp | Pseudoanas (talk) | Public domain | https://commons.wikimedia.org/wiki/File:Carthamus_tinctorius_050709a.JPG |
-| catalog/guar-churi-meal.webp | Ton Rulkens from Mozambique | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Guar_seeds_(7856427394).jpg |
 | catalog/ashwagandha-extract.webp | SAplants | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Withania_somnifera_1DS-II_3-7489.jpg |
 | catalog/gymnema-extract.webp | Vinayaraj | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Gymnema_sylvestre.jpg |
 | catalog/bacopa-extract.webp | Forest &amp; Kim Starr | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Starr_070815-8055_Bacopa_monnieri.jpg |
