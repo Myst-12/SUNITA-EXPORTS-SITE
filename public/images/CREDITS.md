@@ -2,7 +2,7 @@
 
 Placeholder stock imagery until real company photos are available.
 
-Product photos in images/catalog/ are supplied by Sunita Agri Exports or AI-generated illustrations (src/data/catalog/images.js says which); they are not third-party stock. Rows below remain for images still used elsewhere on the site.
+Product photos in images/catalog/ are supplied by Sunita Agri Exports, AI-generated, or freely licensed photos from Wikimedia Commons (src/data/catalog/images.js says which; Commons ones are credited below). Rows below remain for images still used elsewhere on the site.
 Unsplash images: Unsplash License (free commercial use, no attribution required).
 
 | File | Source |
@@ -238,3 +238,96 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/whole-toor.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cajanus_cajan_MHNT.BOT.2015.2.47.jpg |
 | products/whole-white-urad.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Vigna_mungo_without_skin.jpg |
 | products/yellow-moong-dal.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_scene_of_green_gram.JPG |
+| catalog/tamarind.webp | Ivar Leidus | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Tamarind_fruits_(Tamarindus_indica_%27Si_Thong%27).jpg |
+| catalog/red-gunja-seeds.webp | Dinesh Valke from Thane, India | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Gunja_(Marathi-_%E0%A4%97%E0%A5%81%E0%A4%82%E0%A4%9C)_(3203499139).jpg |
+| catalog/henna-powder.webp | Unknown | Public domain | https://commons.wikimedia.org/wiki/File:Henna_for_hair.jpg |
+| catalog/celery-seeds.webp | Holly Cheng | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Celery_seed.jpg |
+| catalog/dill-seeds.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Dill_seed.JPG |
+| catalog/nigella-seeds.webp | Waithamai | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Nigella_damascena_seeds_2020.jpg |
+| catalog/shahi-jeera.webp | Sanjay Acharya | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Black_Cumin.jpg |
+| catalog/nutmeg-powder.webp | Dominikmatus | CC0 | https://commons.wikimedia.org/wiki/File:Nutmeg-spice.jpg |
+| catalog/copra-cake.webp | Vijayanrajapuram | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Coconut_cake_copra_cake.jpg |
+| catalog/indian-wheat.webp | Rajnishpatel20894 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:WHEAT_UP.jpg |
+| catalog/corn-starch.webp | Picasa author kalaya | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cornstarch_mixed_with_water.jpg |
+| catalog/niger-seeds.webp | Gaurav Dhwaj Khadka | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Niger_Seed.jpg |
+| catalog/flax-seeds.webp | Sanjay Acharya | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Brown_Flax_Seeds.jpg |
+| catalog/sunflower-seeds.webp | Kritzolina | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sunflower_with_seeds_02.jpg |
+| catalog/feed-barley.webp | Sanjay Acharya | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Barley_Seeds.jpg |
+| catalog/maize-grits.webp | Popo le Chien | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Polenta_uncooked.jpg |
+| catalog/buckwheat.webp | Andrey Korzun | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Buckwheat_and_products_from_it_01.jpg |
+| catalog/red-millet.webp | Salifu Wumpini Hussein | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Red_Millet.jpg |
+| catalog/soybean-meal.webp | United Soybean Board | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Soybean_Meal_(10059014026).jpg |
+| catalog/groundnut-cake.webp | Ranjithkumar Murugesan | CC0 | https://commons.wikimedia.org/wiki/File:GROUNDNUT_OIL_CAKE.jpg |
+| catalog/garden-cress-seeds.webp | Challiyan | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lepidium_sativum_seeds.jpg |
+| catalog/jaggery-blocks.webp | Sushant Medhe Pawar of Kolhapur Agricultural Produce Market (Kolhapur Sheti Utpa | CC0 | https://commons.wikimedia.org/wiki/File:Organic_Chemical_free_Kolhapur_Jaggery_Dhep_(Block)_-_1_Kg_each.jpg |
+| catalog/jaggery-cubes.webp | Mangosapiens | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Jaggery_cubes.jpg |
+| catalog/jaggery-powder.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:An_image_of_jaggery_powder.JPG |
+| catalog/organic-jaggery.webp | Rohini | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Organic_palm_jaggery.jpg |
+| catalog/liquid-jaggery.webp | Billjones94 | CC0 | https://commons.wikimedia.org/wiki/File:Liquid_jaggery_from_Bengal,_photographed_by_Yogabrata_Chakraborty,_on_February_2,_2024.jpg |
+| catalog/coconut-jaggery.webp | Priyankasingha1811 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Narkel_naru.made_up_of_coconut_and_jaggery.jpg |
+| catalog/bala-root.webp | Dr.S.Soundarapandian | Public domain | https://commons.wikimedia.org/wiki/File:%E0%AE%85%E0%AE%B0%E0%AE%BF%E0%AE%B5%E0%AE%B3%E0%AF%8D%E0%AE%AE%E0%AE%A9%E0%AF%88%E0%AE%AA%E0%AF%8D_%E0%AE%AA%E0%AF%82%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%814.jpg |
+| catalog/vetiver-root.webp | Copyright © 2005 David Monniaux | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Vetiveria_zizanoides_dsc07810.jpg |
+| catalog/coleus-root.webp | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Plectranthus_barbatus_kz02.jpg |
+| catalog/oud-salib.webp | Krzysztof Ziarnek, Kenraiz | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Paeonia_emodi_kz01.jpg |
+| catalog/mango-ginger.webp | Vicharam | Public domain | https://commons.wikimedia.org/wiki/File:Roots_of_Curcuma_amada_3.JPG |
+| catalog/black-turmeric.webp | Nativeplants garden | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Curcuma_caesia_5.jpg |
+| catalog/wild-turmeric.webp | Yercaud-elango | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Curcuma_aromatica-2-bsi-yercaud-salem-India.jpg |
+| catalog/indian-horse-chestnut.webp | Steve Law from Henfield, England | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Aesculus_indica_Sydney_Pearce.jpg |
+| catalog/senna-leaves.webp | Danny Steven S. | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Sennae_folium_by_Danny_S._-_001.jpg |
+| catalog/senna-pods.webp | David E Mead | CC0 | https://commons.wikimedia.org/wiki/File:Candle_bush_(habit_and_pods).jpg |
+| catalog/senna-leaf-powder.webp | Fumikas Sagisavas | CC0 | https://commons.wikimedia.org/wiki/File:Dried_senna_alexandrina_leaf.jpg |
+| catalog/curry-leaves.webp | Flocci Nivis | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:20260317_Murraya_koenigii_02.jpg |
+| catalog/lemongrass.webp | Niman Lakra | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lemon_Grass_Edited_Photo.jpg |
+| catalog/stevia-leaves.webp | NmiPortal | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Stevia_rebaudiana_leaves_dry.JPG |
+| catalog/gotu-kola.webp | Md. Siddiq Hasan | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Centella_asiatica_04.jpg |
+| catalog/bhumyamalaki.webp | Dinesh Valke from Thane, India | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Bhumya-amalaki_(Sanskrit-_%E0%A4%AD%E0%A5%82%E0%A4%AE%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE%E0%A4%B2%E0%A4%95%E0%A5%80)_(1224211741).jpg |
+| catalog/aloe-vera-leaf.webp | Forest &amp; Kim Starr | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Starr_011104-0040_Aloe_vera.jpg |
+| catalog/green-tea-leaves.webp | CEphoto, Uwe Aranas | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Zhu-Ye-Qing-Tea-03.jpg |
+| catalog/eucalyptus-leaves.webp | JonRichfield | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Eucalyptus_camaldulensis_isobilateral_leaves_IMG_1997c.jpg |
+| catalog/basil-leaves.webp | Luwenn | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:L_Basil_1.jpg |
+| catalog/rosemary.webp | Filo gèn' | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_(Lamiaceae)_01.jpg |
+| catalog/oregano.webp | Revital Salomon | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dried_Oregano.JPG |
+| catalog/thyme.webp | Judgefloro | CC0 | https://commons.wikimedia.org/wiki/File:1426Cuisine_foods_of_Bulacan_59.jpg |
+| catalog/sage.webp | Wheeler Cowperthwaite | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:All_stages_of_drying_sage_19.jpg |
+| catalog/jamun-seed.webp | Khả Vân Đại Hãn | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Syzygium_cumini_(black_plum).jpg |
+| catalog/tamarind-seed.webp | kaʁstn Disk/Cat | CC BY-SA 3.0 de | https://commons.wikimedia.org/wiki/File:Tamarinde_Tamarindus_indica.jpg |
+| catalog/cassia-tora-seeds.webp | Dr.S.Soundarapandian S.Soundarapandian (talk) 09:57, 30 November 2013 (UTC) | Public domain | https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%95%E0%AE%B0%E0%AF%882.jpg |
+| catalog/karanj-seeds.webp | Abhijeet Karmala | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Karanj_Seeds_%E0%A4%95%E0%A4%B0%E0%A4%82%E0%A4%9C_%E0%A4%AC%E0%A4%BF%E0%A4%AF%E0%A4%BE.jpg |
+| catalog/mahua-seeds.webp | Teacher1943 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Seeds_of_Mahua_or_seeds_of_Bassia_Latifolia.JPG |
+| catalog/sal-seeds.webp | T R Shankar Raman | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Shorea_robusta_293017938.jpg |
+| catalog/kusum-seeds.webp | Aris riyanto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:%22%2B%EA%A6%AE%EA%A6%B6%EA%A6%A0%EA%A7%80%EA%A6%8F%EA%A6%BC%EA%A6%B1%EA%A6%A9%EA%A7%80%EA%A6%A7%EA%A6%B6%2B%22_Schleichera_oleosa_-_Pohon_Kesambi_-_Pilangsari-2019_08.jpg |
+| catalog/undi-seeds.webp | Shagil Kannur | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Calophyllum_inophyllum_at_Kannur_3.jpg |
+| catalog/lotus-flowers.webp | bobistraveling | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Seed_Pod_Lotus_Flowers_Backyard_Estates_Cary_NC_141135.jpg |
+| catalog/jasmine-flowers.webp | François Nguyen | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Jasmine_tea_(1).jpg |
+| catalog/calendula-flowers.webp | Naturpuur | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sonnentor,_Produzent_von_Kr%C3%A4utern,_Tees_und_Gew%C3%BCrzen_aus_biologischem_Anbau_in_Spr%C3%B6gnitz_19.jpg |
+| catalog/gum-ghatti.webp | Lalithamba | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Anogeissus_latifolia_(Roxb_ex_DC)_Wall_ex_Gill.jpg |
+| catalog/peppermint-oil.webp | Unknown | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Pfefferminze_natur_peppermint.jpg |
+| catalog/spearmint-oil.webp | Simon Eugster --Simon 13:07, 2 July 2006 (UTC) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Minze.jpg |
+| catalog/lemongrass-oil.webp | Unknown | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:YosriNov04Pokok_Serai.JPG |
+| catalog/palmarosa-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:PalmarosaEssentialOil.png |
+| catalog/citronella-oil.webp | Feen | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:%C3%93leo_de_citronela.jpg |
+| catalog/eucalyptus-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:EucalyptusStaigerianaEssOil.png |
+| catalog/basil-oil.webp | Cliff Hutson | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Basil_(Ocimum_basilicum).jpg |
+| catalog/ajwain-oil.webp | Yercaud-elango | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Trachyspermum_ammi-1-xavier_cottage-yercaud-salem-India.jpg |
+| catalog/cumin-seed-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:CuminEssOil.png |
+| catalog/coriander-seed-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:CorianderEssOil.png |
+| catalog/ginger-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:GingerEssOil.png |
+| catalog/vetiver-oil.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sprout_Chrysopogon_zizanioides.jpg |
+| catalog/patchouli-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:PatchouliEssentialOil.png |
+| catalog/geranium-oil.webp | Itineranttrader | Public domain | https://commons.wikimedia.org/wiki/File:RoseGeraniumEssentialOil.png |
+| catalog/rose-oil.webp | Animsaj | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Rose_oil.jpg |
+| catalog/curcumin-extract.webp | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:C%C3%BArcuma_(Curcuma_longa)_molida,_2020-06-23,_DD_16-24_FS.jpg |
+| catalog/henna-leaves.webp | Harsha099 | CC0 | https://commons.wikimedia.org/wiki/File:Henna_Tree_leaves.jpg |
+| catalog/neutral-henna.webp | Bernard DUPONT from FRANCE | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Eland%27s_Pea_(Senna_italica)_(50111366221).jpg |
+| catalog/indigo-powder.webp | Pancrat | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Indigofera_tinctoria_Guadeloupe.jpg |
+| catalog/henna-cones.webp | Almaddy2022 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Henna_Painting.jpg |
+| catalog/grey-millet.webp | Miquel Pujol Palol | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:LPCC-1018-Gra_de_mill.jpg |
+| catalog/100-broken-rice.webp | T.K. Naliaka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Broken_rice_bris%C3%A9e.jpg |
+| catalog/mini-mogra-basmati.webp | ImageParty | CC0 | https://commons.wikimedia.org/wiki/File:White_rice_on_a_brown_table.jpg |
+| catalog/dehydrated-pink-onion-flakes.webp | Muddassiriqbal | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bilistaa.jpg |
+| catalog/spray-dried-onion-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Onion_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
+| catalog/spray-dried-garlic-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
+| catalog/palm-jaggery.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palmyra_Jaggery.jpg |
+| catalog/jaggery-chikki.webp | Divya4232 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palli_laddu-_Sri_Sai_Telangana_foods,Hafeezpet-Telangana-DSC_0003.webp |
+| catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |
+| catalog/tamarind-pulp-powder.webp | einalem | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Tamarind_pulp.jpg |
