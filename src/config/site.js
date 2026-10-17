@@ -100,6 +100,7 @@ export const SOCIAL = [
   { name: 'LinkedIn', icon: 'linkedin', url: '' },
   { name: 'Instagram', icon: 'instagram', url: '' },
   { name: 'Facebook', icon: 'facebook', url: '' },
+  { name: 'X', icon: 'x', url: '' },
 ];
 
 // "🇺🇸" -> "US" (emoji flags don't render on Windows, so we show codes instead).

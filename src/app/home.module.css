@@ -136,3 +136,15 @@
 .certThumb img { object-fit: contain; }
 .certName { font-size: 0.82rem; font-weight: 700; color: var(--ink); text-align: center; line-height: 1.25; }
 @media (min-width: 1100px) { .certStrip { justify-content: space-between; } .certItem { width: 140px; } .certThumb { width: 112px; height: 140px; } }
+
+/* Private Label (a service, not a product category): full-width banner closing the category grid */
+.catWideWrap { grid-column: 1 / -1; }
+.catWide { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(20px, 4vw, 56px); padding: 14px; border-radius: var(--radius-lg); background: var(--bg-mist); color: inherit; transition: background 0.25s var(--ease), transform 160ms var(--ease); }
+.catWide:active { transform: scale(0.99); }
+@media (hover: hover) and (pointer: fine) { .catWide:hover { background: var(--bg-soft); } .catWide:hover .catWideImg img { transform: scale(1.04); } }
+.catWideImg { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #e7ebe5; }
+.catWideImg img { object-fit: cover; transition: transform 0.9s var(--ease); }
+.catWideBody { display: grid; gap: 8px; justify-items: start; padding-right: clamp(0px, 3vw, 40px); }
+.catWideName { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.15; color: var(--ink); }
+.catWideText { font-size: 1rem; line-height: 1.6; color: var(--muted); max-width: 52ch; margin-bottom: 6px; }
+@media (max-width: 640px) { .catWide { grid-template-columns: 1fr; padding: 10px 10px 18px; } .catWideBody { padding-inline: 6px; } }

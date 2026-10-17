@@ -362,4 +362,51 @@ export const productImages = {
   'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // stock (commons, CC BY-SA 4.0)
   'menthol-crystals': '/images/catalog/menthol-crystals.webp', // stock (commons, Public domain)
   'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // stock (commons, CC BY-SA 2.0)
+  'moth-beans': '/images/catalog/moth-beans.webp', // PLACEHOLDER closest match (commons, CC BY 2.0)
+  'safflower-seeds': '/images/catalog/safflower-seeds.webp', // PLACEHOLDER closest match (commons, Public domain)
+  'guar-churi-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER closest match (commons, CC BY-SA 2.0)
+  'ashwagandha-extract': '/images/catalog/ashwagandha-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
+  'gymnema-extract': '/images/catalog/gymnema-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
+  'bacopa-extract': '/images/catalog/bacopa-extract.webp', // PLACEHOLDER closest match (commons, CC BY 3.0)
+  'andrographis-extract': '/images/catalog/andrographis-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
+  'ginger-extract': '/images/catalog/ginger-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
+  'pomegranate-peel': '/images/catalog/pomegranate-peel.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
+  'papain': '/images/catalog/papain.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
+  'tibar-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
+  'dubar-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
+  'mogra-basmati': '/images/catalog/100-broken-rice.webp', // PLACEHOLDER reuses 100-broken-rice
+  'microfine-guar-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
+  'roasted-guar-korma-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
+  'toasted-guar-korma-meal': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
+  'guar-gum': '/images/catalog/guar-churi-meal.webp', // PLACEHOLDER reuses guar-churi-meal
+  'cassia-tora-meal': '/images/catalog/cassia-tora-seeds.webp', // PLACEHOLDER reuses cassia-tora-seeds
+  'de-oiled-rice-bran': '/images/catalog/rice-bran.webp', // PLACEHOLDER reuses rice-bran
+  'corn-gluten-meal': '/images/catalog/maize-grits.webp', // PLACEHOLDER reuses maize-grits
+  'fenugreek-extract': '/images/catalog/fenugreek-seeds.webp', // PLACEHOLDER reuses fenugreek-seeds
+  'garcinia-extract': '/images/catalog/garcinia-cambogia.webp', // PLACEHOLDER reuses garcinia-cambogia
+  'forskolin-extract': '/images/catalog/coleus-root.webp', // PLACEHOLDER reuses coleus-root
+  'senna-extract': '/images/catalog/senna-leaves.webp', // PLACEHOLDER reuses senna-leaves
+  'moringa-extract': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
+  'green-tea-extract': '/images/catalog/green-tea-leaves.webp', // PLACEHOLDER reuses green-tea-leaves
+  'aloe-vera-extract': '/images/catalog/aloe-vera-leaf.webp', // PLACEHOLDER reuses aloe-vera-leaf
+  'mentha-oil': '/images/catalog/peppermint-oil.webp', // PLACEHOLDER reuses peppermint-oil
+  'turmeric-oil': '/images/catalog/turmeric-fingers.webp', // PLACEHOLDER reuses turmeric-fingers
+  'karanj-oil': '/images/catalog/karanj-seeds.webp', // PLACEHOLDER reuses karanj-seeds
+  'mahua-oil': '/images/catalog/mahua-seeds.webp', // PLACEHOLDER reuses mahua-seeds
+  'kokum-butter': '/images/catalog/kokum.webp', // PLACEHOLDER reuses kokum
+  'sal-butter': '/images/catalog/sal-seeds.webp', // PLACEHOLDER reuses sal-seeds
+  'baq-henna-powder': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
+  'herbal-henna-hair-colour': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
+  'hair-care-herb-powders': '/images/catalog/reetha-soapnut.webp', // PLACEHOLDER reuses reetha-soapnut
+  'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // PLACEHOLDER reuses dehydrated-pink-onion-flakes
+  'red-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // PLACEHOLDER reuses spray-dried-onion-powder
+  'pink-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // PLACEHOLDER reuses spray-dried-onion-powder
+  'flavoured-jaggery': '/images/catalog/jaggery-cubes.webp', // PLACEHOLDER reuses jaggery-cubes
+  'date-palm-jaggery': '/images/catalog/palm-jaggery.webp', // PLACEHOLDER reuses palm-jaggery
+  'wheatgrass-powder': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
+  'tamarind-kernel-powder': '/images/catalog/tamarind-seed.webp', // PLACEHOLDER reuses tamarind-seed
+  'beverages': '/images/scenes/grocery-shelf.webp', // PLACEHOLDER generic scene
+  'cooking-oils': '/images/scenes/jars-shelf.webp', // PLACEHOLDER generic scene
+  'household-home-care': '/images/scenes/supermarket-aisle.webp', // PLACEHOLDER generic scene
+  'ajwain-powder': '/images/catalog/ajwain-seeds.webp', // PLACEHOLDER reuses ajwain-seeds
 };

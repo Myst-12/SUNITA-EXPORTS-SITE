@@ -53,7 +53,19 @@ export default function HomePage() {
             <p className={styles.text}>{cat.text}</p>
             <Link href="/products/" className="link-arrow">{cat.link} <Icon name="arrow-right" /></Link>
           </ScrollReveal>
-          {categories.map((c, i) => (
+          {categories.map((c, i) => c.service ? (
+            <ScrollReveal key={c.slug} className={styles.catWideWrap}>
+              <Link href={c.href} className={styles.catWide}>
+                <span className={styles.catWideImg}><Image src={c.image} alt="" fill sizes="(max-width: 860px) 100vw, 40vw" /></span>
+                <span className={styles.catWideBody}>
+                  <span className={styles.catMeta}>Service</span>
+                  <span className={styles.catWideName}>{c.name}</span>
+                  <span className={styles.catWideText}>Your brand on Indian spices, rice, flours and groceries — custom packs, labels and mixed containers, packed in Mumbai.</span>
+                  <span className="link-arrow">How private label works <Icon name="arrow-right" /></span>
+                </span>
+              </Link>
+            </ScrollReveal>
+          ) : (
             <ScrollReveal key={c.slug} delay={(i % 4) * 60}>
               <Link href={c.href} className={styles.cat}>
                 <span className={styles.catImg}>
@@ -85,6 +97,27 @@ export default function HomePage() {
             ))}
           </ScrollReveal>
         </div>
+      </section>
+
+      {/* 3a — Exhibition highlights + social */}
+      <section className={`${styles.section} ${styles.expoSection}`}>
+        <div className="container">
+          <ScrollReveal className={styles.expoHead}>
+            <div>
+              <h2 className={styles.title}>{exhibitions.title}</h2>
+              <p className={styles.text}>{exhibitions.text}</p>
+            </div>
+            <SocialLinks label={exhibitions.follow} />
+          </ScrollReveal>
+        </div>
+        <ScrollStrip className={styles.expoStrip} label={exhibitions.title}>
+          {exhibitions.photos.map((p) => (
+            <figure key={p.src} className={styles.expoItem} role="listitem">
+              <div className={styles.expoImg}><Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 70vw, 280px" /></div>
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))}
+        </ScrollStrip>
       </section>
 
       {/* 3b — Proof: real certificates, each opens its PDF */}
@@ -150,27 +183,6 @@ export default function HomePage() {
             <Globe origin={exportOrigin} destinations={destinations} fallback="/images/globe-static.webp" label={reach.globeLabel} />
           </ScrollReveal>
         </div>
-      </section>
-
-      {/* 6 — Exhibition highlights + social */}
-      <section className={`${styles.section} ${styles.expoSection}`}>
-        <div className="container">
-          <ScrollReveal className={styles.expoHead}>
-            <div>
-              <h2 className={styles.title}>{exhibitions.title}</h2>
-              <p className={styles.text}>{exhibitions.text}</p>
-            </div>
-            <SocialLinks label={exhibitions.follow} />
-          </ScrollReveal>
-        </div>
-        <ScrollStrip className={styles.expoStrip} label={exhibitions.title}>
-          {exhibitions.photos.map((p) => (
-            <figure key={p.src} className={styles.expoItem} role="listitem">
-              <div className={styles.expoImg}><Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 70vw, 280px" /></div>
-              <figcaption>{p.caption}</figcaption>
-            </figure>
-          ))}
-        </ScrollStrip>
       </section>
 
       {/* 7 — Get a quote */}
