@@ -62,7 +62,6 @@ export const HOME = {
       { src: '/images/exhibitions/expo-15.webp', alt: 'Sunita Agri Exports team meeting buyers at an international food fair', caption: 'Meeting buyers at our stand' },
       { src: '/images/exhibitions/expo-16.webp', alt: 'Sunita Agri Exports team meeting buyers at an international food fair', caption: 'Meeting buyers at our stand' },
       { src: '/images/exhibitions/expo-17.webp', alt: 'Sunita Agri Exports team with buyers at WorldFood Istanbul', caption: 'WorldFood Istanbul' },
-      { src: '/images/exhibitions/expo-18.webp', alt: 'Sunita Agri Exports team meeting buyers at an international food fair', caption: 'Meeting buyers at our stand' },
     ],
     follow: 'Follow us',
   },
