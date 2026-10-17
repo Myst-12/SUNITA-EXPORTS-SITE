@@ -316,10 +316,3 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | catalog/jaggery-chikki.webp | Divya4232 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palli_laddu-_Sri_Sai_Telangana_foods,Hafeezpet-Telangana-DSC_0003.webp |
 | catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |
 | catalog/tamarind-pulp-powder.webp | einalem | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Tamarind_pulp.jpg |
-| catalog/ashwagandha-extract.webp | SAplants | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Withania_somnifera_1DS-II_3-7489.jpg |
-| catalog/gymnema-extract.webp | Vinayaraj | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Gymnema_sylvestre.jpg |
-| catalog/bacopa-extract.webp | Forest &amp; Kim Starr | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Starr_070815-8055_Bacopa_monnieri.jpg |
-| catalog/andrographis-extract.webp | Nativeplants garden | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Andrographis_(53642).jpg |
-| catalog/ginger-extract.webp | Schlaghecken Josef | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Ingwer_(Zingiber_officinale)_Freiland_Anbau_Pflanze-2-Josef_Schlaghecken.jpg |
-| catalog/pomegranate-peel.webp | Ivar Leidus | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pomegranate_fruit_-_whole_and_piece_with_arils.jpg |
-| catalog/papain.webp | Aathavan jaffna | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Unripe_papaya_fruit.JPG |

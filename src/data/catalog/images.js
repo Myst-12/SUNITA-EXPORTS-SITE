@@ -350,13 +350,13 @@ export const productImages = {
   'moth-beans': '/images/catalog/moth-beans.webp', // generated
   'safflower-seeds': '/images/catalog/safflower-seeds.webp', // generated
   'guar-churi-meal': '/images/catalog/guar-churi-meal.webp', // generated
-  'ashwagandha-extract': '/images/catalog/ashwagandha-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
-  'gymnema-extract': '/images/catalog/gymnema-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
-  'bacopa-extract': '/images/catalog/bacopa-extract.webp', // PLACEHOLDER closest match (commons, CC BY 3.0)
-  'andrographis-extract': '/images/catalog/andrographis-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
-  'ginger-extract': '/images/catalog/ginger-extract.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
-  'pomegranate-peel': '/images/catalog/pomegranate-peel.webp', // PLACEHOLDER closest match (commons, CC BY-SA 4.0)
-  'papain': '/images/catalog/papain.webp', // PLACEHOLDER closest match (commons, CC BY-SA 3.0)
+  'ashwagandha-extract': '/images/catalog/ashwagandha-extract.webp', // generated
+  'gymnema-extract': '/images/catalog/gymnema-extract.webp', // generated
+  'bacopa-extract': '/images/catalog/bacopa-extract.webp', // generated
+  'andrographis-extract': '/images/catalog/andrographis-extract.webp', // generated
+  'ginger-extract': '/images/catalog/ginger-extract.webp', // generated
+  'pomegranate-peel': '/images/catalog/pomegranate-peel.webp', // generated
+  'papain': '/images/catalog/papain.webp', // generated
   'tibar-basmati': '/images/catalog/tibar-basmati.webp', // generated
   'dubar-basmati': '/images/catalog/dubar-basmati.webp', // generated
   'mogra-basmati': '/images/catalog/mogra-basmati.webp', // generated
@@ -367,26 +367,26 @@ export const productImages = {
   'cassia-tora-meal': '/images/catalog/cassia-tora-meal.webp', // generated
   'de-oiled-rice-bran': '/images/catalog/de-oiled-rice-bran.webp', // generated
   'corn-gluten-meal': '/images/catalog/corn-gluten-meal.webp', // generated
-  'fenugreek-extract': '/images/catalog/fenugreek-seeds.webp', // PLACEHOLDER reuses fenugreek-seeds
-  'garcinia-extract': '/images/catalog/garcinia-cambogia.webp', // PLACEHOLDER reuses garcinia-cambogia
-  'forskolin-extract': '/images/catalog/coleus-root.webp', // PLACEHOLDER reuses coleus-root
-  'senna-extract': '/images/catalog/senna-leaves.webp', // PLACEHOLDER reuses senna-leaves
-  'moringa-extract': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
-  'green-tea-extract': '/images/catalog/green-tea-leaves.webp', // PLACEHOLDER reuses green-tea-leaves
-  'aloe-vera-extract': '/images/catalog/aloe-vera-leaf.webp', // PLACEHOLDER reuses aloe-vera-leaf
-  'kokum-butter': '/images/catalog/kokum.webp', // PLACEHOLDER reuses kokum
-  'sal-butter': '/images/catalog/sal-seeds.webp', // PLACEHOLDER reuses sal-seeds
-  'baq-henna-powder': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
-  'herbal-henna-hair-colour': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
-  'hair-care-herb-powders': '/images/catalog/reetha-soapnut.webp', // PLACEHOLDER reuses reetha-soapnut
+  'fenugreek-extract': '/images/catalog/fenugreek-extract.webp', // generated
+  'garcinia-extract': '/images/catalog/garcinia-extract.webp', // generated
+  'forskolin-extract': '/images/catalog/forskolin-extract.webp', // generated
+  'senna-extract': '/images/catalog/senna-extract.webp', // generated
+  'moringa-extract': '/images/catalog/moringa-extract.webp', // generated
+  'green-tea-extract': '/images/catalog/green-tea-extract.webp', // generated
+  'aloe-vera-extract': '/images/catalog/aloe-vera-extract.webp', // generated
+  'kokum-butter': '/images/catalog/kokum-butter.webp', // generated
+  'sal-butter': '/images/catalog/sal-butter.webp', // generated
+  'baq-henna-powder': '/images/catalog/baq-henna-powder.webp', // generated
+  'herbal-henna-hair-colour': '/images/catalog/herbal-henna-hair-colour.webp', // generated
+  'hair-care-herb-powders': '/images/catalog/hair-care-herb-powders.webp', // generated
   'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-red-onion-flakes.webp', // generated
   'red-onion-powder': '/images/catalog/red-onion-powder.webp', // generated
   'pink-onion-powder': '/images/catalog/pink-onion-powder.webp', // generated
-  'flavoured-jaggery': '/images/catalog/jaggery-cubes.webp', // PLACEHOLDER reuses jaggery-cubes
-  'date-palm-jaggery': '/images/catalog/palm-jaggery.webp', // PLACEHOLDER reuses palm-jaggery
-  'wheatgrass-powder': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
+  'flavoured-jaggery': '/images/catalog/flavoured-jaggery.webp', // generated
+  'date-palm-jaggery': '/images/catalog/date-palm-jaggery.webp', // generated
+  'wheatgrass-powder': '/images/catalog/wheatgrass-powder.webp', // generated
   'tamarind-kernel-powder': '/images/catalog/tamarind-kernel-powder.webp', // generated
   'beverages': '/images/scenes/grocery-shelf.webp', // PLACEHOLDER generic scene
-  'household-home-care': '/images/scenes/supermarket-aisle.webp', // PLACEHOLDER generic scene
+  'household-home-care': '/images/catalog/household-home-care.webp', // generated
   'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
 };
