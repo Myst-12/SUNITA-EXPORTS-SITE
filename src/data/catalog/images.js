@@ -363,7 +363,7 @@ export const productImages = {
   'microfine-guar-meal': '/images/catalog/microfine-guar-meal.webp', // generated
   'roasted-guar-korma-meal': '/images/catalog/roasted-guar-korma-meal.webp', // generated
   'toasted-guar-korma-meal': '/images/catalog/toasted-guar-korma-meal.webp', // generated
-  'guar-gum': '/images/catalog/microfine-guar-meal.webp', // PLACEHOLDER reuses microfine-guar-meal
+  'guar-gum': '/images/catalog/guar-gum.webp', // generated
   'cassia-tora-meal': '/images/catalog/cassia-tora-meal.webp', // generated
   'de-oiled-rice-bran': '/images/catalog/de-oiled-rice-bran.webp', // generated
   'corn-gluten-meal': '/images/catalog/corn-gluten-meal.webp', // generated
@@ -379,14 +379,14 @@ export const productImages = {
   'baq-henna-powder': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
   'herbal-henna-hair-colour': '/images/catalog/henna-powder.webp', // PLACEHOLDER reuses henna-powder
   'hair-care-herb-powders': '/images/catalog/reetha-soapnut.webp', // PLACEHOLDER reuses reetha-soapnut
-  'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // PLACEHOLDER reuses dehydrated-pink-onion-flakes
-  'red-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // PLACEHOLDER reuses spray-dried-onion-powder
-  'pink-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // PLACEHOLDER reuses spray-dried-onion-powder
+  'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-red-onion-flakes.webp', // generated
+  'red-onion-powder': '/images/catalog/red-onion-powder.webp', // generated
+  'pink-onion-powder': '/images/catalog/pink-onion-powder.webp', // generated
   'flavoured-jaggery': '/images/catalog/jaggery-cubes.webp', // PLACEHOLDER reuses jaggery-cubes
   'date-palm-jaggery': '/images/catalog/palm-jaggery.webp', // PLACEHOLDER reuses palm-jaggery
   'wheatgrass-powder': '/images/catalog/moringa-leaf-powder.webp', // PLACEHOLDER reuses moringa-leaf-powder
-  'tamarind-kernel-powder': '/images/catalog/tamarind-seed.webp', // PLACEHOLDER reuses tamarind-seed
+  'tamarind-kernel-powder': '/images/catalog/tamarind-kernel-powder.webp', // generated
   'beverages': '/images/scenes/grocery-shelf.webp', // PLACEHOLDER generic scene
   'household-home-care': '/images/scenes/supermarket-aisle.webp', // PLACEHOLDER generic scene
-  'ajwain-powder': '/images/catalog/ajwain-seeds.webp', // PLACEHOLDER reuses ajwain-seeds
+  'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
 };
