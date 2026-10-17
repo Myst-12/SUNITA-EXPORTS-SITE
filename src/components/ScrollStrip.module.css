@@ -1,0 +1,9 @@
+.wrap { position: relative; }
+.nav { display: none; }
+.flip { transform: rotate(180deg); }
+@media (hover: hover) and (pointer: fine) {
+  .nav { display: flex; justify-content: flex-end; gap: 8px; max-width: var(--container); margin: 14px auto 0; padding-inline: var(--gutter); }
+  .nav button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-mist); color: var(--green-700); transition: background 0.2s, color 0.2s, transform 100ms var(--ease); }
+  .nav button:hover { background: var(--green-700); color: #fff; }
+  .nav button:active { transform: scale(0.95); }
+}

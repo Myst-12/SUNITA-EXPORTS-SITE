@@ -4,6 +4,7 @@ import Icon from '@/components/Icon';
 import ScrollReveal from '@/components/ScrollReveal';
 import Globe from '@/components/Globe';
 import SocialLinks from '@/components/SocialLinks';
+import ScrollStrip from '@/components/ScrollStrip';
 import { categories } from '@/data/products';
 import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
@@ -162,14 +163,14 @@ export default function HomePage() {
             <SocialLinks label={exhibitions.follow} />
           </ScrollReveal>
         </div>
-        <div className={styles.expoStrip} role="list">
+        <ScrollStrip className={styles.expoStrip} label={exhibitions.title}>
           {exhibitions.photos.map((p) => (
             <figure key={p.src} className={styles.expoItem} role="listitem">
               <div className={styles.expoImg}><Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 70vw, 280px" /></div>
               <figcaption>{p.caption}</figcaption>
             </figure>
           ))}
-        </div>
+        </ScrollStrip>
       </section>
 
       {/* 7 — Get a quote */}
