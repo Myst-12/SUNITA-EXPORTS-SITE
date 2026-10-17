@@ -20,3 +20,11 @@
 
 @media (max-width: 960px) { .main { grid-template-columns: 1fr 1fr; } .brandCol { grid-column: 1 / -1; } }
 @media (max-width: 520px) { .main { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* Contact QR — kept large and on pure white so it scans reliably off a screen */
+.qrRow { display: flex; align-items: center; gap: 20px 28px; padding-block: 8px 28px; flex-wrap: wrap; }
+.qrCard { flex: none; background: #fff; padding: 10px; border-radius: var(--radius); line-height: 0; }
+.qrCard img { width: 176px; height: 176px; image-rendering: pixelated; }
+.qrText { flex: 1 1 240px; max-width: 46ch; }
+.qrText p:not(.heading) { margin: 0 0 10px; font-size: 0.92rem; line-height: 1.55; }
+@media (max-width: 520px) { .qrRow { flex-direction: column; align-items: flex-start; } .qrCard img { width: 200px; height: 200px; } }

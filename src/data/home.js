@@ -22,7 +22,7 @@ export const HOME = {
   },
   categories: {
     title: 'What we export',
-    text: 'Fourteen categories, each product with its own specification sheet. Bulk, retail packs or private label.',
+    text: 'Fifteen categories and 400+ products, each with its own specification sheet. Bulk, retail packs or private label.',
     link: 'View all products',
   },
   directors: {
@@ -37,6 +37,17 @@ export const HOME = {
       { name: 'Alok Dhanuka', role: 'Director', image: '/images/team/alok-dhanuka.webp' },
       { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka.webp' },
     ],
+  },
+  exhibitions: {
+    title: 'Exhibition highlights',
+    text: 'We meet buyers at international food fairs every year. Come and see our samples at the next one.',
+    // Add more photos here (public/images/exhibitions/) — the strip scrolls sideways.
+    photos: [
+      { src: '/images/exhibitions/stand-n10-e23.webp', alt: 'Sunita Agri Exports stand N10-E23 in the India pavilion at Gulfood, Dubai', caption: 'Gulfood, Dubai · Stand N10-E23' },
+      { src: '/images/exhibitions/stand-c22-front.webp', alt: 'Sunita Agri Exports stand C-22 with spice and grain samples', caption: 'Trade fair · Stand C-22' },
+      { src: '/images/exhibitions/stand-c22.webp', alt: 'Director at the Sunita Agri Exports stand C-22', caption: 'Meeting buyers at Stand C-22' },
+    ],
+    follow: 'Follow us',
   },
   reach: {
     title: 'From Mumbai to 40+ countries',

@@ -41,6 +41,9 @@ export const categoryList = [
       { slug: 'seeds-seed-products', name: 'Seeds & Seed Products' },
       { slug: 'flowers-floral-botanicals', name: 'Flowers & Floral Botanicals' },
       { slug: 'gums-botanical-resins', name: 'Gums & Botanical Resins' },
+      { slug: 'essential-oils-butters', name: 'Essential Oils & Butters' },
+      { slug: 'botanical-extracts', name: 'Botanical Extracts' },
+      { slug: 'henna-natural-dyes', name: 'Henna & Natural Dyes' },
       { slug: 'specialty-functional-botanicals', name: 'Specialty & Functional Botanicals' },
     ],
   },
@@ -215,6 +218,18 @@ export const categoryList = [
       { slug: 'personal-care', name: 'Personal Care' },
       { slug: 'household-home-care', name: 'Household & Home Care' },
     ],
+  },
+  {
+    slug: 'jaggery-natural-sweeteners',
+    name: 'Jaggery & Natural Sweeteners',
+    shortName: 'Jaggery',
+    image: '/images/products/jaggery.webp',
+    description:
+      'Cane jaggery in blocks, cubes, powder and liquid, plus organic, palm, date-palm and coconut jaggery — unrefined Indian sweeteners in bulk, retail or private-label packs.',
+    metaTitle: 'Jaggery Exporter from India — Blocks, Cubes, Powder & Organic Jaggery',
+    metaDescription:
+      'Exporter of Indian jaggery: gur blocks, jaggery cubes, jaggery powder, organic jaggery, liquid jaggery, palm jaggery, date-palm jaggery and coconut sugar.',
+    subcategories: [{ slug: 'jaggery-products', name: 'Jaggery Products' }],
   },
   {
     slug: 'raisins',

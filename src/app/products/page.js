@@ -8,7 +8,7 @@ import styles from './products.module.css';
 export const metadata = {
   title: 'Export Product Catalogue — Spices, Herbs, Rice, Pulses & Indian FMCG',
   description:
-    'Browse 280 export products from India in 13 categories: spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, feeds, FMCG and raisins.',
+    'Browse 400+ export products from India in 14 categories: spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, feeds, FMCG, jaggery and raisins.',
   alternates: { canonical: '/products/' },
 };
 

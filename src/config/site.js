@@ -69,6 +69,7 @@ export const mapsLink = () =>
 // Shown as badges. Owner decision: display all (see risks.txt).
 export const CERTIFICATIONS = [
   { key: 'iso', name: 'ISO 22000', full: 'ISO 22000 Food Safety Management' },
+  { key: 'iso-9001', name: 'ISO 9001', full: 'ISO 9001:2015 Quality Management System' },
   { key: 'fssai', name: 'FSSAI', full: 'Food Safety and Standards Authority of India' },
   { key: 'fda', name: 'US FDA Registered', full: 'US Food & Drug Administration – Food Facility Registration' },
   { key: 'apeda', name: 'APEDA', full: 'Agricultural & Processed Food Products Export Development Authority' },
@@ -93,7 +94,15 @@ export const EXHIBITIONS = [
   },
 ];
 
-export const SOCIAL = []; // e.g. { name: 'LinkedIn', url: '...' } once profiles exist
+// Social profiles. Paste each URL when the client shares it; an icon only appears on the live site once its URL is set
+// (in local development all icons show so the layout can be checked).
+export const SOCIAL = [
+  { name: 'LinkedIn', icon: 'linkedin', url: '' },
+  { name: 'Instagram', icon: 'instagram', url: '' },
+  { name: 'Facebook', icon: 'facebook', url: '' },
+  { name: 'YouTube', icon: 'youtube', url: '' },
+  { name: 'X', icon: 'x', url: '' },
+];
 
 // "🇺🇸" -> "US" (emoji flags don't render on Windows, so we show codes instead).
 export const flagCode = (flag = '') =>

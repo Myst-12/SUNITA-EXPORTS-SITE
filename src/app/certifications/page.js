@@ -5,6 +5,7 @@ import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
 import { CERTIFICATIONS, CONTACT } from '@/config/site';
+import { certificates } from '@/data/certificates';
 import s from '../pages.module.css';
 
 export const metadata = {
@@ -25,7 +26,7 @@ const PROCESS = [
 const DOCS = ['Commercial invoice', 'Packing list', 'Bill of lading', 'Certificate of origin', 'Phytosanitary certificate', 'Fumigation certificate', 'Certificate of analysis', 'Health certificate (where required)', 'Halal / other certificates on request'];
 
 const FAQS = [
-  { question: 'Can I see your certificates before ordering?', answer: `Yes. Copies of our registrations and certificates are shared on request with serious buyers. Email ${CONTACT.email} or ask on WhatsApp.` },
+  { question: 'Can I see your certificates before ordering?', answer: `Yes. Our ISO 22000, ISO 9001, Kosher, FSSAI, Spices Board, Star Export House and IEC certificates are on this page as PDFs. For anything else, email ${CONTACT.email} or ask on WhatsApp.` },
   { question: 'Do you offer steam-sterilised spices?', answer: 'Yes. Steam sterilisation can be arranged for spices and herbs destined for the USA, EU, UK, Australia and New Zealand to meet microbiological requirements.' },
   { question: 'Can you test for pesticide residues and aflatoxins?', answer: 'Yes. On request we arrange third-party testing at accredited laboratories against the limits of your destination market, and share the reports before shipment.' },
   { question: 'Which port do you ship from?', answer: `Most shipments sail from ${CONTACT.port}. Other Indian ports can be arranged depending on product origin.` },
@@ -51,7 +52,7 @@ export default function QualityPage() {
             <div>
               <span className="eyebrow">Certifications &amp; memberships</span>
               <h2>Registered, certified and recognised</h2>
-              <p className="lead">Documents are available to buyers on request.</p>
+              <p className="lead">Scanned copies of our certificates are below — tap any one to open the full PDF.</p>
             </div>
           </div>
           <div className={s.badges}>
@@ -62,6 +63,32 @@ export default function QualityPage() {
                   <div><strong>{c.name}</strong><small>{c.full}</small></div>
                 </div>
               </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="certificates" className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Certificates</span>
+              <h2>See the documents</h2>
+              <p className="lead">Current copies of our certificates and registrations. Open or download any of them.</p>
+            </div>
+          </div>
+          <div className={s.certGrid}>
+            {certificates.map((c) => (
+              <a key={c.key} href={c.pdf} target="_blank" rel="noopener noreferrer" className={s.certCard}>
+                <div className={s.certImg}><Image src={c.image} alt={`${c.name} certificate of Sunita Agri Exports`} fill sizes="(max-width: 640px) 50vw, 25vw" /></div>
+                <div className={s.certBody}>
+                  <strong>{c.name}</strong>
+                  <span>{c.what}</span>
+                  <small>{c.issuer}</small>
+                  <small className={s.certValid}>{c.valid}</small>
+                  <span className={s.certOpen}><Icon name="file" size={14} /> View PDF</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>

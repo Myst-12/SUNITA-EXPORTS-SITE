@@ -104,3 +104,17 @@
 }
 .directorsSection { padding-top: clamp(24px, 3vw, 48px); }
 .directorsEyebrow::before { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; background: var(--green-700); margin-bottom: 1.1rem; }
+
+/* Exhibition highlights: a small sideways-scrolling strip (holds 3–20 photos) */
+.expoSection { padding-top: clamp(32px, 4vw, 56px); }
+.expoHead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; margin-bottom: 20px; }
+.expoHead .text { margin-bottom: 0; }
+.expoStrip {
+  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  padding: 0 max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))) 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.expoStrip::-webkit-scrollbar { display: none; }
+.expoItem { flex: none; width: min(70vw, 280px); margin: 0; scroll-snap-align: start; }
+.expoImg { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: #e7ebe5; }
+.expoImg img { object-fit: cover; }
+.expoItem figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }

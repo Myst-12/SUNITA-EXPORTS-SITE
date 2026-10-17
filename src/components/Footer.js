@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { COMPANY, CONTACT, fullAddress, mapsLink } from '@/config/site';
+import SocialLinks from './SocialLinks';
 import styles from './Footer.module.css';
 
 const COMPANY_LINKS = [
@@ -28,6 +29,7 @@ export default function Footer({ categories = [] }) {
           <p className={styles.about}>
             Indian spices, rice, pulses and groceries, exported from Mumbai since {COMPANY.foundingYear}. {COMPANY.status}.
           </p>
+          <SocialLinks tone="mist" />
         </div>
 
         <div>
@@ -58,6 +60,17 @@ export default function Footer({ categories = [] }) {
             <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
             <li><a href={mapsLink()} target="_blank" rel="noopener noreferrer" className={styles.address}>{fullAddress()}</a></li>
           </ul>
+        </div>
+      </div>
+
+      <div className={`container ${styles.qrRow}`}>
+        <div className={styles.qrCard}>
+          <img src="/images/contact-qr.png" alt="QR code: scan to save Sunita Agri Exports contact details" width={176} height={176} />
+        </div>
+        <div className={styles.qrText}>
+          <p className={styles.heading}>Save our contact</p>
+          <p>Scan with your phone camera to add Alok and Ankit Dhanuka’s numbers and email to your contacts in one step.</p>
+          <a href="/downloads/sunita-agri-exports-contact-qr.pdf" target="_blank" rel="noopener noreferrer" className={styles.more}>Download printable QR (PDF)</a>
         </div>
       </div>
 

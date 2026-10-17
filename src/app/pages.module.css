@@ -61,3 +61,18 @@
 .tintCream { background: var(--bg-mist); }
 
 @media (max-width: 900px) { .split, .splitWide { grid-template-columns: 1fr; } }
+
+/* Certificate documents */
+.certGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.certCard { display: grid; grid-template-rows: auto 1fr; background: var(--bg-mist); border-radius: var(--radius-lg); overflow: hidden; color: inherit; transition: background 0.2s, transform 0.2s var(--ease); }
+.certCard:active { transform: scale(0.99); }
+@media (hover: hover) and (pointer: fine) { .certCard:hover { background: var(--bg-soft); } }
+.certImg { position: relative; aspect-ratio: 4 / 5; background: #fff; margin: 12px 12px 0; border-radius: var(--radius); overflow: hidden; }
+.certImg img { object-fit: contain; }
+.certBody { display: grid; gap: 3px; align-content: start; padding: 14px 16px 16px; }
+.certBody strong { font-size: 1rem; }
+.certBody span { font-size: 0.88rem; color: var(--ink-2); }
+.certBody small { font-size: 0.78rem; color: var(--muted); }
+.certValid { color: var(--green-700) !important; font-weight: 700; }
+.certOpen { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--green-700) !important; font-size: 0.86rem !important; }
+@media (max-width: 480px) { .certGrid { grid-template-columns: 1fr 1fr; gap: 10px; } .certBody { padding: 10px 12px 12px; } .certImg { margin: 8px 8px 0; } }

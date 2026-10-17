@@ -1,0 +1,10 @@
+.wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+.label { font-size: 0.9rem; font-weight: 600; color: var(--ink-2); }
+.list { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.link { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-mist); color: var(--green-700); transition: background 0.2s, color 0.2s, transform 100ms var(--ease); }
+.link:active { transform: scale(0.95); }
+@media (hover: hover) and (pointer: fine) { .link:hover { background: var(--green-700); color: #fff; } }
+.dark .label { color: rgba(255, 255, 255, 0.75); }
+.dark .link { background: rgba(255, 255, 255, 0.1); color: #fff; }
+@media (hover: hover) and (pointer: fine) { .dark .link:hover { background: #fff; color: var(--green-800); } }
+.mist .link { background: #fff; }

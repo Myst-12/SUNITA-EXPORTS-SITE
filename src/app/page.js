@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Icon from '@/components/Icon';
 import ScrollReveal from '@/components/ScrollReveal';
 import Globe from '@/components/Globe';
+import SocialLinks from '@/components/SocialLinks';
 import { categories } from '@/data/products';
 import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
@@ -26,7 +27,7 @@ const regions = REGION_ORDER.map((r) => ({
 })).filter((r) => r.markets.length);
 
 export default function HomePage() {
-  const { hero, process, categories: cat, directors, reach, quote } = HOME;
+  const { hero, process, categories: cat, directors, exhibitions, reach, quote } = HOME;
 
   return (
     <>
@@ -129,7 +130,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — Get a quote */}
+      {/* 6 — Exhibition highlights + social */}
+      <section className={`${styles.section} ${styles.expoSection}`}>
+        <div className="container">
+          <ScrollReveal className={styles.expoHead}>
+            <div>
+              <h2 className={styles.title}>{exhibitions.title}</h2>
+              <p className={styles.text}>{exhibitions.text}</p>
+            </div>
+            <SocialLinks label={exhibitions.follow} />
+          </ScrollReveal>
+        </div>
+        <div className={styles.expoStrip} role="list">
+          {exhibitions.photos.map((p) => (
+            <figure key={p.src} className={styles.expoItem} role="listitem">
+              <div className={styles.expoImg}><Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 70vw, 280px" /></div>
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* 7 — Get a quote */}
       <section className={styles.quoteSection}>
         <div className="container">
           <ScrollReveal className={styles.quote}>

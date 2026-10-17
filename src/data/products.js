@@ -1,5 +1,6 @@
 import { categoryList } from './catalog/categories.js';
-import { products as productList } from './catalog/products.js';
+import { products as baseProducts } from './catalog/products.js';
+import { addedProducts, renamedProducts } from './catalog/products-added.js';
 import { productImages } from './catalog/images.js';
 
 /**
@@ -18,6 +19,8 @@ export const productUrl = (p) => `/products/${p.category}/${p.slug}/`;
 export const specSheetUrl = (p) => `/spec-sheets/${p.slug}.pdf`;
 export const quoteUrl = (p) => `/contact/?product=${encodeURIComponent(p.name)}`;
 
+const productList = [...baseProducts, ...addedProducts].map((p) => (renamedProducts[p.slug] ? { ...p, name: renamedProducts[p.slug] } : p));
+
 function normalize(raw) {
   // Approved catalogue photos (client-supplied or generated) take precedence over the original stock images.
   const image = productImages[raw.slug] || raw.image;
@@ -32,6 +35,7 @@ function normalize(raw) {
     specifications: {},
     gallery: p.image ? [p.image] : [],
     ...p,
+    origin: 'India', // owner: every product is listed with origin India
     shortName: n,
     latin,
     categoryName: catBySlug[p.category].name,
