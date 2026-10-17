@@ -7,6 +7,7 @@ import SocialLinks from '@/components/SocialLinks';
 import { categories } from '@/data/products';
 import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
+import { certificates } from '@/data/certificates';
 import { whatsappLink } from '@/config/site';
 import styles from './home.module.css';
 
@@ -27,7 +28,7 @@ const regions = REGION_ORDER.map((r) => ({
 })).filter((r) => r.markets.length);
 
 export default function HomePage() {
-  const { hero, process, categories: cat, directors, exhibitions, reach, quote } = HOME;
+  const { hero, process, categories: cat, directors, certificates: certs, exhibitions, reach, quote } = HOME;
 
   return (
     <>
@@ -83,6 +84,26 @@ export default function HomePage() {
             ))}
           </ScrollReveal>
         </div>
+      </section>
+
+      {/* 3b — Proof: real certificates, each opens its PDF */}
+      <section className={styles.certSection} aria-labelledby="home-certs">
+        <div className="container">
+          <div className={styles.certHead}>
+            <h2 id="home-certs" className={styles.certTitle}>{certs.title}</h2>
+            <Link href="/certifications/#certificates" className="link-arrow">{certs.link} <Icon name="arrow-right" /></Link>
+          </div>
+        </div>
+        <ul className={styles.certStrip}>
+          {certificates.map((c) => (
+            <li key={c.key}>
+              <a href={c.pdf} target="_blank" rel="noopener noreferrer" className={styles.certItem} aria-label={`${c.name} certificate (PDF)`}>
+                <span className={styles.certThumb}><Image src={c.image} alt="" fill sizes="96px" /></span>
+                <span className={styles.certName}>{c.short}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* 4 — How we operate: text left, image right */}
