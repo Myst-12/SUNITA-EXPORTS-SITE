@@ -238,7 +238,6 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/whole-toor.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cajanus_cajan_MHNT.BOT.2015.2.47.jpg |
 | products/whole-white-urad.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Vigna_mungo_without_skin.jpg |
 | products/yellow-moong-dal.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_scene_of_green_gram.JPG |
-| catalog/jaggery-blocks.webp | Sushant Medhe Pawar of Kolhapur Agricultural Produce Market (Kolhapur Sheti Utpa | CC0 | https://commons.wikimedia.org/wiki/File:Organic_Chemical_free_Kolhapur_Jaggery_Dhep_(Block)_-_1_Kg_each.jpg |
 | catalog/cassia-tora-seeds.webp | Dr.S.Soundarapandian S.Soundarapandian (talk) 09:57, 30 November 2013 (UTC) | Public domain | https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%95%E0%AE%B0%E0%AF%882.jpg |
 | catalog/karanj-seeds.webp | Abhijeet Karmala | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Karanj_Seeds_%E0%A4%95%E0%A4%B0%E0%A4%82%E0%A4%9C_%E0%A4%AC%E0%A4%BF%E0%A4%AF%E0%A4%BE.jpg |
 | catalog/mahua-seeds.webp | Teacher1943 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Seeds_of_Mahua_or_seeds_of_Bassia_Latifolia.JPG |
@@ -260,7 +259,5 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | catalog/dehydrated-pink-onion-flakes.webp | Muddassiriqbal | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bilistaa.jpg |
 | catalog/spray-dried-onion-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Onion_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
 | catalog/spray-dried-garlic-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
-| catalog/palm-jaggery.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palmyra_Jaggery.jpg |
 | catalog/jaggery-chikki.webp | Divya4232 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palli_laddu-_Sri_Sai_Telangana_foods,Hafeezpet-Telangana-DSC_0003.webp |
 | catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |
-| catalog/tamarind-pulp-powder.webp | einalem | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Tamarind_pulp.jpg |

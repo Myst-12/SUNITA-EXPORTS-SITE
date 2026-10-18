@@ -290,7 +290,7 @@ export const productImages = {
   'soybean-meal': '/images/catalog/soybean-meal.webp', // generated
   'groundnut-cake': '/images/catalog/groundnut-cake.webp', // generated
   'garden-cress-seeds': '/images/catalog/garden-cress-seeds.webp', // generated
-  'jaggery-blocks': '/images/catalog/jaggery-blocks.webp', // stock (commons, CC0)
+  'jaggery-blocks': '/images/catalog/jaggery-blocks.webp', // supplied by owner
   'jaggery-cubes': '/images/catalog/jaggery-cubes.webp', // generated
   'jaggery-powder': '/images/catalog/jaggery-powder.webp', // generated
   'organic-jaggery': '/images/catalog/organic-jaggery.webp', // generated
@@ -343,10 +343,10 @@ export const productImages = {
   'dehydrated-pink-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // stock (commons, CC BY-SA 4.0)
   'spray-dried-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // stock (commons, CC BY-SA 3.0)
   'spray-dried-garlic-powder': '/images/catalog/spray-dried-garlic-powder.webp', // stock (commons, CC BY-SA 3.0)
-  'palm-jaggery': '/images/catalog/palm-jaggery.webp', // stock (commons, CC BY-SA 4.0)
+  'palm-jaggery': '/images/catalog/palm-jaggery.webp', // supplied by owner
   'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // stock (commons, CC BY-SA 4.0)
   'menthol-crystals': '/images/catalog/menthol-crystals.webp', // stock (commons, Public domain)
-  'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // stock (commons, CC BY-SA 2.0)
+  'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // supplied by owner
   'moth-beans': '/images/catalog/moth-beans.webp', // generated
   'safflower-seeds': '/images/catalog/safflower-seeds.webp', // generated
   'guar-churi-meal': '/images/catalog/guar-churi-meal.webp', // generated
