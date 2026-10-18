@@ -238,23 +238,12 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/whole-toor.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cajanus_cajan_MHNT.BOT.2015.2.47.jpg |
 | products/whole-white-urad.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Vigna_mungo_without_skin.jpg |
 | products/yellow-moong-dal.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_scene_of_green_gram.JPG |
-| catalog/cassia-tora-seeds.webp | Dr.S.Soundarapandian S.Soundarapandian (talk) 09:57, 30 November 2013 (UTC) | Public domain | https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%95%E0%AE%B0%E0%AF%882.jpg |
 | catalog/karanj-seeds.webp | Abhijeet Karmala | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Karanj_Seeds_%E0%A4%95%E0%A4%B0%E0%A4%82%E0%A4%9C_%E0%A4%AC%E0%A4%BF%E0%A4%AF%E0%A4%BE.jpg |
 | catalog/mahua-seeds.webp | Teacher1943 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Seeds_of_Mahua_or_seeds_of_Bassia_Latifolia.JPG |
-| catalog/sal-seeds.webp | T R Shankar Raman | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Shorea_robusta_293017938.jpg |
-| catalog/kusum-seeds.webp | Aris riyanto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:%22%2B%EA%A6%AE%EA%A6%B6%EA%A6%A0%EA%A7%80%EA%A6%8F%EA%A6%BC%EA%A6%B1%EA%A6%A9%EA%A7%80%EA%A6%A7%EA%A6%B6%2B%22_Schleichera_oleosa_-_Pohon_Kesambi_-_Pilangsari-2019_08.jpg |
-| catalog/undi-seeds.webp | Shagil Kannur | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Calophyllum_inophyllum_at_Kannur_3.jpg |
-| catalog/lotus-flowers.webp | bobistraveling | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Seed_Pod_Lotus_Flowers_Backyard_Estates_Cary_NC_141135.jpg |
 | catalog/jasmine-flowers.webp | François Nguyen | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Jasmine_tea_(1).jpg |
 | catalog/calendula-flowers.webp | Naturpuur | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sonnentor,_Produzent_von_Kr%C3%A4utern,_Tees_und_Gew%C3%BCrzen_aus_biologischem_Anbau_in_Spr%C3%B6gnitz_19.jpg |
-| catalog/gum-ghatti.webp | Lalithamba | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Anogeissus_latifolia_(Roxb_ex_DC)_Wall_ex_Gill.jpg |
 | catalog/curcumin-extract.webp | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:C%C3%BArcuma_(Curcuma_longa)_molida,_2020-06-23,_DD_16-24_FS.jpg |
-| catalog/henna-leaves.webp | Harsha099 | CC0 | https://commons.wikimedia.org/wiki/File:Henna_Tree_leaves.jpg |
-| catalog/neutral-henna.webp | Bernard DUPONT from FRANCE | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Eland%27s_Pea_(Senna_italica)_(50111366221).jpg |
 | catalog/grey-millet.webp | Miquel Pujol Palol | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:LPCC-1018-Gra_de_mill.jpg |
-| catalog/100-broken-rice.webp | T.K. Naliaka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Broken_rice_bris%C3%A9e.jpg |
-| catalog/mini-mogra-basmati.webp | ImageParty | CC0 | https://commons.wikimedia.org/wiki/File:White_rice_on_a_brown_table.jpg |
-| catalog/dehydrated-pink-onion-flakes.webp | Muddassiriqbal | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bilistaa.jpg |
 | catalog/spray-dried-onion-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Onion_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
 | catalog/spray-dried-garlic-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
 | catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |

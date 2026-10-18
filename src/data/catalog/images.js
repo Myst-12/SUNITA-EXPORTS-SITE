@@ -322,25 +322,25 @@ export const productImages = {
   'sage': '/images/catalog/sage.webp', // generated
   'jamun-seed': '/images/catalog/jamun-seed.webp', // generated
   'tamarind-seed': '/images/catalog/tamarind-seed.webp', // generated
-  'cassia-tora-seeds': '/images/catalog/cassia-tora-seeds.webp', // stock (commons, Public domain)
+  'cassia-tora-seeds': '/images/catalog/cassia-tora-seeds.webp', // generated
   'karanj-seeds': '/images/catalog/karanj-seeds.webp', // stock (commons, CC BY-SA 4.0)
   'mahua-seeds': '/images/catalog/mahua-seeds.webp', // stock (commons, CC BY-SA 4.0)
-  'sal-seeds': '/images/catalog/sal-seeds.webp', // stock (commons, CC BY 4.0)
-  'kusum-seeds': '/images/catalog/kusum-seeds.webp', // stock (commons, CC BY-SA 4.0)
-  'undi-seeds': '/images/catalog/undi-seeds.webp', // stock (commons, CC BY-SA 4.0)
-  'lotus-flowers': '/images/catalog/lotus-flowers.webp', // stock (commons, CC BY 2.0)
+  'sal-seeds': '/images/catalog/sal-seeds.webp', // generated
+  'kusum-seeds': '/images/catalog/kusum-seeds.webp', // generated
+  'undi-seeds': '/images/catalog/undi-seeds.webp', // generated
+  'lotus-flowers': '/images/catalog/lotus-flowers.webp', // generated
   'jasmine-flowers': '/images/catalog/jasmine-flowers.webp', // stock (commons, CC BY 2.0)
   'calendula-flowers': '/images/catalog/calendula-flowers.webp', // stock (commons, CC BY-SA 4.0)
-  'gum-ghatti': '/images/catalog/gum-ghatti.webp', // stock (commons, CC BY 2.0)
+  'gum-ghatti': '/images/catalog/gum-ghatti.webp', // generated
   'curcumin-extract': '/images/catalog/curcumin-extract.webp', // stock (commons, CC BY-SA 4.0)
-  'henna-leaves': '/images/catalog/henna-leaves.webp', // stock (commons, CC0)
-  'neutral-henna': '/images/catalog/neutral-henna.webp', // stock (commons, CC BY-SA 2.0)
+  'henna-leaves': '/images/catalog/henna-leaves.webp', // generated
+  'neutral-henna': '/images/catalog/neutral-henna.webp', // generated
   'indigo-powder': '/images/catalog/indigo-powder.webp', // generated
   'henna-cones': '/images/catalog/henna-cones.webp', // generated
   'grey-millet': '/images/catalog/grey-millet.webp', // stock (commons, CC BY-SA 3.0)
-  '100-broken-rice': '/images/catalog/100-broken-rice.webp', // stock (commons, CC BY-SA 4.0)
-  'mini-mogra-basmati': '/images/catalog/mini-mogra-basmati.webp', // stock (commons, CC0)
-  'dehydrated-pink-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // stock (commons, CC BY-SA 4.0)
+  '100-broken-rice': '/images/catalog/100-broken-rice.webp', // generated
+  'mini-mogra-basmati': '/images/catalog/mini-mogra-basmati.webp', // generated
+  'dehydrated-pink-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // generated
   'spray-dried-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // stock (commons, CC BY-SA 3.0)
   'spray-dried-garlic-powder': '/images/catalog/spray-dried-garlic-powder.webp', // stock (commons, CC BY-SA 3.0)
   'palm-jaggery': '/images/catalog/palm-jaggery.webp', // supplied by owner
@@ -389,4 +389,6 @@ export const productImages = {
   'beverages': '/images/catalog/beverages.webp', // generated
   'household-home-care': '/images/catalog/household-home-care.webp', // generated
   'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
+  'nirmali-seeds': '/images/catalog/nirmali-seeds.webp', // generated
+  'ambrette-seeds': '/images/catalog/ambrette-seeds.webp', // generated
 };
