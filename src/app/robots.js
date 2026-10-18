@@ -2,7 +2,7 @@ import { SITE_URL } from '@/config/site';
 
 export default function robots() {
   return {
-    rules: [{ userAgent: '*', allow: '/' }],
+    rules: [{ userAgent: '*', allow: '/', disallow: ['/admin/', '/f/', '/api/'] }],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   };
