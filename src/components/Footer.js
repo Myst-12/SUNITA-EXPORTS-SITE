@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeLink from './HomeLink';
 import { COMPANY, CONTACT, fullAddress, mapsLink, WHATSAPP_CHANNEL } from '@/config/site';
 import SocialLinks from './SocialLinks';
 import styles from './Footer.module.css';
@@ -22,13 +23,13 @@ export default function Footer({ categories = [] }) {
     <footer className={styles.footer}>
       <div className={`container ${styles.main}`}>
         <div className={styles.brandCol}>
-          <Link href="/" className={styles.brand}>
+          <HomeLink className={styles.brand}>
             <img src="/images/logo-mark.png" alt="" width={40} height={40} />
             <span className={styles.brandText}>
               <span>{COMPANY.legalName}</span>
               <small>{COMPANY.status}</small>
             </span>
-          </Link>
+          </HomeLink>
           <p className={styles.about}>
             Indian spices, rice, pulses and groceries, exported from Mumbai since {COMPANY.foundingYear}.
           </p>

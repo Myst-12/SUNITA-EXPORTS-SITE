@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import HomeLink from './HomeLink';
 import { usePathname } from 'next/navigation';
 import Icon from './Icon';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -58,13 +59,13 @@ export default function Header({ categories = [] }) {
     <>
       <header className={headerClass}>
         <div className={`container ${styles.inner}`}>
-          <Link href="/" className={styles.brand} aria-label={`${COMPANY.name} home`}>
+          <HomeLink className={styles.brand} aria-label={`${COMPANY.name} home`} onClick={() => setOpen(false)}>
             <img src="/images/logo-mark.png" alt="" width={40} height={40} className={styles.brandMark} />
             <span className={styles.brandText}>
               <span className={`${styles.brandName} notranslate`} translate="no">Sunita Agri Exports</span>
               <span className={styles.brandTag}>Govt. Recognised Star Export House</span>
             </span>
-          </Link>
+          </HomeLink>
 
           <nav className={styles.nav} aria-label="Main">
             <div className={styles.item}>
