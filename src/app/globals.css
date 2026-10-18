@@ -85,7 +85,7 @@
 }
 
 @media (max-width: 640px) {
-  :root { --gutter: 16px; --header-h: 60px; }
+  :root { --gutter: 22px; --header-h: 60px; }
 }
 
 /* ===== RESET ===== */
