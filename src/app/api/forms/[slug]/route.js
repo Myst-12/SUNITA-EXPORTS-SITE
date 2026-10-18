@@ -1,4 +1,6 @@
+import { after } from 'next/server';
 import { getForm, addResponse } from '@/lib/forms/store';
+import { sendLeadAlert, sendThankYou } from '@/lib/forms/mail';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,5 +26,7 @@ export async function POST(req, { params }) {
     data[f.key] = v;
   }
   await addResponse(form.id, data);
+  // Emails go out after the response is sent, so the visitor never waits on them.
+  after(() => Promise.all([sendLeadAlert(form, form.fields, data), sendThankYou(form, data)]));
   return Response.json({ ok: true });
 }
