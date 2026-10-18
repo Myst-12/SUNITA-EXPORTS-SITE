@@ -129,4 +129,5 @@ export const catalogueRedirects = [
   ['/products/herbs-botanicals/karanj-oil', '/products/herbs-botanicals/'],
   ['/products/herbs-botanicals/mahua-oil', '/products/herbs-botanicals/'],
   ['/products/foodstuff-fmcg/cooking-oils', '/products/foodstuff-fmcg/'],
+  ['/blog/brc-fda-certified-spice-exporter-india', '/blog/'],
 ];

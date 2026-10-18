@@ -37,8 +37,9 @@ export default function ProductsPage() {
           <Breadcrumb inline items={[{ label: 'Products', href: '/products/' }]} />
           <h1>{products.length} Indian products, ready to export</h1>
           <p className="lead">
-            Spices, herbs and botanicals, dehydrated onion and garlic, coconut, pulses, rice, flours, oilseeds, coffee,
-            superfoods, feeds, raisins and Indian FMCG — every product with a specification sheet and a quote button.
+            Exported from Mumbai since 2010: spices, herbs and botanicals, dehydrated onion and garlic, coconut, pulses, rice,
+            flours, oilseeds, coffee, superfoods, feeds, jaggery, raisins and Indian FMCG — every product with a specification
+            sheet and a quote button.
           </p>
           <div className="btn-row">
             <Link href="/contact/" className="btn btn-primary">Send your product list <Icon name="arrow-right" /></Link>

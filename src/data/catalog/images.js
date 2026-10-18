@@ -230,7 +230,7 @@ export const productImages = {
   'whole-white-urad': '/images/catalog/whole-white-urad.webp', // client
   'yellow-moong-dal': '/images/catalog/yellow-moong-dal.webp', // client
   'zedoary': '/images/catalog/zedoary.webp', // client
-  'dehydrated-white-onion-flakes': '/images/catalog/dehydrated-white-onion-flakes.webp', // generated (Antigravity)
+  'dehydrated-white-onion-flakes': '/images/catalog/dehydrated-white-onion-flakes.webp', // supplied by owner
   'basil-seeds': '/images/catalog/basil-seeds.webp', // generated
   'botanical-extracts': '/images/catalog/botanical-extracts.webp', // generated
   'copra': '/images/catalog/copra.webp', // generated
@@ -238,9 +238,9 @@ export const productImages = {
   'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // generated
   'dehydrated-garlic-granules': '/images/catalog/dehydrated-garlic-granules.webp', // generated
   'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // generated
-  'dehydrated-onion-granules': '/images/catalog/dehydrated-onion-granules.webp', // generated
-  'dehydrated-onion-kibbled': '/images/catalog/dehydrated-onion-kibbled.webp', // generated
-  'dehydrated-onion-minced': '/images/catalog/dehydrated-onion-minced.webp', // generated
+  'dehydrated-onion-granules': '/images/catalog/dehydrated-onion-granules.webp', // supplied by owner
+  'dehydrated-onion-kibbled': '/images/catalog/dehydrated-onion-kibbled.webp', // supplied by owner
+  'dehydrated-onion-minced': '/images/catalog/dehydrated-onion-minced.webp', // supplied by owner
   'malkangni-seeds': '/images/catalog/malkangni-seeds.webp', // generated
   'mucuna-seeds': '/images/catalog/mucuna-seeds.webp', // generated
   'neem-seeds': '/images/catalog/neem-seeds.webp', // generated
@@ -340,7 +340,7 @@ export const productImages = {
   'grey-millet': '/images/catalog/grey-millet.webp', // stock (commons, CC BY-SA 3.0)
   '100-broken-rice': '/images/catalog/100-broken-rice.webp', // generated
   'mini-mogra-basmati': '/images/catalog/mini-mogra-basmati.webp', // generated
-  'dehydrated-pink-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // generated
+  'dehydrated-pink-onion-flakes': '/images/catalog/dehydrated-pink-onion-flakes.webp', // supplied by owner
   'spray-dried-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // stock (commons, CC BY-SA 3.0)
   'spray-dried-garlic-powder': '/images/catalog/spray-dried-garlic-powder.webp', // stock (commons, CC BY-SA 3.0)
   'palm-jaggery': '/images/catalog/palm-jaggery.webp', // supplied by owner
@@ -379,7 +379,7 @@ export const productImages = {
   'baq-henna-powder': '/images/catalog/baq-henna-powder.webp', // generated
   'herbal-henna-hair-colour': '/images/catalog/herbal-henna-hair-colour.webp', // generated
   'hair-care-herb-powders': '/images/catalog/hair-care-herb-powders.webp', // generated
-  'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-red-onion-flakes.webp', // generated
+  'dehydrated-red-onion-flakes': '/images/catalog/dehydrated-red-onion-flakes.webp', // supplied by owner
   'red-onion-powder': '/images/catalog/red-onion-powder.webp', // generated
   'pink-onion-powder': '/images/catalog/pink-onion-powder.webp', // generated
   'flavoured-jaggery': '/images/catalog/flavoured-jaggery.webp', // generated
@@ -391,4 +391,5 @@ export const productImages = {
   'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
   'nirmali-seeds': '/images/catalog/nirmali-seeds.webp', // generated
   'ambrette-seeds': '/images/catalog/ambrette-seeds.webp', // generated
+  'moringa-seeds': '/images/catalog/moringa-seeds.webp', // supplied by owner
 };

@@ -44,7 +44,7 @@ export const blogPosts = [
       </ol>
       
       <h2>4. Choosing the Right Partner</h2>
-      <p>When selecting a spice exporter in India, prioritize companies with established infrastructure and certifications. Look for exporters who operate their own **in-house quality laboratory** and possess international certifications like the **BRC Global Food Standard** and **FDA Registration**. Direct farmers sourcing ensures traceability, while processing capabilities like optical sorting (Sortex) and gravity separation guarantee physical purity.</p>
+      <p>When selecting a spice exporter in India, prioritize companies with established infrastructure and certifications. Look for exporters who operate their own **in-house quality laboratory** and hold recognised certifications such as **ISO 22000** food safety, **FSSAI**, **APEDA** and **Spices Board** registration. Direct farmers sourcing ensures traceability, while processing capabilities like optical sorting (Sortex) and gravity separation guarantee physical purity.</p>
     `
   },
   {
@@ -95,50 +95,6 @@ export const blogPosts = [
       
       <h2>5. Sourcing Strategy for Procurement Managers</h2>
       <p>Spices are seasonal agricultural commodities. Purchasing immediately post-harvest guarantees the freshest cargo with higher volatile oil content. To secure stable, year-round pricing, buyers should partner with exporters who maintain **in-house warehouse facilities** and are capable of locking in contracts at harvest time, storing the commodity under climate-controlled conditions until container dispatch.</p>
-    `
-  },
-  {
-    slug: 'brc-fda-certified-spice-exporter-india',
-    image: '/images/scenes/lab.webp',
-    title: 'Why Global Retailers Require BRCGS and FDA Compliance from Spice Suppliers',
-    excerpt: 'Examine the critical roles of BRCGS and FDA food safety standards in international spice supply chains and how compliance mitigates supplier risk.',
-    date: '2026-06-05',
-    author: 'Sunita Agri Exports Export Team',
-    readTime: '7 min',
-    tags: ['Food Safety', 'Compliance', 'Certifications'],
-    seoKeyword: 'BRC certified spice exporter',
-    content: `
-      <h2>The Critical Role of Food Safety in Global Supply Chains</h2>
-      <p>In the modern global food industry, brand protection, regulatory compliance, and consumer safety are paramount. For major retailers in the UK, Europe, and North America (such as Tesco, Walmart, Aldi, and Costco), quality assurance is not merely a preference — it is a strict operational mandate. Spice suppliers must prove their compliance through recognized certifications. Two of the most critical standards for international spice trade are the **BRCGS (British Retail Consortium Global Standards)** and the **U.S. FDA Compliance**.</p>
-      
-      <h2>1. Demystifying the BRCGS Food Safety Standard</h2>
-      <p>BRCGS is a Global Food Safety Initiative (GFSI) recognized standard. Initially developed by British retailers to harmonize food safety standards across the supply chain, it has become the gold standard for food processing facilities worldwide.</p>
-      <h3>Why UK & European Buyers Demand BRCGS:</h3>
-      <p>BRCGS audits cover every aspect of a manufacturing facility\'s operations:</p>
-      <ul>
-        <li><strong>Senior Management Commitment:</strong> Ensuring that leadership actively supports a culture of food safety.</li>
-        <li><strong>HACCP (Hazard Analysis and Critical Control Points) Plan:</strong> Systematic identification and management of physical, chemical, radiological, and biological hazards.</li>
-        <li><strong>Product Control:</strong> Testing for allergen management, physical purity, and chemical compliance.</li>
-        <li><strong>Process Control:</strong> Strict control of temperatures, weighing, coding, and quality verification.</li>
-      </ul>
-      <p>For an importer, purchasing from a BRCGS-certified supplier guarantees that the products are processed in a facility that undergoes regular, rigorous, independent third-party audits.</p>
-      
-      <h2>2. US FDA Registration and FSMA Compliance</h2>
-      <p>For food ingredients entering the United States, registration with the U.S. Food and Drug Administration (FDA) is a legal requirement. Under the **FSMA (Food Safety Modernization Act)**, the FDA has shifted its focus from responding to foodborne illnesses to preventing them.</p>
-      <h3>Key FDA Requirements for Indian Exporters:</h3>
-      <ul>
-        <li><strong>Foreign Supplier Verification Program (FSVP):</strong> Importers in the US must verify that their foreign suppliers produce food in a manner that provides the same level of public health protection as US preventive controls.</li>
-        <li><strong>Hazard Analysis and Risk-Based Preventive Controls:</strong> Suppliers must implement written food safety plans that detail how they control processes, sanitation, allergens, and supply chains.</li>
-        <li><strong>Prior Notice of Importation:</strong> Exporters must notify the FDA before cargo arrives at US ports of entry.</li>
-      </ul>
-      
-      <h2>3. How Compliance Mitigates Importer Risk</h2>
-      <p>By sourcing from an exporter that holds both BRCGS and FDA compliance, international procurement managers mitigate significant business risks:</p>
-      <ol>
-        <li><strong>Eliminating Port Rejections:</strong> Custom border inspections regularly reject cargo containing unauthorized pesticide levels, high microbial counts, or incorrect documentation. Certified suppliers follow pre-shipment testing protocols that prevent these costly rejections.</li>
-        <li><strong>Ensuring Traceability:</strong> Certified systems enforce "one step forward, one step back" traceability. In the rare event of a product recall, the source batch, processing run, and farm origin can be identified within hours.</li>
-        <li><strong>Maintaining Brand Trust:</strong> Brand reputation takes decades to build but can be destroyed by a single contamination event. Certified food safety standards are the ultimate insurance policy for your brand.</li>
-      </ol>
     `
   }
 ];

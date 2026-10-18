@@ -222,7 +222,7 @@ export const categoryList = [
     slug: 'jaggery-natural-sweeteners',
     name: 'Jaggery & Natural Sweeteners',
     shortName: 'Jaggery',
-    image: '/images/products/jaggery.webp',
+    image: '/images/catalog/categories/jaggery-natural-sweeteners.webp',
     description:
       'Cane jaggery in blocks, cubes, powder and liquid, plus organic, palm, date-palm and coconut jaggery — unrefined Indian sweeteners in bulk, retail or private-label packs.',
     metaTitle: 'Jaggery Exporter from India — Blocks, Cubes, Powder & Organic Jaggery',

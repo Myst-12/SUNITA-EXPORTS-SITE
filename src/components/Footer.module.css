@@ -3,7 +3,9 @@
 .main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; padding-block: clamp(56px, 7vw, 88px) clamp(40px, 5vw, 56px); }
 .brand { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
 .brand img { width: 40px; height: 40px; object-fit: contain; }
-.brand span { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.25; color: var(--green-800); }
+.brandText { display: flex; flex-direction: column; }
+.brandText > span { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.25; color: var(--green-800); }
+.brandText > small { margin-top: 2px; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
 .about { max-width: 34ch; line-height: 1.7; }
 
 .heading { margin-bottom: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--ink); }

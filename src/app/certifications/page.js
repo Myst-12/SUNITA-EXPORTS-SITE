@@ -39,7 +39,7 @@ export default function QualityPage() {
         crumbs={[{ label: 'Quality & Certifications', href: '/certifications/' }]}
         eyebrow="Quality, compliance & logistics"
         title="Quality you can check — from farm to port"
-        lead="Clean, graded, tested and properly documented. Here is how we make sure every shipment matches the specification you approved."
+        lead="Clean, graded, tested and properly documented since 2010. Here is how we make sure every shipment matches the specification you approved."
         image="/images/scenes/lab.webp"
         imageAlt="Food quality testing laboratory"
       >

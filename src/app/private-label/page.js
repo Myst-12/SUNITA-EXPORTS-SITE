@@ -48,7 +48,7 @@ export default function PrivateLabelPage() {
         crumbs={[{ label: 'Private Label', href: '/private-label/' }]}
         eyebrow="Private label & packaging"
         title="Your brand. Packed in India. Ready for your shelves."
-        lead="Spices, masalas, rice, pulses and Indian staples packed under your label — from 50 g retail pouches to 50 kg bulk bags, with your artwork, barcodes and labelling."
+        lead="Since 2010 we have packed spices, masalas, rice, pulses and Indian staples under our buyers’ labels — from 50 g retail pouches to 50 kg bulk bags, with your artwork, barcodes and labelling."
         image="/images/scenes/pack-kraft-pouch.webp"
         imageAlt="Kraft stand-up pouch packaging"
       >

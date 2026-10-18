@@ -24,10 +24,13 @@ export default function Footer({ categories = [] }) {
         <div className={styles.brandCol}>
           <Link href="/" className={styles.brand}>
             <img src="/images/logo-mark.png" alt="" width={40} height={40} />
-            <span>{COMPANY.legalName}</span>
+            <span className={styles.brandText}>
+              <span>{COMPANY.legalName}</span>
+              <small>{COMPANY.status}</small>
+            </span>
           </Link>
           <p className={styles.about}>
-            Indian spices, rice, pulses and groceries, exported from Mumbai since {COMPANY.foundingYear}. {COMPANY.status}.
+            Indian spices, rice, pulses and groceries, exported from Mumbai since {COMPANY.foundingYear}.
           </p>
           <SocialLinks tone="mist" />
         </div>

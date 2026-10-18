@@ -24,7 +24,7 @@ export default async function PublicForm({ params }) {
         slug={form.slug}
         title={form.title}
         intro={form.intro}
-        brand={COMPANY.name}
+        brand={`${COMPANY.name} · ${COMPANY.status}`}
         open={form.status === 'open'}
         fields={form.fields}
         products={hasProducts ? productOptions() : []}

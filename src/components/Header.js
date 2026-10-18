@@ -60,7 +60,10 @@ export default function Header({ categories = [] }) {
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.brand} aria-label={`${COMPANY.name} home`}>
             <img src="/images/logo-mark.png" alt="" width={40} height={40} className={styles.brandMark} />
-            <span className={`${styles.brandName} notranslate`} translate="no">Sunita Agri Exports</span>
+            <span className={styles.brandText}>
+              <span className={`${styles.brandName} notranslate`} translate="no">Sunita Agri Exports</span>
+              <span className={styles.brandTag}>Govt. Recognised Star Export House</span>
+            </span>
           </Link>
 
           <nav className={styles.nav} aria-label="Main">
