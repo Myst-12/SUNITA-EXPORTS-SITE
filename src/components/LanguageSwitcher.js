@@ -43,11 +43,20 @@ const readLang = () => {
   return m ? m[1] : 'en';
 };
 
+// Google Translate may store its cookie on the bare host or any parent domain (e.g. .sunitaexports.com when
+// the site is on www.), so clear/set it on every level — otherwise "back to English" silently fails.
 const writeCookie = (value) => {
-  const host = location.hostname;
-  const expiry = value ? '' : '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-  for (const domain of ['', `; domain=${host}`, `; domain=.${host}`]) {
-    document.cookie = `googtrans=${value}${expiry}; path=/${domain}`;
+  const parts = location.hostname.split('.');
+  const domains = [''];
+  for (let i = 0; i < parts.length - 1; i++) {
+    const d = parts.slice(i).join('.');
+    domains.push(`; domain=${d}`, `; domain=.${d}`);
+  }
+  const expiry = '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  for (const domain of domains) document.cookie = `googtrans=${expiry}; path=/${domain}`;
+  if (value) {
+    document.cookie = `googtrans=${value}; path=/`;
+    if (parts.length > 1) document.cookie = `googtrans=${value}; path=/; domain=.${parts.slice(-2).join('.')}`;
   }
 };
 
