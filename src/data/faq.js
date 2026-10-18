@@ -15,7 +15,7 @@ export const faqs = [
     id: 3,
     category: 'quality',
     question: 'What quality certifications do you hold?',
-    answer: 'Sunita Agri Exports holds 8 international and national certifications, including BRC Global Food Standard, FDA Registration, FSSAI License, ISO 22000:2018, APEDA Registration, Spice Board of India Registration, FIEO Membership, and IMC Certification. These standards guarantee food safety, process control, and regulatory compliance for global buyers.'
+    answer: 'Sunita Agri Exports holds ISO 22000:2018 (food safety), ISO 9001:2015 (quality), Kosher certification, an FSSAI Central Licence, APEDA registration, Spices Board registration and One Star Export House status from the Government of India. Copies are on our Certifications page. These standards guarantee food safety, process control, and regulatory compliance for global buyers.'
   },
   {
     id: 4,

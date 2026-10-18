@@ -71,13 +71,9 @@ export const CERTIFICATIONS = [
   { key: 'iso', name: 'ISO 22000', full: 'ISO 22000 Food Safety Management' },
   { key: 'iso-9001', name: 'ISO 9001', full: 'ISO 9001:2015 Quality Management System' },
   { key: 'fssai', name: 'FSSAI', full: 'Food Safety and Standards Authority of India' },
-  { key: 'fda', name: 'US FDA Registered', full: 'US Food & Drug Administration – Food Facility Registration' },
   { key: 'apeda', name: 'APEDA', full: 'Agricultural & Processed Food Products Export Development Authority' },
   { key: 'spices-board', name: 'Spices Board India', full: 'Spices Board, Ministry of Commerce, Govt. of India' },
-  { key: 'fieo', name: 'FIEO', full: 'Federation of Indian Export Organisations' },
-  { key: 'brc', name: 'BRCGS', full: 'BRC Global Standard for Food Safety' },
   { key: 'kosher', name: 'Kosher', full: 'Kosher Certification' },
-  { key: 'imc', name: 'IMC', full: "Indian Merchants' Chamber" },
   { key: 'star', name: 'Star Export House', full: 'Govt. of India Recognised Star Export House' },
 ];
 

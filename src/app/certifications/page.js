@@ -11,7 +11,7 @@ import s from '../pages.module.css';
 export const metadata = {
   title: 'Quality, Certifications & Export Logistics',
   description:
-    'How Sunita Agri Exports controls quality — sourcing, cleaning, Sortex grading, lab testing and packing — plus our certifications (ISO 22000, FSSAI, US FDA registered, APEDA, Spices Board, FIEO) and export documentation.',
+    'How Sunita Agri Exports controls quality — sourcing, cleaning, Sortex grading, lab testing and packing — plus our certifications (ISO 22000, ISO 9001, Kosher, FSSAI, APEDA, Spices Board, Star Export House) and export documentation.',
   alternates: { canonical: '/certifications/' },
 };
 

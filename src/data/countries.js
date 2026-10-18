@@ -9,10 +9,10 @@ export const exportDestinations = [
     region: 'North America',
     flag: '🇺🇸',
     seoTitle: 'Indian FMCG & Spices Exporter to USA',
-    seoDescription: 'US FDA registered Indian exporter supplying premium spices, basmati rice, and FMCG brands to importers and supermarkets across the United States.',
-    introText: 'The United States is a primary market for Sunita Agri Exports. We are a fully US FDA-registered facility, experienced in meeting the stringent requirements of the FSMA and US Customs.',
+    seoDescription: 'Indian exporter supplying premium spices, basmati rice, and FMCG brands to importers and supermarkets across the United States, with FDA Prior Notice and FSMA-ready documentation.',
+    introText: 'The United States is a primary market for Sunita Agri Exports. We prepare shipments and paperwork to meet FDA, FSMA and US Customs requirements, including Prior Notice, so your cargo clears smoothly.',
     keyProducts: ['Basmati Rice', 'Turmeric Powder', 'Cumin Seeds', 'Indian Snacks', 'Branded FMCG'],
-    certificationsRequired: ['US FDA Registration', 'Prior Notice (PN)', 'Phytosanitary Certificate'],
+    certificationsRequired: ['FDA Prior Notice (PN)', 'Phytosanitary Certificate', 'Importer FSVP documents'],
     shippingPorts: ['New York / New Jersey', 'Los Angeles', 'Houston', 'Savannah', 'Chicago']
   },
   {
@@ -34,11 +34,11 @@ export const exportDestinations = [
     coords: [51.51, -0.13],
     region: 'Europe',
     flag: '🇬🇧',
-    seoTitle: 'BRC Certified Indian Spices & FMCG Exporter to UK',
-    seoDescription: 'BRC certified Indian exporter supplying authentic spices, rice, and FMCG products to the United Kingdom. Fully compliant with FSA regulations.',
-    introText: 'Exporting to the UK requires the highest standards of food safety. As a BRC Global Food Standard certified facility, Sunita Agri Exports seamlessly supplies major UK cash & carries, ethnic supermarkets, and food manufacturers.',
+    seoTitle: 'Indian Spices & FMCG Exporter to UK',
+    seoDescription: 'ISO 22000 certified Indian exporter supplying authentic spices, rice, and FMCG products to the United Kingdom, in line with UK food safety rules.',
+    introText: 'Exporting to the UK requires the highest standards of food safety. With ISO 22000 food-safety certification and lab-tested shipments, Sunita Agri Exports supplies UK cash & carries, ethnic supermarkets, and food manufacturers.',
     keyProducts: ['Steam Sterilized Spices', 'Basmati Rice', 'Ready-to-Eat Curries', 'Tea & Beverages'],
-    certificationsRequired: ['BRC Global Standard', 'Eurofins Lab Reports (Pesticide/EtO free)'],
+    certificationsRequired: ['Health / phytosanitary certificate', 'Lab reports (pesticide / EtO free) on request'],
     shippingPorts: ['London Gateway', 'Felixstowe', 'Southampton', 'Liverpool']
   },
   {
@@ -99,11 +99,11 @@ export const exportDestinations = [
     coords: [51.92, 4.48],
     region: 'Europe',
     flag: '🇪🇺',
-    seoTitle: 'BRC Certified Indian Exporter to EU | Spices & Foodstuff',
-    seoDescription: 'Exporting BRC and ISO certified Indian spices and agri-commodities to the European Union. Strict adherence to EU MRLs and food safety laws.',
+    seoTitle: 'Indian Spices & Foodstuff Exporter to the EU',
+    seoDescription: 'ISO 22000 certified exporter of Indian spices and agri-commodities to the European Union, with strict adherence to EU MRLs and food safety laws.',
     introText: 'The European Union demands rigorous adherence to MRLs (Maximum Residue Levels) for pesticides and toxins. Our in-house testing and third-party Eurofins validation ensure every shipment meets EU standards.',
     keyProducts: ['Steam Sterilized Spices', 'Organic Spices', 'Dehydrated Vegetables', 'Oilseeds'],
-    certificationsRequired: ['BRC Global Standard', 'Eurofins Lab Reports', 'EU Compliant Labeling'],
+    certificationsRequired: ['Health / phytosanitary certificate', 'Lab reports on request', 'EU compliant labelling'],
     shippingPorts: ['Rotterdam', 'Hamburg', 'Antwerp', 'Le Havre']
   },
   {
