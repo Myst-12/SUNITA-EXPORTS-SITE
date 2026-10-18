@@ -26,7 +26,7 @@ const PROCESS = [
 const DOCS = ['Commercial invoice', 'Packing list', 'Bill of lading', 'Certificate of origin', 'Phytosanitary certificate', 'Fumigation certificate', 'Certificate of analysis', 'Health certificate (where required)', 'Halal / other certificates on request'];
 
 const FAQS = [
-  { question: 'Can I see your certificates before ordering?', answer: `Yes. Our ISO 22000, ISO 9001, Kosher, FSSAI, Spices Board, Star Export House and IEC certificates are on this page as PDFs. For anything else, email ${CONTACT.email} or ask on WhatsApp.` },
+  { question: 'Can I see your certificates before ordering?', answer: `Yes. Our ISO 22000, ISO 9001, Kosher, FSSAI, APEDA, Spices Board, Star Export House and IEC certificates are on this page as PDFs. For anything else, email ${CONTACT.email} or ask on WhatsApp.` },
   { question: 'Do you offer steam-sterilised spices?', answer: 'Yes. Steam sterilisation can be arranged for spices and herbs destined for the USA, EU, UK, Australia and New Zealand to meet microbiological requirements.' },
   { question: 'Can you test for pesticide residues and aflatoxins?', answer: 'Yes. On request we arrange third-party testing at accredited laboratories against the limits of your destination market, and share the reports before shipment.' },
   { question: 'Which port do you ship from?', answer: `Most shipments sail from ${CONTACT.port}. Other Indian ports can be arranged depending on product origin.` },

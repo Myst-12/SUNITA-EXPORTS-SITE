@@ -96,11 +96,14 @@ export const EXHIBITIONS = [
 
 // Social profiles. Paste each URL when the client shares it; an icon only appears on the live site once its URL is set
 // (in local development all icons show so the layout can be checked).
+export const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp1BVC2s';
+
 export const SOCIAL = [
   { name: 'LinkedIn', icon: 'linkedin', url: '' },
   { name: 'Instagram', icon: 'instagram', url: '' },
   { name: 'Facebook', icon: 'facebook', url: '' },
   { name: 'X', icon: 'x', url: '' },
+  { name: 'WhatsApp Channel', icon: 'whatsapp', url: 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp1BVC2s' },
 ];
 
 // "🇺🇸" -> "US" (emoji flags don't render on Windows, so we show codes instead).
