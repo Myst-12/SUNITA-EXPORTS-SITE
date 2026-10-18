@@ -238,18 +238,7 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/whole-toor.webp | Roger Culos | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cajanus_cajan_MHNT.BOT.2015.2.47.jpg |
 | products/whole-white-urad.webp | Thamizhpparithi Maari | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Vigna_mungo_without_skin.jpg |
 | products/yellow-moong-dal.webp | Thamizhpparithi Maari | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_closeup_scene_of_green_gram.JPG |
-| catalog/red-gunja-seeds.webp | Dinesh Valke from Thane, India | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Gunja_(Marathi-_%E0%A4%97%E0%A5%81%E0%A4%82%E0%A4%9C)_(3203499139).jpg |
-| catalog/indian-wheat.webp | Rajnishpatel20894 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:WHEAT_UP.jpg |
 | catalog/jaggery-blocks.webp | Sushant Medhe Pawar of Kolhapur Agricultural Produce Market (Kolhapur Sheti Utpa | CC0 | https://commons.wikimedia.org/wiki/File:Organic_Chemical_free_Kolhapur_Jaggery_Dhep_(Block)_-_1_Kg_each.jpg |
-| catalog/senna-pods.webp | David E Mead | CC0 | https://commons.wikimedia.org/wiki/File:Candle_bush_(habit_and_pods).jpg |
-| catalog/stevia-leaves.webp | NmiPortal | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Stevia_rebaudiana_leaves_dry.JPG |
-| catalog/green-tea-leaves.webp | CEphoto, Uwe Aranas | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Zhu-Ye-Qing-Tea-03.jpg |
-| catalog/rosemary.webp | Filo gèn' | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_(Lamiaceae)_01.jpg |
-| catalog/oregano.webp | Revital Salomon | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dried_Oregano.JPG |
-| catalog/thyme.webp | Judgefloro | CC0 | https://commons.wikimedia.org/wiki/File:1426Cuisine_foods_of_Bulacan_59.jpg |
-| catalog/sage.webp | Wheeler Cowperthwaite | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:All_stages_of_drying_sage_19.jpg |
-| catalog/jamun-seed.webp | Khả Vân Đại Hãn | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Syzygium_cumini_(black_plum).jpg |
-| catalog/tamarind-seed.webp | kaʁstn Disk/Cat | CC BY-SA 3.0 de | https://commons.wikimedia.org/wiki/File:Tamarinde_Tamarindus_indica.jpg |
 | catalog/cassia-tora-seeds.webp | Dr.S.Soundarapandian S.Soundarapandian (talk) 09:57, 30 November 2013 (UTC) | Public domain | https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%95%E0%AE%B0%E0%AF%882.jpg |
 | catalog/karanj-seeds.webp | Abhijeet Karmala | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Karanj_Seeds_%E0%A4%95%E0%A4%B0%E0%A4%82%E0%A4%9C_%E0%A4%AC%E0%A4%BF%E0%A4%AF%E0%A4%BE.jpg |
 | catalog/mahua-seeds.webp | Teacher1943 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Seeds_of_Mahua_or_seeds_of_Bassia_Latifolia.JPG |

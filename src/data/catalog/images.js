@@ -270,7 +270,7 @@ export const productImages = {
   'personal-care': '/images/catalog/personal-care.webp', // generated
   'other-raisin-grades': '/images/catalog/other-raisin-grades.webp', // generated
   'tamarind': '/images/catalog/tamarind.webp', // generated
-  'red-gunja-seeds': '/images/catalog/red-gunja-seeds.webp', // stock (commons, CC BY-SA 2.0)
+  'red-gunja-seeds': '/images/catalog/red-gunja-seeds.webp', // generated
   'henna-powder': '/images/catalog/henna-powder.webp', // generated
   'celery-seeds': '/images/catalog/celery-seeds.webp', // generated
   'dill-seeds': '/images/catalog/dill-seeds.webp', // generated
@@ -278,7 +278,7 @@ export const productImages = {
   'shahi-jeera': '/images/catalog/shahi-jeera.webp', // generated
   'nutmeg-powder': '/images/catalog/nutmeg-powder.webp', // generated
   'copra-cake': '/images/catalog/copra-cake.webp', // generated
-  'indian-wheat': '/images/catalog/indian-wheat.webp', // stock (commons, CC BY-SA 4.0)
+  'indian-wheat': '/images/catalog/indian-wheat.webp', // generated
   'corn-starch': '/images/catalog/corn-starch.webp', // generated
   'niger-seeds': '/images/catalog/niger-seeds.webp', // generated
   'flax-seeds': '/images/catalog/flax-seeds.webp', // generated
@@ -305,23 +305,23 @@ export const productImages = {
   'wild-turmeric': '/images/catalog/wild-turmeric.webp', // generated
   'indian-horse-chestnut': '/images/catalog/indian-horse-chestnut.webp', // generated
   'senna-leaves': '/images/catalog/senna-leaves.webp', // generated
-  'senna-pods': '/images/catalog/senna-pods.webp', // stock (commons, CC0)
+  'senna-pods': '/images/catalog/senna-pods.webp', // generated
   'senna-leaf-powder': '/images/catalog/senna-leaf-powder.webp', // generated
   'curry-leaves': '/images/catalog/curry-leaves.webp', // generated
   'lemongrass': '/images/catalog/lemongrass.webp', // generated
-  'stevia-leaves': '/images/catalog/stevia-leaves.webp', // stock (commons, CC BY-SA 3.0)
+  'stevia-leaves': '/images/catalog/stevia-leaves.webp', // generated
   'gotu-kola': '/images/catalog/gotu-kola.webp', // generated
   'bhumyamalaki': '/images/catalog/bhumyamalaki.webp', // generated
   'aloe-vera-leaf': '/images/catalog/aloe-vera-leaf.webp', // generated
-  'green-tea-leaves': '/images/catalog/green-tea-leaves.webp', // stock (commons, CC BY-SA 4.0)
+  'green-tea-leaves': '/images/catalog/green-tea-leaves.webp', // generated
   'eucalyptus-leaves': '/images/catalog/eucalyptus-leaves.webp', // generated
   'basil-leaves': '/images/catalog/basil-leaves.webp', // generated
-  'rosemary': '/images/catalog/rosemary.webp', // stock (commons, CC BY-SA 4.0)
-  'oregano': '/images/catalog/oregano.webp', // stock (commons, CC BY-SA 4.0)
-  'thyme': '/images/catalog/thyme.webp', // stock (commons, CC0)
-  'sage': '/images/catalog/sage.webp', // stock (commons, CC BY 2.0)
-  'jamun-seed': '/images/catalog/jamun-seed.webp', // stock (commons, CC BY-SA 4.0)
-  'tamarind-seed': '/images/catalog/tamarind-seed.webp', // stock (commons, CC BY-SA 3.0 de)
+  'rosemary': '/images/catalog/rosemary.webp', // generated
+  'oregano': '/images/catalog/oregano.webp', // generated
+  'thyme': '/images/catalog/thyme.webp', // generated
+  'sage': '/images/catalog/sage.webp', // generated
+  'jamun-seed': '/images/catalog/jamun-seed.webp', // generated
+  'tamarind-seed': '/images/catalog/tamarind-seed.webp', // generated
   'cassia-tora-seeds': '/images/catalog/cassia-tora-seeds.webp', // stock (commons, Public domain)
   'karanj-seeds': '/images/catalog/karanj-seeds.webp', // stock (commons, CC BY-SA 4.0)
   'mahua-seeds': '/images/catalog/mahua-seeds.webp', // stock (commons, CC BY-SA 4.0)
@@ -386,7 +386,7 @@ export const productImages = {
   'date-palm-jaggery': '/images/catalog/date-palm-jaggery.webp', // generated
   'wheatgrass-powder': '/images/catalog/wheatgrass-powder.webp', // generated
   'tamarind-kernel-powder': '/images/catalog/tamarind-kernel-powder.webp', // generated
-  'beverages': '/images/scenes/grocery-shelf.webp', // PLACEHOLDER generic scene
+  'beverages': '/images/catalog/beverages.webp', // generated
   'household-home-care': '/images/catalog/household-home-care.webp', // generated
   'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
 };
