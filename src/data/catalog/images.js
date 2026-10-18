@@ -335,8 +335,8 @@ export const productImages = {
   'curcumin-extract': '/images/catalog/curcumin-extract.webp', // stock (commons, CC BY-SA 4.0)
   'henna-leaves': '/images/catalog/henna-leaves.webp', // stock (commons, CC0)
   'neutral-henna': '/images/catalog/neutral-henna.webp', // stock (commons, CC BY-SA 2.0)
-  'indigo-powder': '/images/catalog/indigo-powder.webp', // stock (commons, CC BY-SA 3.0)
-  'henna-cones': '/images/catalog/henna-cones.webp', // stock (commons, CC BY-SA 4.0)
+  'indigo-powder': '/images/catalog/indigo-powder.webp', // generated
+  'henna-cones': '/images/catalog/henna-cones.webp', // generated
   'grey-millet': '/images/catalog/grey-millet.webp', // stock (commons, CC BY-SA 3.0)
   '100-broken-rice': '/images/catalog/100-broken-rice.webp', // stock (commons, CC BY-SA 4.0)
   'mini-mogra-basmati': '/images/catalog/mini-mogra-basmati.webp', // stock (commons, CC0)
@@ -344,7 +344,7 @@ export const productImages = {
   'spray-dried-onion-powder': '/images/catalog/spray-dried-onion-powder.webp', // stock (commons, CC BY-SA 3.0)
   'spray-dried-garlic-powder': '/images/catalog/spray-dried-garlic-powder.webp', // stock (commons, CC BY-SA 3.0)
   'palm-jaggery': '/images/catalog/palm-jaggery.webp', // supplied by owner
-  'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // stock (commons, CC BY-SA 4.0)
+  'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // generated
   'menthol-crystals': '/images/catalog/menthol-crystals.webp', // stock (commons, Public domain)
   'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // supplied by owner
   'moth-beans': '/images/catalog/moth-beans.webp', // generated

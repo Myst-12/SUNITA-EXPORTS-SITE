@@ -251,13 +251,10 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | catalog/curcumin-extract.webp | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:C%C3%BArcuma_(Curcuma_longa)_molida,_2020-06-23,_DD_16-24_FS.jpg |
 | catalog/henna-leaves.webp | Harsha099 | CC0 | https://commons.wikimedia.org/wiki/File:Henna_Tree_leaves.jpg |
 | catalog/neutral-henna.webp | Bernard DUPONT from FRANCE | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Eland%27s_Pea_(Senna_italica)_(50111366221).jpg |
-| catalog/indigo-powder.webp | Pancrat | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Indigofera_tinctoria_Guadeloupe.jpg |
-| catalog/henna-cones.webp | Almaddy2022 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Henna_Painting.jpg |
 | catalog/grey-millet.webp | Miquel Pujol Palol | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:LPCC-1018-Gra_de_mill.jpg |
 | catalog/100-broken-rice.webp | T.K. Naliaka | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Broken_rice_bris%C3%A9e.jpg |
 | catalog/mini-mogra-basmati.webp | ImageParty | CC0 | https://commons.wikimedia.org/wiki/File:White_rice_on_a_brown_table.jpg |
 | catalog/dehydrated-pink-onion-flakes.webp | Muddassiriqbal | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Bilistaa.jpg |
 | catalog/spray-dried-onion-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Onion_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
 | catalog/spray-dried-garlic-powder.webp | John Phelan | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg |
-| catalog/jaggery-chikki.webp | Divya4232 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Palli_laddu-_Sri_Sai_Telangana_foods,Hafeezpet-Telangana-DSC_0003.webp |
 | catalog/menthol-crystals.webp | Miansari66 | Public domain | https://commons.wikimedia.org/wiki/File:Menthol_Crystals.JPG |
