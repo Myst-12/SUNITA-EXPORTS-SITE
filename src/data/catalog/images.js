@@ -269,53 +269,53 @@ export const productImages = {
   'jaggery': '/images/catalog/jaggery.webp', // generated
   'personal-care': '/images/catalog/personal-care.webp', // generated
   'other-raisin-grades': '/images/catalog/other-raisin-grades.webp', // generated
-  'tamarind': '/images/catalog/tamarind.webp', // stock (commons, CC BY-SA 4.0)
+  'tamarind': '/images/catalog/tamarind.webp', // generated
   'red-gunja-seeds': '/images/catalog/red-gunja-seeds.webp', // stock (commons, CC BY-SA 2.0)
-  'henna-powder': '/images/catalog/henna-powder.webp', // stock (commons, Public domain)
-  'celery-seeds': '/images/catalog/celery-seeds.webp', // stock (commons, CC BY-SA 3.0)
-  'dill-seeds': '/images/catalog/dill-seeds.webp', // stock (commons, Public domain)
-  'nigella-seeds': '/images/catalog/nigella-seeds.webp', // stock (commons, CC BY 4.0)
-  'shahi-jeera': '/images/catalog/shahi-jeera.webp', // stock (commons, CC BY-SA 3.0)
-  'nutmeg-powder': '/images/catalog/nutmeg-powder.webp', // stock (commons, CC0)
-  'copra-cake': '/images/catalog/copra-cake.webp', // stock (commons, CC BY-SA 4.0)
+  'henna-powder': '/images/catalog/henna-powder.webp', // generated
+  'celery-seeds': '/images/catalog/celery-seeds.webp', // generated
+  'dill-seeds': '/images/catalog/dill-seeds.webp', // generated
+  'nigella-seeds': '/images/catalog/nigella-seeds.webp', // generated
+  'shahi-jeera': '/images/catalog/shahi-jeera.webp', // generated
+  'nutmeg-powder': '/images/catalog/nutmeg-powder.webp', // generated
+  'copra-cake': '/images/catalog/copra-cake.webp', // generated
   'indian-wheat': '/images/catalog/indian-wheat.webp', // stock (commons, CC BY-SA 4.0)
-  'corn-starch': '/images/catalog/corn-starch.webp', // stock (commons, CC BY-SA 3.0)
-  'niger-seeds': '/images/catalog/niger-seeds.webp', // stock (commons, CC BY 4.0)
-  'flax-seeds': '/images/catalog/flax-seeds.webp', // stock (commons, CC BY-SA 3.0)
-  'sunflower-seeds': '/images/catalog/sunflower-seeds.webp', // stock (commons, CC BY-SA 4.0)
-  'feed-barley': '/images/catalog/feed-barley.webp', // stock (commons, CC BY-SA 4.0)
-  'maize-grits': '/images/catalog/maize-grits.webp', // stock (commons, CC BY-SA 3.0)
-  'buckwheat': '/images/catalog/buckwheat.webp', // stock (commons, CC BY-SA 4.0)
-  'red-millet': '/images/catalog/red-millet.webp', // stock (commons, CC BY-SA 4.0)
-  'soybean-meal': '/images/catalog/soybean-meal.webp', // stock (commons, CC BY 2.0)
-  'groundnut-cake': '/images/catalog/groundnut-cake.webp', // stock (commons, CC0)
-  'garden-cress-seeds': '/images/catalog/garden-cress-seeds.webp', // stock (commons, CC BY-SA 4.0)
+  'corn-starch': '/images/catalog/corn-starch.webp', // generated
+  'niger-seeds': '/images/catalog/niger-seeds.webp', // generated
+  'flax-seeds': '/images/catalog/flax-seeds.webp', // generated
+  'sunflower-seeds': '/images/catalog/sunflower-seeds.webp', // generated
+  'feed-barley': '/images/catalog/feed-barley.webp', // generated
+  'maize-grits': '/images/catalog/maize-grits.webp', // generated
+  'buckwheat': '/images/catalog/buckwheat.webp', // generated
+  'red-millet': '/images/catalog/red-millet.webp', // generated
+  'soybean-meal': '/images/catalog/soybean-meal.webp', // generated
+  'groundnut-cake': '/images/catalog/groundnut-cake.webp', // generated
+  'garden-cress-seeds': '/images/catalog/garden-cress-seeds.webp', // generated
   'jaggery-blocks': '/images/catalog/jaggery-blocks.webp', // stock (commons, CC0)
-  'jaggery-cubes': '/images/catalog/jaggery-cubes.webp', // stock (commons, CC BY-SA 4.0)
-  'jaggery-powder': '/images/catalog/jaggery-powder.webp', // stock (commons, CC BY-SA 3.0)
-  'organic-jaggery': '/images/catalog/organic-jaggery.webp', // stock (commons, CC BY-SA 3.0)
-  'liquid-jaggery': '/images/catalog/liquid-jaggery.webp', // stock (commons, CC0)
-  'coconut-jaggery': '/images/catalog/coconut-jaggery.webp', // stock (commons, CC BY-SA 4.0)
-  'bala-root': '/images/catalog/bala-root.webp', // stock (commons, Public domain)
-  'vetiver-root': '/images/catalog/vetiver-root.webp', // stock (commons, CC BY-SA 3.0)
-  'coleus-root': '/images/catalog/coleus-root.webp', // stock (commons, CC BY-SA 4.0)
-  'oud-salib': '/images/catalog/oud-salib.webp', // stock (commons, CC BY 4.0)
-  'mango-ginger': '/images/catalog/mango-ginger.webp', // stock (commons, Public domain)
-  'black-turmeric': '/images/catalog/black-turmeric.webp', // stock (commons, CC BY-SA 4.0)
-  'wild-turmeric': '/images/catalog/wild-turmeric.webp', // stock (commons, CC BY-SA 4.0)
-  'indian-horse-chestnut': '/images/catalog/indian-horse-chestnut.webp', // stock (commons, CC BY-SA 2.0)
-  'senna-leaves': '/images/catalog/senna-leaves.webp', // stock (commons, CC BY-SA 3.0)
+  'jaggery-cubes': '/images/catalog/jaggery-cubes.webp', // generated
+  'jaggery-powder': '/images/catalog/jaggery-powder.webp', // generated
+  'organic-jaggery': '/images/catalog/organic-jaggery.webp', // generated
+  'liquid-jaggery': '/images/catalog/liquid-jaggery.webp', // generated
+  'coconut-jaggery': '/images/catalog/coconut-jaggery.webp', // generated
+  'bala-root': '/images/catalog/bala-root.webp', // generated
+  'vetiver-root': '/images/catalog/vetiver-root.webp', // generated
+  'coleus-root': '/images/catalog/coleus-root.webp', // generated
+  'oud-salib': '/images/catalog/oud-salib.webp', // generated
+  'mango-ginger': '/images/catalog/mango-ginger.webp', // generated
+  'black-turmeric': '/images/catalog/black-turmeric.webp', // generated
+  'wild-turmeric': '/images/catalog/wild-turmeric.webp', // generated
+  'indian-horse-chestnut': '/images/catalog/indian-horse-chestnut.webp', // generated
+  'senna-leaves': '/images/catalog/senna-leaves.webp', // generated
   'senna-pods': '/images/catalog/senna-pods.webp', // stock (commons, CC0)
-  'senna-leaf-powder': '/images/catalog/senna-leaf-powder.webp', // stock (commons, CC0)
-  'curry-leaves': '/images/catalog/curry-leaves.webp', // stock (commons, CC BY 4.0)
-  'lemongrass': '/images/catalog/lemongrass.webp', // stock (commons, CC BY-SA 4.0)
+  'senna-leaf-powder': '/images/catalog/senna-leaf-powder.webp', // generated
+  'curry-leaves': '/images/catalog/curry-leaves.webp', // generated
+  'lemongrass': '/images/catalog/lemongrass.webp', // generated
   'stevia-leaves': '/images/catalog/stevia-leaves.webp', // stock (commons, CC BY-SA 3.0)
-  'gotu-kola': '/images/catalog/gotu-kola.webp', // stock (commons, CC BY-SA 4.0)
-  'bhumyamalaki': '/images/catalog/bhumyamalaki.webp', // stock (commons, CC BY-SA 2.0)
-  'aloe-vera-leaf': '/images/catalog/aloe-vera-leaf.webp', // stock (commons, CC BY 3.0)
+  'gotu-kola': '/images/catalog/gotu-kola.webp', // generated
+  'bhumyamalaki': '/images/catalog/bhumyamalaki.webp', // generated
+  'aloe-vera-leaf': '/images/catalog/aloe-vera-leaf.webp', // generated
   'green-tea-leaves': '/images/catalog/green-tea-leaves.webp', // stock (commons, CC BY-SA 4.0)
-  'eucalyptus-leaves': '/images/catalog/eucalyptus-leaves.webp', // stock (commons, CC BY-SA 4.0)
-  'basil-leaves': '/images/catalog/basil-leaves.webp', // stock (commons, CC BY-SA 4.0)
+  'eucalyptus-leaves': '/images/catalog/eucalyptus-leaves.webp', // generated
+  'basil-leaves': '/images/catalog/basil-leaves.webp', // generated
   'rosemary': '/images/catalog/rosemary.webp', // stock (commons, CC BY-SA 4.0)
   'oregano': '/images/catalog/oregano.webp', // stock (commons, CC BY-SA 4.0)
   'thyme': '/images/catalog/thyme.webp', // stock (commons, CC0)
