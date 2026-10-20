@@ -10,7 +10,7 @@ export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
 // Web3Forms access key. Public by design: the free plan only accepts submissions sent from the
 // visitor's browser, so the key ships in the page. It can only send mail to the owner's inbox.
-export const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'bb355377-a175-45ce-9c0a-e68317f53d47';
+export const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'd5c740fd-e3ee-4ac7-a23a-bd859dcacadc';
 
 export const COMPANY = {
   name: 'Sunita Agri Exports',
