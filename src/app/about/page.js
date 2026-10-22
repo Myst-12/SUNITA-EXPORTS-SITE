@@ -46,7 +46,7 @@ export default function AboutPage() {
         crumbs={[{ label: 'About Us', href: '/about/' }]}
         eyebrow={`Since ${COMPANY.foundingYear} · Mumbai, India`}
         title="Bringing India’s flavours to the world since 2010"
-        lead={`${COMPANY.legalName} is a ${COMPANY.status} exporting Indian spices, rice, pulses, fresh produce and general provisions — one stop for all your food requirements from India.`}
+        lead={`${COMPANY.legalName} is a ${COMPANY.status} exporting Indian spices, rice, pulses, herbs and Indian groceries — one stop for all your food requirements from India.`}
         image="/images/scenes/market-sorting.webp"
         imageAlt="Spices being sorted and packed"
       />
@@ -68,8 +68,8 @@ export default function AboutPage() {
             <span className="eyebrow">Our story</span>
             <h2>Started for the Indian diaspora. Built on trust.</h2>
             <div className="prose">
-              <p>Sunita Agri Exports was established in {COMPANY.foundingYear} with one intent: to serve the Asian community all over the world — especially everyone who loves Indian food and flavours. From the start we dealt in food, spices, pulses, fresh fruits and general provisions.</p>
-              <p>Over the years the business has grown substantially, especially in the United States, Canada, Australia and Africa, promoting Indian tastes worldwide. Today we specialise in exports of Indian spices, rice, fruits and branded products, products in our customers’ own brands, and customised consumer packaging.</p>
+              <p>Sunita Agri Exports was established in {COMPANY.foundingYear} with one intent: to serve the Asian community all over the world — especially everyone who loves Indian food and flavours. From the start we dealt in food, spices, pulses and general provisions.</p>
+              <p>Over the years the business has grown substantially, especially in the United States, Canada, Australia and Africa, promoting Indian tastes worldwide. Today we specialise in exports of Indian spices, rice and branded products, products in our customers’ own brands, and customised consumer packaging.</p>
               <p>Above all, we specialise in <strong>consolidated (miscellaneous) container stuffing</strong> to each customer’s needs — so every requirement from India can ship from under one roof.</p>
             </div>
           </ScrollReveal>

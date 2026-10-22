@@ -24,7 +24,7 @@ export const exportDestinations = [
     seoTitle: 'Indian Foodstuff & FMCG Exporter to UAE',
     seoDescription: 'Leading exporter of Indian FMCG, foodstuff, spices, and pulses to Dubai and the UAE. Consolidated mixed containers and bulk shipments from India.',
     introText: 'The UAE is our largest market in the Middle East. With fast transit times from Mumbai to Jebel Ali, we offer regular mixed container shipments to leading supermarkets and distributors in Dubai, Abu Dhabi, and Sharjah.',
-    keyProducts: ['Indian FMCG & Groceries', 'Pulses & Lentils', 'Fresh Produce', 'Spices'],
+    keyProducts: ['Indian FMCG & Groceries', 'Pulses & Lentils', 'Rice', 'Spices'],
     certificationsRequired: ['Halal Certification', 'Dubai Municipality Approvals (Labeling)', 'Health Certificate'],
     shippingPorts: ['Jebel Ali (Dubai)', 'Abu Dhabi', 'Sharjah']
   },
@@ -126,9 +126,9 @@ export const exportDestinations = [
     region: 'Middle East',
     flag: '🇴🇲',
     seoTitle: 'Indian Foodstuff & Spices Exporter to Oman',
-    seoDescription: 'Exporter of Indian spices, rice, pulses, fresh produce and grocery items to Muscat and Sohar, Oman. Short transit from Mumbai.',
-    introText: 'Oman is one of the shortest sea routes from Mumbai, making it ideal for frequent mixed shipments of spices, staples, fresh onions and Indian groceries to distributors and hypermarkets.',
-    keyProducts: ['Spices', 'Rice', 'Fresh Onions', 'Indian FMCG'],
+    seoDescription: 'Exporter of Indian spices, rice, pulses and grocery items to Muscat and Sohar, Oman. Short transit from Mumbai.',
+    introText: 'Oman is one of the shortest sea routes from Mumbai, making it ideal for frequent mixed shipments of spices, staples, dehydrated onion and Indian groceries to distributors and hypermarkets.',
+    keyProducts: ['Spices', 'Rice', 'Pulses & Lentils', 'Indian FMCG'],
     certificationsRequired: ['Health Certificate', 'Phytosanitary Certificate', 'Certificate of Origin'],
     shippingPorts: ['Sultan Qaboos (Muscat)', 'Sohar', 'Salalah']
   },
