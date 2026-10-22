@@ -88,7 +88,6 @@
 
 /* Directors' message */
 .directors { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
-.directorsEyebrow { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-700); margin-bottom: 1rem; }
 .directorsQuote { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 1.5rem; text-wrap: balance; }
 .directorsSign { font-weight: 600; color: var(--ink-2); margin-top: 0.5rem; }
 .directorsPics { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -103,7 +102,6 @@
   .directorPic:nth-child(2) { margin-top: 32px; }
 }
 .directorsSection { padding-top: clamp(24px, 3vw, 48px); }
-.directorsEyebrow::before { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; background: var(--green-700); margin-bottom: 1.1rem; }
 
 /* Exhibition highlights: a small sideways-scrolling strip (holds 3–20 photos) */
 .expoSection { padding-top: clamp(32px, 4vw, 56px); }

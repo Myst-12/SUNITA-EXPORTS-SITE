@@ -34,6 +34,6 @@
 .stepper b { min-width: 58px; text-align: center; font-size: 0.86rem; font-variant-numeric: tabular-nums; color: var(--ink); }
 .empty { color: var(--muted); font-size: 0.9rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.note { font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; }
+.note { font-size: 0.8125rem; color: var(--muted); margin: 10px 0 0; }
 
 @media (max-width: 900px) { .planner { grid-template-columns: 1fr; } }

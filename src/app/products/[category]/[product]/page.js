@@ -130,8 +130,13 @@ export default async function ProductDetailPage({ params }) {
               <dl className={styles.facts}>
                 <div className={styles.fact}><Icon name="pin" size={18} /><div><dt>Origin</dt><dd>{product.origin || 'Confirmed per lot'}</dd></div></div>
                 {product.hsCode && <div className={styles.fact}><Icon name="file" size={18} /><div><dt>HS code</dt><dd>{product.hsCode}</dd></div></div>}
-                {product.type !== 'fmcg' && <div className={styles.fact}><Icon name="container" size={18} /><div><dt>20 ft load</dt><dd>{containerLoadText(product).twenty}</dd></div></div>}
-                <div className={styles.fact}><Icon name="clock" size={18} /><div><dt>Shelf life</dt><dd>{product.shelfLife || ON_REQUEST}</dd></div></div>
+                {/* Show a known fact in each tile; when a value is still "on request", show what is always true instead. */}
+                {product.type !== 'fmcg' && product.containerLoad?.twenty
+                  ? <div className={styles.fact}><Icon name="container" size={18} /><div><dt>20 ft load</dt><dd>{containerLoadText(product).twenty}</dd></div></div>
+                  : <div className={styles.fact}><Icon name="scale" size={18} /><div><dt>Minimum order</dt><dd>{product.type === 'fmcg' ? 'Mixed container' : '1 MT or mixed container'}</dd></div></div>}
+                {product.shelfLife
+                  ? <div className={styles.fact}><Icon name="clock" size={18} /><div><dt>Shelf life</dt><dd>{product.shelfLife}</dd></div></div>
+                  : <div className={styles.fact}><Icon name="ship" size={18} /><div><dt>Ships from</dt><dd>{CONTACT.port.split(' (')[0]}, Mumbai</dd></div></div>}
               </dl>
 
               {product.forms.length > 0 && (

@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className={s.stats}>
             <div className={s.stat}><strong><CountUp value={yearsInBusiness()} suffix="+" /></strong><span>years in export</span></div>
             <div className={s.stat}><strong><CountUp value={parseInt(COMPANY.countriesServed, 10)} suffix="+" /></strong><span>countries served</span></div>
-            <div className={s.stat}><strong><CountUp value={total} suffix="+" /></strong><span>products listed</span></div>
+            <div className={s.stat}><strong><CountUp value={total} /></strong><span>products listed</span></div>
             <div className={s.stat}><strong>Star</strong><span>Export House (Govt. of India)</span></div>
           </div>
         </div>
@@ -124,19 +124,19 @@ export default function AboutPage() {
         <div className={`container ${s.split}`}>
           <div>
             <span className="eyebrow on-dark">Trade fairs &amp; exhibitions</span>
-            <h2>Meet us in person</h2>
-            <p>We exhibit at leading international food trade fairs to meet importers face to face, show samples and plan new business.</p>
+            <h2>Meet us at trade fairs</h2>
+            <p>We exhibit at international food fairs every year — Gulfood in Dubai, WorldFood Istanbul and Vietfood &amp; Beverage in Vietnam — to meet importers face to face and show samples. Tell us which fair you are visiting and we will set a time at our stand.</p>
             {EXHIBITIONS.map((e) => (
               <div key={e.name} className="mt-3" style={{ padding: 18, borderRadius: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)' }}>
-                <span className="chip chip-dark"><Icon name="calendar" size={14} /> {e.edition}</span>
+                <span className="chip chip-dark"><Icon name="calendar" size={14} /> Last exhibited · {e.edition}</span>
                 <h3 className="mt-1" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.4rem' }}>{e.name} · {e.city}</h3>
                 <p style={{ margin: 0 }}>{e.venue}</p>
                 <p style={{ margin: '0.3rem 0 0', color: 'var(--lime-400)', fontWeight: 700 }}><Icon name="pin" size={15} /> {e.stand}</p>
               </div>
             ))}
-            <Link href="/contact/" className="btn btn-accent mt-3">Book a meeting <Icon name="arrow-right" /></Link>
+            <Link href="/contact/" className="btn btn-accent mt-3">Ask about our next fair <Icon name="arrow-right" /></Link>
           </div>
-          <div className={s.img}><Image src={EXHIBITIONS[0].image} alt="Dubai skyline — Gulfood venue city" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+          <div className={s.img}><Image src="/images/exhibitions/stand-n10-e23.webp" alt="Sunita Agri Exports stand N10-E23 at Gulfood, Dubai" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
         </div>
       </section>
     </>

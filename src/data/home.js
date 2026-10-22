@@ -2,8 +2,9 @@
 export const HOME = {
   hero: {
     title: 'Indian spices, shipped worldwide',
-    lead: 'Indian spices, rice, pulses and grocery exporter — a Govt. recognised Star Export House. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
-    trust: 'Since 2010 · 40+ countries · ISO 22000 · ISO 9001 · Kosher · FSSAI · APEDA · Spices Board',
+    lead: 'Indian spices, rice, pulses and grocery exporter. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
+    // The Star Export House status leads the trust line (it also sits under the name in the header).
+    trust: 'Govt. recognised Star Export House · Since 2010 · 40+ countries · ISO 22000 · ISO 9001 · Kosher · FSSAI · APEDA · Spices Board',
     cta: 'Explore our products',
     image: '/images/hero/spices-wood.webp', // AI-generated illustration
     imageAlt: 'Bowls of colourful Indian spices on a dark wooden table',
@@ -22,11 +23,11 @@ export const HOME = {
   },
   categories: {
     title: 'What we export',
-    text: 'Fifteen categories and 400+ products, each with its own specification sheet. Bulk, retail packs or private label.',
+    // Counts come from the catalogue, so they stay right as products are added or removed.
+    text: (cats, items) => `${cats} categories and ${items} products, each with its own specification sheet. Bulk, retail packs or private label.`,
     link: 'View all products',
   },
   directors: {
-    eyebrow: 'From the directors',
     quote: 'We’re a business bringing the taste of India’s farms to kitchens in 40+ countries — and every buyer is treated like family.',
     paras: [
       'We started Sunita Agri Exports in 2010 with one promise to our buyers: what we show in the sample is what arrives in the container. Today, shipping to 40+ countries, that promise still decides how we source, grade and pack every order.',

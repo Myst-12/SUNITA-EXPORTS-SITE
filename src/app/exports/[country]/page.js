@@ -113,7 +113,7 @@ export default async function CountryPage({ params }) {
             <div>
               <span className="eyebrow">Export range</span>
               <h2>Products we ship to {name}</h2>
-              <p className="lead">{COMPANY.countriesServed} countries, 400+ products — in bulk, retail packs or your own private label.</p>
+              <p className="lead">{COMPANY.countriesServed} countries, {getAllProducts().length} products — in bulk, retail packs or your own private label.</p>
             </div>
             <Link href="/products/" className="link-arrow">All products <Icon name="arrow-right" /></Link>
           </div>

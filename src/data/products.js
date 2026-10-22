@@ -41,7 +41,8 @@ function normalize(raw) {
     categoryName: catBySlug[p.category].name,
     subcategoryName: subName(p.category, p.subcategory),
     image: p.image || null,
-    metaTitle: p.type === 'fmcg' ? `${n} for Export — Indian FMCG Supplier` : `${n} Exporter from India — Bulk Supplier`,
+    // Short enough that Google shows the whole title with the " | Sunita Agri Exports" suffix (about 60 characters).
+    metaTitle: p.type === 'fmcg' ? `${n} for Export from India` : `${n} Exporter from India`,
     metaDescription: clip(`${lead} from India. ${p.description}`, 158),
   };
 }
@@ -49,13 +50,19 @@ function normalize(raw) {
 const all = productList.map(normalize);
 const bySlug = Object.fromEntries(all.map((p) => [p.slug, p]));
 
-// Related: same subcategory first, then the rest of the primary category.
+// Related: the same crop in other forms first (turmeric fingers → turmeric powder), then the same subcategory,
+// then the rest of the primary category.
+const GENERIC = new Set(['seeds', 'seed', 'powder', 'whole', 'dried', 'dehydrated', 'indian', 'flakes', 'extract', 'leaves', 'leaf', 'root', 'roots', 'organic', 'natural', 'split', 'with', 'without', 'skin', 'packaged', 'export', 'grade', 'fine', 'coarse', 'crushed', 'ground', 'bulk', 'other', 'mixed', 'premium', 'flowers', 'flower', 'bark', 'gum', 'polished', 'unpolished', 'black', 'white', 'green', 'yellow', 'brown', 'golden', 'pink', 'small', 'large', 'sweet']);
+const words = (p) => new Set(p.shortName.toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 3 && !GENERIC.has(w)));
+const wordsBySlug = Object.fromEntries(all.map((p) => [p.slug, words(p)]));
 all.forEach((p) => {
+  const mine = wordsBySlug[p.slug];
+  const sameCrop = all.filter((q) => q !== p && [...wordsBySlug[q.slug]].some((w) => mine.has(w)));
   const sameSub = all.filter((q) => q !== p && q.category === p.category && q.subcategory === p.subcategory);
   const sameCat = all.filter((q) => q !== p && q.category === p.category && q.subcategory !== p.subcategory);
   const i = sameSub.findIndex((q) => all.indexOf(q) > all.indexOf(p));
   const ordered = i > 0 ? [...sameSub.slice(i), ...sameSub.slice(0, i)] : sameSub;
-  p.relatedProducts = [...ordered, ...sameCat].slice(0, 4).map((q) => q.slug);
+  p.relatedProducts = [...new Set([...sameCrop.slice(0, 2), ...ordered, ...sameCat])].slice(0, 4).map((q) => q.slug);
 });
 
 const listedIn = (p, cat) => p.category === cat || (p.also || []).some((a) => a.category === cat);
