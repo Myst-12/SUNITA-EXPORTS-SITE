@@ -67,7 +67,7 @@ export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': COMPANY.url,
+    '@id': `${COMPANY.url}/#business`,
     name: COMPANY.name,
     url: COMPANY.url,
     logo: COMPANY.logo,
@@ -76,7 +76,6 @@ export function localBusinessSchema() {
     email: COMPANY.email,
     description: COMPANY.description,
     foundingDate: COMPANY.foundingDate,
-    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       ...COMPANY.address,
@@ -89,40 +88,11 @@ export function localBusinessSchema() {
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '09:00',
-      closes: '18:00',
+      opens: '10:00', // CONTACT.hours: Mon – Sat, 10:00 – 19:00 IST
+      closes: '19:00',
     },
+    areaServed: 'Worldwide',
     sameAs: COMPANY.sameAs,
-  };
-}
-
-export function productSchema(product) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    description: product.description,
-    image: product.image ? `${COMPANY.url}${product.image}` : undefined,
-    brand: {
-      '@type': 'Brand',
-      name: COMPANY.name,
-    },
-    manufacturer: {
-      '@type': 'Organization',
-      name: COMPANY.name,
-      url: COMPANY.url,
-    },
-    category: product.category || 'Agricultural Products',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      seller: {
-        '@type': 'Organization',
-        name: COMPANY.name,
-      },
-    },
-    ...(product.sku ? { sku: product.sku } : {}),
   };
 }
 

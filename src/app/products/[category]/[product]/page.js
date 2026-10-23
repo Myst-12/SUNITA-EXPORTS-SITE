@@ -88,6 +88,7 @@ export default async function ProductDetailPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
+    sku: product.slug, // our own product code; bulk goods have no barcode (GTIN)
     ...(localNames.length ? { alternateName: localNames.map(([, , name]) => name) } : {}),
     description: product.description,
     url,

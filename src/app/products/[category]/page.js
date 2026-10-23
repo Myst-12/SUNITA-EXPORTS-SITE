@@ -7,6 +7,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import { COMPANY, SITE_URL, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
+import { categorySummaries } from '@/data/catalog/categorySummaries';
 import styles from '../products.module.css';
 
 export const dynamicParams = false;
@@ -108,6 +109,15 @@ export default async function CategoryPage({ params }) {
           )}
         </div>
       </section>
+
+      {categorySummaries[cat.slug] && (
+        <section className="section-sm" aria-labelledby="cat-summary">
+          <div className={`container ${styles.catFaq}`}>
+            <h2 id="cat-summary">{name} from India, in short</h2>
+            <p className={styles.catSummary}>{categorySummaries[cat.slug].replace('{count}', cat.productCount)}</p>
+          </div>
+        </section>
+      )}
 
       <section className="section-sm section-soft">
         <div className={`container ${styles.catFaq}`}>
