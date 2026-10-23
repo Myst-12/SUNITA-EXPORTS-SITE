@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# pre-made image sizes (made before every build by scripts/size-images.mjs)
+/public/images/_sized/
+
 # next.js
 /.next/
 /out/

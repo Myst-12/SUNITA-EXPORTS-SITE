@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/size-images.mjs && next dev",
+    "build": "node scripts/size-images.mjs && next build",
+    "size-images": "node scripts/size-images.mjs",
     "start": "next start",
     "lint": "eslint"
   },

@@ -2,11 +2,13 @@ import { catalogueRedirects } from './src/data/catalog/redirects.mjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Server mode (not static export) so the inquiry API route, image optimisation
-  // and redirects work. Deploy target: Vercel (or any Node host).
+  // Server mode (not static export) so the inquiry API route and redirects work. Deploy target: Vercel (or any Node host).
+  // Images: sizes are made ahead of time by scripts/size-images.mjs and picked by a custom loader,
+  // so Vercel does no image resizing (its free plan stops at 5,000 a month).
   images: {
-    formats: ['image/avif', 'image/webp'],
-    qualities: [75, 90], // 90 for the full-screen homepage hero
+    loader: 'custom',
+    loaderFile: './src/lib/imageLoader.js',
+    qualities: [75, 90],
   },
   trailingSlash: true,
   async redirects() {
