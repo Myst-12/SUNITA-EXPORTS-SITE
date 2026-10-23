@@ -96,9 +96,9 @@ export const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp
 
 export const SOCIAL = [
   { name: 'LinkedIn', icon: 'linkedin', url: '' },
-  { name: 'Instagram', icon: 'instagram', url: '' },
-  { name: 'Facebook', icon: 'facebook', url: '' },
-  { name: 'X', icon: 'x', url: '' },
+  { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/sunitaexportsindia/' },
+  { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/SunitaExportsIndia' },
+  { name: 'X', icon: 'x', url: 'https://x.com/SUNITAEXPORTS' },
   { name: 'WhatsApp Channel', icon: 'whatsapp', url: 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp1BVC2s' },
 ];
 
