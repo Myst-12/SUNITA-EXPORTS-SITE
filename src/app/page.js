@@ -10,6 +10,7 @@ import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
 import { certificates } from '@/data/certificates';
 import { whatsappLink } from '@/config/site';
+import { websiteSchema } from '@/lib/schemas';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -33,6 +34,7 @@ export default function HomePage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }} />
       {/* 1 — Hero */}
       <section className={styles.hero}>
         <Image src={hero.image} alt={hero.imageAlt} fill priority quality={90} sizes="100vw" className={styles.heroImg} />

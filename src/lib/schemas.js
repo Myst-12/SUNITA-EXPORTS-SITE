@@ -21,8 +21,21 @@ const COMPANY = {
   },
   foundingDate: String(SITE_COMPANY.foundingYear),
   description: SITE_COMPANY.description,
-  sameAs: SOCIAL.map((s) => s.url),
+  sameAs: SOCIAL.map((s) => s.url).filter(Boolean), // only profiles that exist
 };
+
+/** WebSite: the site's name for Google's site-name display. Homepage only. */
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_COMPANY.name,
+    alternateName: COMPANY.legalName,
+    url: `${SITE_URL}/`,
+    inLanguage: 'en',
+    publisher: { '@type': 'Organization', name: COMPANY.name, url: SITE_URL },
+  };
+}
 
 export function organizationSchema() {
   return {

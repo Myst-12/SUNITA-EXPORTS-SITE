@@ -18,7 +18,10 @@ const nextConfig = {
       { source: '/exhibitions', destination: '/about/#exhibitions', permanent: true },
       { source: '/packaging', destination: '/private-label/#packaging', permanent: true },
       // Old site (sunitaexports.com) PHP URLs
-      { source: '/:page(index|Products|products|contact|about)\\.php', destination: '/', permanent: true },
+      { source: '/:page(Products|products)\\.php', destination: '/products/', permanent: true },
+      { source: '/:page(contact)\\.php', destination: '/contact/', permanent: true },
+      { source: '/:page(about)\\.php', destination: '/about/', permanent: true },
+      { source: '/:page(index)\\.php', destination: '/', permanent: true },
       ...catalogueRedirects.map(([source, destination]) => ({ source, destination, statusCode: 301 })),
     ];
   },
