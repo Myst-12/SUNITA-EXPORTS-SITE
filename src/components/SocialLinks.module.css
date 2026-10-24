@@ -8,3 +8,5 @@
 .dark .link { background: rgba(255, 255, 255, 0.1); color: #fff; }
 @media (hover: hover) and (pointer: fine) { .dark .link:hover { background: #fff; color: var(--green-800); } }
 .mist .link { background: #fff; }
+/* The white circle above outranks the plain hover rule, so the footer needs its own hover (else white icon on white). */
+@media (hover: hover) and (pointer: fine) { .mist .link:hover { background: var(--green-700); color: #fff; } }
