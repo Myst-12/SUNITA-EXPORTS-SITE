@@ -52,6 +52,13 @@ export const CONTACT = {
   port: 'Nhava Sheva (JNPT), Mumbai',
 };
 
+// Directors, shown on /connect/ (opened by the brochure's contact QR). Each one's direct line; empty fields are not shown.
+// Email stays the single company inbox (CONTACT.email).
+export const DIRECTORS = [
+  { name: 'Alok Dhanuka', role: 'Director', image: '/images/team/alok-dhanuka-portrait.webp', phone: '+91 81692 82942', whatsapp: '+91 81692 82942' },
+  { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka-portrait.webp', phone: '+91 90040 41889', whatsapp: '' },
+];
+
 export const fullAddress = () => {
   const a = CONTACT.address;
   return `${a.street}, ${a.city} – ${a.postalCode}, ${a.region}, ${a.country}`;

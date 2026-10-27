@@ -1,0 +1,51 @@
+.page { background: var(--bg-mist); padding: clamp(20px, 5vw, 56px) var(--gutter) clamp(48px, 8vw, 96px); }
+.card { max-width: 600px; margin-inline: auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+
+/* Header: logo, name and status on the brand green, with the logo's leaf ring as a soft accent. */
+.head { position: relative; overflow: hidden; background: var(--green-900); color: #fff; text-align: center; padding: 32px 24px 84px; }
+.head::before { content: ''; position: absolute; right: -70px; top: -90px; width: 240px; height: 240px; border-radius: 50%; border: 26px solid rgba(188, 214, 61, 0.12); }
+.logo { position: relative; width: 72px; height: 72px; margin: 0 auto 14px; padding: 7px; border-radius: 50%; background: #fff; }
+.head h1 { position: relative; color: #fff; font-size: clamp(1.4rem, 5vw, 1.75rem); line-height: 1.15; margin: 0; }
+.status { position: relative; display: inline-block; margin: 10px 0 0; padding: 4px 12px; border-radius: 999px; background: var(--lime-500); color: var(--green-950); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; }
+.since { position: relative; margin: 10px auto 0; max-width: 34ch; font-size: 0.85rem; color: var(--green-200); }
+
+/* Directors overlap the header, so the faces are the first thing you see. */
+.people { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: -60px; padding: 0 18px; }
+.person { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 8px 8px 12px; }
+.photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; }
+.who { text-align: center; padding: 12px 4px 10px; }
+.who h2 { margin: 0; font-size: 1.05rem; line-height: 1.25; }
+.role { display: block; margin-top: 2px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-600); }
+.number { display: block; margin-top: 6px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; color: var(--ink); font-variant-numeric: tabular-nums; }
+.buttons { display: grid; gap: 8px; padding: 0 2px; }
+.call, .wa {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border-radius: 12px;
+  font-weight: 700; font-size: 0.92rem; transition: transform 0.1s var(--ease), background-color 0.15s var(--ease);
+}
+.call { background: var(--green-700); color: #fff; }
+.wa { background: #15803d; color: #fff; }
+.call:active, .wa:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .call:hover { background: var(--green-800); } .wa:hover { background: #126c34; } }
+
+.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 22px 18px 6px; }
+.quick a { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 6px 2px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; color: var(--ink-2); text-align: center; }
+.quick a span { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--green-50); border: 1px solid var(--green-200); color: var(--green-700); transition: transform 0.1s var(--ease); }
+.quick a .qWa { background: #15803d; border-color: #15803d; color: #fff; }
+.quick a:active span { transform: scale(0.94); }
+@media (hover: hover) and (pointer: fine) { .quick a:hover span { background: var(--green-100); } .quick a:hover .qWa { background: #126c34; } }
+
+.details { margin: 14px 18px 0; padding: 4px 16px; border-radius: 16px; background: var(--bg-mist); }
+.details > div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.details > div:last-child { border-bottom: 0; }
+.details dt { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.details dt svg { color: var(--green-700); }
+.details dd { margin: 4px 0 0 26px; font-size: 0.95rem; color: var(--ink); overflow-wrap: anywhere; }
+.details dd a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+
+.social { display: flex; justify-content: center; padding: 18px 18px 24px; }
+
+@media (max-width: 380px) {
+  .people { gap: 10px; padding: 0 12px; }
+  .quick { padding-inline: 10px; }
+  .quick a span { width: 46px; height: 46px; }
+}
