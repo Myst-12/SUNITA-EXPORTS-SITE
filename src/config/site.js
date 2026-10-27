@@ -56,7 +56,7 @@ export const CONTACT = {
 // Email stays the single company inbox (CONTACT.email).
 export const DIRECTORS = [
   { name: 'Alok Dhanuka', role: 'Director', image: '/images/team/alok-dhanuka-portrait.webp', phone: '+91 81692 82942', whatsapp: '+91 81692 82942' },
-  { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka-portrait.webp', phone: '+91 90040 41889', whatsapp: '' },
+  { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka-portrait.webp', phone: '+91 90040 41889', whatsapp: '+91 90040 41889' },
 ];
 
 export const fullAddress = () => {
