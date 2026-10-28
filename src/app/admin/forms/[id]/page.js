@@ -50,7 +50,7 @@ export default async function FormDetail({ params, searchParams }) {
   return (
     <div className={`container ${s.wrap}`}>
       {open && <LiveRefresh />}
-      <Link href="/admin/" className={s.back}>← All forms</Link>
+      <Link href="/admin/forms/" className={s.back}>← All forms</Link>
       <div className={s.head}>
         <div>
           <span className={`${s.badge} ${open ? s.open : s.closed}`}>{form.status}</span>

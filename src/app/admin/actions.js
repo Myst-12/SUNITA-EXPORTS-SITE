@@ -35,7 +35,7 @@ function readEditor(formData, back) {
 
 export async function createFormAction(formData) {
   await requireAdmin();
-  const form = await createForm(readEditor(formData, '/admin/new/'));
+  const form = await createForm(readEditor(formData, '/admin/forms/new/'));
   redirect(`/admin/forms/${form.id}/`);
 }
 
@@ -80,5 +80,5 @@ export async function deleteFormAction(formData) {
   const id = String(formData.get('id'));
   const form = await getForm({ id });
   if (form) await deleteForm(id);
-  redirect(`/admin/?note=${encodeURIComponent(form ? `“${form.title}” and its responses were deleted.` : 'Form already deleted.')}`);
+  redirect(`/admin/forms/?note=${encodeURIComponent(form ? `“${form.title}” and its responses were deleted.` : 'Form already deleted.')}`);
 }

@@ -91,6 +91,13 @@ export async function listResponses(formId) {
   return db.responses.filter((r) => r.form_id === formId).sort((a, b) => a.created_at.localeCompare(b.created_at));
 }
 
+/** Every response across all forms, newest first (admin dashboard). Supabase caps one request at 1000 rows. */
+export async function listAllResponses() {
+  if (usingDatabase) return sb('responses?select=*&order=created_at.desc');
+  const db = await readFile();
+  return [...db.responses].sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
 /** Deletes a form and all its responses. */
 export async function deleteForm(id) {
   if (usingDatabase) return sb(`forms?id=eq.${encodeURIComponent(id)}`, { method: 'DELETE', headers: { Prefer: 'return=minimal' } }); // responses cascade

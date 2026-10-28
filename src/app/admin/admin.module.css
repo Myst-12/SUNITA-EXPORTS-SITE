@@ -125,3 +125,59 @@ textarea.input { min-height: 96px; resize: vertical; line-height: 1.5; }
   .stats { grid-template-columns: 1fr 1fr; gap: 22px 32px; }
   .respActions :global(.btn) { flex: none; }
 }
+
+/* Admin bar: dashboard + one tab per tool (src/app/admin/tools.js) */
+.adminBar { background: var(--green-50); border-bottom: 1px solid var(--line); }
+.adminBarIn { display: flex; align-items: center; gap: 12px; }
+.tabs { flex: 1; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 999px; font-size: 0.9rem; font-weight: 600; color: var(--ink-2); white-space: nowrap; transition: background 0.2s, color 0.2s; }
+.tab small { font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: var(--turmeric-100); color: #8a6300; }
+.tab[aria-current='page'] { background: var(--green-700); color: #fff; }
+@media (hover: hover) and (pointer: fine) { .tab:not([aria-current='page']):hover { background: var(--green-100); color: var(--green-800); } }
+.logout { flex: none; min-height: 40px; padding: 0 4px; font-size: 0.88rem; font-weight: 600; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) { .logout:hover { color: var(--green-700); } }
+
+/* Dashboard */
+.wide { max-width: 1120px; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+.tiles div { background: var(--green-50); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 4px; }
+.tiles b { font-size: clamp(1.6rem, 6vw, 2.1rem); line-height: 1.05; font-variant-numeric: tabular-nums; color: var(--green-800); }
+.tiles span { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+.section { margin-bottom: 28px; }
+.tools { display: grid; gap: 10px; margin-top: 10px; }
+.tool { display: flex; align-items: flex-start; gap: 14px; padding: 18px; border-radius: var(--radius-lg); background: var(--bg-mist); color: inherit; transition: background 0.2s; }
+.tool :global(.icon-tile) { margin: 0; }
+.tool:active { background: var(--green-100); }
+@media (hover: hover) and (pointer: fine) { .tool:hover { background: var(--green-100); } .toolSoon:hover { background: var(--turmeric-100); } }
+.toolBody { flex: 1; display: grid; gap: 4px; min-width: 0; }
+.toolBody b { font-size: 1.08rem; color: var(--ink); }
+.toolBody > span { font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
+.toolBody small { margin-top: 4px; font-size: 0.85rem; font-weight: 700; color: var(--green-700); }
+.toolBody .soon { justify-self: start; margin-top: 6px; padding: 3px 10px; border-radius: 999px; background: var(--turmeric-100); color: #8a6300; font-size: 0.75rem; font-weight: 700; }
+.toolArrow { flex: none; align-self: center; color: var(--muted); }
+.dash { display: grid; gap: 14px; }
+.cardHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.more { font-size: 0.88rem; font-weight: 600; color: var(--green-700); }
+.dash .bar { grid-template-columns: minmax(0, 1fr) 32% auto; padding-block: 3px; }
+.dash .barLabel { white-space: normal; line-height: 1.3; }
+.dash .barNum { min-width: 3ch; }
+.respLink { color: inherit; transition: background 0.2s; }
+@media (hover: hover) and (pointer: fine) { .respLink:hover { background: var(--green-50); } }
+.links { list-style: none; margin: 8px 0 0; padding: 0; display: grid; }
+.links a { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 46px; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 0.94rem; color: var(--ink); }
+.links li:last-child a { border-bottom: 0; }
+.links a svg { flex: none; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) { .links a:hover { color: var(--green-700); } .links a:hover svg { color: var(--green-700); } }
+@media (min-width: 760px) {
+  .tiles { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .tiles div { padding: 18px 20px; }
+  .tools { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tool { padding: 22px; }
+  .dash { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .dash .stats { grid-template-columns: 1fr; }
+}
+
+/* Placeholder for a tool that is not built yet */
+.placeholder { display: grid; justify-items: start; gap: 12px; }
+.placeholder p { margin: 0; color: var(--ink-2); line-height: 1.55; max-width: 60ch; }
