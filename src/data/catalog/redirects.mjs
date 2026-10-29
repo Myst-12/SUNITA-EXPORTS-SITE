@@ -1,6 +1,7 @@
 // 301s for catalogue URLs that changed in the taxonomy rebuild (Oct 2026). Generated once from the old catalogue.
 // Order matters: exact product URLs first, then old category pages, then anything else under an old category.
 export const catalogueRedirects = [
+  ['/products/indian-spices/crushed-chilli', '/products/indian-spices/red-chilli-flakes/'], // merged: same product
   ['/products/indian-spices/red-chilli', '/products/indian-spices/dried-red-chillies/'],
   ['/products/indian-spices/cardamom', '/products/indian-spices/green-cardamom/'],
   ['/products/indian-spices/ginger-powder', '/products/indian-spices/dry-ginger-powder/'],

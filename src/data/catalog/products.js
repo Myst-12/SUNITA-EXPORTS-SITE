@@ -1249,9 +1249,10 @@ export const products = [
     "hsCode": "0904.22",
     "origin": "Andhra Pradesh, Karnataka",
     "forms": [
-      "Flakes"
+      "Flakes",
+      "Coarse crushed"
     ],
-    "description": "Crushed chilli flakes with or without seeds, sized for pizza, seasoning and snack manufacturers.",
+    "description": "Red chilli flakes (crushed chilli), with or without seeds, from fine flakes to coarse crush — for pizza, seasoning blends, sauces, snacks and meat processing.",
     "packaging": [
       "25 kg PP or multi-wall paper bags with inner liner",
       "10–20 kg cartons",
@@ -1260,30 +1261,6 @@ export const products = [
     "image": "/images/products/red-chilli-flakes.webp",
     "gallery": [
       "/images/products/red-chilli-flakes.webp"
-    ],
-    "steamSterilized": true
-  },
-  {
-    "slug": "crushed-chilli",
-    "name": "Crushed Chilli",
-    "category": "indian-spices",
-    "subcategory": "flakes-cut-spices",
-    "type": "bulk",
-    "botanicalName": "Capsicum annuum",
-    "hsCode": "0904.22",
-    "origin": "Andhra Pradesh, Karnataka",
-    "forms": [
-      "Coarse crushed"
-    ],
-    "description": "Coarsely crushed red chilli for seasoning blends, sauces and meat processing.",
-    "packaging": [
-      "25 kg PP or multi-wall paper bags with inner liner",
-      "10–20 kg cartons",
-      "Retail and private-label packs (50 g – 1 kg)"
-    ],
-    "image": "/images/products/crushed-chilli.webp",
-    "gallery": [
-      "/images/products/crushed-chilli.webp"
     ],
     "steamSterilized": true
   },

@@ -234,7 +234,6 @@ export const productImages = {
   'basil-seeds': '/images/catalog/basil-seeds.webp', // generated
   'botanical-extracts': '/images/catalog/botanical-extracts.webp', // generated
   'copra': '/images/catalog/copra.webp', // generated
-  'crushed-chilli': '/images/catalog/crushed-chilli.webp', // generated
   'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // generated
   'dehydrated-garlic-granules': '/images/catalog/dehydrated-garlic-granules.webp', // generated
   'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // generated
