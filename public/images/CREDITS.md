@@ -70,7 +70,7 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | products/incense.webp | https://images.unsplash.com/photo-1759671699377-74c5ed073b44 |
 | categories/indian-spices.webp | https://images.unsplash.com/photo-1581600140682-d4e68c8cde32 |
 | categories/blended-spices.webp | https://images.unsplash.com/photo-1633881614907-8587c9b93c2f |
-| categories/rice.webp | https://images.unsplash.com/photo-1586201375761-83865001e31c |
+| categories/rice.webp | https://images.unsplash.com/photo-1723475158232-819e29803f4d |
 | categories/pulses-grains.webp | https://images.unsplash.com/photo-1786301326154-3e040dc8db60 |
 | categories/oilseeds.webp | https://images.unsplash.com/photo-1553954082-1376d6554209 |
 | categories/herbs.webp | https://images.unsplash.com/photo-1781377012601-93162be3a433 |

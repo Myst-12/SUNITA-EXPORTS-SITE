@@ -150,7 +150,7 @@ export default function EventForm({ slug, title, intro, brand, open, fields, pro
             <p>{t.thanksText}</p>
             <div className={s.doneActions}>
               <Link href="/" className="btn btn-primary">{t.visit}</Link>
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">{t.whatsapp} · <bdi dir="ltr">{CONTACT.quotePhone.display}</bdi></a>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">{t.whatsapp} · <bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></a>
               <button type="button" className="btn btn-outline" onClick={() => setStatus('idle')}>{t.again}</button>
             </div>
           </div>

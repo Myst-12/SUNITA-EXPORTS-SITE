@@ -30,13 +30,15 @@ export const yearsInBusiness = () => new Date().getFullYear() - COMPANY.founding
 export const CONTACT = {
   email: 'sunitaexportsindia@gmail.com',
   phones: [
-    { label: 'Sales & WhatsApp', display: '+91 81692 82942', tel: '+918169282942' },
+    { label: 'Sales', display: '+91 81692 82942', tel: '+918169282942' },
     { label: 'Sales', display: '+91 90040 41889', tel: '+919004041889' },
   ],
   // Only number shown on the Get a Quote page (owner instruction).
   quotePhone: { display: '+91 81692 82942', tel: '+918169282942' },
   landline: { display: '+91 22 2869 7453', tel: '+912228697453' },
-  whatsapp: '918169282942',
+  // Every WhatsApp button on the site goes to this number (owner instruction, 30 Oct 2026).
+  whatsapp: '919867462909',
+  whatsappDisplay: '+91 98674 62909',
   whatsappMessage: 'Hello Sunita Agri Exports, I would like a quotation for',
   hours: 'Mon – Sat, 10:00 – 19:00 IST',
   address: {

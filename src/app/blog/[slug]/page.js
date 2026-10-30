@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }) {
             </div>
             <div className="btn-row">
               <Link href="/contact/" className="btn btn-primary">Get a quote <Icon name="arrow-right" /></Link>
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> {CONTACT.quotePhone.display}</a>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> {CONTACT.whatsappDisplay}</a>
             </div>
           </aside>
         </div>
