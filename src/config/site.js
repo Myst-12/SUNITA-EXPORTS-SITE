@@ -47,6 +47,15 @@ export const CONTACT = {
     country: 'India',
     countryCode: 'IN',
   },
+  // UK office (website only; not on the brochure).
+  ukOffice: {
+    street: '8 Westburn Park',
+    city: 'Edinburgh',
+    postalCode: 'EH14 2RX',
+    region: 'Scotland',
+    country: 'United Kingdom',
+    countryCode: 'GB',
+  },
   geo: { lat: 19.2042, lng: 72.8347 },
   mapsQuery: 'Ghanshyam Enclave, Laljipada, Link Road, Kandivali West, Mumbai 400067',
   port: 'Nhava Sheva (JNPT), Mumbai',
@@ -63,6 +72,13 @@ export const fullAddress = () => {
   const a = CONTACT.address;
   return `${a.street}, ${a.city} – ${a.postalCode}, ${a.region}, ${a.country}`;
 };
+
+export const ukAddress = () => {
+  const a = CONTACT.ukOffice;
+  return `${a.street}, ${a.city} ${a.postalCode}, ${a.region}, ${a.country}`;
+};
+
+export const ukMapsLink = () => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress())}`;
 
 export const whatsappLink = (text = CONTACT.whatsappMessage) =>
   `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`;

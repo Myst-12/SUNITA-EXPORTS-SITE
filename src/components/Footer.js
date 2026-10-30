@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import HomeLink from './HomeLink';
-import { COMPANY, CONTACT, fullAddress, mapsLink, WHATSAPP_CHANNEL } from '@/config/site';
+import { COMPANY, CONTACT, fullAddress, mapsLink, ukAddress, ukMapsLink, WHATSAPP_CHANNEL } from '@/config/site';
 import SocialLinks from './SocialLinks';
 import styles from './Footer.module.css';
 
@@ -64,6 +64,7 @@ export default function Footer({ categories = [] }) {
             <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
             <li><a href={WHATSAPP_CHANNEL} target="_blank" rel="noopener noreferrer" className={styles.more}>Join our WhatsApp channel</a></li>
             <li><a href={mapsLink()} target="_blank" rel="noopener noreferrer" className={styles.address}>{fullAddress()}</a></li>
+            <li><a href={ukMapsLink()} target="_blank" rel="noopener noreferrer" className={styles.address}>UK office: {ukAddress()}</a></li>
           </ul>
         </div>
       </div>

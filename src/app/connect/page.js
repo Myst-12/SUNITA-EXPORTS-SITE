@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import SocialLinks from '@/components/SocialLinks';
-import { COMPANY, CONTACT, DIRECTORS, SITE_URL, fullAddress, mapsLink, whatsappLink } from '@/config/site';
+import { COMPANY, CONTACT, DIRECTORS, SITE_URL, fullAddress, mapsLink, ukAddress, ukMapsLink, whatsappLink } from '@/config/site';
 import styles from './connect.module.css';
 
 // Digital business card opened by the QR code on page 2 of the printed brochure.
@@ -75,6 +75,10 @@ export default function ConnectPage() {
           <div>
             <dt><Icon name="pin" size={18} /> Office address</dt>
             <dd><a href={mapsLink()} target="_blank" rel="noopener noreferrer">{fullAddress()}</a></dd>
+          </div>
+          <div>
+            <dt><Icon name="pin" size={18} /> UK office</dt>
+            <dd><a href={ukMapsLink()} target="_blank" rel="noopener noreferrer">{ukAddress()}</a></dd>
           </div>
           <div>
             <dt><Icon name="clock" size={18} /> Hours</dt>

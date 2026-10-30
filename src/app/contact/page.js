@@ -3,7 +3,7 @@ import PageHero from '@/components/PageHero';
 import InquiryForm from '@/components/InquiryForm';
 import FaqSection from '@/components/FaqSection';
 import Icon from '@/components/Icon';
-import { CONTACT, COMPANY, fullAddress, whatsappLink, mapsEmbedUrl, mapsLink } from '@/config/site';
+import { CONTACT, COMPANY, fullAddress, ukAddress, ukMapsLink, whatsappLink, mapsEmbedUrl, mapsLink } from '@/config/site';
 import { localBusinessSchema } from '@/lib/schemas';
 import styles from './contact.module.css';
 
@@ -55,7 +55,8 @@ export default function ContactPage() {
               <ul className={styles.info}>
                 <li><span className="icon-tile"><Icon name="phone" /></span><div><small>Call</small><a href={`tel:${CONTACT.quotePhone.tel}`}>{CONTACT.quotePhone.display}</a></div></li>
                 <li><span className="icon-tile"><Icon name="mail" /></span><div><small>Email</small><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></div></li>
-                <li><span className="icon-tile"><Icon name="pin" /></span><div><small>Office</small><a href={mapsLink()} target="_blank" rel="noopener noreferrer">{fullAddress()}</a></div></li>
+                <li><span className="icon-tile"><Icon name="pin" /></span><div><small>India office</small><a href={mapsLink()} target="_blank" rel="noopener noreferrer">{fullAddress()}</a></div></li>
+                <li><span className="icon-tile"><Icon name="pin" /></span><div><small>UK office</small><a href={ukMapsLink()} target="_blank" rel="noopener noreferrer">{ukAddress()}</a></div></li>
                 <li><span className="icon-tile"><Icon name="clock" /></span><div><small>Hours</small><span>{CONTACT.hours}</span></div></li>
               </ul>
             </div>

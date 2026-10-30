@@ -8,6 +8,7 @@ export const productImages = {
   'adzuki-beans': '/images/catalog/adzuki-beans.webp', // generated
   'ajwain-seeds': '/images/catalog/ajwain-seeds.webp', // client
   'akarkara-root': '/images/catalog/akarkara-root.webp', // client
+  'amaranth-seeds': '/images/catalog/amaranth-seeds.webp', // client
   'amla': '/images/catalog/amla.webp', // generated
   'arjuna-bark': '/images/catalog/arjuna-bark.webp', // client
   'ashoka-bark': '/images/catalog/ashoka-bark.webp', // client
@@ -391,4 +392,6 @@ export const productImages = {
   'nirmali-seeds': '/images/catalog/nirmali-seeds.webp', // generated
   'ambrette-seeds': '/images/catalog/ambrette-seeds.webp', // generated
   'moringa-seeds': '/images/catalog/moringa-seeds.webp', // supplied by owner
+  'red-quinoa': '/images/catalog/red-quinoa.webp', // client
+  'white-quinoa': '/images/catalog/white-quinoa.webp', // client
 };

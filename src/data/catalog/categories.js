@@ -159,13 +159,14 @@ export const categoryList = [
     shortName: 'Superfoods',
     image: '/images/catalog/categories/superfoods-functional-seeds.webp',
     description:
-      'Psyllium seeds, husk and husk powder, moringa seeds and leaf powder, and basil seeds — ingredients for health-food, supplement and beverage brands.',
-    metaTitle: 'Psyllium Husk, Moringa & Basil Seeds Exporter India',
+      'Psyllium seeds, husk and husk powder, moringa seeds and leaf powder, basil seeds, white and red quinoa and amaranth — ingredients for health-food, supplement and beverage brands.',
+    metaTitle: 'Psyllium Husk, Moringa, Quinoa & Amaranth Exporter India',
     metaDescription:
-      'Psyllium husk 85–99% purity, psyllium husk powder and seeds, moringa leaf powder, moringa seeds and basil (sabja) seeds exported from India.',
+      'Psyllium husk 85–99% purity, psyllium husk powder and seeds, moringa leaf powder, moringa seeds, basil (sabja) seeds, white and red quinoa and amaranth (rajgira) seeds exported from India.',
     subcategories: [
       { slug: 'psyllium-products', name: 'Psyllium Products' },
       { slug: 'moringa-functional-seeds', name: 'Moringa & Functional Seeds' },
+      { slug: 'quinoa-amaranth', name: 'Quinoa & Amaranth' },
     ],
   },
   {

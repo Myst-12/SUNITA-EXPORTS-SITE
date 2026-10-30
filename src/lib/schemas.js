@@ -19,6 +19,13 @@ const COMPANY = {
     postalCode: CONTACT.address.postalCode,
     addressCountry: CONTACT.address.countryCode,
   },
+  ukAddress: {
+    streetAddress: CONTACT.ukOffice.street,
+    addressLocality: CONTACT.ukOffice.city,
+    addressRegion: CONTACT.ukOffice.region,
+    postalCode: CONTACT.ukOffice.postalCode,
+    addressCountry: CONTACT.ukOffice.countryCode,
+  },
   foundingDate: String(SITE_COMPANY.foundingYear),
   description: SITE_COMPANY.description,
   sameAs: SOCIAL.map((s) => s.url).filter(Boolean), // only profiles that exist
@@ -55,10 +62,10 @@ export function organizationSchema() {
       availableLanguage: ['English', 'Hindi'],
       areaServed: 'Worldwide',
     },
-    address: {
-      '@type': 'PostalAddress',
-      ...COMPANY.address,
-    },
+    address: [
+      { '@type': 'PostalAddress', ...COMPANY.address },
+      { '@type': 'PostalAddress', ...COMPANY.ukAddress },
+    ],
     sameAs: COMPANY.sameAs,
   };
 }

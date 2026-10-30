@@ -3,6 +3,7 @@
  * the owner's list (onion powders, red gunja, oud salib, henna, jaggery), feed and dehydrated items
  * from competitor research, and Kinal Global Care's range (fruits & vegetables excluded).
  * Specs are "on request" until the client confirms them; no photos yet (name cards are shown).
+ * Quinoa and amaranth were added on 30 Oct 2026 with client photos.
  */
 
 const BAG = ['25 kg PP or paper bags with inner liner', 'Retail and private-label packs on request'];
@@ -242,6 +243,14 @@ export const addedProducts = [
   herb('botanical-extracts', 'green-tea-extract', 'Green Tea Extract', 'Camellia sinensis', ['Powder (standardised polyphenols / EGCG)'], 'Green tea extract standardised to polyphenols and EGCG.', { hsCode: '1302.19', packaging: EXTRACT }),
   herb('botanical-extracts', 'aloe-vera-extract', 'Aloe Vera Extract (200:1)', 'Aloe barbadensis', ['Spray-dried powder'], 'Concentrated aloe vera gel powder for cosmetics and beverages.', { hsCode: '1302.19', packaging: EXTRACT }),
   herb('botanical-extracts', 'papain', 'Papain (Papaya Enzyme)', 'Carica papaya', ['Powder', 'Liquid'], 'Papain enzyme from papaya latex for meat tenderising, brewing, pharma and cosmetics.', { hsCode: '3507.90', packaging: EXTRACT }),
+
+  // ── Superfoods: quinoa & amaranth (added 30 Oct 2026, client photos) ──
+  item('superfoods-functional-seeds', 'quinoa-amaranth', 'white-quinoa', 'White Quinoa', 'Chenopodium quinoa', ['Whole grain (washed)'],
+    'White quinoa grown in India — gluten-free and high in protein, cleaned and graded for health-food brands, retail packs and food manufacturers.', { hsCode: '1008.50' }),
+  item('superfoods-functional-seeds', 'quinoa-amaranth', 'red-quinoa', 'Red Quinoa', 'Chenopodium quinoa', ['Whole grain (washed)'],
+    'Red quinoa with a firmer bite and nuttier flavour than white — cleaned and graded for salads, ready meals, health-food brands and retail packs.', { hsCode: '1008.50' }),
+  item('superfoods-functional-seeds', 'quinoa-amaranth', 'amaranth-seeds', 'Amaranth Seeds (Rajgira)', 'Amaranthus hypochondriacus', ['Whole seeds'],
+    'Rajgira (amaranth) seeds from Gujarat and Rajasthan — a gluten-free pseudo-grain, cleaned for health-food, bakery, popped-snack and fasting-food buyers.', { hsCode: '1008.90' }),
 
   // ── Henna & natural dyes ──────────────────────────────────────
   herb('henna-natural-dyes', 'henna-leaves', 'Henna Leaves (Mehndi)', 'Lawsonia inermis', ['Dried leaves'],

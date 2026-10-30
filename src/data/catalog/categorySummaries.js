@@ -21,7 +21,7 @@ export const categorySummaries = {
   'indian-coffee':
     'Sunita Agri Exports exports shade-grown Indian Arabica and Robusta coffee from Karnataka, Kerala and Tamil Nadu: green beans in Coffee Board grades, and roasted or ground coffee. Green coffee ships in 60 kg jute bags, with hermetic liners on request, from Mumbai alone or in a mixed container.',
   'superfoods-functional-seeds':
-    'Sunita Agri Exports supplies psyllium seeds, husk and husk powder, moringa seeds and leaf powder, basil seeds, garden cress seeds and wheatgrass powder to health-food, supplement and beverage brands. They are packed in lined 25 kg bags or private-label packs and ship from Mumbai alone or in a mixed container.',
+    'Sunita Agri Exports supplies psyllium seeds, husk and husk powder, moringa seeds and leaf powder, basil seeds, garden cress seeds, wheatgrass powder, white and red quinoa and amaranth (rajgira) seeds to health-food, supplement and beverage brands. They are packed in lined 25 kg bags or private-label packs and ship from Mumbai alone or in a mixed container.',
   'animal-bird-feed':
     'Sunita Agri Exports exports {count} feed ingredients: feed maize, sorghum and millet, barley, oilseed meals, brans and bird-feed seeds such as canary seed and millet mixes. All are sold for animal feed use only and labelled that way, packed in 50 kg PP bags or in bulk containers for large orders, and shipped from Nhava Sheva, Mumbai.',
   'foodstuff-fmcg':

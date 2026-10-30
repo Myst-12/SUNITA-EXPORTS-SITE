@@ -1,6 +1,9 @@
 // Herbs, roots, barks, resins, flowers, seeds and dehydrated products. Order: hi|gu|ta|ar|fa|es|pt|fr|de|it|nl|ru|tr|zh|ja|ko|ms|id
 // Many Ayurvedic herbs have no established name outside India — those slots are left empty on purpose.
 export const NAMES_B = {
+  'white-quinoa': 'सफेद क्विनोआ|સફેદ ક્વિનોઆ|வெள்ளை கினோவா|كينوا بيضاء|کینوای سفید|Quinua blanca|Quinoa branca|Quinoa blanc|Weißer Quinoa|Quinoa bianca|Witte quinoa|Белая киноа|Beyaz kinoa|白藜麦|白キヌア|화이트 퀴노아|Kuinoa putih|Kinoa putih',
+  'red-quinoa': 'लाल क्विनोआ|લાલ ક્વિનોઆ|சிவப்பு கினோவா|كينوا حمراء|کینوای قرمز|Quinua roja|Quinoa vermelha|Quinoa rouge|Roter Quinoa|Quinoa rossa|Rode quinoa|Красная киноа|Kırmızı kinoa|红藜麦|赤キヌア|레드 퀴노아|Kuinoa merah|Kinoa merah',
+  'amaranth-seeds': 'राजगिरा (रामदाना)|રાજગરો|ராஜ்கிரா விதை|بذور القطيفة|دانه تاج خروس|Semillas de amaranto|Sementes de amaranto|Graines d’amarante|Amarant|Semi di amaranto|Amarantzaad|Семена амаранта|Amarant tohumu|苋菜籽|アマランサス|아마란스|Biji bayam|Biji amaranth',
   'ashwagandha-root': 'अश्वगंधा जड़|અશ્વગંધા મૂળ|அமுக்கரா கிழங்கு|جذور الأشواغاندا|ریشه آشواگاندا|Raíz de ashwagandha|Raiz de ashwagandha|Racine d’ashwagandha|Ashwagandha-Wurzel|Radice di ashwagandha|Ashwagandha-wortel|Корень ашваганды|Ashwagandha kökü|南非醉茄根|アシュワガンダの根|아슈와간다 뿌리|Akar ashwagandha|Akar ashwagandha',
   'shatavari-root': 'शतावरी|શતાવરી|தண்ணீர்விட்டான் கிழங்கு|جذور الشتافاري||Raíz de shatavari|Raiz de shatavari|Racine de shatavari|Shatavari-Wurzel|Radice di shatavari|Shatavari-wortel|Корень шатавари|Shatavari kökü|天门冬 (印度)|シャタバリ|샤타바리|Akar shatavari|Akar shatavari',
   'safed-musli': 'सफेद मूसली|સફેદ મુસળી||||Safed musli|Safed musli|Safed musli|Safed Musli|Safed musli|Safed musli|Сафед мусли||||||',
