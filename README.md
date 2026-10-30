@@ -13,7 +13,7 @@ It is more than a brochure site. It is a searchable B2B catalogue of nearly 400 
 | | |
 |---|---|
 | **Pages** | 440+ pages, all statically generated and listed in the sitemap |
-| **Products** | 379 export products in 14 categories and 40+ subcategories, each with its own page |
+| **Products** | 378 export products in 14 categories and 40+ subcategories, each with its own page |
 | **Spec sheets** | A one-page PDF specification sheet generated for every product |
 | **Languages** | 28-language site translation, plus product names in 18 languages for local search |
 | **Markets** | 17 export-market pages (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, USA, UK, EU and others) |
@@ -25,7 +25,7 @@ It is more than a brochure site. It is a searchable B2B catalogue of nearly 400 
 ## Features
 
 ### Product catalogue
-- **379 products** across spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, animal & bird feed, jaggery & natural sweeteners, raisins and Indian FMCG.
+- **378 products** across spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, animal & bird feed, jaggery & natural sweeteners, raisins and Indian FMCG.
 - **A detail page for every product:** botanical name, HS code, forms, grades, packaging, shelf life, origin and related products.
 - **Searchable and filterable** catalogue with category and subcategory navigation.
 - **Downloadable PDF spec sheet** for every product, generated on the server with `pdf-lib`. It carries the company letterhead, product photo, specifications table and contact details.
@@ -101,7 +101,7 @@ Built for trade fairs such as Gulfood. The client creates a form on their phone,
 ```
 src/
   app/                      Next.js App Router pages and API routes
-    products/[category]/[product]/   379 product pages (static)
+    products/[category]/[product]/   378 product pages (static)
     spec-sheets/[file]/     PDF spec sheet generator (pdf-lib)
     exports/[country]/      17 market pages
     admin/                  Exhibition form builder (password protected)

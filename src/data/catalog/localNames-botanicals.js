@@ -36,7 +36,6 @@ export const NAMES_B = {
   'gambhari-bark': 'गंभारी|ગંભારી|குமிழ்|||||||||||||||',
   'neem-bark': 'नीम छाल|લીમડાની છાલ|வேப்பம் பட்டை|لحاء النيم|پوست چریش|Corteza de neem|Casca de nim|Écorce de neem|Neemrinde|Corteccia di neem|Neemschors|Кора нима|Neem kabuğu|印楝树皮|ニーム樹皮|님 나무껍질|Kulit mambu|Kulit mimba',
   'acacia-catechu': 'कत्था|કાથો|கருங்காலி (காசுக்கட்டி)|كاتشو|کات|Catecú|Catechu|Cachou|Katechu|Catecù|Catechu|Катеху|Kateşu|儿茶|阿仙薬|아선약|Gambir|Gambir',
-  'sandalwood': 'चंदन|ચંદન|சந்தனம்|خشب الصندل|چوب صندل|Madera de sándalo|Sândalo|Bois de santal|Sandelholz|Legno di sandalo|Sandelhout|Сандаловое дерево|Sandal ağacı|檀香|白檀|백단향|Kayu cendana|Kayu cendana',
   'devdaru': 'देवदारु|દેવદાર|தேவதாரு|أرز الهيمالايا|سدر هیمالیا|Cedro del Himalaya|Cedro-do-himalaia|Cèdre de l’Himalaya|Himalaya-Zeder|Cedro dell’Himalaya|Himalayaceder|Гималайский кедр|Himalaya sediri|雪松|ヒマラヤスギ|히말라야삼나무|Kayu cedar|Kayu cedar',
   'tulsi-leaves': 'तुलसी|તુલસી|துளசி|ريحان مقدس (تولسي)|ریحان مقدس|Albahaca sagrada (tulsi)|Manjericão-sagrado|Basilic sacré (tulsi)|Heiliges Basilikum (Tulsi)|Basilico sacro|Heilige basilicum|Базилик священный (тулси)|Kutsal fesleğen|圣罗勒|ホーリーバジル (トゥルシー)|홀리 바질|Selasih (tulsi)|Kemangi suci',
   'neem-leaves': 'नीम पत्ते|લીમડાના પાન|வேப்பிலை|أوراق النيم|برگ چریش|Hojas de neem|Folhas de nim|Feuilles de neem|Neemblätter|Foglie di neem|Neembladeren|Листья нима|Neem yaprağı|印楝叶|ニームの葉|님 잎|Daun mambu|Daun mimba',

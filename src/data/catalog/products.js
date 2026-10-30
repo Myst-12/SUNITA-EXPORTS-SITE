@@ -1983,26 +1983,6 @@ export const products = [
     ]
   },
   {
-    "slug": "sandalwood",
-    "name": "Sandalwood",
-    "category": "herbs-botanicals",
-    "subcategory": "barks-woods",
-    "type": "bulk",
-    "botanicalName": "Santalum album",
-    "forms": [
-      "Chips",
-      "Powder"
-    ],
-    "description": "Sandalwood for incense, cosmetics and perfumery — export from India is regulated, so it is supplied only in permitted forms with full legal documentation.",
-    "packaging": [
-      "20–25 kg PP or jute bags",
-      "Pressed bales (leaves and herbs)",
-      "Cartons with inner liner",
-      "Private-label packs on request"
-    ],
-    "regulated": true
-  },
-  {
     "slug": "devdaru",
     "name": "Devdaru (Deodar)",
     "category": "herbs-botanicals",

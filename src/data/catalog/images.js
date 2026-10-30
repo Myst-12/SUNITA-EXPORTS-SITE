@@ -36,7 +36,7 @@ export const productImages = {
   'broad-beans': '/images/catalog/broad-beans.webp', // client
   'broken-rice': '/images/catalog/broken-rice.webp', // client
   'brown-rice': '/images/catalog/brown-rice.webp', // generated
-  'byadgi-chilli': '/images/catalog/byadgi-chilli.webp', // generated (Antigravity)
+  'byadgi-chilli': '/images/catalog/byadgi-chilli.webp', // client
   'cassia': '/images/catalog/cassia.webp', // generated
   'chaat-masala': '/images/catalog/chaat-masala.webp', // client
   'chakki-atta': '/images/catalog/chakki-atta.webp', // client
@@ -58,8 +58,8 @@ export const productImages = {
   'cumin-powder': '/images/catalog/cumin-powder.webp', // generated
   'cumin-seeds': '/images/catalog/cumin-seeds.webp', // client
   'curry-powder': '/images/catalog/curry-powder.webp', // generated
-  'cut-ginger': '/images/catalog/cut-ginger.webp', // generated
-  'cut-turmeric': '/images/catalog/cut-turmeric.webp', // generated
+  'cut-ginger': '/images/catalog/cut-ginger.webp', // client
+  'cut-turmeric': '/images/catalog/cut-turmeric.webp', // client
   'dammar-resin': '/images/catalog/dammar-resin.webp', // client
   'daruharidra-stem': '/images/catalog/daruharidra-stem.webp', // client
   'dehydrated-garlic-powder': '/images/catalog/dehydrated-garlic-powder.webp', // client
@@ -68,8 +68,8 @@ export const productImages = {
   'desiccated-coconut': '/images/catalog/desiccated-coconut.webp', // client
   'devdaru': '/images/catalog/devdaru.webp', // generated
   'dhuli-urad-dal': '/images/catalog/dhuli-urad-dal.webp', // generated
-  'dried-red-chillies': '/images/catalog/dried-red-chillies.webp', // generated (Antigravity)
-  'dry-ginger': '/images/catalog/dry-ginger.webp', // generated
+  'dried-red-chillies': '/images/catalog/dried-red-chillies.webp', // client
+  'dry-ginger': '/images/catalog/dry-ginger.webp', // client
   'dry-ginger-powder': '/images/catalog/dry-ginger-powder.webp', // client
   'feed-sorghum': '/images/catalog/feed-sorghum.webp', // client
   'fennel-powder': '/images/catalog/fennel-powder.webp', // client
@@ -92,7 +92,7 @@ export const productImages = {
   'gudmar-leaves': '/images/catalog/gudmar-leaves.webp', // client
   'guggul-resin': '/images/catalog/guggul-resin.webp', // generated
   'gum-arabic': '/images/catalog/gum-arabic.webp', // generated
-  'guntur-chilli': '/images/catalog/guntur-chilli.webp', // generated (Antigravity)
+  'guntur-chilli': '/images/catalog/guntur-chilli.webp', // client
   'gymnema-seeds': '/images/catalog/gymnema-seeds.webp', // client
   'haritaki': '/images/catalog/haritaki.webp', // client
   'hmt-rice': '/images/catalog/hmt-rice.webp', // generated
@@ -125,7 +125,7 @@ export const productImages = {
   'kutki-root': '/images/catalog/kutki-root.webp', // client
   'licorice-root': '/images/catalog/licorice-root.webp', // client
   'lodhra-bark': '/images/catalog/lodhra-bark.webp', // client
-  'mace': '/images/catalog/mace.webp', // generated
+  'mace': '/images/catalog/mace.webp', // client
   'maida': '/images/catalog/maida.webp', // client
   'makhana-healthy-snacks': '/images/catalog/makhana-healthy-snacks.webp', // client
   'manjistha-root': '/images/catalog/manjistha-root.webp', // client
@@ -176,7 +176,6 @@ export const productImages = {
   'roasted-coffee-beans': '/images/catalog/roasted-coffee-beans.webp', // client
   'safed-musli': '/images/catalog/safed-musli.webp', // client
   'saffron': '/images/catalog/saffron.webp', // generated
-  'sandalwood': '/images/catalog/sandalwood.webp', // generated
   'sariva': '/images/catalog/sariva.webp', // client
   'sarpagandha-root': '/images/catalog/sarpagandha-root.webp', // client
   'seedlac-shellac': '/images/catalog/seedlac-shellac.webp', // client
@@ -195,7 +194,7 @@ export const productImages = {
   'swarna-rice': '/images/catalog/swarna-rice.webp', // generated
   'tagar-root': '/images/catalog/tagar-root.webp', // client
   'tea-masala': '/images/catalog/tea-masala.webp', // client
-  'teja-chilli': '/images/catalog/teja-chilli.webp', // generated (Antigravity)
+  'teja-chilli': '/images/catalog/teja-chilli.webp', // client
   'traditional-basmati-rice': '/images/catalog/traditional-basmati-rice.webp', // generated
   'tragacanth-gum': '/images/catalog/tragacanth-gum.webp', // client
   'triphala': '/images/catalog/triphala.webp', // generated
