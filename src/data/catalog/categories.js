@@ -28,10 +28,10 @@ export const categoryList = [
     shortName: 'Herbs',
     image: '/images/catalog/categories/herbs-botanicals.webp',
     description:
-      'Roots, rhizomes, barks, leaves, fruits, seeds, flowers, gums and resins used by herbal, Ayurvedic, cosmetic and extraction companies — identity-checked by botanical name.',
+      'Roots, rhizomes, barks, leaves, fruits, seeds, gums and resins used by herbal, Ayurvedic, cosmetic and extraction companies — identity-checked by botanical name.',
     metaTitle: 'Indian Herbs & Botanicals Exporter — Roots, Leaves, Gums & Resins',
     metaDescription:
-      'Ashwagandha, shatavari, amla, haritaki, tulsi, moringa, hibiscus, guggul, gum karaya and 100+ Indian herbs and botanicals, supplied by botanical name in bulk.',
+      'Ashwagandha, shatavari, amla, haritaki, tulsi, moringa, guggul, gum karaya and 100+ Indian herbs and botanicals, supplied by botanical name in bulk.',
     subcategories: [
       { slug: 'roots-root-products', name: 'Roots & Root Products' },
       { slug: 'rhizomes', name: 'Rhizomes' },
@@ -39,7 +39,6 @@ export const categoryList = [
       { slug: 'leaves-leaf-products', name: 'Leaves & Leaf Products' },
       { slug: 'fruits-fruit-products', name: 'Fruits & Fruit Products' },
       { slug: 'seeds-seed-products', name: 'Seeds & Seed Products' },
-      { slug: 'flowers-floral-botanicals', name: 'Flowers & Floral Botanicals' },
       { slug: 'gums-botanical-resins', name: 'Gums & Botanical Resins' },
       { slug: 'essential-oils-butters', name: 'Botanical Butters & Menthol' },
       { slug: 'botanical-extracts', name: 'Botanical Extracts' },

@@ -1,6 +1,20 @@
 // 301s for catalogue URLs that changed in the taxonomy rebuild (Oct 2026). Generated once from the old catalogue.
 // Order matters: exact product URLs first, then old category pages, then anything else under an old category.
 export const catalogueRedirects = [
+  ['/products/herbs-botanicals/hibiscus-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/rose-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/dhataki-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/palash-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/nagkesar', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/marigold-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/chamomile-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/butterfly-pea-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/lavender-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/safflower-petals', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/mahua-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/lotus-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/jasmine-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
+  ['/products/herbs-botanicals/calendula-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
   ['/products/indian-spices/crushed-chilli', '/products/indian-spices/red-chilli-flakes/'], // merged: same product
   ['/products/indian-spices/red-chilli', '/products/indian-spices/dried-red-chillies/'],
   ['/products/indian-spices/cardamom', '/products/indian-spices/green-cardamom/'],

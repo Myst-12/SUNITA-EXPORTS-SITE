@@ -5,7 +5,7 @@ export const categorySummaries = {
   'indian-spices':
     'Sunita Agri Exports, a Govt. recognised Star Export House in Mumbai, exports {count} Indian spices: whole spices such as cumin, coriander, turmeric, black pepper and cardamom, spice powders, masala blends and chillies like Guntur, Teja and Byadgi. Spices are cleaned and graded to your specification, packed in 25 kg bags, 10–20 kg cartons or private-label packs, and shipped from Nhava Sheva, Mumbai, from 1 MT or in a mixed container.',
   'herbs-botanicals':
-    'Sunita Agri Exports supplies {count} Indian herbs and botanicals to herbal, Ayurvedic, cosmetic and extraction companies: roots such as ashwagandha, shatavari and licorice, plus leaves, barks, seeds, flowers, gums, resins, botanical extracts and henna. Each herb is identity-checked by botanical name, packed in 20–25 kg PP or jute bags or pressed bales, and shipped from Nhava Sheva, Mumbai.',
+    'Sunita Agri Exports supplies {count} Indian herbs and botanicals to herbal, Ayurvedic, cosmetic and extraction companies: roots such as ashwagandha, shatavari and licorice, plus leaves, barks, seeds, gums, resins, botanical extracts and henna. Each herb is identity-checked by botanical name, packed in 20–25 kg PP or jute bags or pressed bales, and shipped from Nhava Sheva, Mumbai.',
   'dehydrated-onion-garlic':
     'Sunita Agri Exports exports {count} dehydrated onion and garlic products from Gujarat — white, red and pink onion and garlic as flakes, kibbled, minced, granules and powder — for seasoning blenders and food manufacturers. They are packed in 20–25 kg multi-wall paper bags or cartons with a double PE liner, or in private-label packs, and shipped from Nhava Sheva, Mumbai.',
   'coconut-products':

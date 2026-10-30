@@ -211,12 +211,6 @@ export const addedProducts = [
     'Undi (tamanu) seeds for tamanu oil, prized in natural skin care.'),
 
   // ── Herbs: flowers & gums ─────────────────────────────────────
-  herb('flowers-floral-botanicals', 'lotus-flowers', 'Lotus Flowers & Seeds', 'Nelumbo nucifera', ['Dried flowers', 'Petals', 'Seeds'],
-    'Dried lotus flowers and petals for herbal teas, pooja and cosmetic use.'),
-  herb('flowers-floral-botanicals', 'jasmine-flowers', 'Jasmine Flowers (Mogra)', 'Jasminum sambac', ['Dried flowers'],
-    'Dried mogra jasmine flowers for jasmine tea, potpourri and fragrance.'),
-  herb('flowers-floral-botanicals', 'calendula-flowers', 'Calendula Flowers', 'Calendula officinalis', ['Whole flowers', 'Petals'],
-    'Dried calendula flowers and petals for herbal teas, skin-care oils and natural colour.'),
   herb('gums-botanical-resins', 'guar-gum', 'Guar Gum Powder', 'Cyamopsis tetragonoloba', ['Splits', 'Powder (food / industrial grades)'],
     'Guar gum from Rajasthan and Gujarat — India supplies most of the world’s guar — in food, pharma and industrial grades.', { hsCode: '1302.32', packaging: POWDER }),
   herb('gums-botanical-resins', 'gum-ghatti', 'Gum Ghatti', 'Anogeissus latifolia', ['Tears', 'Powder'],

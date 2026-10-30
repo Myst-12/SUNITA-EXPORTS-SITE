@@ -36,12 +36,10 @@ export const productImages = {
   'broad-beans': '/images/catalog/broad-beans.webp', // client
   'broken-rice': '/images/catalog/broken-rice.webp', // client
   'brown-rice': '/images/catalog/brown-rice.webp', // generated
-  'butterfly-pea-flowers': '/images/catalog/butterfly-pea-flowers.webp', // generated
   'byadgi-chilli': '/images/catalog/byadgi-chilli.webp', // generated (Antigravity)
   'cassia': '/images/catalog/cassia.webp', // generated
   'chaat-masala': '/images/catalog/chaat-masala.webp', // client
   'chakki-atta': '/images/catalog/chakki-atta.webp', // client
-  'chamomile-flowers': '/images/catalog/chamomile-flowers.webp', // generated
   'chana-dal': '/images/catalog/chana-dal.webp', // client
   'chirata': '/images/catalog/chirata.webp', // client
   'chironji-seeds': '/images/catalog/chironji-seeds.webp', // client
@@ -69,7 +67,6 @@ export const productImages = {
   'desi-chickpeas': '/images/catalog/desi-chickpeas.webp', // client
   'desiccated-coconut': '/images/catalog/desiccated-coconut.webp', // client
   'devdaru': '/images/catalog/devdaru.webp', // generated
-  'dhataki-flowers': '/images/catalog/dhataki-flowers.webp', // client
   'dhuli-urad-dal': '/images/catalog/dhuli-urad-dal.webp', // generated
   'dried-red-chillies': '/images/catalog/dried-red-chillies.webp', // generated (Antigravity)
   'dry-ginger': '/images/catalog/dry-ginger.webp', // generated
@@ -98,7 +95,6 @@ export const productImages = {
   'guntur-chilli': '/images/catalog/guntur-chilli.webp', // generated (Antigravity)
   'gymnema-seeds': '/images/catalog/gymnema-seeds.webp', // client
   'haritaki': '/images/catalog/haritaki.webp', // client
-  'hibiscus-flowers': '/images/catalog/hibiscus-flowers.webp', // generated
   'hmt-rice': '/images/catalog/hmt-rice.webp', // generated
   'horse-gram': '/images/catalog/horse-gram.webp', // generated
   'hulled-white-sesame': '/images/catalog/hulled-white-sesame.webp', // client
@@ -127,15 +123,12 @@ export const productImages = {
   'kuth-root': '/images/catalog/kuth-root.webp', // client
   'kutja-root': '/images/catalog/kutja-root.webp', // generated
   'kutki-root': '/images/catalog/kutki-root.webp', // client
-  'lavender-flowers': '/images/catalog/lavender-flowers.webp', // generated
   'licorice-root': '/images/catalog/licorice-root.webp', // client
   'lodhra-bark': '/images/catalog/lodhra-bark.webp', // client
   'mace': '/images/catalog/mace.webp', // generated
-  'mahua-flowers': '/images/catalog/mahua-flowers.webp', // generated
   'maida': '/images/catalog/maida.webp', // client
   'makhana-healthy-snacks': '/images/catalog/makhana-healthy-snacks.webp', // client
   'manjistha-root': '/images/catalog/manjistha-root.webp', // client
-  'marigold-flowers': '/images/catalog/marigold-flowers.webp', // generated
   'matta-rice': '/images/catalog/matta-rice.webp', // generated
   'moong-chilka': '/images/catalog/moong-chilka.webp', // client
   'moringa-leaf-powder': '/images/catalog/moringa-leaf-powder.webp', // client
@@ -145,7 +138,6 @@ export const productImages = {
   'mustard-powder': '/images/catalog/mustard-powder.webp', // client
   'mustard-seeds': '/images/catalog/mustard-seeds.webp', // client
   'myrrh-resin': '/images/catalog/myrrh-resin.webp', // client
-  'nagkesar': '/images/catalog/nagkesar.webp', // client
   'natural-white-sesame': '/images/catalog/natural-white-sesame.webp', // client
   'neem-bark': '/images/catalog/neem-bark.webp', // client
   'neem-leaves': '/images/catalog/neem-leaves.webp', // generated
@@ -155,7 +147,6 @@ export const productImages = {
   'packaged-atta-flours': '/images/catalog/packaged-atta-flours.webp', // client
   'packaged-coffee': '/images/catalog/packaged-coffee.webp', // client
   'pakhanved-root': '/images/catalog/pakhanved-root.webp', // client
-  'palash-flowers': '/images/catalog/palash-flowers.webp', // client
   'parboiled-rice': '/images/catalog/parboiled-rice.webp', // generated
   'parmal-rice': '/images/catalog/parmal-rice.webp', // generated
   'pav-bhaji-masala': '/images/catalog/pav-bhaji-masala.webp', // generated
@@ -183,9 +174,7 @@ export const productImages = {
   'rnr-rice': '/images/catalog/rnr-rice.webp', // generated
   'roasted-chana': '/images/catalog/roasted-chana.webp', // client
   'roasted-coffee-beans': '/images/catalog/roasted-coffee-beans.webp', // client
-  'rose-flowers': '/images/catalog/rose-flowers.webp', // client
   'safed-musli': '/images/catalog/safed-musli.webp', // client
-  'safflower-petals': '/images/catalog/safflower-petals.webp', // generated
   'saffron': '/images/catalog/saffron.webp', // generated
   'sandalwood': '/images/catalog/sandalwood.webp', // generated
   'sariva': '/images/catalog/sariva.webp', // client
@@ -328,9 +317,6 @@ export const productImages = {
   'sal-seeds': '/images/catalog/sal-seeds.webp', // generated
   'kusum-seeds': '/images/catalog/kusum-seeds.webp', // generated
   'undi-seeds': '/images/catalog/undi-seeds.webp', // generated
-  'lotus-flowers': '/images/catalog/lotus-flowers.webp', // generated
-  'jasmine-flowers': '/images/catalog/jasmine-flowers.webp', // stock (commons, CC BY 2.0)
-  'calendula-flowers': '/images/catalog/calendula-flowers.webp', // stock (commons, CC BY-SA 4.0)
   'gum-ghatti': '/images/catalog/gum-ghatti.webp', // generated
   'curcumin-extract': '/images/catalog/curcumin-extract.webp', // stock (commons, CC BY-SA 4.0)
   'henna-leaves': '/images/catalog/henna-leaves.webp', // generated
