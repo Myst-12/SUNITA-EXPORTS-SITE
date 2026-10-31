@@ -637,46 +637,6 @@ export const products = [
     "steamSterilized": true
   },
   {
-    "slug": "dried-red-chillies",
-    "name": "Dried Red Chillies",
-    "category": "indian-spices",
-    "subcategory": "whole-spices",
-    "type": "bulk",
-    "botanicalName": "Capsicum annuum",
-    "hsCode": "0904.21",
-    "origin": "Andhra Pradesh, Telangana, Karnataka, Madhya Pradesh",
-    "forms": [
-      "With stem",
-      "Stemless"
-    ],
-    "grades": [
-      "Guntur S4 (Sannam)",
-      "Teja S17 (High Heat)",
-      "Byadgi (High Color, Low Heat)",
-      "Kashmiri (Bright Red, Mild Heat)"
-    ],
-    "description": "Whole dried red chillies across pungency (SHU) and colour (ASTA) profiles, from Guntur, Khammam, Byadgi and Madhya Pradesh.",
-    "specifications": {
-      "Moisture": "Max 11.0%",
-      "Pungency (SHU)": "15,000 - 90,000 SHU (depending on variety)",
-      "Color Value (ASTA)": "80 - 140 ASTA",
-      "Total Ash": "Max 8.0%",
-      "Acid Insoluble Ash": "Max 1.25%",
-      "Foreign Matter": "Max 1.0%"
-    },
-    "shelfLife": "12 months (refrigerated recommended for color retention)",
-    "packaging": [
-      "10kg/15kg/25kg Jute Bags",
-      "25kg PP Bags",
-      "Custom consumer cartons"
-    ],
-    "image": "/images/products/red-chilli.webp",
-    "gallery": [
-      "/images/products/red-chilli.webp"
-    ],
-    "steamSterilized": true
-  },
-  {
     "slug": "byadgi-chilli",
     "name": "Byadgi Chilli",
     "category": "indian-spices",
@@ -703,7 +663,7 @@ export const products = [
   },
   {
     "slug": "guntur-chilli",
-    "name": "Guntur Chilli (Sannam S4)",
+    "name": "334 / S4 / Sannam / S10 Chilli",
     "category": "indian-spices",
     "subcategory": "whole-spices",
     "type": "bulk",
@@ -714,7 +674,7 @@ export const products = [
       "With stem",
       "Stemless"
     ],
-    "description": "The classic Guntur Sannam (S4) chilli — medium-hot with good red colour, India's highest-volume export chilli.",
+    "description": "Guntur's 334 / S4 / Sannam / S10 chilli — medium-hot with good red colour, India's highest-volume export chilli.",
     "packaging": [
       "25 kg PP or multi-wall paper bags with inner liner",
       "10–20 kg cartons",

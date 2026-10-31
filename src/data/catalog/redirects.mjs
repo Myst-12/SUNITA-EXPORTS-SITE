@@ -1,6 +1,7 @@
 // 301s for catalogue URLs that changed in the taxonomy rebuild (Oct 2026). Generated once from the old catalogue.
 // Order matters: exact product URLs first, then old category pages, then anything else under an old category.
 export const catalogueRedirects = [
+  ['/products/indian-spices/dried-red-chillies', '/products/indian-spices/guntur-chilli/'], // removed (owner, 31 Oct 2026)
   ['/products/herbs-botanicals/sandalwood', '/products/herbs-botanicals/'], // removed (owner, 30 Oct 2026)
   ['/products/herbs-botanicals/hibiscus-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
   ['/products/herbs-botanicals/rose-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
@@ -17,7 +18,7 @@ export const catalogueRedirects = [
   ['/products/herbs-botanicals/jasmine-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
   ['/products/herbs-botanicals/calendula-flowers', '/products/herbs-botanicals/'], // flowers removed (owner, 30 Oct 2026)
   ['/products/indian-spices/crushed-chilli', '/products/indian-spices/red-chilli-flakes/'], // merged: same product
-  ['/products/indian-spices/red-chilli', '/products/indian-spices/dried-red-chillies/'],
+  ['/products/indian-spices/red-chilli', '/products/indian-spices/guntur-chilli/'],
   ['/products/indian-spices/cardamom', '/products/indian-spices/green-cardamom/'],
   ['/products/indian-spices/ginger-powder', '/products/indian-spices/dry-ginger-powder/'],
   ['/products/indian-spices/ajwain', '/products/indian-spices/ajwain-seeds/'],

@@ -68,7 +68,6 @@ export const productImages = {
   'desiccated-coconut': '/images/catalog/desiccated-coconut.webp', // client
   'devdaru': '/images/catalog/devdaru.webp', // generated
   'dhuli-urad-dal': '/images/catalog/dhuli-urad-dal.webp', // generated
-  'dried-red-chillies': '/images/catalog/dried-red-chillies.webp', // client
   'dry-ginger': '/images/catalog/dry-ginger.webp', // client
   'dry-ginger-powder': '/images/catalog/dry-ginger-powder.webp', // client
   'feed-sorghum': '/images/catalog/feed-sorghum.webp', // client
@@ -379,4 +378,7 @@ export const productImages = {
   'moringa-seeds': '/images/catalog/moringa-seeds.webp', // supplied by owner
   'red-quinoa': '/images/catalog/red-quinoa.webp', // client
   'white-quinoa': '/images/catalog/white-quinoa.webp', // client
+  'wrinkled-273-chilli': '/images/catalog/wrinkled-273-chilli.webp', // client
+  'endo-5-chilli': '/images/catalog/endo-5-chilli.webp', // client
+  'chilli-seeds': '/images/catalog/chilli-seeds.webp', // client
 };

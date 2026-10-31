@@ -55,7 +55,7 @@ export default function Page() {
       image="/images/scenes/sacks-spices.webp" imageAlt="Sacks of Indian spices"
       quote="Indian spices"
       sections={SECTIONS} range={RANGE} rangeTitle="Our spice range"
-      featured={['turmeric-powder', 'red-chilli-powder', 'cumin-seeds', 'coriander-seeds', 'green-cardamom', 'black-pepper', 'garam-masala', 'dried-red-chillies']}
+      featured={['turmeric-powder', 'red-chilli-powder', 'cumin-seeds', 'coriander-seeds', 'green-cardamom', 'black-pepper', 'garam-masala', 'guntur-chilli']}
       faqs={FAQS} faqTitle="Buying Indian spices"
     />
   );
