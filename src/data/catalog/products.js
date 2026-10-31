@@ -1266,7 +1266,7 @@ export const products = [
   },
   {
     "slug": "cut-turmeric",
-    "name": "Cut Turmeric",
+    "name": "Turmeric Slices",
     "category": "indian-spices",
     "subcategory": "flakes-cut-spices",
     "type": "bulk",
@@ -1276,7 +1276,7 @@ export const products = [
     "forms": [
       "Cut / sliced pieces"
     ],
-    "description": "Dried turmeric cut into pieces or slices for tea blends, extraction and grinding.",
+    "description": "Dried turmeric slices for tea blends, extraction and grinding.",
     "packaging": [
       "25 kg PP or multi-wall paper bags with inner liner",
       "10–20 kg cartons",
@@ -1290,7 +1290,7 @@ export const products = [
   },
   {
     "slug": "cut-ginger",
-    "name": "Cut Ginger",
+    "name": "Ginger Slices",
     "category": "indian-spices",
     "subcategory": "flakes-cut-spices",
     "type": "bulk",
@@ -1300,7 +1300,7 @@ export const products = [
     "forms": [
       "Cut / sliced pieces"
     ],
-    "description": "Dried ginger cut into pieces or tea-bag cut for herbal teas, extraction and grinding.",
+    "description": "Dried ginger slices, also supplied tea-bag cut, for herbal teas, extraction and grinding.",
     "packaging": [
       "25 kg PP or multi-wall paper bags with inner liner",
       "10–20 kg cartons",
