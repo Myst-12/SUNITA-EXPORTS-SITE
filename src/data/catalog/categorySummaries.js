@@ -9,7 +9,7 @@ export const categorySummaries = {
   'dehydrated-onion-garlic':
     'Sunita Agri Exports exports {count} dehydrated onion and garlic products from Gujarat — white, red and pink onion and garlic as flakes, kibbled, minced, granules and powder — for seasoning blenders and food manufacturers. They are packed in 20–25 kg multi-wall paper bags or cartons with a double PE liner, or in private-label packs, and shipped from Nhava Sheva, Mumbai.',
   'coconut-products':
-    'Sunita Agri Exports supplies desiccated coconut, coconut chips, flakes, powder and copra cake from Kerala, Tamil Nadu and Karnataka to bakery, confectionery and food manufacturers. They are packed in 25 or 50 kg lined paper or PP bags, or in private-label packs, and ship from Mumbai alone or in a mixed container.',
+    'Sunita Agri Exports supplies desiccated coconut and dry copra from Kerala, Tamil Nadu and Karnataka to bakery, sweet and oil-milling buyers, and cocopeat blocks to nurseries and growers. They ship from Mumbai alone or in a mixed container.',
   'pulses-legumes':
     'Sunita Agri Exports exports {count} Indian pulses: kabuli and desi chickpeas, chana dal, toor, moong, urad, masoor, peas and beans — whole or split, with or without skin, polished or unpolished. Lots are cleaned and graded for export, packed in 25 or 50 kg PP bags (jute on request) or retail packs, and shipped from Nhava Sheva, Mumbai, from 1 MT or in a mixed container.',
   rice:

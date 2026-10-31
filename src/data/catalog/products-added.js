@@ -61,8 +61,6 @@ export const addedProducts = [
     'Spray-dried garlic powder with consistent flavour and solubility for instant foods, marinades, dressings and seasoning houses.', { hsCode: '0712.90', packaging: POWDER }),
 
   // ── Coconut ───────────────────────────────────────────────────
-  item('coconut-products', 'dried-coconut-derivatives', 'copra-cake', 'Copra Cake (Coconut Meal)', 'Cocos nucifera', ['Cake', 'Expeller meal'],
-    'Coconut oil cake left after pressing copra — a protein- and fibre-rich ingredient for cattle and poultry feed.', { hsCode: '2306.50', packaging: FEED, also: [{ category: 'animal-bird-feed', subcategory: 'meals-milling-by-products' }] }),
 
   // ── Flours & grains ───────────────────────────────────────────
   item('flours-milling', 'wheat-flour', 'indian-wheat', 'Indian Wheat (Grain)', 'Triticum aestivum', ['Milling wheat', 'Durum (on request)'],
@@ -245,6 +243,12 @@ export const addedProducts = [
     'Red quinoa with a firmer bite and nuttier flavour than white — cleaned and graded for salads, ready meals, health-food brands and retail packs.', { hsCode: '1008.50' }),
   item('superfoods-functional-seeds', 'quinoa-amaranth', 'amaranth-seeds', 'Amaranth Seeds (Rajgira)', 'Amaranthus hypochondriacus', ['Whole seeds'],
     'Rajgira (amaranth) seeds from Gujarat and Rajasthan — a gluten-free pseudo-grain, cleaned for health-food, bakery, popped-snack and fasting-food buyers.', { hsCode: '1008.90' }),
+
+  // ── Coconut (31 Oct 2026, client photos): the range is desiccated coconut, dry copra and cocopeat ──
+  item('coconut-products', 'dried-coconut-derivatives', 'dry-copra', 'Dry Copra', 'Cocos nucifera', ['Edible (ball) copra', 'Milling copra'],
+    'Dried coconut kernel from Kerala, Tamil Nadu and Karnataka — edible ball copra for cooking and sweets, and milling copra for coconut oil.', { hsCode: '1203.00' }),
+  item('coconut-products', 'dried-coconut-derivatives', 'cocopeat', 'Cocopeat', 'Cocos nucifera', ['Compressed blocks (5 kg)', 'Loose / grow bags'],
+    'Washed, low-EC coconut coir pith compressed into blocks — a peat-free growing medium for nurseries, greenhouses and hydroponics.', { hsCode: '5305.00', packaging: ['5 kg compressed blocks on pallets', 'Grow bags and loose bales on request'] }),
 
   // ── Henna & natural dyes ──────────────────────────────────────
   herb('henna-natural-dyes', 'henna-leaves', 'Henna Leaves (Mehndi)', 'Lawsonia inermis', ['Dried leaves'],

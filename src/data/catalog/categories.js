@@ -64,11 +64,11 @@ export const categoryList = [
     shortName: 'Coconut',
     image: '/images/catalog/categories/coconut-products.webp',
     description:
-      'Desiccated coconut, coconut chips, flakes and powder from Kerala, Tamil Nadu and Karnataka for bakery, confectionery and food manufacturers.',
-    metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Chips, Flakes',
+      'Desiccated coconut and dry copra from Kerala, Tamil Nadu and Karnataka, and cocopeat blocks — for bakery, sweets, oil mills and growers.',
+    metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Dry Copra, Cocopeat',
     metaDescription:
-      'Exporter of desiccated coconut, coconut chips, coconut flakes and coconut powder from South India, in bulk and private-label packs.',
-    subcategories: [{ slug: 'dried-coconut-derivatives', name: 'Dried Coconut & Derivatives' }],
+      'Exporter of desiccated coconut, edible and milling dry copra, and cocopeat blocks from South India, in bulk and private-label packs.',
+    subcategories: [{ slug: 'dried-coconut-derivatives', name: 'Coconut Products' }],
   },
   {
     slug: 'pulses-legumes',

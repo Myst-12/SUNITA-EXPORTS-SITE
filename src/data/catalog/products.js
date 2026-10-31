@@ -3362,60 +3362,6 @@ export const products = [
     ]
   },
   {
-    "slug": "coconut-chips",
-    "name": "Coconut Chips",
-    "category": "coconut-products",
-    "subcategory": "dried-coconut-derivatives",
-    "type": "bulk",
-    "botanicalName": "Cocos nucifera",
-    "hsCode": "0801.19",
-    "origin": "Kerala, Tamil Nadu, Karnataka",
-    "forms": [
-      "Chips"
-    ],
-    "description": "Thin dried coconut chips for snacking, cereals, bakery and confectionery.",
-    "packaging": [
-      "25 kg / 50 kg multi-wall paper or PP bags with inner liner",
-      "Retail and private-label packs"
-    ]
-  },
-  {
-    "slug": "coconut-flakes",
-    "name": "Coconut Flakes",
-    "category": "coconut-products",
-    "subcategory": "dried-coconut-derivatives",
-    "type": "bulk",
-    "botanicalName": "Cocos nucifera",
-    "hsCode": "0801.19",
-    "origin": "Kerala, Tamil Nadu, Karnataka",
-    "forms": [
-      "Flakes"
-    ],
-    "description": "Larger cut dried coconut flakes for granola, toppings and bakery.",
-    "packaging": [
-      "25 kg / 50 kg multi-wall paper or PP bags with inner liner",
-      "Retail and private-label packs"
-    ]
-  },
-  {
-    "slug": "coconut-powder",
-    "name": "Coconut Powder",
-    "category": "coconut-products",
-    "subcategory": "dried-coconut-derivatives",
-    "type": "bulk",
-    "botanicalName": "Cocos nucifera",
-    "hsCode": "0801.19",
-    "origin": "Kerala, Tamil Nadu, Karnataka",
-    "forms": [
-      "Powder"
-    ],
-    "description": "Finely ground dried coconut for sweets, curries, bakery and food manufacturing.",
-    "packaging": [
-      "25 kg / 50 kg multi-wall paper or PP bags with inner liner",
-      "Retail and private-label packs"
-    ]
-  },
-  {
     "slug": "kabuli-chickpeas",
     "name": "Kabuli Chickpeas",
     "category": "pulses-legumes",

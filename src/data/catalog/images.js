@@ -48,9 +48,6 @@ export const productImages = {
   'chole-masala': '/images/catalog/chole-masala.webp', // generated
   'cinnamon': '/images/catalog/cinnamon.webp', // generated
   'cloves': '/images/catalog/cloves.webp', // generated
-  'coconut-chips': '/images/catalog/coconut-chips.webp', // generated
-  'coconut-flakes': '/images/catalog/coconut-flakes.webp', // generated
-  'coconut-powder': '/images/catalog/coconut-powder.webp', // generated
   'coriander-powder': '/images/catalog/coriander-powder.webp', // client
   'coriander-seeds': '/images/catalog/coriander-seeds.webp', // client
   'corn-flour': '/images/catalog/corn-flour.webp', // generated
@@ -65,7 +62,6 @@ export const productImages = {
   'dehydrated-garlic-powder': '/images/catalog/dehydrated-garlic-powder.webp', // client
   'dehydrated-onion-powder': '/images/catalog/dehydrated-onion-powder.webp', // generated
   'desi-chickpeas': '/images/catalog/desi-chickpeas.webp', // client
-  'desiccated-coconut': '/images/catalog/desiccated-coconut.webp', // client
   'devdaru': '/images/catalog/devdaru.webp', // generated
   'dhuli-urad-dal': '/images/catalog/dhuli-urad-dal.webp', // generated
   'dry-ginger': '/images/catalog/dry-ginger.webp', // client
@@ -263,7 +259,6 @@ export const productImages = {
   'nigella-seeds': '/images/catalog/nigella-seeds.webp', // generated
   'shahi-jeera': '/images/catalog/shahi-jeera.webp', // generated
   'nutmeg-powder': '/images/catalog/nutmeg-powder.webp', // generated
-  'copra-cake': '/images/catalog/copra-cake.webp', // generated
   'indian-wheat': '/images/catalog/indian-wheat.webp', // generated
   'corn-starch': '/images/catalog/corn-starch.webp', // generated
   'niger-seeds': '/images/catalog/niger-seeds.webp', // generated
@@ -377,4 +372,7 @@ export const productImages = {
   'wrinkled-273-chilli': '/images/catalog/wrinkled-273-chilli.webp', // client
   'endo-5-chilli': '/images/catalog/endo-5-chilli.webp', // client
   'chilli-seeds': '/images/catalog/chilli-seeds.webp', // client
+  'desiccated-coconut': '/images/catalog/desiccated-coconut.webp', // client
+  'dry-copra': '/images/catalog/dry-copra.webp', // client
+  'cocopeat': '/images/catalog/cocopeat.webp', // client
 };
