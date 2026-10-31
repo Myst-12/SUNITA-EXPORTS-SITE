@@ -221,7 +221,6 @@ export const productImages = {
   'dehydrated-white-onion-flakes': '/images/catalog/dehydrated-white-onion-flakes.webp', // supplied by owner
   'basil-seeds': '/images/catalog/basil-seeds.webp', // generated
   'botanical-extracts': '/images/catalog/botanical-extracts.webp', // generated
-  'copra': '/images/catalog/copra.webp', // generated
   'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // client
   'dehydrated-garlic-granules': '/images/catalog/dehydrated-garlic-granules.webp', // generated
   'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // client

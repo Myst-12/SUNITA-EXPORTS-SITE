@@ -17,9 +17,7 @@ export const categoryList = [
       'Exporter of Indian whole spices, spice powders, masalas and chilli varieties: cumin, coriander, turmeric, black pepper, cardamom, Guntur, Teja and Byadgi chilli. Bulk and private label.',
     subcategories: [
       { slug: 'whole-spices', name: 'Whole Spices' },
-      { slug: 'spice-powders', name: 'Spice Powders' },
-      { slug: 'blended-spices-masalas', name: 'Blended Spices & Masalas' },
-      { slug: 'flakes-cut-spices', name: 'Flakes & Cut Spices' },
+      { slug: 'spice-powders', name: 'Spice Powders & Masalas' },
     ],
   },
   {
@@ -66,10 +64,10 @@ export const categoryList = [
     shortName: 'Coconut',
     image: '/images/catalog/categories/coconut-products.webp',
     description:
-      'Desiccated coconut, coconut chips, flakes, powder and copra from Kerala, Tamil Nadu and Karnataka for bakery, confectionery and food manufacturers.',
-    metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Chips, Copra',
+      'Desiccated coconut, coconut chips, flakes and powder from Kerala, Tamil Nadu and Karnataka for bakery, confectionery and food manufacturers.',
+    metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Chips, Flakes',
     metaDescription:
-      'Exporter of desiccated coconut, coconut chips, coconut flakes, coconut powder and copra from South India, in bulk and private-label packs.',
+      'Exporter of desiccated coconut, coconut chips, coconut flakes and coconut powder from South India, in bulk and private-label packs.',
     subcategories: [{ slug: 'dried-coconut-derivatives', name: 'Dried Coconut & Derivatives' }],
   },
   {

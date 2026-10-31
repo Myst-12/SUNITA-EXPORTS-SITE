@@ -1,6 +1,7 @@
 // 301s for catalogue URLs that changed in the taxonomy rebuild (Oct 2026). Generated once from the old catalogue.
 // Order matters: exact product URLs first, then old category pages, then anything else under an old category.
 export const catalogueRedirects = [
+  ['/products/coconut-products/copra', '/products/coconut-products/'], // removed (owner, 31 Oct 2026)
   ['/products/herbs-botanicals/menthol-crystals', '/products/herbs-botanicals/'], // removed (owner, 31 Oct 2026)
   ['/products/herbs-botanicals/kokum-butter', '/products/herbs-botanicals/'], // removed (owner, 31 Oct 2026)
   ['/products/herbs-botanicals/sal-butter', '/products/herbs-botanicals/'], // removed (owner, 31 Oct 2026)

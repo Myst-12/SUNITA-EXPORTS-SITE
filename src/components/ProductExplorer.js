@@ -45,9 +45,25 @@ export default function ProductExplorer({ products, categories }) {
       <p className={styles.count} aria-live="polite">{filtered.length} product{filtered.length === 1 ? '' : 's'}</p>
 
       {filtered.length ? (
-        <div className="grid-4">
-          {filtered.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
-        </div>
+        cat === 'all' ? (
+          // All products: one section per category, in catalogue order.
+          categories.map((c) => {
+            const items = filtered.filter((p) => p.category === c.slug);
+            if (!items.length) return null;
+            return (
+              <section key={c.slug} className={styles.group}>
+                <h2 className={styles.groupTitle}>{c.name}</h2>
+                <div className="grid-4">
+                  {items.map((p, i) => <ProductCard key={p.slug} product={p} priority={c.slug === categories[0].slug && i < 4} />)}
+                </div>
+              </section>
+            );
+          })
+        ) : (
+          <div className="grid-4">
+            {filtered.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
+          </div>
+        )
       ) : (
         <div className={styles.empty}>
           <p><strong>No match in our online list.</strong> We source most Indian food products on request — send us your requirement.</p>
