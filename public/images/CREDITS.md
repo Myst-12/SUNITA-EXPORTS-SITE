@@ -72,7 +72,6 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | categories/blended-spices.webp | https://images.unsplash.com/photo-1633881614907-8587c9b93c2f |
 | categories/rice.webp | https://images.unsplash.com/photo-1723475158232-819e29803f4d |
 | infrastructure/sorting-line.webp | https://images.unsplash.com/photo-1651525670114-2b8117390b28 |
-| infrastructure/conveyor-line.webp | https://images.unsplash.com/photo-1701328778019-e95dedbf5346 |
 | infrastructure/bag-store.webp | https://images.unsplash.com/photo-1710141530542-f792450e736e |
 | infrastructure/sack-store.webp | https://images.unsplash.com/photo-1774946103680-3d34a461a581 |
 | categories/pulses-grains.webp | https://images.unsplash.com/photo-1786301326154-3e040dc8db60 |

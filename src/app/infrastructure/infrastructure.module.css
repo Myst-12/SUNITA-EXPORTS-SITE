@@ -1,10 +1,6 @@
-/* Infrastructure page: photo banner, intro, factory photo grid. */
-.banner { position: relative; display: flex; align-items: flex-end; min-height: clamp(260px, 38vw, 440px); overflow: hidden; background: var(--green-900); }
-.banner img { object-fit: cover; }
-.banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5, 30, 18, 0.7), rgba(5, 30, 18, 0.2)); }
-.bannerInner { position: relative; z-index: 1; padding-block: clamp(28px, 5vw, 56px); color: #fff; }
-.bannerInner h1 { margin: 0.6rem 0 0; color: #fff; font-size: clamp(2.4rem, 6vw, 4.2rem); }
-.bannerInner nav :global(*) { color: rgba(255, 255, 255, 0.92) !important; }
+/* Infrastructure page: title, intro, factory photo grid. */
+.head { padding-top: clamp(20px, 3vw, 32px); }
+.head h1 { margin: 0.6rem 0 0; font-size: clamp(2.4rem, 6vw, 4.2rem); }
 
 .intro { max-width: 880px; }
 .intro p { max-width: none; }
