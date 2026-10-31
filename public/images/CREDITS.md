@@ -71,12 +71,10 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | categories/indian-spices.webp | https://images.unsplash.com/photo-1581600140682-d4e68c8cde32 |
 | categories/blended-spices.webp | https://images.unsplash.com/photo-1633881614907-8587c9b93c2f |
 | categories/rice.webp | https://images.unsplash.com/photo-1723475158232-819e29803f4d |
-| infrastructure/hygiene-line.webp | https://images.unsplash.com/photo-1551884170-09fb70a3a2ed |
 | infrastructure/sorting-line.webp | https://images.unsplash.com/photo-1651525670114-2b8117390b28 |
 | infrastructure/conveyor-line.webp | https://images.unsplash.com/photo-1701328778019-e95dedbf5346 |
 | infrastructure/bag-store.webp | https://images.unsplash.com/photo-1710141530542-f792450e736e |
 | infrastructure/sack-store.webp | https://images.unsplash.com/photo-1774946103680-3d34a461a581 |
-| infrastructure/quality-lab.webp | https://images.unsplash.com/photo-1630959305790-4c956ce6c0b6 |
 | categories/pulses-grains.webp | https://images.unsplash.com/photo-1786301326154-3e040dc8db60 |
 | categories/oilseeds.webp | https://images.unsplash.com/photo-1553954082-1376d6554209 |
 | categories/herbs.webp | https://images.unsplash.com/photo-1781377012601-93162be3a433 |

@@ -10,7 +10,7 @@ export const metadata = {
   alternates: { canonical: '/infrastructure/' },
 };
 
-// Factory photographs only, sixteen so the grid fills evenly at four and at two across.
+// Factory photographs only, twelve so the grid fills evenly at four and at two across.
 const GALLERY = [
   { img: '/images/infrastructure/grinding-line.webp', alt: 'Grinding and sieving line' },
   { img: '/images/infrastructure/grinding-hall.webp', alt: 'Cleaning and grinding machinery in the factory hall' },
@@ -20,13 +20,9 @@ const GALLERY = [
   { img: '/images/infrastructure/processing-line.webp', alt: 'Cleaning and grading line with storage bins' },
   { img: '/images/infrastructure/colour-sorter.webp', alt: 'Optical colour sorter' },
   { img: '/images/infrastructure/warehouse-hall.webp', alt: 'Covered storage hall with bagged produce' },
-  { img: '/images/infrastructure/hygiene-line.webp', alt: 'Staff in hairnets and gloves on a packing line' },
   { img: '/images/infrastructure/conveyor-line.webp', alt: 'Packing and conveyor line' },
-  { img: '/images/infrastructure/quality-lab.webp', alt: 'Quality control laboratory' },
   { img: '/images/infrastructure/bag-store.webp', alt: 'Palletised bags in the warehouse' },
   { img: '/images/infrastructure/sack-store.webp', alt: 'Bagged goods stacked on pallets' },
-  { img: '/images/scenes/warehouse-forklift.webp', alt: 'Forklift in the warehouse racking' },
-  { img: '/images/scenes/warehouse-pallets.webp', alt: 'Pallet jack with sacks and crates' },
   { img: '/images/infrastructure/container-loading.webp', alt: 'Loading a container for export' },
 ];
 
