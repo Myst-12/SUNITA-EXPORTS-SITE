@@ -115,7 +115,7 @@ export const productImages = {
   'kalmegh': '/images/catalog/kalmegh.webp', // client
   'kapoor-kachri': '/images/catalog/kapoor-kachri.webp', // client
   'karaya-gum': '/images/catalog/karaya-gum.webp', // client
-  'kashmiri-chilli': '/images/catalog/kashmiri-chilli.webp', // generated
+  'kashmiri-chilli': '/images/catalog/kashmiri-chilli.webp', // client
   'kitchen-king-masala': '/images/catalog/kitchen-king-masala.webp', // generated
   'kokum': '/images/catalog/kokum.webp', // client
   'kolam-rice': '/images/catalog/kolam-rice.webp', // generated
@@ -169,7 +169,7 @@ export const productImages = {
   'red-kidney-beans': '/images/catalog/red-kidney-beans.webp', // generated
   'red-lentils': '/images/catalog/red-lentils.webp', // generated
   'reetha-soapnut': '/images/catalog/reetha-soapnut.webp', // client
-  'resham-patti-chilli': '/images/catalog/resham-patti-chilli.webp', // generated (Antigravity)
+  'resham-patti-chilli': '/images/catalog/resham-patti-chilli.webp', // client
   'rice-flour': '/images/catalog/rice-flour.webp', // client
   'rnr-rice': '/images/catalog/rnr-rice.webp', // generated
   'roasted-chana': '/images/catalog/roasted-chana.webp', // client
