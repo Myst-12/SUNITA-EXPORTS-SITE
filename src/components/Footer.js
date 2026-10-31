@@ -7,6 +7,7 @@ import styles from './Footer.module.css';
 const COMPANY_LINKS = [
   { label: 'About us', href: '/about/' },
   { label: 'Quality & certifications', href: '/certifications/' },
+  { label: 'Infrastructure', href: '/infrastructure/' },
   { label: 'Export markets', href: '/exports/' },
   { label: 'Indian grocery exporter', href: '/indian-grocery-exporter/' },
   { label: 'Indian spices exporter', href: '/indian-spices-exporter/' },

@@ -12,6 +12,7 @@ import styles from './Header.module.css';
 const ABOUT_LINKS = [
   { label: 'About us', href: '/about/' },
   { label: 'Quality & certifications', href: '/certifications/' },
+  { label: 'Infrastructure', href: '/infrastructure/' },
   { label: 'Export markets', href: '/exports/' },
   { label: 'Indian FMCG', href: '/fmcg/' },
   { label: 'Buyer guides', href: '/knowledge/' },

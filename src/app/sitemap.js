@@ -14,6 +14,7 @@ export default function sitemap() {
     '/about',
     '/products',
     '/certifications',
+    '/infrastructure',
     '/exports',
     '/contact',
     '/faq',
