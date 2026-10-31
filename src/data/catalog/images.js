@@ -222,9 +222,9 @@ export const productImages = {
   'basil-seeds': '/images/catalog/basil-seeds.webp', // generated
   'botanical-extracts': '/images/catalog/botanical-extracts.webp', // generated
   'copra': '/images/catalog/copra.webp', // generated
-  'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // generated
+  'dehydrated-garlic-flakes': '/images/catalog/dehydrated-garlic-flakes.webp', // client
   'dehydrated-garlic-granules': '/images/catalog/dehydrated-garlic-granules.webp', // generated
-  'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // generated
+  'dehydrated-garlic-minced': '/images/catalog/dehydrated-garlic-minced.webp', // client
   'dehydrated-onion-granules': '/images/catalog/dehydrated-onion-granules.webp', // supplied by owner
   'dehydrated-onion-kibbled': '/images/catalog/dehydrated-onion-kibbled.webp', // supplied by owner
   'dehydrated-onion-minced': '/images/catalog/dehydrated-onion-minced.webp', // supplied by owner
@@ -319,7 +319,7 @@ export const productImages = {
   'curcumin-extract': '/images/catalog/curcumin-extract.webp', // stock (commons, CC BY-SA 4.0)
   'henna-leaves': '/images/catalog/henna-leaves.webp', // generated
   'neutral-henna': '/images/catalog/neutral-henna.webp', // generated
-  'indigo-powder': '/images/catalog/indigo-powder.webp', // generated
+  'indigo-powder': '/images/catalog/indigo-powder.webp', // client
   'henna-cones': '/images/catalog/henna-cones.webp', // generated
   'grey-millet': '/images/catalog/grey-millet.webp', // stock (commons, CC BY-SA 3.0)
   '100-broken-rice': '/images/catalog/100-broken-rice.webp', // generated
@@ -329,7 +329,6 @@ export const productImages = {
   'spray-dried-garlic-powder': '/images/catalog/spray-dried-garlic-powder.webp', // stock (commons, CC BY-SA 3.0)
   'palm-jaggery': '/images/catalog/palm-jaggery.webp', // supplied by owner
   'jaggery-chikki': '/images/catalog/jaggery-chikki.webp', // generated
-  'menthol-crystals': '/images/catalog/menthol-crystals.webp', // stock (commons, Public domain)
   'tamarind-pulp-powder': '/images/catalog/tamarind-pulp-powder.webp', // supplied by owner
   'moth-beans': '/images/catalog/moth-beans.webp', // generated
   'safflower-seeds': '/images/catalog/safflower-seeds.webp', // generated
@@ -358,8 +357,6 @@ export const productImages = {
   'moringa-extract': '/images/catalog/moringa-extract.webp', // generated
   'green-tea-extract': '/images/catalog/green-tea-extract.webp', // generated
   'aloe-vera-extract': '/images/catalog/aloe-vera-extract.webp', // generated
-  'kokum-butter': '/images/catalog/kokum-butter.webp', // generated
-  'sal-butter': '/images/catalog/sal-butter.webp', // generated
   'baq-henna-powder': '/images/catalog/baq-henna-powder.webp', // generated
   'herbal-henna-hair-colour': '/images/catalog/herbal-henna-hair-colour.webp', // generated
   'hair-care-herb-powders': '/images/catalog/hair-care-herb-powders.webp', // generated

@@ -222,12 +222,6 @@ export const addedProducts = [
   herb('gums-botanical-resins', 'gum-ghatti', 'Gum Ghatti', 'Anogeissus latifolia', ['Tears', 'Powder'],
     'Natural gum ghatti tears and powder, used as an emulsifier and stabiliser.', { hsCode: '1301.90' }),
 
-  // ── Herbs: botanical butters & menthol ────────────────────────
-  herb('essential-oils-butters', 'menthol-crystals', 'Menthol Crystals', 'Mentha arvensis', ['Crystals', 'Flakes'],
-    'Natural menthol crystals made from Indian mint oil, for pharma, oral care, confectionery and cosmetics.', { hsCode: '2906.11', packaging: ['25 kg fibre drums', 'Smaller packs on request'] }),
-  herb('essential-oils-butters', 'kokum-butter', 'Kokum Butter', 'Garcinia indica', ['Butter (raw / refined)'], 'Hard, non-greasy kokum butter from the Konkan coast for lip balms, lotions and confectionery.', { hsCode: '1515.90', packaging: OIL }),
-  herb('essential-oils-butters', 'sal-butter', 'Sal Butter', 'Shorea robusta', ['Butter (refined)'], 'Sal butter — a cocoa-butter equivalent used in chocolate and cosmetics.', { hsCode: '1515.90', packaging: OIL }),
-
   // ── Herbs: extracts ───────────────────────────────────────────
   herb('botanical-extracts', 'curcumin-extract', 'Turmeric Extract (Curcumin 95%)', 'Curcuma longa', ['Powder (standardised)'], 'Turmeric extract standardised to curcuminoids for supplements, food colour and nutraceuticals.', { hsCode: '1302.19', packaging: EXTRACT }),
   herb('botanical-extracts', 'ashwagandha-extract', 'Ashwagandha Extract', 'Withania somnifera', ['Powder (standardised withanolides)'], 'Ashwagandha root extract standardised to withanolides for supplements and functional foods.', { hsCode: '1302.19', packaging: EXTRACT }),
@@ -261,8 +255,8 @@ export const addedProducts = [
     'Fresh, high-dye-content henna powder sifted for smooth body-art paste and cones.', { hsCode: '1404.90', packaging: POWDER }),
   herb('henna-natural-dyes', 'neutral-henna', 'Neutral Henna (Cassia Obovata)', 'Senna italica', ['Powder'],
     'Colourless “neutral henna” for conditioning hair treatments without changing hair colour.', { hsCode: '1404.90', packaging: POWDER }),
-  herb('henna-natural-dyes', 'indigo-powder', 'Indigo Leaf Powder', 'Indigofera tinctoria', ['Powder'],
-    'Natural indigo leaf powder used with henna for brown-to-black hair colour, and as a natural textile dye.', { hsCode: '3203.00', packaging: POWDER }),
+  herb('henna-natural-dyes', 'indigo-powder', 'Indigo Powder / Ultramarine', 'Indigofera tinctoria', ['Powder'],
+    'Deep blue indigo (ultramarine) powder for brown-to-black hair colour with henna, natural dyeing and colouring.', { hsCode: '3203.00', packaging: POWDER }),
   herb('henna-natural-dyes', 'herbal-henna-hair-colour', 'Herbal Henna Hair Colour', 'Lawsonia inermis', ['Black', 'Brown', 'Burgundy', 'Natural'],
     'Ready-mixed henna-based hair colours with indigo, amla and herbs, in retail packs or bulk under your label.', { hsCode: '3305.90', packaging: ['Retail sachets and boxes', 'Bulk 25 kg', 'Private label'] }),
   herb('henna-natural-dyes', 'henna-cones', 'Henna Cones', 'Lawsonia inermis', ['Natural cones', 'Instant cones'],

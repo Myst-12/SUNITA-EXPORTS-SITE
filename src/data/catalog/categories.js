@@ -40,7 +40,6 @@ export const categoryList = [
       { slug: 'fruits-fruit-products', name: 'Fruits & Fruit Products' },
       { slug: 'seeds-seed-products', name: 'Seeds & Seed Products' },
       { slug: 'gums-botanical-resins', name: 'Gums & Botanical Resins' },
-      { slug: 'essential-oils-butters', name: 'Botanical Butters & Menthol' },
       { slug: 'botanical-extracts', name: 'Botanical Extracts' },
       { slug: 'henna-natural-dyes', name: 'Henna & Natural Dyes' },
       { slug: 'specialty-functional-botanicals', name: 'Specialty & Functional Botanicals' },
