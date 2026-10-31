@@ -71,6 +71,7 @@ Unsplash images: Unsplash License (free commercial use, no attribution required)
 | categories/indian-spices.webp | https://images.unsplash.com/photo-1581600140682-d4e68c8cde32 |
 | categories/blended-spices.webp | https://images.unsplash.com/photo-1633881614907-8587c9b93c2f |
 | categories/rice.webp | https://images.unsplash.com/photo-1723475158232-819e29803f4d |
+| infrastructure/hygiene-line.webp | https://images.unsplash.com/photo-1551884170-09fb70a3a2ed |
 | infrastructure/sorting-line.webp | https://images.unsplash.com/photo-1651525670114-2b8117390b28 |
 | infrastructure/conveyor-line.webp | https://images.unsplash.com/photo-1701328778019-e95dedbf5346 |
 | infrastructure/bag-store.webp | https://images.unsplash.com/photo-1710141530542-f792450e736e |

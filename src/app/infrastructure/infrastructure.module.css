@@ -1,44 +1,34 @@
-/* Infrastructure page */
-.stat { background: var(--bg-mist); }
+/* Infrastructure page: photo banner, short intro, facilities table, factory photo grid. */
+.banner { position: relative; display: flex; align-items: flex-end; min-height: clamp(260px, 38vw, 420px); overflow: hidden; background: var(--green-900); }
+.banner img { object-fit: cover; }
+.banner::after { content: ''; position: absolute; inset: 0; background: rgba(5, 30, 18, 0.45); }
+.bannerInner { position: relative; z-index: 1; padding-block: clamp(28px, 5vw, 56px); color: #fff; }
+.bannerInner h1 { margin: 0.6rem 0 0; color: #fff; font-size: clamp(2.4rem, 6vw, 4.2rem); }
+.bannerInner nav :global(*) { color: rgba(255, 255, 255, 0.92) !important; }
+.banner::after { background: linear-gradient(0deg, rgba(5, 30, 18, 0.7), rgba(5, 30, 18, 0.25)); }
 
-/* Units: one card per location, photograph on top with a tag. */
-.units { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.unit { display: flex; flex-direction: column; height: 100%; border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
-.unitImg { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-.unitImg img { object-fit: cover; transition: transform 0.8s var(--ease); }
-@media (hover: hover) and (pointer: fine) { .unit:hover .unitImg img { transform: scale(1.04); } }
-.unitTag { position: absolute; left: 14px; top: 14px; padding: 0.3rem 0.75rem; border-radius: 999px; background: var(--turmeric); color: var(--ink); font-size: 0.8rem; font-weight: 700; }
-.unitBody { display: flex; flex-direction: column; gap: 0.7rem; padding: 18px 20px 22px; }
-.unitBody h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 1.1rem; margin: 0; }
-.unitBody h3 svg { color: var(--green-600); }
-.unitBody p { margin: 0; font-size: 0.93rem; color: var(--muted); }
+.intro { max-width: 860px; }
+.title { margin-bottom: 18px; }
 
-/* Photo mosaic: one large picture, one tall, four small. */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 14px; }
-.shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--bg-mist); }
+.tableWrap { overflow-x: auto; border-radius: var(--radius-lg); background: var(--bg-mist); }
+.table { width: 100%; min-width: 620px; border-collapse: collapse; }
+.table th, .table td { padding: 16px 18px; text-align: center; }
+.table thead th { background: var(--green-800); color: #fff; font-size: 0.9rem; font-weight: 650; }
+.table thead th:first-child { text-align: left; }
+.table tbody tr + tr { border-top: 6px solid #fff; }
+.table tbody th { text-align: left; font-weight: 650; color: var(--ink); }
+.table tbody th small { display: block; margin-top: 2px; font-size: 0.82rem; font-weight: 500; color: var(--muted); }
+.table td svg { color: var(--green-600); }
+.table td span { color: var(--muted); }
+.note { margin: 14px 0 0; font-size: 0.92rem; color: var(--muted); }
+
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.shot { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: var(--bg-mist); }
 .shot img { object-fit: cover; transition: transform 0.8s var(--ease); }
 @media (hover: hover) and (pointer: fine) { .shot:hover img { transform: scale(1.04); } }
-.shot figcaption { position: absolute; left: 12px; bottom: 12px; padding: 0.35rem 0.7rem; border-radius: 999px; background: rgba(15, 26, 20, 0.72); color: #fff; font-size: 0.82rem; font-weight: 600; }
-.big { grid-column: span 2; grid-row: span 2; }
-.tall { grid-row: span 2; }
 
-/* Process on the deep green band: eight steps, four per row. */
-.process { grid-template-columns: repeat(4, 1fr); }
-.dark { background: var(--green-900); color: rgba(255, 255, 255, 0.8); }
-.dark h2 { color: #fff; }
-.dark :global(.lead) { color: rgba(255, 255, 255, 0.75); }
+.closing { margin: 0; font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); color: var(--green-800); text-align: center; }
 
-.cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
-.cta p { margin: 0.4rem 0 0; max-width: 52ch; }
-
-@media (max-width: 1000px) {
-  .units { grid-template-columns: 1fr 1fr; }
-  .process { grid-template-columns: 1fr 1fr; }
-}
 @media (max-width: 700px) {
-  .units { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
-  .big { grid-column: span 2; grid-row: span 2; }
-  .tall { grid-row: span 1; }
-  .shot figcaption { left: 8px; bottom: 8px; font-size: 0.74rem; }
+  .gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
 }
