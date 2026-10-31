@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
-import Icon from '@/components/Icon';
+import { COMPANY } from '@/config/site';
 import x from './infrastructure.module.css';
 
 export const metadata = {
@@ -10,20 +10,16 @@ export const metadata = {
   alternates: { canonical: '/infrastructure/' },
 };
 
-// Which stages each unit runs. Shown as ticks in the facilities table.
-const STAGES = ['Cleaning & Sortex', 'Hulling', 'Grinding', 'Packing'];
-const UNITS = [
-  { place: 'Unjha, Gujarat', unit: 'Factory 1', stages: ['Cleaning & Sortex', 'Packing'] },
-  { place: 'Unjha, Gujarat', unit: 'Factory 2', stages: ['Cleaning & Sortex', 'Hulling', 'Packing'] },
-  { place: 'Guntur, Andhra Pradesh', unit: 'Processing unit', stages: ['Grinding', 'Packing'] },
-  { place: 'Nizamabad, Telangana', unit: 'Processing unit', stages: ['Grinding', 'Packing'] },
-];
-
+// Factory photographs only, sixteen so the grid fills evenly at four and at two across.
 const GALLERY = [
+  { img: '/images/infrastructure/grinding-line.webp', alt: 'Grinding and sieving line' },
+  { img: '/images/infrastructure/grinding-hall.webp', alt: 'Cleaning and grinding machinery in the factory hall' },
+  { img: '/images/infrastructure/cleaning-plant.webp', alt: 'Cleaning plant with elevators and bins' },
+  { img: '/images/infrastructure/pulveriser-line.webp', alt: 'Pulveriser and blending line' },
+  { img: '/images/infrastructure/milling-floor.webp', alt: 'Milling floor with grinders and screw conveyors' },
   { img: '/images/infrastructure/processing-line.webp', alt: 'Cleaning and grading line with storage bins' },
   { img: '/images/infrastructure/colour-sorter.webp', alt: 'Optical colour sorter' },
   { img: '/images/infrastructure/warehouse-hall.webp', alt: 'Covered storage hall with bagged produce' },
-  { img: '/images/infrastructure/sorting-line.webp', alt: 'Workers inspecting produce on a sorting line' },
   { img: '/images/infrastructure/hygiene-line.webp', alt: 'Staff in hairnets and gloves on a packing line' },
   { img: '/images/infrastructure/conveyor-line.webp', alt: 'Packing and conveyor line' },
   { img: '/images/infrastructure/quality-lab.webp', alt: 'Quality control laboratory' },
@@ -38,7 +34,7 @@ export default function InfrastructurePage() {
   return (
     <>
       <section className={x.banner}>
-        <Image src="/images/infrastructure/processing-line.webp" alt="" fill priority sizes="100vw" />
+        <Image src="/images/infrastructure/conveyor-line.webp" alt="" fill priority sizes="100vw" />
         <div className={`container ${x.bannerInner}`}>
           <Breadcrumb inline items={[{ label: 'Infrastructure', href: '/infrastructure/' }]} />
           <h1>Infrastructure</h1>
@@ -48,37 +44,21 @@ export default function InfrastructurePage() {
       <section className="section-sm">
         <div className={`container ${x.intro}`}>
           <p className="lead">
-            We run two factories at Unjha in Gujarat and processing units at Guntur in Andhra Pradesh and Nizamabad in Telangana. Each is
-            equipped with modern machinery for cleaning, Sortex colour sorting, hulling, grinding and packing, so every finished product
-            meets international quality standards. Our quality checks include reports from internationally benchmarked laboratories.
+            Sunita Agri Exports processes what it ships. Since {COMPANY.foundingYear} we have built our own processing base in the towns where
+            India’s spices are grown and traded: two factories at Unjha in Gujarat, the country’s largest seed-spice market, and processing
+            units at Guntur in Andhra Pradesh for chillies and at Nizamabad in Telangana for turmeric.
           </p>
-        </div>
-      </section>
-
-      <section className="section-sm">
-        <div className="container">
-          <h2 className={x.title}>Facilities</h2>
-          <div className={x.tableWrap}>
-            <table className={x.table}>
-              <thead>
-                <tr>
-                  <th scope="col">Location</th>
-                  {STAGES.map((st) => <th key={st} scope="col">{st}</th>)}
-                </tr>
-              </thead>
-              <tbody>
-                {UNITS.map((u) => (
-                  <tr key={u.place + u.unit}>
-                    <th scope="row">{u.place}<small>{u.unit}</small></th>
-                    {STAGES.map((st) => (
-                      <td key={st}>{u.stages.includes(st) ? <Icon name="check-circle" size={20} /> : <span aria-label="No">—</span>}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className={x.note}>We also work with long-standing partner processors whose capacity is largely reserved for our orders.</p>
+          <p>
+            Working next to the market yards means produce is cleaned and graded within days of harvest, while its colour, aroma and oil
+            content are at their best. Each unit runs modern machinery for every stage of the work — pre-cleaning and destoning, gravity
+            separation, Sortex optical colour sorting, hulling, temperature-controlled grinding and sieving, blending, and packing in bulk,
+            retail and private-label formats. Steam sterilisation is available for markets that require it.
+          </p>
+          <p>
+            Quality is checked at every step. Lots are sampled when they arrive and again before dispatch, and our own checks are backed by
+            reports from internationally accredited laboratories for moisture, purity, colour, aflatoxins, pesticide residues and
+            microbiology — so the product in the container matches the agreed specification from the first bag to the last.
+          </p>
         </div>
       </section>
 
@@ -88,7 +68,7 @@ export default function InfrastructurePage() {
           <div className={x.gallery}>
             {GALLERY.map((g) => (
               <div key={g.img} className={x.shot}>
-                <Image src={g.img} alt={g.alt} fill sizes="(max-width: 700px) 50vw, 33vw" />
+                <Image src={g.img} alt={g.alt} fill sizes="(max-width: 700px) 50vw, 25vw" />
               </div>
             ))}
           </div>
