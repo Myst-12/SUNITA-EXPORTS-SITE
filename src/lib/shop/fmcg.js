@@ -15,6 +15,8 @@ const strip = ({ hay: _, ...i }) => i;
 
 export const FMCG_TOTAL = ITEMS.length;
 export const getFmcgItem = (key) => { const i = BY_KEY.get(String(key)); return i ? strip(i) : null; };
+/** Every product in a category (all of them when `cat` is empty), in list order. */
+export const fmcgItemsIn = (cat) => (cat ? ITEMS.filter((i) => i.cat === cat) : ITEMS).map(strip);
 
 // Every word of the search must start a word in the brand, product, category or packing ("haldi bhuj", "basmati 5 kg").
 function matching(q) {

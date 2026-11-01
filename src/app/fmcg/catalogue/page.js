@@ -50,10 +50,15 @@ export default async function FmcgCatalogue({ searchParams }) {
           ))}
         </nav>
 
-        <p className={s.count} aria-live="polite">
-          {res.total ? <>{res.pages > 1 ? `${fmt(from)}–${fmt(from + res.items.length - 1)} of ` : ''}<b>{fmt(res.total)}</b> product{res.total === 1 ? '' : 's'}</> : 'No products'}
-          {cat && <> in <b>{cat.name}</b></>}{q && <> for “{q}”</>}
-        </p>
+        <div className={s.countRow}>
+          <p className={s.count} aria-live="polite">
+            {res.total ? <>{res.pages > 1 ? `${fmt(from)}–${fmt(from + res.items.length - 1)} of ` : ''}<b>{fmt(res.total)}</b> product{res.total === 1 ? '' : 's'}</> : 'No products'}
+            {cat && <> in <b>{cat.name}</b></>}{q && <> for “{q}”</>}
+          </p>
+          <a href={`/fmcg/catalogue/excel/${cat?.slug || 'all'}/`} className={s.excel} download>
+            <Icon name="download" size={18} /> Excel: {cat ? cat.name : 'all products'} ({fmt(cat ? cat.count : FMCG_TOTAL)})
+          </a>
+        </div>
 
         {res.total === 0 ? (
           <div className={s.none}>

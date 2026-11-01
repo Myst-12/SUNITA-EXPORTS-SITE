@@ -59,3 +59,29 @@ export async function buildOrdersWorkbook(orders, customers) {
 }
 
 export const ordersExcelName = () => `sunita-orders-${new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })}.xlsx`;
+
+/** A category of the FMCG product list as a sheet buyers can fill in and send back. */
+export async function buildCatalogueWorkbook(title, items, { withCategory = false } = {}) {
+  const wb = new ExcelJS.Workbook();
+  wb.creator = 'Sunita Agri Exports';
+  sheet(wb, 'Products', [
+    { header: 'Item code', key: 'key', width: 10 },
+    ...(withCategory ? [{ header: 'Category', key: 'catName', width: 24 }] : []),
+    { header: 'Brand', key: 'brand', width: 18 },
+    { header: 'Product', key: 'product', width: 40 },
+    { header: 'Packing', key: 'pack', width: 28 },
+    { header: 'Order unit', key: 'unit', width: 10 },
+    { header: 'Shelf life (months)', key: 'shelf', width: 10 },
+    { header: 'Gross weight per carton (kg)', key: 'wt', width: 12 },
+    { header: 'Your quantity', key: 'qty', width: 11 },
+  ], items);
+  const info = wb.addWorksheet('How to order');
+  info.columns = [{ width: 110 }];
+  [
+    `${title}: ${items.length.toLocaleString('en-IN')} products from Sunita Agri Exports, Mumbai.`,
+    '',
+    'Fill in "Your quantity" (in cartons or bags, as shown under Order unit) and email the sheet to us, or order online at www.sunitaexports.com/fmcg/catalogue/.',
+    'Packing, shelf life and weights are from our supplier list and may change; your proforma invoice confirms them. Brand names belong to their owners.',
+  ].forEach((line, i) => { const r = info.addRow([line]); if (i === 0) r.font = { bold: true, size: 13 }; });
+  return wb.xlsx.writeBuffer();
+}

@@ -18,7 +18,10 @@
 @media (hover: hover) and (pointer: fine) { .chip:not([aria-current]):hover { background: var(--green-100); } }
 @media (min-width: 1100px) { .chips { flex-wrap: wrap; overflow: visible; } }
 
-.count { margin: 4px 0 12px; color: var(--muted); font-size: 0.92rem; }
+.countRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; margin: 4px 0 12px; }
+.count { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.excel { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--green-200); color: var(--green-700); font-size: 0.88rem; font-weight: 700; transition: background 0.15s; }
+@media (hover: hover) and (pointer: fine) { .excel:hover { background: var(--green-50); } }
 .count b { color: var(--ink); }
 
 .list { display: grid; border-top: 1px solid var(--line); }
