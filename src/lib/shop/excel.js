@@ -28,6 +28,7 @@ export async function buildOrdersWorkbook(orders, customers) {
     { header: 'Email', key: 'email', width: 28 },
     { header: 'Phone', key: 'phone', width: 17 },
     { header: 'Country', key: 'country', width: 16 },
+    { header: 'Item code', key: 'code', width: 10 },
     { header: 'Product', key: 'product', width: 28 },
     { header: 'Pack size', key: 'pack', width: 16 },
     { header: 'Brand', key: 'brand', width: 16 },
@@ -41,7 +42,7 @@ export async function buildOrdersWorkbook(orders, customers) {
   ], orders.flatMap((o) => o.items.map((it) => ({
     number: o.number, at: ist(o.created_at), status: statusLabel(o.status),
     ...o.customer,
-    product: it.name, pack: it.pack, brand: it.brand, qty: it.qty, unit: it.unit,
+    code: it.code || '', product: it.name, pack: it.pack, brand: it.brand, qty: it.qty, unit: it.unit,
     port: o.details.port, incoterm: o.details.incoterm, container: o.details.container, wanted: o.details.wanted, notes: o.details.notes,
   }))));
   const count = orders.reduce((m, o) => m.set(o.customer_id, (m.get(o.customer_id) || 0) + 1), new Map());

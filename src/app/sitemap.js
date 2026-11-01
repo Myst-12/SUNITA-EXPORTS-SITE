@@ -20,6 +20,7 @@ export default function sitemap() {
     '/faq',
     '/blog',
     '/fmcg',
+    '/fmcg/catalogue',
     '/indian-grocery-exporter',
     '/indian-spices-exporter',
     '/mixed-container',

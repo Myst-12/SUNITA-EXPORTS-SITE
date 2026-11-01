@@ -50,7 +50,7 @@ export default async function OrdersTool({ searchParams }) {
       </nav>
 
       {shown.length === 0 ? (
-        <p className={s.empty}>{orders.length ? 'No orders with this status.' : 'No orders yet. Orders placed on the FMCG page show up here.'}</p>
+        <p className={s.empty}>{orders.length ? 'No orders with this status.' : 'No orders yet. Orders placed from the FMCG product list show up here.'}</p>
       ) : (
         <div className={s.list}>
           {shown.map((o) => {
@@ -76,7 +76,7 @@ export default async function OrdersTool({ searchParams }) {
                       <thead><tr><th>Product</th><th>Pack size</th><th>Brand</th><th>Quantity</th></tr></thead>
                       <tbody>
                         {o.items.map((it) => (
-                          <tr key={it.slug}><td>{it.name}</td><td>{it.pack || '—'}</td><td>{it.brand || '—'}</td><td><b>{it.qty} {it.unit}</b></td></tr>
+                          <tr key={it.slug}><td>{it.name}{it.code && <span className={s.meta}> #{it.code}</span>}</td><td>{it.pack || '—'}</td><td>{it.brand || '—'}</td><td><b>{it.qty} {it.unit}</b></td></tr>
                         ))}
                       </tbody>
                     </table>

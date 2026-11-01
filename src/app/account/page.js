@@ -82,7 +82,7 @@ export default async function AccountPage({ searchParams }) {
               <ul className={s.lines}>
                 {o.items.map((it) => (
                   <li key={it.slug}>
-                    <span>{it.name}{(it.pack || it.brand) && <small>{[it.pack, it.brand].filter(Boolean).join(' · ')}</small>}</span>
+                    <span>{it.name}{(it.pack || it.brand) && <small>{[it.pack, !it.code && it.brand, it.code && `item ${it.code}`].filter(Boolean).join(' · ')}</small>}</span>
                     <b>{it.qty} {it.unit}</b>
                   </li>
                 ))}

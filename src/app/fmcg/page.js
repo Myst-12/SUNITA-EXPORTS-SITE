@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import PageHero from '@/components/PageHero';
-import OrderGrid from '@/components/OrderGrid';
 import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
-import { orderableProducts } from '@/lib/shop/catalog';
+import { FMCG_CATEGORIES, FMCG_TOTAL } from '@/lib/shop/fmcg';
+import c from './catalogue/catalogue.module.css';
 import { COMPANY, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
 
@@ -44,7 +44,6 @@ const FAQS = [
 ];
 
 export default function FmcgPage() {
-  const products = orderableProducts();
   return (
     <>
       <PageHero
@@ -120,21 +119,29 @@ export default function FmcgPage() {
         </div>
       </section>
 
-      {products.length > 0 && (
-        <section id="order" className="section" style={{ scrollMarginTop: 80 }}>
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <span className="eyebrow">Order online</span>
-                <h2>Order FMCG by the carton</h2>
-                <p className="lead">Enter the quantity, pack size and brand for each product and add it to your order. Log in once to send it — our team confirms prices, availability and shipping dates.</p>
-              </div>
-              <Link href="/account/" className="link-arrow">Your orders <Icon name="arrow-right" /></Link>
+      <section id="order" className="section" style={{ scrollMarginTop: 80 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Order online</span>
+              <h2>Order from {FMCG_TOTAL.toLocaleString('en-IN')} FMCG products</h2>
+              <p className="lead">Search by brand or product, enter the cartons you need and send your order. Log in once to send it; our team confirms prices, availability and shipping dates.</p>
             </div>
-            <OrderGrid products={products} />
+            <Link href="/account/" className="link-arrow">Your orders <Icon name="arrow-right" /></Link>
           </div>
-        </section>
-      )}
+          <form action="/fmcg/catalogue/" className={c.bigSearch} role="search">
+            <label htmlFor="fmcg-search" className="visually-hidden">Search FMCG products</label>
+            <input id="fmcg-search" name="q" type="search" placeholder="Search a brand or product, e.g. Haldiram bhujia" maxLength={80} />
+            <button type="submit" className="btn btn-primary btn-lg">Search</button>
+          </form>
+          <div className={c.catGrid}>
+            {FMCG_CATEGORIES.map((cat) => (
+              <Link key={cat.slug} href={`/fmcg/catalogue/?c=${cat.slug}`} className={c.catTile}><b>{cat.name}</b><span>{cat.count.toLocaleString('en-IN')} products</span></Link>
+            ))}
+            <Link href="/fmcg/catalogue/" className={`${c.catTile} ${c.catAll}`}><b>See the full list</b><span>{FMCG_TOTAL.toLocaleString('en-IN')} products</span></Link>
+          </div>
+        </div>
+      </section>
 
       <FaqSection faqs={FAQS} eyebrow="FMCG export FAQ" title="Importing Indian groceries" />
     </>

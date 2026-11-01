@@ -2,14 +2,14 @@ import 'server-only';
 import { send, notifyList, esc } from '@/lib/forms/mail';
 import { CONTACT, COMPANY, SITE_URL } from '@/config/site';
 
-const line = (it) => `${it.qty} ${it.unit} · ${it.name}${it.pack ? ` · ${it.pack}` : ''}${it.brand ? ` · ${it.brand}` : ''}`;
+const line = (it) => `${it.qty} ${it.unit} · ${it.code ? `#${it.code} ` : ''}${it.name}${it.pack ? ` · ${it.pack}` : ''}${it.brand ? ` · ${it.brand}` : ''}`;
 const DETAIL_LABELS = [['port', 'Destination port'], ['incoterm', 'Price terms'], ['container', 'Container'], ['wanted', 'Wanted by'], ['notes', 'Notes']];
 
 function itemsTable(items) {
   const cell = 'padding:6px 12px 6px 0;border-bottom:1px solid #e2e8e3;vertical-align:top';
   return `<table style="border-collapse:collapse;margin:8px 0 16px">
     <tr style="color:#5b6660;font-size:13px"><td style="${cell}">Product</td><td style="${cell}">Pack size</td><td style="${cell}">Brand</td><td style="${cell}">Quantity</td></tr>
-    ${items.map((it) => `<tr><td style="${cell}"><b>${esc(it.name)}</b></td><td style="${cell}">${esc(it.pack || '—')}</td><td style="${cell}">${esc(it.brand || '—')}</td><td style="${cell}"><b>${esc(it.qty)} ${esc(it.unit)}</b></td></tr>`).join('')}
+    ${items.map((it) => `<tr><td style="${cell}"><b>${esc(it.name)}</b>${it.code ? ` <span style="color:#5b6660">#${esc(it.code)}</span>` : ''}</td><td style="${cell}">${esc(it.pack || '—')}</td><td style="${cell}">${esc(it.brand || '—')}</td><td style="${cell}"><b>${esc(it.qty)} ${esc(it.unit)}</b></td></tr>`).join('')}
   </table>`;
 }
 

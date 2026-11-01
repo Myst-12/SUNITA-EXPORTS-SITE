@@ -79,6 +79,7 @@
 .item:first-child { border-top: 0; padding-top: 0; }
 .thumb { position: relative; width: 64px; height: 64px; border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-soft); }
 .thumb img { object-fit: cover; }
+.thumbIcon { display: grid; place-items: center; color: var(--green-700); background: var(--green-100); }
 .itemTop { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
 .itemTop h3 { font-size: 1.02rem; margin: 0; }
 .remove { flex: none; font-size: 0.85rem; font-weight: 700; color: #b42318; padding: 6px 0; }
