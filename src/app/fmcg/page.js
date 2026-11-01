@@ -60,6 +60,30 @@ export default function FmcgPage() {
         <a href={whatsappLink('Hello, I want to import Indian FMCG / grocery products.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 
+      <section id="order" className="section" style={{ scrollMarginTop: 80 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Order online</span>
+              <h2>Order from {FMCG_TOTAL.toLocaleString('en-IN')} FMCG products</h2>
+              <p className="lead">Search by brand or product, enter the cartons you need and send your order. Log in once to send it; our team confirms prices, availability and shipping dates.</p>
+            </div>
+            <Link href="/account/" className="link-arrow">Your orders <Icon name="arrow-right" /></Link>
+          </div>
+          <form action="/fmcg/catalogue/" className={c.bigSearch} role="search">
+            <label htmlFor="fmcg-search" className="visually-hidden">Search FMCG products</label>
+            <input id="fmcg-search" name="q" type="search" placeholder="Search a brand or product, e.g. Haldiram bhujia" maxLength={80} />
+            <button type="submit" className="btn btn-primary btn-lg">Search</button>
+          </form>
+          <div className={c.catGrid}>
+            {FMCG_CATEGORIES.map((cat) => (
+              <Link key={cat.slug} href={`/fmcg/catalogue/?c=${cat.slug}`} className={c.catTile}><b>{cat.name}</b><span>{cat.count.toLocaleString('en-IN')} products</span></Link>
+            ))}
+            <Link href="/fmcg/catalogue/" className={`${c.catTile} ${c.catAll}`}><b>See the full list</b><span>{FMCG_TOTAL.toLocaleString('en-IN')} products</span></Link>
+          </div>
+        </div>
+      </section>
+
       <section className={`section ${s.tintLime}`}>
         <div className="container">
           <div className="section-head">
@@ -115,30 +139,6 @@ export default function FmcgPage() {
             {BUYERS.map((b) => (
               <div key={b.title} className={s.step}><h3>{b.title}</h3><p>{b.text}</p></div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="order" className="section" style={{ scrollMarginTop: 80 }}>
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Order online</span>
-              <h2>Order from {FMCG_TOTAL.toLocaleString('en-IN')} FMCG products</h2>
-              <p className="lead">Search by brand or product, enter the cartons you need and send your order. Log in once to send it; our team confirms prices, availability and shipping dates.</p>
-            </div>
-            <Link href="/account/" className="link-arrow">Your orders <Icon name="arrow-right" /></Link>
-          </div>
-          <form action="/fmcg/catalogue/" className={c.bigSearch} role="search">
-            <label htmlFor="fmcg-search" className="visually-hidden">Search FMCG products</label>
-            <input id="fmcg-search" name="q" type="search" placeholder="Search a brand or product, e.g. Haldiram bhujia" maxLength={80} />
-            <button type="submit" className="btn btn-primary btn-lg">Search</button>
-          </form>
-          <div className={c.catGrid}>
-            {FMCG_CATEGORIES.map((cat) => (
-              <Link key={cat.slug} href={`/fmcg/catalogue/?c=${cat.slug}`} className={c.catTile}><b>{cat.name}</b><span>{cat.count.toLocaleString('en-IN')} products</span></Link>
-            ))}
-            <Link href="/fmcg/catalogue/" className={`${c.catTile} ${c.catAll}`}><b>See the full list</b><span>{FMCG_TOTAL.toLocaleString('en-IN')} products</span></Link>
           </div>
         </div>
       </section>
