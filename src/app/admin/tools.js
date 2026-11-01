@@ -24,7 +24,7 @@ export const TOOLS = [
     short: 'Reviews',
     href: '/admin/reviews/',
     icon: 'star',
-    description: 'Reviews written by buyers after ordering. Publish them to show them on the FMCG page.',
+    description: 'Reviews written by buyers after ordering. Publish them to show them on the homepage.',
   },
   {
     slug: 'quotation',

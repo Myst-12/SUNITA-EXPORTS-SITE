@@ -77,7 +77,7 @@ alter table orders enable row level security;
 ```
 
 ### Buyer reviews
-Buyers can review each order (not cancelled) from `/account/`. Reviews wait in admin under **Reviews** (`/admin/reviews/`) and appear on `/fmcg/#reviews` once published. Run once:
+Buyers can review each order (not cancelled) from `/account/`. Reviews wait in admin under **Reviews** (`/admin/reviews/`) and appear on the homepage (`/#reviews`) once published. Run once:
 
 ```sql
 create table reviews (

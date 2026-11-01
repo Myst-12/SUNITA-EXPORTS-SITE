@@ -5,6 +5,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import Globe from '@/components/Globe';
 import SocialLinks from '@/components/SocialLinks';
 import ScrollStrip from '@/components/ScrollStrip';
+import BuyerReviews from '@/components/BuyerReviews';
 import { categories, productCategories, getAllProducts } from '@/data/products';
 import { exportOrigin, exportDestinations } from '@/data/countries';
 import { HOME } from '@/data/home';
@@ -185,6 +186,9 @@ export default function HomePage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Buyer reviews, once any are published in admin */}
+      <BuyerReviews />
 
       {/* 7 — Get a quote */}
       <section className={styles.quoteSection}>

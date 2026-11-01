@@ -28,10 +28,10 @@ export default async function ReviewsTool({ searchParams }) {
       <div className={s.head}>
         <div>
           <h1>Reviews</h1>
-          <p className={s.sub}>Buyers can review an order from their account. A review appears on the FMCG page only after you publish it. Shown there with first name, country and company (if the buyer allowed it).</p>
+          <p className={s.sub}>Buyers can review an order from their account. A review appears on the homepage only after you publish it. Shown there with first name, country and company (if the buyer allowed it).</p>
         </div>
         <div className={s.headActions}>
-          <Link href="/fmcg/#reviews" className="btn btn-outline btn-lg" target="_blank">See on website</Link>
+          <Link href="/#reviews" className="btn btn-outline btn-lg" target="_blank">See on website</Link>
         </div>
       </div>
 
