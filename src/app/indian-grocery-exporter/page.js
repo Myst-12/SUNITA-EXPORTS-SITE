@@ -1,5 +1,6 @@
 import SeoLanding from '@/components/SeoLanding';
 import { COMPANY } from '@/config/site';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Indian Grocery Exporter & Wholesale Supplier — Mumbai, India',
@@ -39,13 +40,7 @@ const RANGE = [
   { title: 'Private label', text: 'Your brand on rice, atta, dals and spices, packed in Mumbai.', href: '/private-label/' },
 ];
 
-const FAQS = [
-  { question: 'What Indian grocery products do you export?', answer: 'Rice, flours, pulses and dals, spices and masalas, snacks and namkeen, biscuits, sweets, instant foods, pickles, papad, tea and coffee, ghee, jaggery, makhana, and personal and home care products.' },
-  { question: 'Can I mix many products in one container?', answer: 'Yes. Mixed containers are our speciality — packaged FMCG cartons, bulk spices, rice and pulses all in one 20 ft or 40 ft load, with one invoice and one set of documents.' },
-  { question: 'Do you export Indian grocery brands?', answer: 'Yes, we source genuine branded products from established Indian manufacturers, subject to brand and export availability. We can also pack staples under your own label.' },
-  { question: 'Which countries do you supply?', answer: `${COMPANY.countriesServed} countries, mainly the UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain, plus the USA, UK, Canada, Australia, Europe and Asia.` },
-  { question: 'How do I get a price?', answer: 'Send your product list, quantities and destination port through the quote form or WhatsApp. We reply with FOB and CFR / CIF prices within 24 hours.' },
-];
+const FAQS = PAGE_FAQS['indian-grocery-exporter'];
 
 export default function Page() {
   return (

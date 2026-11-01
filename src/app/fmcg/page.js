@@ -8,6 +8,7 @@ import { FMCG_CATEGORIES, FMCG_TOTAL } from '@/lib/shop/fmcg';
 import c from './catalogue/catalogue.module.css';
 import { COMPANY, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Indian FMCG Exporter — Indian Grocery & Packaged Food Supplier',
@@ -36,12 +37,7 @@ const BUYERS = [
   { title: 'Restaurants & caterers', text: 'Bulk spices, rice, ghee, pastes and staples in catering pack sizes.' },
 ];
 
-const FAQS = [
-  { question: 'Which Indian FMCG products do you export?', answer: 'Snacks and namkeen, biscuits, instant foods and mixes, sweets, tea and beverages, pickles and pastes, papad, ghee, flours, rice, dals, spices and masalas, pooja items, personal care and household products. We source genuine products from established Indian manufacturers, subject to brand and export availability, or pack under your private label.' },
-  { question: 'Can I combine FMCG with spices and rice in one container?', answer: 'Yes — that is our speciality. Most of our grocery buyers order a mixed 20 ft or 40 ft container combining packaged foods with bulk or retail spices, rice and pulses.' },
-  { question: 'How do you manage shelf life for sea shipments?', answer: 'We plan stock so products leave India with the maximum possible remaining shelf life, check manufacturing dates before stuffing and share batch details with the packing list.' },
-  { question: 'Do you handle labelling for my country?', answer: 'We supply products with English labelling as standard and can arrange importer stickers, ingredient translations or private-label packs to meet your country’s food labelling rules.' },
-];
+const FAQS = PAGE_FAQS['fmcg'];
 
 export default function FmcgPage() {
   return (
@@ -56,7 +52,6 @@ export default function FmcgPage() {
       >
         <Link href="#order" className="btn btn-primary btn-lg">Order online <Icon name="arrow-right" /></Link>
         <Link href="/contact/?product=Indian%20FMCG%20mixed%20container" className="btn btn-outline btn-lg">Send your SKU list</Link>
-
         <a href={whatsappLink('Hello, I want to import Indian FMCG / grocery products.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 

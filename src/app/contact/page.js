@@ -6,6 +6,7 @@ import Icon from '@/components/Icon';
 import { CONTACT, COMPANY, fullAddress, ukAddress, ukMapsLink, whatsappLink, mapsEmbedUrl, mapsLink } from '@/config/site';
 import { localBusinessSchema } from '@/lib/schemas';
 import styles from './contact.module.css';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Get an Export Quote — Spices, Rice & Indian Groceries',
@@ -14,12 +15,7 @@ export const metadata = {
   alternates: { canonical: '/contact/' },
 };
 
-const FAQS = [
-  { question: 'How quickly will I get a quote?', answer: 'Usually within 24 hours on working days (Mon–Sat, IST). Complex mixed-container lists may take a little longer while we confirm availability.' },
-  { question: 'Can I get samples before ordering?', answer: 'Yes. We send samples of spices, rice and pulses for quality approval. Courier charges are usually paid by the buyer and adjusted against the first order.' },
-  { question: 'What payment terms do you accept?', answer: 'Typically T/T with an advance and the balance against shipping documents, or an irrevocable L/C at sight. Terms for repeat buyers are discussed case by case.' },
-  { question: 'Can I visit your office in Mumbai?', answer: `Yes — our office is at ${fullAddress()}. Please message us first so the right person is available.` },
-];
+const FAQS = PAGE_FAQS['contact'];
 
 export default function ContactPage() {
   return (

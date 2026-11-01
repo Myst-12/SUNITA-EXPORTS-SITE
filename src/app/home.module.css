@@ -33,7 +33,7 @@
 @media (max-width: 640px) {
   .wide { display: none; }
   .narrow { display: inline; }
-  .heroInner { padding-bottom: 96px; } /* clear of the floating WhatsApp button */
+  .heroInner { padding-bottom: 150px; } /* clear of the floating help and WhatsApp buttons */
   .heroTitle { margin-bottom: 0.9rem; }
   .heroLead { font-size: 1.02rem; margin-bottom: 0.75rem; }
   .heroTrust { font-size: 0.8rem; margin-bottom: 1.5rem; }

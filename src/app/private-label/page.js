@@ -7,6 +7,7 @@ import Icon from '@/components/Icon';
 import { whatsappLink } from '@/config/site';
 import { getCategoryBySlug } from '@/data/products';
 import s from '../pages.module.css';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Private Label Spices & Indian Food Packaging',
@@ -33,12 +34,7 @@ const STEPS = [
   { title: 'Production & QC', text: 'Cleaned, sterilised if needed, packed and checked. Lab reports and photos before dispatch.' },
 ];
 
-const FAQS = [
-  { question: 'What is the minimum order for private label?', answer: 'It depends on the pack format and printing method. Many buyers start with one mixed container covering several SKUs. Printed laminate pouches usually need a minimum print run per design; stickers and labels allow smaller trial runs.' },
-  { question: 'Can you design the packaging for us?', answer: 'Yes. We can work from your existing brand guidelines or coordinate artwork for new packs. You approve every design before printing.' },
-  { question: 'Do you add barcodes and labelling for my country?', answer: 'Yes. We print your EAN/UPC barcodes, batch numbers, best-before dates, ingredient and allergen declarations and importer details as required by your market.' },
-  { question: 'Can private label products be mixed with other items in one container?', answer: 'Absolutely. Private label packs can be combined with bulk spices, rice, pulses and other groceries in the same mixed container.' },
-];
+const FAQS = PAGE_FAQS['private-label'];
 
 export default function PrivateLabelPage() {
   const { services } = getCategoryBySlug('private-label-oem');

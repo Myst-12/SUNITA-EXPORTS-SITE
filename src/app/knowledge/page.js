@@ -6,6 +6,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
 import { blogPosts } from '@/data/blog';
 import s from '../pages.module.css';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Buyer Guides — How to Import Spices & Indian Food from India',
@@ -30,11 +31,7 @@ const GUIDES = [
   { icon: 'container', title: 'Container loading', items: ['20 ft FCL: about 18–24 MT bagged goods', '40 ft: higher volume for light items', 'Mixed loads planned by weight & volume', 'Desiccants & liners for humid routes'] },
 ];
 
-const FAQS = [
-  { question: 'How do I import spices from India for the first time?', answer: 'Start with a clear product list and your country’s import requirements, request quotes and samples from a registered Indian exporter, agree specifications and Incoterms, and work with a local clearing agent. Many first-time importers start with a mixed container to test several products at once.' },
-  { question: 'What is the difference between FOB, CFR and CIF?', answer: 'FOB means the price covers goods loaded on the vessel in India; you pay freight and insurance. CFR adds sea freight to your port. CIF adds both freight and marine insurance. Import duties and local charges are always paid by the buyer.' },
-  { question: 'How long does sea shipping from India take?', answer: 'Roughly 5–10 days to the Gulf, 18–25 days to Europe and East Africa, 25–35 days to the US East Coast and 20–30 days to Australia, depending on the route and transhipment.' },
-];
+const FAQS = PAGE_FAQS['knowledge'];
 
 export default function KnowledgePage() {
   return (

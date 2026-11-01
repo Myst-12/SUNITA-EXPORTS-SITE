@@ -7,6 +7,7 @@ import Icon from '@/components/Icon';
 import ContainerPlanner from '@/components/ContainerPlanner';
 import { COMPANY, CONTACT, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Mixed Container from India — Consolidated Spices, Rice & Grocery',
@@ -30,13 +31,7 @@ const WHY = [
   { icon: 'handshake', title: 'One accountable partner', text: `A single team in Mumbai responsible for quality, timing and documents — doing this since ${COMPANY.foundingYear}.` },
 ];
 
-const FAQS = [
-  { question: 'What is a mixed container?', answer: 'A mixed (consolidated) container is a single 20 ft or 40 ft shipping container carrying many different products — for example whole spices, basmati rice, dals, snacks and pickles — bought from one exporter on one invoice.' },
-  { question: 'How many products can go in one container?', answer: 'There is no fixed limit. Our buyers typically combine 15 to 150 different items. We plan the load by weight and volume so the container is used efficiently and heavier goods are stowed safely.' },
-  { question: 'What is the minimum for a mixed container?', answer: 'One 20 ft container. Within it, bulk items usually start from around 500 kg–1 MT and packaged goods from a few dozen cartons per SKU, depending on the product.' },
-  { question: 'Which documents do I receive?', answer: 'Commercial invoice, packing list, bill of lading, certificate of origin, phytosanitary and fumigation certificates where required, and certificates of analysis for spices and food items.' },
-  { question: 'How long does a mixed container take?', answer: 'Typically 2–4 weeks from order confirmation to sailing, depending on the list, private-label printing and vessel schedules. Transit time then depends on the destination.' },
-];
+const FAQS = PAGE_FAQS['mixed-container'];
 
 export default function MixedContainerPage() {
   return (

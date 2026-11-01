@@ -37,6 +37,9 @@ const PATHS = {
   filter: <path d="M4 5h16l-6 7.5V19l-4 2v-8.5z" />,
   handshake: <><path d="m11 17 2 2a1.5 1.5 0 0 0 2-2" /><path d="m14 16 2.5 2.5a1.5 1.5 0 0 0 2-2L15 13" /><path d="M2.5 11.5 6 8l4 1 3-2 3 1 5.5 3.5" /><path d="m6 8 6.5 6.5a1.5 1.5 0 0 1-2 2L7 13" /></>,
   thermometer: <><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z" /><path d="M12 9v6" /></>,
+  chat: <><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z" /><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.4v.2" /><path d="M12 16.4h.01" /></>,
+  'chat-dots': <><path d="M5.5 4.5h13A2.5 2.5 0 0 1 21 7v8.5a2.5 2.5 0 0 1-2.5 2.5H12l-4.6 3.3a.5.5 0 0 1-.8-.4V18H5.5A2.5 2.5 0 0 1 3 15.5V7a2.5 2.5 0 0 1 2.5-2.5z" /><circle cx="8.2" cy="11.3" r="1.15" fill="currentColor" stroke="none" /><circle cx="12" cy="11.3" r="1.15" fill="currentColor" stroke="none" /><circle cx="15.8" cy="11.3" r="1.15" fill="currentColor" stroke="none" /></>,
+  send: <><path d="M4 12 20 4l-4 16-4-7z" /><path d="m12 13 8-9" /></>,
   user: <><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></>,
   box: <><rect x="3.5" y="7" width="17" height="13" rx="1.5" /><path d="M3.5 11h17" /><path d="M10 15h4" /><path d="M6 7l2-3h8l2 3" /></>,
 };

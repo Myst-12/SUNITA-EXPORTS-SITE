@@ -1,5 +1,6 @@
 import SeoLanding from '@/components/SeoLanding';
 import { COMPANY } from '@/config/site';
+import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
   title: 'Indian Spices Exporter — Whole Spices, Powders & Masalas from Mumbai',
@@ -38,12 +39,7 @@ const RANGE = [
   { title: 'Private label spices', text: 'Your brand, printed pouches and jars, packed in Mumbai.', href: '/private-label/' },
 ];
 
-const FAQS = [
-  { question: 'Which Indian spices do you export?', answer: 'Turmeric, red chilli, Kashmiri chilli, cumin, coriander, fennel, fenugreek, mustard, green and black cardamom, black pepper, cloves, cinnamon, bay leaf, ginger, ajwain and blended masalas, among 50+ spice products.' },
-  { question: 'Can you supply spices under my brand?', answer: 'Yes. We pack spices in retail pouches, jars and bulk bags under your private label, with your design and your country’s labelling rules.' },
-  { question: 'Do you share lab reports?', answer: 'Yes. Spec sheets are on every product page, and pre-shipment lab reports can be shared for moisture, colour, active content, pesticides and microbiology.' },
-  { question: 'Do you export spices to the Middle East?', answer: 'Yes, the Gulf is our largest market — UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain — with Arabic/English labelling.' },
-];
+const FAQS = PAGE_FAQS['indian-spices-exporter'];
 
 export default function Page() {
   return (

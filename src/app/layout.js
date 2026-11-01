@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import HelpSearch from '@/components/HelpSearch';
 import Analytics from '@/components/Analytics';
 import { SITE_URL, GA_ID } from '@/config/site';
 import { organizationSchema as buildOrganizationSchema } from '@/lib/schemas';
@@ -101,6 +102,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer categories={navCategories} />
+        <HelpSearch />
         <WhatsAppButton />
         <Analytics gaId={GA_ID} />
       </body>
