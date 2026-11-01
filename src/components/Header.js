@@ -19,7 +19,6 @@ const ABOUT_LINKS = [
 ];
 
 const LINKS = [
-  { label: 'FMCG', href: '/fmcg/' },
   { label: 'Mixed Container', href: '/mixed-container/' },
   { label: 'Private Label', href: '/private-label/' },
 ];

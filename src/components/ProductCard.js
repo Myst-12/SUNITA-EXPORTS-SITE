@@ -9,9 +9,10 @@ import styles from './ProductCard.module.css';
  * New usage: <ProductCard product={p} />
  * Legacy usage (older pages): <ProductCard name href description image productCount isCategory />
  */
-export default function ProductCard({ product, name, href, description, image, productCount, isCategory = false, priority = false }) {
+export default function ProductCard({ product, name, href, description, image, productCount, isCategory = false, priority = false, cta }) {
   const title = product ? product.name : name;
-  const link = product ? `/products/${product.category}/${product.slug}/` : href;
+  // A product card can point somewhere other than its details page (FMCG families open the product list).
+  const link = href || (product ? `/products/${product.category}/${product.slug}/` : href);
   const img = product ? product.image : image;
   const meta = product
     ? [product.forms?.[0], product.hsCode && `HS ${product.hsCode}`].filter(Boolean).join(' · ')
@@ -35,7 +36,7 @@ export default function ProductCard({ product, name, href, description, image, p
         <div className={styles.foot}>
           {meta && <span className={styles.meta}>{meta}</span>}
           <span className={styles.cta}>
-            {isCategory ? 'View range' : 'Details'} <Icon name="arrow-right" size={15} />
+            {cta || (isCategory ? 'View range' : 'Details')} <Icon name="arrow-right" size={15} />
           </span>
         </div>
       </div>

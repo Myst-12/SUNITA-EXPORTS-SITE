@@ -69,8 +69,8 @@
 .clear .burger { color: #fff; }
 .clear .burger:hover { background: rgba(255, 255, 255, 0.12); }
 
-/* Five menu items plus the actions need about 1,240px; below that the menu button takes over. */
-@media (max-width: 1239px) {
+/* The four menu items plus the actions need about 1,180px; below that the menu button takes over. */
+@media (max-width: 1179px) {
   .nav { display: none; }
   .burger { display: grid; }
   .actions { margin-left: auto; }
@@ -109,4 +109,4 @@
 .drawerFoot { margin-top: auto; padding: 20px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; }
 .drawerContacts { display: grid; gap: 0.5rem; margin-top: 8px; font-size: 0.9rem; font-weight: 600; color: var(--green-800); }
 .drawerContacts a { display: flex; align-items: center; gap: 0.5rem; }
-@media (min-width: 1240px) { .drawer { display: none; } }
+@media (min-width: 1180px) { .drawer { display: none; } }

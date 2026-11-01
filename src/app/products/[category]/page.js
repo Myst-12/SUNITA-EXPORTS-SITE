@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { productCategories, getCategoryBySlug } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import { FMCG_FAMILY_LINKS } from '@/data/fmcg/familyLinks';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import { COMPANY, SITE_URL, whatsappLink } from '@/config/site';
@@ -28,6 +29,9 @@ export async function generateMetadata({ params }) {
     openGraph: { title: cat.metaTitle, description: cat.metaDescription, url, images: [{ url: cat.image }] },
   };
 }
+
+// FMCG families open the matching part of the orderable product list instead of a details page.
+const listLink = (p) => (p.category === 'foodstuff-fmcg' && FMCG_FAMILY_LINKS[p.slug] ? { href: FMCG_FAMILY_LINKS[p.slug], cta: 'See products' } : {});
 
 export default async function CategoryPage({ params }) {
   const { category } = await params;
@@ -98,13 +102,13 @@ export default async function CategoryPage({ params }) {
               <div key={s.slug} id={s.slug} className={styles.subSection}>
                 <h2 className={styles.subTitle}>{s.name}</h2>
                 <div className="grid-4">
-                  {s.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={si === 0 && i < 4} />)}
+                  {s.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={si === 0 && i < 4} {...listLink(p)} />)}
                 </div>
               </div>
             ))
           ) : (
             <div className="grid-4">
-              {cat.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
+              {cat.products.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} {...listLink(p)} />)}
             </div>
           )}
         </div>
