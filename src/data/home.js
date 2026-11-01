@@ -6,6 +6,7 @@ export const HOME = {
     // The Star Export House status leads the trust line (it also sits under the name in the header).
     trust: 'Govt. recognised Star Export House · Since 2010 · 40+ countries · ISO 22000 · ISO 9001 · Kosher · FSSAI · APEDA · Spices Board',
     cta: 'Explore our products',
+    ctaFmcg: 'Order FMCG online',
     image: '/images/hero/spices-wood.webp', // AI-generated illustration
     imageAlt: 'Bowls of colourful Indian spices on a dark wooden table',
   },

@@ -45,7 +45,10 @@ export default function HomePage() {
           <h1 className={styles.heroTitle}>{hero.title}</h1>
           <p className={styles.heroLead}>{hero.lead}</p>
           <p className={styles.heroTrust}>{hero.trust}</p>
-          <Link href="/products/" className="btn btn-light btn-lg">{hero.cta} <Icon name="arrow-right" /></Link>
+          <div className={styles.heroActions}>
+            <Link href="/products/" className="btn btn-light btn-lg">{hero.cta} <Icon name="arrow-right" /></Link>
+            <Link href="/fmcg/#order" className="btn btn-ghost-light btn-lg">{hero.ctaFmcg} <Icon name="arrow-right" /></Link>
+          </div>
         </div>
       </section>
 
