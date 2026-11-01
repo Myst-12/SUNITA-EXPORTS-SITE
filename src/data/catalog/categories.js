@@ -192,7 +192,6 @@ export const categoryList = [
     metaDescription:
       'Indian FMCG and grocery export: packaged atta, rice, dals, masalas, biscuits, namkeen, sweets, ready-to-eat, pickles, papad, tea, coffee, oils, jaggery and makhana.',
     flat: true, // one product family per subcategory, so the page lists families without subcategory headings
-    note: 'These are product families. Exact brands, pack sizes, units per carton and destination eligibility are confirmed with each order — we only offer brands we are authorised to supply.',
     subcategories: [
       { slug: 'atta-flour', name: 'Atta & Flour' },
       { slug: 'rice-staples', name: 'Rice & Staples' },
