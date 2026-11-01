@@ -1,8 +1,9 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { accountsConfigured, hashPassword, passwordOk, startCustomerSession, endCustomerSession, safeNext } from '@/lib/shop/auth';
-import { getCustomerByEmail, createCustomer } from '@/lib/shop/store';
+import { accountsConfigured, hashPassword, passwordOk, startCustomerSession, endCustomerSession, safeNext, currentCustomer } from '@/lib/shop/auth';
+import { getCustomerByEmail, createCustomer, listOrders, listReviews, createReview } from '@/lib/shop/store';
+import { sendReviewAlert } from '@/lib/shop/mail';
 import { COUNTRIES } from '@/lib/forms/fields';
 
 const str = (fd, k, max = 120) => String(fd.get(k) || '').trim().slice(0, max);
@@ -49,4 +50,29 @@ export async function loginAction(_prev, fd) {
 export async function logoutAction() {
   await endCustomerSession();
   redirect('/account/login/');
+}
+
+/** A buyer's review of one of their own orders (not cancelled, not reviewed yet). It waits for approval. */
+export async function reviewAction(_prev, fd) {
+  const me = await currentCustomer();
+  if (!me) redirect('/account/login/');
+  const rating = Number(fd.get('rating'));
+  const body = String(fd.get('body') || '').trim().slice(0, 1500);
+  const values = { rating, body, showCompany: fd.get('show_company') === 'on' };
+  const fail = (error) => ({ error, values });
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5) return fail('Please choose a star rating.');
+  if (body.length < 20) return fail('Please write a sentence or two about your order (at least 20 characters).');
+  let review;
+  try {
+    const orderId = String(fd.get('order') || '');
+    const order = (await listOrders({ customerId: me.id })).find((o) => o.id === orderId);
+    if (!order || order.status === 'cancelled') return fail('This order cannot be reviewed.');
+    if ((await listReviews({ customerId: me.id })).some((r) => r.order_id === orderId)) return fail('You have already reviewed this order.');
+    review = await createReview({ customer: me, order, rating, body, showCompany: values.showCompany });
+  } catch (e) {
+    console.error(e);
+    return fail('Your review could not be saved just now. Please try again in a minute.');
+  }
+  await sendReviewAlert(review);
+  redirect('/account/?reviewed=1#orders');
 }

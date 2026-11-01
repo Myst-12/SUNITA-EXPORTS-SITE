@@ -209,3 +209,11 @@ textarea.input { min-height: 96px; resize: vertical; line-height: 1.5; }
 .orderDl dd { margin: 0; white-space: pre-line; }
 .statusForm { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .statusForm .input { width: auto; min-height: 44px; }
+
+/* Reviews tool */
+.reviewCard { display: grid; gap: 10px; padding: 16px; border-radius: var(--radius); background: var(--bg-mist); }
+.reviewHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.reviewStars { font-size: 1.2rem; color: var(--turmeric); letter-spacing: 0.06em; line-height: 1; }
+.reviewStars span { color: var(--line-strong); }
+.reviewBody { margin: 0; color: var(--ink); line-height: 1.6; white-space: pre-line; overflow-wrap: anywhere; max-width: 72ch; }
+.reviewCard .meta a { color: var(--green-700); font-weight: 600; overflow-wrap: anywhere; }

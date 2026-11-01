@@ -76,4 +76,24 @@ alter table customers enable row level security;
 alter table orders enable row level security;
 ```
 
+### Buyer reviews
+Buyers can review each order (not cancelled) from `/account/`. Reviews wait in admin under **Reviews** (`/admin/reviews/`) and appear on `/fmcg/#reviews` once published. Run once:
+
+```sql
+create table reviews (
+  id uuid primary key,
+  customer_id uuid not null references customers(id) on delete cascade,
+  order_id uuid unique not null references orders(id) on delete cascade,
+  order_number text not null,
+  customer jsonb not null,
+  show_company boolean not null default true,
+  rating int not null check (rating between 1 and 5),
+  body text not null,
+  status text not null default 'pending',
+  created_at timestamptz not null default now()
+);
+create index reviews_customer_id on reviews(customer_id);
+alter table reviews enable row level security;
+```
+
 Buyer log-ins are signed with `CUSTOMER_SECRET` (any long random text). If it is not set, `ADMIN_PASSWORD` is used, so changing the admin password logs every buyer out. Each order emails the client (`FORMS_NOTIFY_EMAIL`) and the buyer through Resend.

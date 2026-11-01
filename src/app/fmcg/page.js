@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import OrderGrid from '@/components/OrderGrid';
+import BuyerReviews from '@/components/BuyerReviews';
 import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
@@ -135,6 +136,8 @@ export default function FmcgPage() {
           </div>
         </section>
       )}
+
+      <BuyerReviews />
 
       <FaqSection faqs={FAQS} eyebrow="FMCG export FAQ" title="Importing Indian groceries" />
     </>

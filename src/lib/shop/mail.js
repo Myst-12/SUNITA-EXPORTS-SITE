@@ -51,3 +51,21 @@ export function sendOrderConfirmation(order) {
     </div>`,
   });
 }
+
+/** Alert to the client when a buyer writes a review, so it can be approved. */
+export function sendReviewAlert(review) {
+  const c = review.customer;
+  const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+  return send({
+    to: notifyList(),
+    reply_to: c.email,
+    subject: `New review to approve: ${stars} from ${c.company || c.name} (${c.country})`,
+    text: `${c.name}${c.company ? `, ${c.company}` : ''} (${c.country}) reviewed order ${review.order_number}: ${stars}\n\n${review.body}\n\nApprove or hide it: ${SITE_URL}/admin/reviews/`,
+    html: `<div style="font-family:Arial,sans-serif;font-size:15px;color:#1b2a22;max-width:600px">
+      <p style="margin:0 0 4px"><b>New review to approve</b> <span style="color:#d99d00;font-size:18px">${stars}</span></p>
+      <p style="margin:0 0 12px;color:#5b6660">${esc(c.name)}${c.company ? `, ${esc(c.company)}` : ''} · ${esc(c.country)} · order ${esc(review.order_number)}</p>
+      <p style="margin:0 0 16px;white-space:pre-wrap">${esc(review.body)}</p>
+      <p style="margin:0"><a href="${SITE_URL}/admin/reviews/" style="color:#086639;font-weight:bold">Approve or hide it in admin</a></p>
+    </div>`,
+  });
+}

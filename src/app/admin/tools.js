@@ -19,6 +19,14 @@ export const TOOLS = [
     description: 'FMCG orders placed by buyers on the website, with their details and an Excel download.',
   },
   {
+    slug: 'reviews',
+    name: 'Reviews',
+    short: 'Reviews',
+    href: '/admin/reviews/',
+    icon: 'star',
+    description: 'Reviews written by buyers after ordering. Publish them to show them on the FMCG page.',
+  },
+  {
     slug: 'quotation',
     name: 'Quotation cost calculator',
     short: 'Quotation',

@@ -13,6 +13,14 @@ export const STATUSES = [
 ];
 export const statusLabel = (key) => STATUSES.find((s) => s.key === key)?.label || key;
 
+// Buyer reviews wait for approval in admin before they appear on the site.
+export const REVIEW_STATUSES = [
+  { key: 'pending', label: 'To approve' },
+  { key: 'published', label: 'Published' },
+  { key: 'hidden', label: 'Hidden' },
+];
+export const reviewStatusLabel = (key) => REVIEW_STATUSES.find((s) => s.key === key)?.label || key;
+
 /** The orderable products, trimmed to what the order cards need. */
 export function orderableProducts() {
   return (getCategoryBySlug(ORDER_CATEGORY)?.products || []).map((p) => ({

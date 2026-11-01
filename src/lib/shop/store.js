@@ -5,12 +5,14 @@ import crypto from 'crypto';
 import { sb, usingDatabase } from '@/lib/forms/store';
 
 // Buyer accounts and online orders. Same database as the event forms (Supabase, tables `customers` and
-// `orders`, schema in docs/forms-setup.md); without it, a local JSON file for trying it on localhost.
+// `orders` and `reviews`, schema in docs/forms-setup.md); without it, a local JSON file for trying it on localhost.
 export { usingDatabase };
 
 const FILE = path.join(process.cwd(), '.data', 'shop.json');
 async function readFile() {
-  try { return JSON.parse(await fs.readFile(FILE, 'utf8')); } catch { return { customers: [], orders: [] }; }
+  let db;
+  try { db = JSON.parse(await fs.readFile(FILE, 'utf8')); } catch { db = {}; }
+  return { customers: [], orders: [], reviews: [], ...db };
 }
 async function writeFile(db) {
   await fs.mkdir(path.dirname(FILE), { recursive: true });
@@ -82,4 +84,56 @@ export async function setOrderStatus(id, status) {
   if (o) o.status = status;
   await writeFile(db);
   return o;
+}
+
+// Reviews: one per order, by the buyer who placed it. The buyer's details are a snapshot, like orders.
+export async function createReview({ customer, order, rating, body, showCompany }) {
+  const row = {
+    id: crypto.randomUUID(),
+    customer_id: customer.id,
+    order_id: order.id,
+    order_number: order.number,
+    customer: { name: customer.name, company: customer.company, email: customer.email, country: customer.country },
+    show_company: showCompany,
+    rating, body, status: 'pending',
+    created_at: new Date().toISOString(),
+  };
+  if (usingDatabase) return (await sb('reviews', { method: 'POST', body: JSON.stringify(row) }))[0];
+  const db = await readFile();
+  db.reviews.push(row);
+  await writeFile(db);
+  return row;
+}
+
+/** Reviews newest first; all of them (admin) or one buyer's. */
+export async function listReviews({ customerId } = {}) {
+  if (usingDatabase) return sb(`reviews?select=*${customerId ? `&customer_id=eq.${q(customerId)}` : ''}&order=created_at.desc`);
+  const db = await readFile();
+  return db.reviews.filter((r) => !customerId || r.customer_id === customerId).sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
+/** Published reviews for the public pages, trimmed to what is shown (no emails). Cached for 10 minutes. */
+export async function listPublishedReviews() {
+  const rows = usingDatabase
+    ? await sb('reviews?select=id,rating,body,customer,show_company,created_at&status=eq.published&order=created_at.desc', { cache: 'force-cache', next: { revalidate: 600, tags: ['reviews'] } })
+    : (await listReviews()).filter((r) => r.status === 'published');
+  return rows.map((r) => {
+    const [first, ...rest] = String(r.customer?.name || '').trim().split(/\s+/);
+    const last = rest.at(-1);
+    return {
+      id: r.id, rating: r.rating, body: r.body, created_at: r.created_at,
+      name: [first, last && `${last[0].toUpperCase()}.`].filter(Boolean).join(' ') || 'Buyer',
+      company: r.show_company ? r.customer?.company || '' : '',
+      country: r.customer?.country || '',
+    };
+  });
+}
+
+export async function setReviewStatus(id, status) {
+  if (usingDatabase) return (await sb(`reviews?id=eq.${q(id)}`, { method: 'PATCH', body: JSON.stringify({ status }) }))[0];
+  const db = await readFile();
+  const r = db.reviews.find((x) => x.id === id);
+  if (r) r.status = status;
+  await writeFile(db);
+  return r;
 }

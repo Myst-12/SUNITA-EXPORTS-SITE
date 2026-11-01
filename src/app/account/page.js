@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { currentCustomer } from '@/lib/shop/auth';
-import { listOrders } from '@/lib/shop/store';
+import { listOrders, listReviews } from '@/lib/shop/store';
 import { statusLabel } from '@/lib/shop/catalog';
 import { CONTACT, whatsappLink } from '@/config/site';
 import Icon from '@/components/Icon';
 import ClearCart from './ClearCart';
+import ReviewForm from './ReviewForm';
 import { logoutAction } from './actions';
 import s from './account.module.css';
 
@@ -17,10 +18,13 @@ const date = (iso) => new Date(iso).toLocaleDateString('en-IN', { timeZone: 'Asi
 export default async function AccountPage({ searchParams }) {
   const me = await currentCustomer();
   if (!me) redirect('/account/login/');
-  const { placed } = await searchParams;
+  const { placed, reviewed } = await searchParams;
   let orders = [];
   let failed = false;
   try { orders = await listOrders({ customerId: me.id }); } catch (e) { console.error(e); failed = true; }
+  // Reviews may not be set up yet; the order list still works without them.
+  const reviews = await listReviews({ customerId: me.id }).catch(() => null);
+  const reviewOf = Object.fromEntries((reviews || []).map((r) => [r.order_id, r]));
 
   return (
     <section className={s.page}>
@@ -47,7 +51,17 @@ export default async function AccountPage({ searchParams }) {
           </div>
         )}
 
-        <h2 className={s.h2}>Your orders</h2>
+        {reviewed && (
+          <div className={s.placed} role="status">
+            <span className={s.placedIcon}><Icon name="star" size={20} /></span>
+            <div>
+              <b>Thank you for your review.</b>
+              <p>Our team will read it and publish it on the website shortly.</p>
+            </div>
+          </div>
+        )}
+
+        <h2 className={s.h2} id="orders">Your orders</h2>
         {failed && <p className={s.err}>Your orders could not be loaded just now. Please refresh in a minute.</p>}
         {!failed && orders.length === 0 && (
           <div className={s.empty}>
@@ -75,6 +89,14 @@ export default async function AccountPage({ searchParams }) {
               </ul>
               {(o.details.port || o.details.incoterm) && (
                 <p className={s.orderMeta}>{[o.details.port, o.details.incoterm, o.details.container, o.details.wanted && `wanted by ${o.details.wanted}`].filter(Boolean).join(' · ')}</p>
+              )}
+              {reviewOf[o.id] ? (
+                <p className={s.reviewDone}>
+                  <span className={s.reviewStars} role="img" aria-label={`${reviewOf[o.id].rating} out of 5 stars`}>{'★'.repeat(reviewOf[o.id].rating)}<span>{'★'.repeat(5 - reviewOf[o.id].rating)}</span></span>
+                  Your review · {reviewOf[o.id].status === 'published' ? 'on the website' : reviewOf[o.id].status === 'hidden' ? 'not shown on the website' : 'waiting for approval'}
+                </p>
+              ) : reviews && o.status !== 'cancelled' && (
+                <ReviewForm orderId={o.id} orderNumber={o.number} company={me.company} />
               )}
             </article>
           ))}

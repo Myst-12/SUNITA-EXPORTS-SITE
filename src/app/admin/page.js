@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { isAdmin, adminConfigured } from '@/lib/forms/auth';
 import { listForms, listAllResponses, usingDatabase } from '@/lib/forms/store';
-import { listOrders } from '@/lib/shop/store';
+import { listOrders, listReviews } from '@/lib/shop/store';
 import { formStats } from '@/lib/forms/stats';
 import { getAllProducts } from '@/data/products';
 import { CONTACT, GA_ID } from '@/config/site';
@@ -79,11 +79,12 @@ export default async function AdminHome({ searchParams }) {
   const recent = responses.slice(0, 6);
 
   const products = getAllProducts();
-  const orders = await listOrders().catch(() => null);
+  const [orders, reviews] = await Promise.all([listOrders().catch(() => null), listReviews().catch(() => null)]);
 
   const toolStatus = {
     forms: failed ? 'Database not reachable' : `${openForms.length} open · ${forms.length} form${forms.length === 1 ? '' : 's'} · ${responses.length} response${responses.length === 1 ? '' : 's'}`,
     orders: orders ? `${orders.filter((o) => o.status === 'new').length} new · ${orders.length} order${orders.length === 1 ? '' : 's'}` : 'Orders not reachable',
+    reviews: reviews ? `${reviews.filter((r) => r.status === 'pending').length} to approve · ${reviews.filter((r) => r.status === 'published').length} published` : 'Reviews table not set up yet',
   };
 
   const sbRef = process.env.SUPABASE_URL?.match(/^https:\/\/([a-z0-9]+)\.supabase\.co/)?.[1];

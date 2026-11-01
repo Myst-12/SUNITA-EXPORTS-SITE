@@ -12,8 +12,8 @@ export const usingDatabase = Boolean(SB_URL && SB_KEY);
 
 export async function sb(pathAndQuery, init = {}) {
   const res = await fetch(`${SB_URL}/rest/v1/${pathAndQuery}`, {
+    cache: 'no-store', // callers may pass their own cache/next options (cached public lists)
     ...init,
-    cache: 'no-store',
     // New-style secret keys (sb_secret_…) go in `apikey` only; legacy service_role JWTs also as Bearer.
     headers: { apikey: SB_KEY, ...(SB_KEY.startsWith('eyJ') ? { Authorization: `Bearer ${SB_KEY}` } : {}), 'Content-Type': 'application/json', Prefer: 'return=representation', ...init.headers },
   });

@@ -50,6 +50,28 @@
 .help { margin-top: 28px; color: var(--muted); }
 .help a { color: var(--green-700); font-weight: 700; }
 
+/* Reviewing an order */
+.reviewBox { margin-top: 12px; border-top: 1px solid var(--line); }
+.reviewSum { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding-top: 10px; font-weight: 700; color: var(--green-700); cursor: pointer; list-style: none; }
+.reviewSum::-webkit-details-marker { display: none; }
+.reviewSum svg { color: var(--turmeric-600); }
+.reviewForm { display: grid; gap: 14px; padding: 8px 0 4px; max-width: 640px; }
+.stars { border: 0; padding: 0; margin: 0; }
+.stars legend { font-weight: 700; font-size: 0.92rem; margin-bottom: 6px; }
+.starRow { display: flex; align-items: center; gap: 2px; }
+.star { display: grid; place-items: center; width: 44px; height: 44px; color: var(--line-strong); cursor: pointer; transition: transform 120ms var(--ease), color 120ms var(--ease); }
+.star svg { fill: currentColor; }
+.star:active { transform: scale(0.9); }
+.star:has(:focus-visible) { outline: 2px solid var(--green-700); outline-offset: 2px; border-radius: var(--radius-xs); }
+.starOn { color: var(--turmeric); }
+.starWord { margin-left: 10px; font-weight: 700; font-size: 0.9rem; color: var(--ink-2); }
+.check { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; font-weight: 600; color: var(--ink-2); }
+.check input { width: 18px; height: 18px; accent-color: var(--green-700); }
+.reviewDone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--muted); }
+.reviewStars { color: var(--turmeric-600); letter-spacing: 0.08em; }
+.reviewStars span { color: var(--line-strong); }
+@media (prefers-reduced-motion: reduce) { .star { transition: none; } .star:active { transform: none; } }
+
 /* Order review (/order/) */
 .review { display: grid; gap: clamp(20px, 3vw, 36px); align-items: start; }
 @media (min-width: 980px) { .review { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
