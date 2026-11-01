@@ -43,8 +43,8 @@ export default function HomePage() {
         <span className={styles.heroScrim} aria-hidden="true" />
         <div className={`container ${styles.heroInner}`}>
           <h1 className={styles.heroTitle}>{hero.title}</h1>
-          <p className={styles.heroLead}>{hero.lead}</p>
-          <p className={styles.heroTrust}>{hero.trust}</p>
+          <p className={styles.heroLead}><span className={styles.wide}>{hero.lead}</span><span className={styles.narrow}>{hero.leadShort}</span></p>
+          <p className={styles.heroTrust}>{hero.trust}<span className={styles.wide}> · {hero.certs}</span></p>
           <div className={styles.heroActions}>
             <Link href="/products/" className="btn btn-light btn-lg">{hero.cta} <Icon name="arrow-right" /></Link>
             <Link href="/fmcg/#order" className="btn btn-ghost-light btn-lg">{hero.ctaFmcg} <Icon name="arrow-right" /></Link>

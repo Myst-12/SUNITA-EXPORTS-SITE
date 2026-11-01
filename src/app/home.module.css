@@ -28,6 +28,18 @@
 .heroActions { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 520px) { .heroActions :global(.btn) { flex: 1 1 100%; justify-content: center; } }
 .heroTrust { color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; letter-spacing: 0.01em; max-width: 52ch; margin-bottom: 2rem; }
+/* Phones get a shorter lead and trust line (set in src/data/home.js) and a darker scrim behind the text. */
+.narrow { display: none; }
+@media (max-width: 640px) {
+  .wide { display: none; }
+  .narrow { display: inline; }
+  .heroInner { padding-bottom: 96px; } /* clear of the floating WhatsApp button */
+  .heroTitle { margin-bottom: 0.9rem; }
+  .heroLead { font-size: 1.02rem; margin-bottom: 0.75rem; }
+  .heroTrust { font-size: 0.8rem; margin-bottom: 1.5rem; }
+  .heroActions { gap: 10px; }
+  .heroScrim { background: linear-gradient(180deg, rgba(4, 22, 13, 0.5) 0%, rgba(4, 22, 13, 0) 20%), linear-gradient(0deg, rgba(4, 22, 13, 0.9) 0%, rgba(4, 22, 13, 0.7) 50%, rgba(4, 22, 13, 0) 80%); }
+}
 @keyframes heroUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes heroSettle { from { transform: scale(1.06); } to { transform: none; } }
 

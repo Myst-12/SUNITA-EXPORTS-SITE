@@ -86,8 +86,9 @@
   .waBtn, .acctBtn { width: 36px; height: 36px; }
   .burger { width: 40px; height: 40px; margin-right: -6px; }
 }
-/* Small phones: the floating WhatsApp button already covers WhatsApp, so free the header space. */
-@media (max-width: 400px) {
+/* Phones: the floating WhatsApp button covers WhatsApp and the menu has "My account / Log in",
+   so the header keeps just the logo, language and the menu button. */
+@media (max-width: 640px) {
   .waBtn, .acctBtn { display: none; }
 }
 
