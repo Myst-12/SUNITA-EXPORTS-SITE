@@ -1,0 +1,45 @@
+/* FMCG order cards: picture, packaging, pack size, brand, quantity and an Add button. */
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.card { display: grid; grid-template-rows: auto 1fr; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 2px rgba(18, 33, 26, 0.06), 0 8px 24px rgba(18, 33, 26, 0.05); transition: box-shadow 0.25s var(--ease); }
+.inOrder { box-shadow: 0 0 0 2px var(--green-600), 0 8px 24px rgba(18, 33, 26, 0.06); }
+.img { position: relative; aspect-ratio: 4 / 3; background: var(--bg-soft); }
+.img img { object-fit: cover; }
+.body { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.body h3 { font-size: 1.08rem; margin: 0; }
+.desc { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; margin: 0; font-size: 0.85rem; }
+.facts dt { font-weight: 700; color: var(--ink); }
+.facts dd { margin: 0; color: var(--ink-2); }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; padding-top: 4px; }
+.field { display: grid; gap: 4px; min-width: 0; }
+.field label, .qty label { font-size: 0.74rem; font-weight: 700; color: var(--muted); }
+.field input, .qty input, .qty select { width: 100%; min-height: 42px; padding: 0.45rem 0.6rem; border-radius: var(--radius-xs); border: 1.5px solid var(--line-strong); background: #fff; font-size: 0.9rem; }
+.field input:focus, .qty input:focus, .qty select:focus { outline: none; border-color: var(--green-600); box-shadow: 0 0 0 3px rgba(15, 122, 70, 0.12); }
+.qtyRow { display: flex; gap: 8px; align-items: end; }
+.qty { flex: 1; display: grid; grid-template-columns: minmax(48px, 1fr) minmax(94px, auto); gap: 4px 6px; min-width: 0; }
+.qty label { grid-column: 1 / -1; }
+.add { flex: none; display: inline-flex; align-items: center; gap: 4px; min-height: 42px; padding: 0 1rem; border-radius: var(--radius-xs); border: 1.5px solid var(--green-700); background: #fff; color: var(--green-700); font-weight: 700; font-size: 0.92rem; transition: background 0.2s, color 0.2s, transform 0.1s; }
+.add:not(:disabled):active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .add:not(:disabled):hover { background: var(--green-700); color: #fff; } }
+.add:disabled { cursor: default; opacity: 0.55; }
+.added, .added:disabled { background: var(--green-700); color: #fff; opacity: 1; }
+.remove { align-self: start; font-size: 0.82rem; font-weight: 700; color: var(--muted); padding: 2px 0; }
+@media (hover: hover) and (pointer: fine) { .remove:hover { color: #b42318; } }
+
+/* Order bar: bottom of the screen, clear of the WhatsApp button on the right. */
+.bar {
+  position: fixed; z-index: 80; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  display: flex; align-items: center; gap: 18px; padding: 8px 8px 8px 20px; border-radius: 999px;
+  background: var(--ink); color: #fff; box-shadow: 0 12px 32px rgba(18, 33, 26, 0.28); white-space: nowrap;
+  animation: barIn 0.35s var(--ease);
+}
+.bar b { font-variant-numeric: tabular-nums; }
+@keyframes barIn { from { opacity: 0; transform: translate(-50%, 16px); } }
+@media (max-width: 640px) {
+  .bar { left: 14px; right: 80px; transform: none; justify-content: space-between; gap: 10px; padding-left: 14px; font-size: 0.88rem; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .bar :global(.btn) { padding-inline: 0.9rem; font-size: 0.85rem; }
+  .long { display: none; }
+  @keyframes barIn { from { opacity: 0; transform: translateY(16px); } }
+}
+@media (prefers-reduced-motion: reduce) { .bar { animation: none; } }
+@media print { .bar { display: none; } }

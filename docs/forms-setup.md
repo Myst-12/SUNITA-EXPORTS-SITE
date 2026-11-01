@@ -44,3 +44,36 @@ Without these two keys, responses go to `.data/forms.json` on the machine runnin
 3. To send from `@sunitaexports.com`, verify the domain in Resend and set `FORMS_FROM_EMAIL`, e.g. `Sunita Agri Exports <forms@sunitaexports.com>`. Until then Resend's test sender only delivers to the Resend account's own email.
 
 Without a key, closing a form saves the Excel to `.data/outbox/` instead of emailing it.
+
+## 4. Online FMCG orders and buyer accounts
+Buyers create an account at `/account/signup/`, add products on `/fmcg/#order`, and place the order at `/order/`. Orders appear in admin under **Orders** (`/admin/orders/`) with an Excel download. Code: `src/lib/shop/`, `src/app/account/`, `src/app/order/`, `src/app/admin/orders/`.
+
+Run once in the Supabase SQL Editor:
+
+```sql
+create table customers (
+  id uuid primary key,
+  email text unique not null,
+  name text not null,
+  company text,
+  phone text,
+  country text,
+  password_hash text not null,
+  created_at timestamptz not null default now()
+);
+create table orders (
+  id uuid primary key,
+  number text unique not null,
+  customer_id uuid not null references customers(id) on delete cascade,
+  customer jsonb not null,
+  items jsonb not null,
+  details jsonb not null,
+  status text not null default 'new',
+  created_at timestamptz not null default now()
+);
+create index orders_customer_id on orders(customer_id);
+alter table customers enable row level security;
+alter table orders enable row level security;
+```
+
+Buyer log-ins are signed with `CUSTOMER_SECRET` (any long random text). If it is not set, `ADMIN_PASSWORD` is used, so changing the admin password logs every buyer out. Each order emails the client (`FORMS_NOTIFY_EMAIL`) and the buyer through Resend.

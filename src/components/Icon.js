@@ -37,6 +37,7 @@ const PATHS = {
   filter: <path d="M4 5h16l-6 7.5V19l-4 2v-8.5z" />,
   handshake: <><path d="m11 17 2 2a1.5 1.5 0 0 0 2-2" /><path d="m14 16 2.5 2.5a1.5 1.5 0 0 0 2-2L15 13" /><path d="M2.5 11.5 6 8l4 1 3-2 3 1 5.5 3.5" /><path d="m6 8 6.5 6.5a1.5 1.5 0 0 1-2 2L7 13" /></>,
   thermometer: <><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z" /><path d="M12 9v6" /></>,
+  user: <><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></>,
   box: <><rect x="3.5" y="7" width="17" height="13" rx="1.5" /><path d="M3.5 11h17" /><path d="M10 15h4" /><path d="M6 7l2-3h8l2 3" /></>,
 };
 

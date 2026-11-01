@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import PageHero from '@/components/PageHero';
-import ProductCard from '@/components/ProductCard';
+import OrderGrid from '@/components/OrderGrid';
 import FaqSection from '@/components/FaqSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import Icon from '@/components/Icon';
-import { getCategoryBySlug } from '@/data/products';
+import { orderableProducts } from '@/lib/shop/catalog';
 import { COMPANY, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
 
@@ -44,7 +44,7 @@ const FAQS = [
 ];
 
 export default function FmcgPage() {
-  const cat = getCategoryBySlug('foodstuff-fmcg');
+  const products = orderableProducts();
   return (
     <>
       <PageHero
@@ -55,7 +55,9 @@ export default function FmcgPage() {
         image="/images/scenes/grocery-shelf.webp"
         imageAlt="Indian snacks and grocery products on store shelves"
       >
-        <Link href="/contact/?product=Indian%20FMCG%20mixed%20container" className="btn btn-primary btn-lg">Send your SKU list <Icon name="arrow-right" /></Link>
+        <Link href="#order" className="btn btn-primary btn-lg">Order online <Icon name="arrow-right" /></Link>
+        <Link href="/contact/?product=Indian%20FMCG%20mixed%20container" className="btn btn-outline btn-lg">Send your SKU list</Link>
+
         <a href={whatsappLink('Hello, I want to import Indian FMCG / grocery products.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 
@@ -118,19 +120,18 @@ export default function FmcgPage() {
         </div>
       </section>
 
-      {cat && (
-        <section className="section">
+      {products.length > 0 && (
+        <section id="order" className="section" style={{ scrollMarginTop: 80 }}>
           <div className="container">
             <div className="section-head">
               <div>
-                <span className="eyebrow">Product pages</span>
-                <h2>Browse FMCG categories</h2>
+                <span className="eyebrow">Order online</span>
+                <h2>Order FMCG by the carton</h2>
+                <p className="lead">Enter the quantity, pack size and brand for each product and add it to your order. Log in once to send it — our team confirms prices, availability and shipping dates.</p>
               </div>
-              <Link href="/products/foodstuff-fmcg/" className="link-arrow">See all <Icon name="arrow-right" /></Link>
+              <Link href="/account/" className="link-arrow">Your orders <Icon name="arrow-right" /></Link>
             </div>
-            <div className="grid-4">
-              {cat.products.slice(0, 8).map((p) => <ProductCard key={p.slug} product={p} />)}
-            </div>
+            <OrderGrid products={products} />
           </div>
         </section>
       )}

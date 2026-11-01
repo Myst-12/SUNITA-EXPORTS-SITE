@@ -1,6 +1,6 @@
 import { SITE_URL } from '@/config/site';
 
-const PRIVATE = ['/admin/', '/f/', '/api/'];
+const PRIVATE = ['/admin/', '/f/', '/api/', '/account/', '/order/'];
 // Search and AI crawlers named explicitly so it is clear they are welcome. A crawler with its own group
 // ignores the * group, so each one repeats the private paths.
 const NAMED_BOTS = ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'PerplexityBot', 'Perplexity-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'Google-Extended', 'Applebot', 'Applebot-Extended'];

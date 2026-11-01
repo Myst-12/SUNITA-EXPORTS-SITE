@@ -104,6 +104,9 @@ export default function Header({ categories = [] }) {
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={styles.waBtn} aria-label="Chat on WhatsApp">
               <Icon name="whatsapp" size={19} />
             </a>
+            <Link href="/account/" className={styles.acctBtn} aria-label="My account and orders">
+              <Icon name="user" size={19} />
+            </Link>
             <Link href="/contact/" className={`btn btn-sm ${clear ? 'btn-light' : 'btn-primary'} ${styles.quoteBtn}`}>
               Get a Quote
             </Link>
@@ -148,6 +151,7 @@ export default function Header({ categories = [] }) {
             </div>
           )}
           <Link href="/contact/" className={styles.drawerLink}>Contact</Link>
+          <Link href="/account/" className={styles.drawerLink}>My account / Log in</Link>
         </nav>
         <div className={styles.drawerFoot}>
           <Link href="/contact/" className="btn btn-primary btn-block">Get a Quote</Link>

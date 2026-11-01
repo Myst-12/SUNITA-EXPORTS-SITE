@@ -10,7 +10,7 @@ const SB_URL = process.env.SUPABASE_URL?.replace(/\/$/, '');
 const SB_KEY = process.env.SUPABASE_SERVICE_KEY;
 export const usingDatabase = Boolean(SB_URL && SB_KEY);
 
-async function sb(pathAndQuery, init = {}) {
+export async function sb(pathAndQuery, init = {}) {
   const res = await fetch(`${SB_URL}/rest/v1/${pathAndQuery}`, {
     ...init,
     cache: 'no-store',

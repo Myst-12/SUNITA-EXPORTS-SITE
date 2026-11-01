@@ -6,11 +6,11 @@ import { CONTACT, COMPANY, SITE_URL, whatsappLink } from '@/config/site';
 // Emails the Excel file through Resend (RESEND_API_KEY). Without a key — e.g. on localhost — the
 // file is saved to .data/outbox/ instead so the flow can still be tested.
 const FROM = () => process.env.FORMS_FROM_EMAIL || 'Sunita Agri Exports <onboarding@resend.dev>';
-const notifyList = () => (process.env.FORMS_NOTIFY_EMAIL || CONTACT.email).split(',').map((s) => s.trim()).filter(Boolean);
-const esc = (v) => String(v ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+export const notifyList = () => (process.env.FORMS_NOTIFY_EMAIL || CONTACT.email).split(',').map((s) => s.trim()).filter(Boolean);
+export const esc = (v) => String(v ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 /** Sends one email through Resend; never throws (a failed email must not break a form submission). */
-async function send(payload) {
+export async function send(payload) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return { sent: false, note: 'no RESEND_API_KEY' };
   try {

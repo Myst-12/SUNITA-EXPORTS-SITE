@@ -11,6 +11,14 @@ export const TOOLS = [
     description: 'Make a lead form for an exhibition, show its QR code, and get the responses in Excel.',
   },
   {
+    slug: 'orders',
+    name: 'Orders',
+    short: 'Orders',
+    href: '/admin/orders/',
+    icon: 'package',
+    description: 'FMCG orders placed by buyers on the website, with their details and an Excel download.',
+  },
+  {
     slug: 'quotation',
     name: 'Quotation cost calculator',
     short: 'Quotation',

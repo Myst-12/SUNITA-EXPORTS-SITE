@@ -59,6 +59,10 @@
 .waBtn:hover { background: #eaf8ef; }
 .clear .waBtn { color: #fff; }
 .clear .waBtn:hover { background: rgba(255, 255, 255, 0.14); }
+.acctBtn { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 999px; color: var(--ink-2); transition: background 0.25s, color 0.25s; }
+.acctBtn:hover { background: var(--bg-mist); color: var(--green-700); }
+.clear .acctBtn { color: #fff; }
+.clear .acctBtn:hover { background: rgba(255, 255, 255, 0.14); }
 .lang { color: var(--ink-2); transition: color 0.25s; }
 .clear .lang { color: #fff; }
 .burger { display: none; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--green-900); transition: color 0.25s; }
@@ -79,12 +83,12 @@
   .brandName { font-size: 1rem; white-space: nowrap; }
   .brandTag { font-size: 0.6rem; letter-spacing: 0; }
   .actions { gap: 2px; }
-  .waBtn { width: 36px; height: 36px; }
+  .waBtn, .acctBtn { width: 36px; height: 36px; }
   .burger { width: 40px; height: 40px; margin-right: -6px; }
 }
 /* Small phones: the floating WhatsApp button already covers WhatsApp, so free the header space. */
 @media (max-width: 400px) {
-  .waBtn { display: none; }
+  .waBtn, .acctBtn { display: none; }
 }
 
 /* ---------- Mobile drawer ---------- */
