@@ -9,6 +9,11 @@ import s from '../admin.module.css';
 export const metadata = { title: 'Orders' };
 
 const ist = (iso) => new Date(iso).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+// Buyers sometimes type "None" or "-" when they have no company; treat that as no company.
+const companyOf = (c) => (/^(none|nil|na|n\/a|no|-+|\.+|self|individual)$/i.test(String(c.company || '').trim()) ? '' : String(c.company || '').trim());
+// "1 Carton", "5 Cartons": units are stored plural.
+const ONE = { Cartons: 'Carton', Bags: 'Bag', Boxes: 'Box', Pieces: 'Piece', Packs: 'Pack', Drums: 'Drum', Jars: 'Jar', Tins: 'Tin', Cans: 'Can', Bottles: 'Bottle' };
+const qtyUnit = (it) => `${it.qty} ${Number(it.qty) === 1 ? ONE[it.unit] || it.unit : it.unit}`;
 const BADGE = { new: s.badgeNew, confirmed: s.open, shipped: s.badgeShipped, cancelled: s.closed };
 
 export default async function OrdersTool({ searchParams }) {
@@ -55,19 +60,20 @@ export default async function OrdersTool({ searchParams }) {
         <div className={s.list}>
           {shown.map((o) => {
             const c = o.customer;
+            const company = companyOf(c);
             const wa = String(c.phone || '').replace(/\D/g, '');
             return (
               <details key={o.id} className={s.orderCard}>
                 <summary className={s.orderSum}>
                   <div>
-                    <h2>{c.company || c.name} <span className={s.meta}>· {c.country}</span></h2>
+                    <h2>{c.name}{company && <> · {company}</>} <span className={s.meta}>· {c.country}</span></h2>
                     <span className={s.meta}><span className={`${s.badge} ${BADGE[o.status] || ''}`}>{statusLabel(o.status)}</span> · {o.number} · {ist(o.created_at)}</span>
                   </div>
                   <div className={s.count}>{o.items.length}<small>product{o.items.length === 1 ? '' : 's'}</small></div>
                 </summary>
                 <div className={s.orderBody}>
                   <p className={s.orderWho}>
-                    <b>{c.name}</b>{c.company && `, ${c.company}`}<br />
+                    <span className={s.meta}>Name</span> <b>{c.name}</b> · <span className={s.meta}>Company</span> <b>{company || '—'}</b><br />
                     <a href={`mailto:${c.email}?subject=${encodeURIComponent(`Your order ${o.number}`)}`}>{c.email}</a> · <a href={`tel:${c.phone}`}>{c.phone}</a>
                     {wa.length >= 8 && <> · <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener noreferrer">WhatsApp</a></>}
                   </p>
@@ -76,7 +82,7 @@ export default async function OrdersTool({ searchParams }) {
                       <thead><tr><th>Product</th><th>Pack size</th><th>Brand</th><th>Quantity</th></tr></thead>
                       <tbody>
                         {o.items.map((it) => (
-                          <tr key={it.slug}><td>{it.name}{it.code && <span className={s.meta}> #{it.code}</span>}</td><td>{it.pack || '—'}</td><td>{it.brand || '—'}</td><td><b>{it.qty} {it.unit}</b></td></tr>
+                          <tr key={it.slug}><td>{it.name}{it.code && <span className={s.meta}> #{it.code}</span>}</td><td>{it.pack || '—'}</td><td>{it.brand || '—'}</td><td><b>{qtyUnit(it)}</b></td></tr>
                         ))}
                       </tbody>
                     </table>

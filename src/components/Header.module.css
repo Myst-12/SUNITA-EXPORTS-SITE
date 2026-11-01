@@ -27,8 +27,7 @@
   display: inline-flex; align-items: center; gap: 0.3rem;
   padding: 0.5rem 0.85rem; border-radius: 999px;
   font-size: 0.92rem; font-weight: 600; color: var(--ink-2);
-  transition: color 0.25s var(--ease), background 0.25s var(--ease);
-}
+  transition: color 0.25s var(--ease), background 0.25s var(--ease); white-space: nowrap; }
 .link:hover, .item:hover > .link, .item:focus-within > .link { color: var(--green-700); }
 .active { color: var(--green-700); }
 .clear .link { color: rgba(255, 255, 255, 0.92); }
@@ -70,7 +69,8 @@
 .clear .burger { color: #fff; }
 .clear .burger:hover { background: rgba(255, 255, 255, 0.12); }
 
-@media (max-width: 1024px) {
+/* Five menu items plus the actions need about 1,240px; below that the menu button takes over. */
+@media (max-width: 1239px) {
   .nav { display: none; }
   .burger { display: grid; }
   .actions { margin-left: auto; }
@@ -108,4 +108,4 @@
 .drawerFoot { margin-top: auto; padding: 20px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; }
 .drawerContacts { display: grid; gap: 0.5rem; margin-top: 8px; font-size: 0.9rem; font-weight: 600; color: var(--green-800); }
 .drawerContacts a { display: flex; align-items: center; gap: 0.5rem; }
-@media (min-width: 1025px) { .drawer { display: none; } }
+@media (min-width: 1240px) { .drawer { display: none; } }
