@@ -22,4 +22,11 @@ export const FMCG_FAMILY_LINKS = {
   'makhana-healthy-snacks': list('', 'makhana'),
   'personal-care': list('personal-care'),
   'household-home-care': list('household-and-cleaning'),
+  'cooking-oils-ghee': list('oils-and-ghee'),
+  'dry-fruits-nuts-seeds': list('dry-fruits-nuts-and-seeds'),
+  'mukhwas-confectionery': list('confectionery-and-mukhwas'),
+  'dehydrated-vegetables': list('vegetables-and-dehydrated'),
+  'pooja-items-agarbatti': list('pooja-items-and-agarbatti'),
+  'ayurveda-health-products': list('ayurveda-and-health'),
+  'kitchenware-utensils': list('kitchenware-and-utensils'),
 };

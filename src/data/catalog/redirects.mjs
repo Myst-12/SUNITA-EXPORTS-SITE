@@ -69,7 +69,6 @@ export const catalogueRedirects = [
   ['/products/foodstuff-fmcg/indian-sweets-candies', '/products/foodstuff-fmcg/sweets-confectionery/'],
   ['/products/foodstuff-fmcg/tea-beverages', '/products/foodstuff-fmcg/tea-instant-beverages/'],
   ['/products/foodstuff-fmcg/papad-fryums', '/products/foodstuff-fmcg/papad-traditional-foods/'],
-  ['/products/foodstuff-fmcg/cooking-oils-ghee', '/products/foodstuff-fmcg/dairy-products/'],
   ['/products/foodstuff-fmcg/cooking-pastes', '/products/foodstuff-fmcg/sauces-condiments/'],
   ['/products/foodstuff-fmcg/honey-jams-syrups', '/products/foodstuff-fmcg/'],
   ['/products/foodstuff-fmcg/mouth-fresheners', '/products/foodstuff-fmcg/'],

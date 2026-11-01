@@ -212,6 +212,13 @@ export const categoryList = [
       { slug: 'healthy-snacks', name: 'Healthy Snacks' },
       { slug: 'personal-care', name: 'Personal Care' },
       { slug: 'household-home-care', name: 'Household & Home Care' },
+      { slug: 'oils-ghee', name: 'Oils & Ghee' },
+      { slug: 'dry-fruits', name: 'Dry Fruits & Nuts' },
+      { slug: 'mukhwas', name: 'Mukhwas & Confectionery' },
+      { slug: 'dehydrated-vegetables', name: 'Dehydrated Vegetables' },
+      { slug: 'pooja', name: 'Pooja Items' },
+      { slug: 'ayurveda', name: 'Ayurveda & Health' },
+      { slug: 'kitchenware', name: 'Kitchenware' },
     ],
   },
   {

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { productCategories, getCategoryBySlug } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { FMCG_FAMILY_LINKS } from '@/data/fmcg/familyLinks';
+import { FMCG_TOTAL } from '@/lib/shop/fmcg';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import { COMPANY, SITE_URL, whatsappLink } from '@/config/site';
@@ -41,10 +42,13 @@ export default async function CategoryPage({ params }) {
   const name = cat.name;
   const lower = name.toLowerCase();
   const grouped = !cat.flat && cat.subcategories.length > 1;
+  const isFmcg = cat.slug === 'foodstuff-fmcg';
   const faqs = [
     {
       question: `Which ${lower} do you export?`,
-      answer: `${cat.productCount} products${grouped ? ` across ${cat.subcategories.length} groups — ${cat.subcategories.map((s) => s.name).join(', ')}` : ''}. Each product page has a downloadable specification sheet and a quote button.`,
+      answer: isFmcg
+        ? `${cat.productCount} product categories — ${cat.products.map((pr) => pr.name).join(', ')}. Each one opens our FMCG product list of ${FMCG_TOTAL.toLocaleString('en-IN')} products, where you can see every pack and order online.`
+        : `${cat.productCount} products${grouped ? ` across ${cat.subcategories.length} groups — ${cat.subcategories.map((s) => s.name).join(', ')}` : ''}. Each product page has a downloadable specification sheet and a quote button.`,
     },
     {
       question: `How can I get a price list for ${lower}?`,
@@ -76,7 +80,9 @@ export default async function CategoryPage({ params }) {
             <div>
               <h1>{name} exporter from India</h1>
               <p className="lead">{cat.description}</p>
-              <p className={styles.catCount}>{cat.productCount} products · specification sheet and quote on every product</p>
+              <p className={styles.catCount}>{isFmcg
+                ? <>{cat.productCount} product categories · <Link href="/fmcg/catalogue/">{FMCG_TOTAL.toLocaleString('en-IN')} products to order online</Link></>
+                : `${cat.productCount} products · specification sheet and quote on every product`}</p>
               <div className="btn-row mt-3">
                 <Link href={`/contact/?product=${encodeURIComponent(name)}`} className="btn btn-primary">Request a quote <Icon name="arrow-right" /></Link>
                 <a href={whatsappLink(`Hello, please share your ${lower} price list.`)} target="_blank" rel="noopener noreferrer" className="btn btn-outline"><Icon name="whatsapp" /> WhatsApp</a>

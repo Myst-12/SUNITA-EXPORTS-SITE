@@ -6276,7 +6276,130 @@ export const products = [
     "forms": [
       "Retail packs"
     ],
-    "description": "Household cleaning products, incense, pooja items and other home-care goods.",
+    "description": "Household cleaning products such as detergents, dishwash and floor cleaners, mosquito repellents and other home-care goods.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "cooking-oils-ghee",
+    "name": "Cooking Oils & Ghee",
+    "category": "foodstuff-fmcg",
+    "subcategory": "oils-ghee",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Bottles",
+      "Tins & jars"
+    ],
+    "description": "Mustard, groundnut, sesame and coconut oils in bottles, jars and tins, plus cow and buffalo ghee where the destination allows dairy imports from India.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "dry-fruits-nuts-seeds",
+    "name": "Dry Fruits, Nuts & Seeds",
+    "category": "foodstuff-fmcg",
+    "subcategory": "dry-fruits",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Retail packs",
+      "Bulk cartons"
+    ],
+    "description": "Cashews, almonds, raisins, dates, figs and edible seeds such as flax, chia and melon seeds, in retail packs or bulk cartons.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "mukhwas-confectionery",
+    "name": "Mukhwas & Confectionery",
+    "category": "foodstuff-fmcg",
+    "subcategory": "mukhwas",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Jars",
+      "Packets"
+    ],
+    "description": "Mukhwas and sweet saunf, digestive goli, Indian candies and toffees in jars, tins and packets.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "dehydrated-vegetables",
+    "name": "Dehydrated Vegetables",
+    "category": "foodstuff-fmcg",
+    "subcategory": "dehydrated-vegetables",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Flakes & powder",
+      "Retail packs"
+    ],
+    "description": "Dehydrated onion, garlic and mixed vegetables, dried leaves and ready vegetable mixes for kitchens and retail.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "pooja-items-agarbatti",
+    "name": "Pooja Items & Agarbatti",
+    "category": "foodstuff-fmcg",
+    "subcategory": "pooja",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Retail packs"
+    ],
+    "description": "Agarbatti and dhoop, camphor, kumkum and haldi, cotton wicks, diyas, pooja thalis and other prayer essentials.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "ayurveda-health-products",
+    "name": "Ayurveda & Health",
+    "category": "foodstuff-fmcg",
+    "subcategory": "ayurveda",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Retail packs"
+    ],
+    "description": "Ayurvedic tonics, churnas, chyawanprash, herbal juices and wellness products, supplied where the destination's rules allow.",
+    "packaging": [
+      "Retail packs to brand or buyer specification",
+      "Export master cartons",
+      "Consolidated in mixed containers"
+    ]
+  },
+  {
+    "slug": "kitchenware-utensils",
+    "name": "Kitchenware & Utensils",
+    "category": "foodstuff-fmcg",
+    "subcategory": "kitchenware",
+    "type": "fmcg",
+    "origin": "India",
+    "forms": [
+      "Pieces & sets"
+    ],
+    "description": "Stainless steel and aluminium utensils, kadhai, tawa, pressure cookers, containers, brassware and traditional Indian kitchen tools.",
     "packaging": [
       "Retail packs to brand or buyer specification",
       "Export master cartons",
