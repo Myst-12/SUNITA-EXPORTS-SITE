@@ -363,6 +363,13 @@ export const productImages = {
   'tamarind-kernel-powder': '/images/catalog/tamarind-kernel-powder.webp', // generated
   'beverages': '/images/catalog/beverages.webp', // generated
   'household-home-care': '/images/catalog/household-home-care.webp', // generated
+  'cooking-oils-ghee': '/images/catalog/cooking-oils-ghee.webp', // generated
+  'dry-fruits-nuts-seeds': '/images/catalog/dry-fruits-nuts-seeds.webp', // generated
+  'mukhwas-confectionery': '/images/catalog/mukhwas-confectionery.webp', // generated
+  'dehydrated-vegetables': '/images/catalog/dehydrated-vegetables.webp', // generated
+  'pooja-items-agarbatti': '/images/catalog/pooja-items-agarbatti.webp', // generated
+  'ayurveda-health-products': '/images/catalog/ayurveda-health-products.webp', // generated
+  'kitchenware-utensils': '/images/catalog/kitchenware-utensils.webp', // generated
   'ajwain-powder': '/images/catalog/ajwain-powder.webp', // generated
   'nirmali-seeds': '/images/catalog/nirmali-seeds.webp', // generated
   'ambrette-seeds': '/images/catalog/ambrette-seeds.webp', // generated
