@@ -62,7 +62,7 @@ export function sendThankYou(form, data) {
         &nbsp;
         <a href="${esc(whatsappLink())}" style="background:#25d366;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:bold">WhatsApp us</a>
       </p>
-      <p style="color:#5b6660;font-size:13px">${esc(COMPANY.name)} · Mumbai, India · ${esc(CONTACT.quotePhone.display)} · ${esc(CONTACT.email)}</p>
+      <p style="color:#5b6660;font-size:13px">${esc(COMPANY.name)} · Mumbai, India · ${esc(CONTACT.quotePhone.display)} · ${esc(CONTACT.emails.join(' · '))}</p>
     </div>`,
   });
 }

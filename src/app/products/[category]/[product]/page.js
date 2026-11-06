@@ -348,7 +348,7 @@ export default async function ProductDetailPage({ params }) {
               <p>Tell us grade, packing, quantity and destination port. We reply within 24 hours.</p>
               <Link href={quoteHref} className="btn btn-primary btn-block">Request quote <Icon name="arrow-right" /></Link>
               <a href={whatsappLink(waText)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-block"><Icon name="whatsapp" /> WhatsApp {CONTACT.quotePhone.display}</a>
-              <a href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(`Quote request: ${product.name}`)}`} className={styles.quoteMail}><Icon name="mail" size={16} /> {CONTACT.email}</a>
+              {CONTACT.emails.map((e) => <a key={e} href={`mailto:${e}?subject=${encodeURIComponent(`Quote request: ${product.name}`)}`} className={styles.quoteMail}><Icon name="mail" size={16} /> {e}</a>)}
             </div>
             <a href={pdfHref} download={pdfName} className={styles.sideLink}>
               <Icon name="download" size={22} />

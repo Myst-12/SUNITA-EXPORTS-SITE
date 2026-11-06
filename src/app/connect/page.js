@@ -4,6 +4,7 @@ import Icon from '@/components/Icon';
 import SocialLinks from '@/components/SocialLinks';
 import { COMPANY, CONTACT, DIRECTORS, SITE_URL, fullAddress, mapsLink, ukAddress, ukMapsLink, whatsappLink } from '@/config/site';
 import styles from './connect.module.css';
+import EmailLinks from '@/components/EmailLinks';
 
 // Digital business card opened by the QR code on page 2 of the printed brochure.
 export const metadata = {
@@ -54,7 +55,7 @@ export default function ConnectPage() {
 
         <div className={styles.quick}>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"><span className={styles.qWa}><Icon name="whatsapp" size={22} /></span>WhatsApp</a>
-          <a href={`mailto:${CONTACT.email}`}><span><Icon name="mail" size={22} /></span>Email</a>
+          <a href={`mailto:${CONTACT.emails.join(',')}`}><span><Icon name="mail" size={22} /></span>Email</a>
           <a href="/connect/sunita-agri-exports.vcf" download><span><Icon name="download" size={22} /></span>Save contact</a>
           <Link href="/contact/"><span><Icon name="file" size={22} /></span>Get a quote</Link>
         </div>
@@ -62,7 +63,7 @@ export default function ConnectPage() {
         <dl className={styles.details}>
           <div>
             <dt><Icon name="mail" size={18} /> Email</dt>
-            <dd><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd>
+            <dd><EmailLinks sep={<br />} /></dd>
           </div>
           <div>
             <dt><Icon name="phone" size={18} /> Office</dt>

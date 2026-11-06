@@ -47,7 +47,7 @@ export function sendOrderConfirmation(order) {
       <p>Thank you for your order <b>${esc(order.number)}</b>. Our export team will check availability and send you prices, the proforma invoice and shipping dates shortly.</p>
       ${itemsTable(order.items)}
       <p><a href="${SITE_URL}/account/" style="color:#086639;font-weight:bold">See your orders</a></p>
-      <p style="color:#5b6660">WhatsApp ${esc(CONTACT.quotePhone.display)} · ${esc(CONTACT.email)}<br>${esc(COMPANY.name)}, Mumbai</p>
+      <p style="color:#5b6660">WhatsApp ${esc(CONTACT.quotePhone.display)} · ${esc(CONTACT.emails.join(' · '))}<br>${esc(COMPANY.name)}, Mumbai</p>
     </div>`,
   });
 }

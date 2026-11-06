@@ -17,7 +17,7 @@ export function GET() {
   const docs = [
     {
       type: 'answer', title: 'Contact details', url: '/contact/',
-      text: `Phone: ${phones}. Office: ${CONTACT.landline.display}. Email: ${CONTACT.email}. WhatsApp: +${CONTACT.whatsapp}. Hours: ${CONTACT.hours}. Address: ${fullAddress()}.`,
+      text: `Phone: ${phones}. Office: ${CONTACT.landline.display}. Email: ${CONTACT.emails.join(' or ')}. WhatsApp: +${CONTACT.whatsapp}. Hours: ${CONTACT.hours}. Address: ${fullAddress()}.`,
       keywords: 'contact phone number call email mail whatsapp address office location where reach talk hours timing',
     },
     {

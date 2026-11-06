@@ -267,8 +267,8 @@ async function buildPdf(p) {
     text(pg, `${COMPANY.legalName}, Mumbai, India`, M, fy - 20, 7.6, font, MUTED);
     const cx = A4[0] / 2 + 20;
     text(pg, 'Trade desk:', cx, fy, 7.6, bold, INK);
-    text(pg, `Email: ${CONTACT.email} · WhatsApp: ${CONTACT.quotePhone.display}`, cx, fy - 10, 7.6, font, MUTED);
-    text(pg, `Web: ${SITE_URL.replace(/^https?:\/\//, '')}`, cx, fy - 20, 7.6, font, MUTED);
+    text(pg, `Email: ${CONTACT.emails.join(' / ')}`, cx, fy - 10, 7.6, font, MUTED);
+    text(pg, `WhatsApp: ${CONTACT.quotePhone.display} · Web: ${SITE_URL.replace(/^https?:\/\//, '')}`, cx, fy - 20, 7.6, font, MUTED);
     const line = `${SITE_URL}${productUrl(p)} · © ${issued.getFullYear()} ${COMPANY.legalName} · Page ${i + 1} of ${pages.length}`;
     text(pg, line, M, M - 4, 6.8, font, MUTED);
   });

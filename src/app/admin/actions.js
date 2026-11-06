@@ -6,12 +6,14 @@ import { createForm, getForm, setFormStatus, listResponses, deleteForm, updateFo
 import { buildFields, FIELD_LIBRARY } from '@/lib/forms/fields';
 import { buildWorkbook, excelName } from '@/lib/forms/excel';
 import { emailWorkbook } from '@/lib/forms/mail';
+import { limited } from '@/lib/rateLimit';
 
 async function requireAdmin() {
   if (!(await isAdmin())) redirect('/admin/');
 }
 
 export async function login(formData) {
+  if (await limited('admin-login', 8, 15 * 60e3)) redirect('/admin/?error=wait');
   if (!passwordMatches(formData.get('password') || '')) redirect('/admin/?error=1');
   await startSession();
   redirect('/admin/');

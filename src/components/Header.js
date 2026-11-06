@@ -162,7 +162,7 @@ export default function Header({ categories = [] }) {
             {CONTACT.phones.map((p, i) => (
               <a key={p.tel} href={`tel:${p.tel}`} data-secondary-phone={i > 0 || undefined}><Icon name="phone" size={15} /> {p.display}</a>
             ))}
-            <a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={15} /> {CONTACT.email}</a>
+            {CONTACT.emails.map((e) => <a key={e} href={`mailto:${e}`}><Icon name="mail" size={15} /> {e}</a>)}
           </div>
         </div>
       </div>

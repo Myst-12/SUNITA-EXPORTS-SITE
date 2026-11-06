@@ -5,6 +5,7 @@ import { faqs } from '@/data/faq';
 import { faqSchema } from '@/lib/schemas';
 import { CONTACT, whatsappLink } from '@/config/site';
 import s from '../pages.module.css';
+import EmailLinks from '@/components/EmailLinks';
 
 export const metadata = {
   title: 'FAQ for Importers — MOQ, Payment, Shipping & Quality',
@@ -56,7 +57,7 @@ export default function FaqPage() {
               </div>
             );
           })}
-          <p className="text-muted center">Still have a question? Email <a className="text-green" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
+          <p className="text-muted center">Still have a question? Email <span className="text-green"><EmailLinks sep=" or " /></span>.</p>
         </div>
       </section>
     </>

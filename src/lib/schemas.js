@@ -3,7 +3,7 @@
  * Sunita Agri Exports Pvt. Ltd.
  */
 
-import { SITE_URL, COMPANY as SITE_COMPANY, CONTACT, SOCIAL } from '@/config/site';
+import { SITE_URL, COMPANY as SITE_COMPANY, CONTACT, SOCIAL, LISTINGS } from '@/config/site';
 
 const COMPANY = {
   name: SITE_COMPANY.legalName,
@@ -11,7 +11,7 @@ const COMPANY = {
   url: SITE_URL,
   logo: `${SITE_URL}${SITE_COMPANY.logo}`,
   phone: CONTACT.phones[0].tel,
-  email: CONTACT.email,
+  email: CONTACT.emails,
   address: {
     streetAddress: CONTACT.address.street,
     addressLocality: CONTACT.address.city,
@@ -28,7 +28,7 @@ const COMPANY = {
   },
   foundingDate: String(SITE_COMPANY.foundingYear),
   description: SITE_COMPANY.description,
-  sameAs: SOCIAL.map((s) => s.url).filter(Boolean), // only profiles that exist
+  sameAs: [...SOCIAL.map((s) => s.url).filter(Boolean), ...LISTINGS], // only profiles that exist
 };
 
 /** WebSite: the site's name for Google's site-name display. Homepage only. */

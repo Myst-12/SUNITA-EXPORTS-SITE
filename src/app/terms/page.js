@@ -1,5 +1,6 @@
 import PageHero from '@/components/PageHero';
 import { COMPANY, CONTACT, fullAddress } from '@/config/site';
+import EmailLinks from '@/components/EmailLinks';
 
 export const metadata = {
   title: 'Terms of Use',
@@ -61,7 +62,7 @@ export default function TermsPage() {
           <p>These terms are governed by the laws of India, with courts in Mumbai having jurisdiction.</p>
 
           <h2>Contact</h2>
-          <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> · {CONTACT.phones[0].display}</p>
+          <p><EmailLinks /> · {CONTACT.phones[0].display}</p>
         </div>
       </section>
     </>

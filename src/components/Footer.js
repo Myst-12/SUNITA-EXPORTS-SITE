@@ -3,6 +3,7 @@ import HomeLink from './HomeLink';
 import { COMPANY, CONTACT, fullAddress, mapsLink, ukAddress, ukMapsLink, WHATSAPP_CHANNEL } from '@/config/site';
 import SocialLinks from './SocialLinks';
 import styles from './Footer.module.css';
+import EmailLinks from './EmailLinks';
 
 const COMPANY_LINKS = [
   { label: 'About us', href: '/about/' },
@@ -63,7 +64,7 @@ export default function Footer({ categories = [] }) {
             {CONTACT.phones.map((p, i) => (
               <li key={p.tel} data-secondary-phone={i > 0 || undefined}><a href={`tel:${p.tel}`}>{p.display}</a></li>
             ))}
-            <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+            <EmailLinks as="li" />
             <li><a href={WHATSAPP_CHANNEL} target="_blank" rel="noopener noreferrer" className={styles.more}>Join our WhatsApp channel</a></li>
             <li><a href={mapsLink()} target="_blank" rel="noopener noreferrer" className={styles.address}>{fullAddress()}</a></li>
             <li><a href={ukMapsLink()} target="_blank" rel="noopener noreferrer" className={styles.address}>UK office: {ukAddress()}</a></li>

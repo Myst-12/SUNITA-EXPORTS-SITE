@@ -28,7 +28,8 @@ export const COMPANY = {
 export const yearsInBusiness = () => new Date().getFullYear() - COMPANY.foundingYear;
 
 export const CONTACT = {
-  email: 'sunitaexportsindia@gmail.com',
+  email: 'sunitaexportsindia@gmail.com', // main inbox: replies, form alerts
+  emails: ['sunitaexportsindia@gmail.com', 'sales@sunitaexports.com'], // both shown wherever the site lists an email
   phones: [
     { label: 'Sales & WhatsApp', display: '+91 81692 82942', tel: '+918169282942' },
     { label: 'Sales', display: '+91 90040 41889', tel: '+919004041889' },
@@ -64,7 +65,7 @@ export const CONTACT = {
 };
 
 // Directors, shown on /connect/ (opened by the brochure's contact QR). Each one's direct line; empty fields are not shown.
-// Email stays the single company inbox (CONTACT.email).
+// Company emails are CONTACT.emails (shown together); CONTACT.email is the main inbox.
 export const DIRECTORS = [
   { name: 'Alok Dhanuka', role: 'Director', image: '/images/team/alok-dhanuka-portrait.webp', phone: '+91 81692 82942', whatsapp: '+91 81692 82942' },
   { name: 'Ankit Dhanuka', role: 'Director', image: '/images/team/ankit-dhanuka-portrait.webp', phone: '+91 90040 41889', whatsapp: '+91 90040 41889' },
@@ -125,6 +126,14 @@ export const SOCIAL = [
   { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/SunitaExportsIndia' },
   { name: 'X', icon: 'x', url: 'https://x.com/SUNITAEXPORTS' },
   { name: 'WhatsApp Channel', icon: 'whatsapp', url: 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp1BVC2s' },
+];
+
+// Other public profiles of the company (directories, trade fairs). Listed in the schema "sameAs" so search engines and
+// AI tools connect them to this site; not shown as icons.
+export const LISTINGS = [
+  'https://www.indiamart.com/sunita-agri-exports-private-limited/',
+  'https://www.justdial.com/jdmart/Mumbai/Sunita-Agri-Exports-Pvt-Ltd-Lalji-Pada-Police-Station/022PXX22-XX22-210517121019-L6V6_BZDET/catalogue',
+  'https://www.gulfood.com/exhibitors/sunita-agri-exports-pvtltd',
 ];
 
 // "🇺🇸" -> "US" (emoji flags don't render on Windows, so we show codes instead).

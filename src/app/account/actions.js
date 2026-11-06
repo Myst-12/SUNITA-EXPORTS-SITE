@@ -5,15 +5,18 @@ import { accountsConfigured, hashPassword, passwordOk, startCustomerSession, end
 import { getCustomerByEmail, createCustomer, listOrders, listReviews, createReview } from '@/lib/shop/store';
 import { sendReviewAlert } from '@/lib/shop/mail';
 import { COUNTRIES } from '@/lib/forms/fields';
+import { limited } from '@/lib/rateLimit';
 
 const str = (fd, k, max = 120) => String(fd.get(k) || '').trim().slice(0, max);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const WAIT = 'Too many attempts. Please wait a few minutes and try again.';
 const DOWN = 'Accounts are not available right now. Please send your order on WhatsApp or email instead.';
 
 export async function signupAction(_prev, fd) {
   const values = { name: str(fd, 'name'), company: str(fd, 'company'), email: str(fd, 'email').toLowerCase(), phone: str(fd, 'phone', 30), country: str(fd, 'country') };
   const fail = (error) => ({ error, values });
   if (!accountsConfigured()) return fail(DOWN);
+  if (await limited('signup', 5, 60 * 60e3)) return fail(WAIT);
   if (!values.name || !values.company || !values.phone) return fail('Please fill in your name, company and phone number.');
   if (!EMAIL.test(values.email)) return fail('Please enter a valid email address.');
   if (!COUNTRIES.includes(values.country)) return fail('Please choose your country.');
@@ -35,6 +38,7 @@ export async function loginAction(_prev, fd) {
   const email = str(fd, 'email').toLowerCase();
   const fail = (error) => ({ error, values: { email } });
   if (!accountsConfigured()) return fail(DOWN);
+  if (await limited('login', 10, 15 * 60e3)) return fail(WAIT);
   let customer;
   try {
     customer = await getCustomerByEmail(email);

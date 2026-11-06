@@ -21,7 +21,7 @@ export function GET() {
     `ORG:${esc(COMPANY.legalName)}`,
     ...phones().map((p, i) => `item${i + 1}.TEL;TYPE=CELL:${p.tel}\r\nitem${i + 1}.X-ABLabel:${esc(p.label)}`),
     `TEL;TYPE=WORK,VOICE:${CONTACT.landline.tel}`,
-    `EMAIL;TYPE=WORK:${CONTACT.email}`,
+    ...CONTACT.emails.map((e) => `EMAIL;TYPE=WORK:${e}`),
     `URL:${SITE_URL}`,
     `ADR;TYPE=WORK:;;${esc(a.street)};${esc(a.city)};${esc(a.region)};${a.postalCode};${esc(a.country)}`,
     `NOTE:${esc(`${COMPANY.status}. Directors: ${DIRECTORS.map((d) => d.name).join(' and ')}.`)}`,

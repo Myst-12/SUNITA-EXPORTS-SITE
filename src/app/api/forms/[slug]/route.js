@@ -1,6 +1,7 @@
 import { after } from 'next/server';
 import { getForm, addResponse } from '@/lib/forms/store';
 import { sendLeadAlert, sendThankYou } from '@/lib/forms/mail';
+import { limited } from '@/lib/rateLimit';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,6 +9,7 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req, { params }) {
   const { slug } = await params;
+  if (await limited(`form:${slug}`, 10, 10 * 60e3)) return Response.json({ error: 'Too many submissions. Please try again in a few minutes.' }, { status: 429 });
   const form = await getForm({ slug });
   if (!form) return Response.json({ error: 'Form not found.' }, { status: 404 });
   if (form.status !== 'open') return Response.json({ error: 'This form is closed.' }, { status: 410 });

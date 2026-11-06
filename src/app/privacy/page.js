@@ -1,5 +1,6 @@
 import PageHero from '@/components/PageHero';
 import { COMPANY, CONTACT, fullAddress } from '@/config/site';
+import EmailLinks from '@/components/EmailLinks';
 
 export const metadata = {
   title: 'Privacy Policy',
@@ -48,7 +49,7 @@ export default function PrivacyPage() {
           <h2>Your choices</h2>
           <p>
             You can ask us to see, correct or delete the personal information we hold about you by emailing{' '}
-            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. We will respond within a reasonable time.
+            <EmailLinks sep=" or " />. We will respond within a reasonable time.
           </p>
 
           <h2>Cookies</h2>
@@ -56,7 +57,7 @@ export default function PrivacyPage() {
 
           <h2>Contact</h2>
           <p>
-            Questions about this policy: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>, {CONTACT.phones[0].display}, {fullAddress()}.
+            Questions about this policy: <EmailLinks sep=" or " />, {CONTACT.phones[0].display}, {fullAddress()}.
           </p>
         </div>
       </section>

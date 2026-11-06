@@ -60,7 +60,7 @@ function Login({ error }) {
           <label htmlFor="password" className={s.label}>Password</label>
           <PasswordInput id="password" name="password" required autoComplete="current-password" />
         </div>
-        {error && <p className={s.err}>Wrong password.</p>}
+        {error && <p className={s.err}>{error === 'wait' ? 'Too many attempts. Please wait 15 minutes and try again.' : 'Wrong password.'}</p>}
         <button className={`btn btn-primary btn-lg ${s.submit}`} type="submit">Log in</button>
       </form>
     </div>
