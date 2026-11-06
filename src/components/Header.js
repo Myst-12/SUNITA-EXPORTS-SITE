@@ -5,7 +5,6 @@ import Link from 'next/link';
 import HomeLink from './HomeLink';
 import { usePathname } from 'next/navigation';
 import Icon from './Icon';
-import MegaMenu from './MegaMenu';
 import LanguageSwitcher from './LanguageSwitcher';
 import { CONTACT, COMPANY, whatsappLink } from '@/config/site';
 import styles from './Header.module.css';
@@ -30,7 +29,6 @@ export default function Header({ categories = [] }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mobileSub, setMobileSub] = useState(null);
-  const [megaShut, setMegaShut] = useState(false); // hides the Products menu after a click until the pointer leaves
   const onHero = pathname === '/';
 
   useEffect(() => {
@@ -71,12 +69,15 @@ export default function Header({ categories = [] }) {
           </HomeLink>
 
           <nav className={styles.nav} aria-label="Main">
-            <div className={`${styles.item} ${styles.itemMega} ${megaShut ? styles.shut : ''}`} onMouseLeave={() => setMegaShut(false)}>
-              <Link href="/products/" className={`${styles.link} ${isActive('/products') ? styles.active : ''}`} onClick={() => setMegaShut(true)}>
+            <div className={styles.item}>
+              <Link href="/products/" className={`${styles.link} ${isActive('/products') ? styles.active : ''}`}>
                 Products <Icon name="chevron-down" size={14} />
               </Link>
-              <div className={`${styles.dropdown} ${styles.megaDrop}`}>
-                <MegaMenu categories={products} onNavigate={(e) => { setMegaShut(true); e.currentTarget.blur(); }} />
+              <div className={`${styles.dropdown} ${styles.dropWide}`}>
+                {products.map((c) => (
+                  <Link key={c.slug} href={c.href} className={styles.dropLink}>{c.name}</Link>
+                ))}
+                <Link href="/products/" className={`${styles.dropLink} ${styles.dropAll}`}>All products <Icon name="arrow-right" size={14} /></Link>
               </div>
             </div>
 

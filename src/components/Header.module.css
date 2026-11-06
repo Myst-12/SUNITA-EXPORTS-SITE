@@ -51,12 +51,6 @@
 .dropLink { display: flex; align-items: center; gap: 0.35rem; padding: 0.55rem 0.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--ink-2); transition: background 0.2s, color 0.2s; }
 .dropLink:hover { background: var(--bg-mist); color: var(--green-700); }
 .dropAll { grid-column: 1 / -1; margin-top: 6px; padding-top: 0.75rem; border-top: 1px solid var(--line); border-radius: 0 0 8px 8px; font-weight: 650; color: var(--green-700); }
-/* Products mega menu: spans the container under the header, not the menu item. */
-.itemMega { position: static; }
-.megaDrop { left: 50%; top: calc(100% - 6px); width: min(1240px, calc(100vw - 48px)); padding: 0; overflow: hidden; transform: translate(-50%, 6px); transform-origin: top center; }
-.megaDrop::before { top: -18px; height: 18px; }
-.item.itemMega:hover > .megaDrop, .item.itemMega:focus-within > .megaDrop { transform: translate(-50%, 0); }
-.item.shut > .megaDrop { opacity: 0 !important; visibility: hidden !important; }
 
 /* Actions */
 .actions { display: flex; align-items: center; gap: 0.5rem; flex: none; }
