@@ -61,7 +61,7 @@ export default function Header({ categories = [] }) {
       <header className={headerClass}>
         <div className={`container ${styles.inner}`}>
           <HomeLink className={styles.brand} aria-label={`${COMPANY.name} home`} onClick={() => setOpen(false)}>
-            <img src="/images/logo-mark.png" alt="" width={40} height={40} className={styles.brandMark} />
+            <img src="/images/logo-mark-96.webp" alt="" width={40} height={40} className={styles.brandMark} />
             <span className={styles.brandText}>
               <span className={`${styles.brandName} notranslate`} translate="no">Sunita Agri Exports</span>
               <span className={styles.brandTag}>Govt. Recognised Star Export House</span>

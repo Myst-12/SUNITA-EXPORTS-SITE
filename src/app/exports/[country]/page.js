@@ -9,6 +9,7 @@ import { getAllProducts } from '@/data/products';
 import { MARKET_CONTENT } from '@/data/marketContent';
 import { COMPANY, CONTACT, whatsappLink, flagCode } from '@/config/site';
 import s from '../../pages.module.css';
+import { seoTitle } from '@/lib/seoTitle';
 
 export const dynamicParams = false;
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }) {
   const c = exportDestinations.find((d) => d.slug === country);
   if (!c) return { title: 'Market not found' };
   return {
-    title: c.seoTitle,
+    title: seoTitle(c.seoTitle),
     description: c.seoDescription,
     alternates: { canonical: `/exports/${c.slug}/` },
   };
@@ -66,7 +67,7 @@ export default async function CountryPage({ params }) {
         image={HERO_IMG[c.region] || '/images/scenes/port-day.webp'}
         imageAlt={`Shipping to ${name}`}
       >
-        <Link href={`/contact/?product=${encodeURIComponent(`Shipment to ${name}`)}`} className="btn btn-primary btn-lg">Get a CIF quote <Icon name="arrow-right" /></Link>
+        <Link rel="nofollow" href={`/contact/?product=${encodeURIComponent(`Shipment to ${name}`)}`} className="btn btn-primary btn-lg">Get a CIF quote <Icon name="arrow-right" /></Link>
         <a href={whatsappLink(`Hello, I am an importer in ${name}. Please share your price list.`)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 

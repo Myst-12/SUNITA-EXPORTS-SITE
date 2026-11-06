@@ -44,6 +44,8 @@ const nextConfig = {
       { source: '/:page(contact)\\.php', destination: '/contact/', permanent: true },
       { source: '/:page(about)\\.php', destination: '/about/', permanent: true },
       { source: '/:page(index)\\.php', destination: '/', permanent: true },
+      // Any other old PHP page (sub_category.php?id=…, product pages of the old site) goes to the catalogue.
+      { source: '/:page([A-Za-z0-9_-]+)\\.php', destination: '/products/', permanent: true },
       ...catalogueRedirects.map(([source, destination]) => ({ source, destination, statusCode: 301 })),
     ];
   },

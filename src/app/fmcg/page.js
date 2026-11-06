@@ -11,9 +11,9 @@ import s from '../pages.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Indian FMCG Exporter — Indian Grocery & Packaged Food Supplier',
+  title: 'Indian FMCG & Grocery Exporter',
   description:
-    'Export of Indian FMCG and grocery products: snacks, biscuits, instant food, sweets, tea, pickles, papad, ghee, flours, pooja and personal care — consolidated with spices, rice and pulses in mixed containers from Mumbai.',
+    'Indian FMCG and grocery export: snacks, biscuits, instant food, sweets, tea, pickles, ghee and personal care, shipped with spices and rice in mixed containers.',
   alternates: { canonical: '/fmcg/' },
 };
 
@@ -51,7 +51,7 @@ export default function FmcgPage() {
         imageAlt="Indian snacks and grocery products on store shelves"
       >
         <Link href="#order" className="btn btn-primary btn-lg">Order online <Icon name="arrow-right" /></Link>
-        <Link href="/contact/?product=Indian%20FMCG%20mixed%20container" className="btn btn-outline btn-lg">Send your SKU list</Link>
+        <Link rel="nofollow" href="/contact/?product=Indian%20FMCG%20mixed%20container" className="btn btn-outline btn-lg">Send your SKU list</Link>
         <a href={whatsappLink('Hello, I want to import Indian FMCG / grocery products.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 

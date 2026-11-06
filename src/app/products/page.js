@@ -6,9 +6,9 @@ import Icon from '@/components/Icon';
 import styles from './products.module.css';
 
 export const metadata = {
-  title: 'Export Product Catalogue — Spices, Herbs, Rice, Pulses & Indian FMCG',
+  title: 'Product Catalogue: Spices, Rice & FMCG',
   description:
-    `Browse ${getAllProducts().length} export products from India in ${productCategories.length} categories: spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, feeds, FMCG, jaggery and raisins.`,
+    `Browse ${getAllProducts().length} export products from India in ${productCategories.length} categories: spices, herbs, dehydrated onion, rice, pulses, flours, oilseeds, coffee, superfoods, FMCG and more.`,
   alternates: { canonical: '/products/' },
 };
 

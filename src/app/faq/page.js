@@ -8,9 +8,9 @@ import s from '../pages.module.css';
 import EmailLinks from '@/components/EmailLinks';
 
 export const metadata = {
-  title: 'FAQ for Importers — MOQ, Payment, Shipping & Quality',
+  title: 'Importer FAQ: MOQ, Payment & Shipping',
   description:
-    'Answers for international buyers: minimum order quantity, payment terms, mixed containers, private label, certifications, documents, shelf life and shipping from India.',
+    'Answers for importers: minimum order, payment terms, mixed containers, private label, certificates, documents, shelf life and shipping from India.',
   alternates: { canonical: '/faq/' },
 };
 

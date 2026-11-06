@@ -9,9 +9,9 @@ import s from '../pages.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Buyer Guides — How to Import Spices & Indian Food from India',
+  title: 'Guides to Importing Food from India',
   description:
-    'Practical guides for importers: how to import spices and Indian groceries from India, export documents, Incoterms (FOB, CFR, CIF), shelf life, packaging, container loading and payment terms.',
+    'Practical guides for importers: how to import spices and groceries from India, export documents, FOB/CFR/CIF, packaging, container loading and payments.',
   alternates: { canonical: '/knowledge/' },
 };
 

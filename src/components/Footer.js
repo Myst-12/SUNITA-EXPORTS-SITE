@@ -27,7 +27,7 @@ export default function Footer({ categories = [] }) {
       <div className={`container ${styles.main}`}>
         <div className={styles.brandCol}>
           <HomeLink className={styles.brand}>
-            <img src="/images/logo-mark.png" alt="" width={40} height={40} />
+            <img src="/images/logo-mark-96.webp" alt="" width={40} height={40} />
             <span className={styles.brandText}>
               <span>{COMPANY.legalName}</span>
               <small>{COMPANY.status}</small>

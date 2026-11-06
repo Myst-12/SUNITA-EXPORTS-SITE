@@ -6,9 +6,9 @@ import { COMPANY, flagCode } from '@/config/site';
 import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'Export Markets — Indian Spices & Grocery Exporter Worldwide',
+  title: 'Indian Food Export Markets',
   description:
-    'Sunita Agri Exports ships Indian spices, rice, pulses and FMCG groceries to 40+ countries including the USA, Canada, UK, Australia, New Zealand, UAE, Saudi Arabia, Kuwait, Oman, Qatar, Singapore, Malaysia, Japan, Turkey and East Africa.',
+    'Indian spices, rice, pulses and FMCG shipped to 40+ countries, including the USA, UK, Canada, Australia, UAE, Saudi Arabia, Singapore and East Africa.',
   alternates: { canonical: '/exports/' },
 };
 

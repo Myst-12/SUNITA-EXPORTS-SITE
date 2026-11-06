@@ -9,9 +9,9 @@ import { getAllProducts } from '@/data/products';
 import s from '../pages.module.css';
 
 export const metadata = {
-  title: 'About Us — Indian Spice & Food Exporter Since 2010',
+  title: 'About Us: Food Exporter Since 2010',
   description:
-    'Sunita Agri Exports Pvt. Ltd. is a Govt. recognised Star Export House in Mumbai exporting Indian spices, rice, pulses and FMCG groceries since 2010 to 40+ countries. Our story, values and trade fairs.',
+    'Sunita Agri Exports, a Govt. recognised Star Export House in Mumbai, has exported Indian spices, rice, pulses and FMCG since 2010. Our story and trade fairs.',
   alternates: { canonical: '/about/' },
 };
 

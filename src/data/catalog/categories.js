@@ -12,9 +12,9 @@ export const categoryList = [
     image: '/images/catalog/categories/indian-spices.webp',
     description:
       'Whole spices, spice powders, masala blends and cut spices from India’s main growing regions — machine-cleaned, Sortex-graded and steam-sterilised on request.',
-    metaTitle: 'Indian Spices Exporter — Whole, Ground & Blended Spices',
+    metaTitle: 'Indian Spices Exporter: Whole & Ground',
     metaDescription:
-      'Exporter of Indian whole spices, spice powders, masalas and chilli varieties: cumin, coriander, turmeric, black pepper, cardamom, Guntur, Teja and Byadgi chilli. Bulk and private label.',
+      'Exporter of Indian whole spices, powders and masalas: cumin, coriander, turmeric, pepper, cardamom and Guntur, Teja and Byadgi chilli. Bulk or private label.',
     subcategories: [
       { slug: 'whole-spices', name: 'Whole Spices' },
       { slug: 'spice-powders', name: 'Spice Powders & Masalas' },
@@ -27,7 +27,7 @@ export const categoryList = [
     image: '/images/catalog/categories/herbs-botanicals.webp',
     description:
       'Roots, rhizomes, barks, leaves, fruits, seeds, gums and resins used by herbal, Ayurvedic, cosmetic and extraction companies — identity-checked by botanical name.',
-    metaTitle: 'Indian Herbs & Botanicals Exporter — Roots, Leaves, Gums & Resins',
+    metaTitle: 'Indian Herbs & Botanicals Exporter',
     metaDescription:
       'Ashwagandha, shatavari, amla, haritaki, tulsi, moringa, guggul, gum karaya and 100+ Indian herbs and botanicals, supplied by botanical name in bulk.',
     subcategories: [
@@ -50,7 +50,7 @@ export const categoryList = [
     image: '/images/catalog/categories/dehydrated-onion-garlic.webp',
     description:
       'Dehydrated white onion and garlic from Gujarat in every standard cut — flakes, kibbled, minced, granules and powder — for seasoning and food manufacturers.',
-    metaTitle: 'Dehydrated Onion & Garlic Exporter — Flakes, Minced, Granules, Powder',
+    metaTitle: 'Dehydrated Onion & Garlic Exporter India',
     metaDescription:
       'Dehydrated white onion flakes, kibbled, minced, granules and powder, and dehydrated garlic flakes, minced, granules and powder from Mahuva, Gujarat.',
     subcategories: [
@@ -65,7 +65,7 @@ export const categoryList = [
     image: '/images/catalog/categories/coconut-products.webp',
     description:
       'Desiccated coconut and dry copra from Kerala, Tamil Nadu and Karnataka, and cocopeat blocks — for bakery, sweets, oil mills and growers.',
-    metaTitle: 'Coconut Products Exporter India — Desiccated Coconut, Dry Copra, Cocopeat',
+    metaTitle: 'Desiccated Coconut & Copra Exporter India',
     metaDescription:
       'Exporter of desiccated coconut, edible and milling dry copra, and cocopeat blocks from South India, in bulk and private-label packs.',
     subcategories: [{ slug: 'dried-coconut-derivatives', name: 'Coconut Products' }],
@@ -77,7 +77,7 @@ export const categoryList = [
     image: '/images/catalog/categories/pulses-legumes.webp',
     description:
       'Chickpeas, pigeon peas, moong, urad, lentils, peas and beans — whole or split, skin-on or skinless, polished or unpolished — cleaned and graded for export.',
-    metaTitle: 'Indian Pulses & Lentils Exporter — Chana, Toor, Moong, Urad, Masoor',
+    metaTitle: 'Indian Pulses & Lentils Exporter',
     metaDescription:
       'Kabuli and desi chickpeas, chana dal, toor dal, moong, urad, masoor, rajma, lobia and other Indian pulses in 25/50 kg bags or retail packs.',
     subcategories: [
@@ -96,7 +96,7 @@ export const categoryList = [
     image: '/images/catalog/categories/rice.webp',
     description:
       'Basmati varieties (1121, 1509, 1718, traditional) and non-basmati varieties (IR64, Sona Masuri, Ponni and more), in raw, steam, parboiled, sella, brown and broken forms.',
-    metaTitle: 'Basmati & Non-Basmati Rice Exporter India — 1121, 1509, IR64, Sona Masuri',
+    metaTitle: 'Basmati & Non-Basmati Rice Exporter India',
     metaDescription:
       'Indian rice exporter: 1121, 1509, 1718 and traditional basmati; IR64, Sona Masuri, Ponni, Matta and other non-basmati; raw, steam, parboiled, sella and broken.',
     subcategories: [
@@ -112,7 +112,7 @@ export const categoryList = [
     image: '/images/catalog/categories/flours-milling.webp',
     description:
       'Chakki atta, maida, sooji, besan, rice flour and millet flours, plus wheat and rice bran — food-grade and feed-grade products clearly separated.',
-    metaTitle: 'Indian Flour Exporter — Atta, Maida, Sooji, Besan, Millet Flours',
+    metaTitle: 'Indian Flour Exporter: Atta, Besan, Sooji',
     metaDescription:
       'Whole wheat chakki atta, wheat flour, maida, sooji (rava), besan, rice flour, bajra, jowar, ragi and corn flour, plus wheat and rice bran, from India.',
     subcategories: [
@@ -128,7 +128,7 @@ export const categoryList = [
     image: '/images/catalog/categories/oilseeds.webp',
     description:
       'Hulled and natural white sesame, black sesame, groundnuts, mustard seeds and soybeans, plus oilseed meals and de-oiled cakes for feed manufacturers.',
-    metaTitle: 'Sesame, Groundnut & Oilseed Exporter India — Seeds and Meals',
+    metaTitle: 'Sesame & Oilseeds Exporter India',
     metaDescription:
       'Hulled white sesame, natural sesame, black sesame, raw groundnuts, soybeans, cottonseed meal and mustard meal exported from India.',
     subcategories: [
@@ -144,7 +144,7 @@ export const categoryList = [
     image: '/images/catalog/categories/indian-coffee.webp',
     description:
       'Shade-grown Indian Arabica and Robusta from Karnataka, Kerala and Tamil Nadu — green beans in Coffee Board grades, and roasted or ground coffee.',
-    metaTitle: 'Indian Coffee Exporter — Green Arabica & Robusta, Roasted, Ground',
+    metaTitle: 'Indian Coffee Exporter: Arabica & Robusta',
     metaDescription:
       'Indian green coffee beans (Arabica Plantation, Cherry, Monsooned Malabar; Robusta Parchment, Cherry, Kaapi Royale), roasted beans and ground coffee.',
     subcategories: [{ slug: 'coffee-products', name: 'Coffee Products' }],
@@ -156,9 +156,9 @@ export const categoryList = [
     image: '/images/catalog/categories/superfoods-functional-seeds.webp',
     description:
       'Psyllium seeds, husk and husk powder, moringa seeds and leaf powder, basil seeds, white and red quinoa and amaranth — ingredients for health-food, supplement and beverage brands.',
-    metaTitle: 'Psyllium Husk, Moringa, Quinoa & Amaranth Exporter India',
+    metaTitle: 'Psyllium, Moringa & Superfoods Exporter',
     metaDescription:
-      'Psyllium husk 85–99% purity, psyllium husk powder and seeds, moringa leaf powder, moringa seeds, basil (sabja) seeds, white and red quinoa and amaranth (rajgira) seeds exported from India.',
+      'Psyllium husk (85–99% purity) and powder, moringa leaf powder and seeds, basil seeds, quinoa and amaranth exported from India in bulk.',
     subcategories: [
       { slug: 'psyllium-products', name: 'Psyllium Products' },
       { slug: 'moringa-functional-seeds', name: 'Moringa & Functional Seeds' },
@@ -172,7 +172,7 @@ export const categoryList = [
     image: '/images/catalog/categories/animal-bird-feed.webp',
     description:
       'Feed maize, sorghum and millet, oilseed meals, brans and bird-feed seeds — sold for animal feed use only and labelled that way on every contract.',
-    metaTitle: 'Animal Feed & Bird Feed Ingredients Exporter India',
+    metaTitle: 'Animal & Bird Feed Exporter India',
     metaDescription:
       'Feed maize, feed sorghum, feed millet, cottonseed meal, mustard meal, rice bran, wheat bran, bird-feed millet, canary seed and seed mixes from India.',
     subcategories: [
@@ -188,9 +188,9 @@ export const categoryList = [
     image: '/images/catalog/categories/foodstuff-fmcg.webp',
     description:
       'Packaged Indian groceries for importers and supermarkets — flours, staples, snacks, sweets, ready-to-eat, pickles, tea, oils, personal and home care — consolidated with bulk products in one container.',
-    metaTitle: 'Indian FMCG & Grocery Exporter — Packaged Food for Importers',
+    metaTitle: 'Indian FMCG & Packaged Food Exporter',
     metaDescription:
-      'Indian FMCG and grocery export: packaged atta, rice, dals, masalas, biscuits, namkeen, sweets, ready-to-eat, pickles, papad, tea, coffee, oils, jaggery and makhana.',
+      'Indian FMCG and grocery export: packaged atta, rice, dals, masalas, biscuits, namkeen, sweets, ready-to-eat meals, pickles, tea and more.',
     flat: true, // one product family per subcategory, so the page lists families without subcategory headings
     subcategories: [
       { slug: 'atta-flour', name: 'Atta & Flour' },
@@ -228,7 +228,7 @@ export const categoryList = [
     image: '/images/catalog/categories/jaggery-natural-sweeteners.webp',
     description:
       'Cane jaggery in blocks, cubes, powder and liquid, plus organic, palm, date-palm and coconut jaggery — unrefined Indian sweeteners in bulk, retail or private-label packs.',
-    metaTitle: 'Jaggery Exporter from India — Blocks, Cubes, Powder & Organic Jaggery',
+    metaTitle: 'Jaggery Exporter from India',
     metaDescription:
       'Exporter of Indian jaggery: gur blocks, jaggery cubes, jaggery powder, organic jaggery, liquid jaggery, palm jaggery, date-palm jaggery and coconut sugar.',
     subcategories: [{ slug: 'jaggery-products', name: 'Jaggery Products' }],
@@ -240,7 +240,7 @@ export const categoryList = [
     image: '/images/catalog/categories/raisins.webp',
     description:
       'Green, golden and black raisins from Sangli, Nashik and Vijayapura, graded by size, colour and moisture for retail, bakery and confectionery buyers.',
-    metaTitle: 'Indian Raisins Exporter — Green, Golden & Black Raisins',
+    metaTitle: 'Indian Raisins Exporter',
     metaDescription:
       'Exporter of Indian green raisins, golden raisins and black raisins from Sangli and Nashik, graded and packed in 10–15 kg cartons or retail packs.',
     subcategories: [{ slug: 'raisin-products', name: 'Raisin Products' }],

@@ -10,9 +10,9 @@ import s from '../pages.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Private Label Spices & Indian Food Packaging',
+  title: 'Private Label Spices & Food Packing',
   description:
-    'Private label spices, masalas, rice, pulses and Indian foods packed in India under your brand. Retail pouches 50 g–5 kg, jars, cartons and bulk 25–50 kg bags with your artwork and barcodes.',
+    'Spices, masalas, rice and pulses packed in India under your brand: pouches from 50 g to 5 kg, jars, cartons and 25–50 kg bags with your artwork.',
   alternates: { canonical: '/private-label/' },
 };
 
@@ -48,7 +48,7 @@ export default function PrivateLabelPage() {
         image="/images/scenes/pack-kraft-pouch.webp"
         imageAlt="Kraft stand-up pouch packaging"
       >
-        <Link href="/contact/?product=Private%20label" className="btn btn-primary btn-lg">Start a private label project <Icon name="arrow-right" /></Link>
+        <Link rel="nofollow" href="/contact/?product=Private%20label" className="btn btn-primary btn-lg">Start a private label project <Icon name="arrow-right" /></Link>
         <a href={whatsappLink('Hello, I am interested in private label packing.')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 

@@ -5,6 +5,8 @@ import { blogPosts } from '@/data/blog';
 import { exportDestinations } from '@/data/countries';
 import { SITE_URL } from '@/config/site';
 
+// lastmod is only given where we know when the page really changed (blog posts). A build date on every URL
+// teaches Google to ignore lastmod, so other pages leave it out.
 export default function sitemap() {
   const baseUrl = SITE_URL;
 
@@ -30,7 +32,6 @@ export default function sitemap() {
     '/terms',
   ].map((route) => ({
     url: `${baseUrl}${route}/`,
-    lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly',
     priority: route === '' ? 1.0 : 0.8,
   }));
@@ -38,7 +39,6 @@ export default function sitemap() {
   // Categories dynamic pages
   const categoryRoutes = productCategories.map((cat) => ({
     url: `${baseUrl}/products/${cat.slug}/`,
-    lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
@@ -46,7 +46,6 @@ export default function sitemap() {
   // Product pages (canonical URL only, even when a product is listed in two categories)
   const productRoutes = getAllProducts().map((prod) => ({
     url: `${baseUrl}${productUrl(prod)}`,
-    lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly',
     priority: 0.65,
   }));
@@ -54,7 +53,6 @@ export default function sitemap() {
   // Country destinations dynamic pages
   const countryRoutes = exportDestinations.map((country) => ({
     url: `${baseUrl}/exports/${country.slug}/`,
-    lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly',
     priority: 0.9,
   }));
@@ -62,7 +60,7 @@ export default function sitemap() {
   // Blog posts dynamic pages
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}/`,
-    lastModified: new Date().toISOString().split('T')[0],
+    lastModified: post.updated || post.date,
     changeFrequency: 'monthly',
     priority: 0.6,
   }));

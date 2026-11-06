@@ -3,8 +3,8 @@ import { COMPANY } from '@/config/site';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Indian Spices Exporter — Whole Spices, Powders & Masalas from Mumbai',
-  description: `Indian spices exporter since ${COMPANY.foundingYear}: turmeric, chilli, cumin, coriander, cardamom, black pepper and blended masalas in bulk or private label, shipped from Mumbai to the UAE, Saudi Arabia and 40+ countries.`,
+  title: 'Indian Spices Exporter from Mumbai',
+  description: `Indian spices exporter since ${COMPANY.foundingYear}: turmeric, chilli, cumin, coriander, cardamom, pepper and masalas in bulk or private label, from Mumbai to 40+ countries.`,
   alternates: { canonical: '/indian-spices-exporter/' },
 };
 

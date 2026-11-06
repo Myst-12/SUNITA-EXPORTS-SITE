@@ -4,9 +4,9 @@ import { COMPANY } from '@/config/site';
 import x from './infrastructure.module.css';
 
 export const metadata = {
-  title: 'Infrastructure — Factories at Unjha, Guntur & Nizamabad',
+  title: 'Factories at Unjha, Guntur & Nizamabad',
   description:
-    'Two factories at Unjha, Gujarat and processing units at Guntur (Andhra Pradesh) and Nizamabad (Telangana), with modern machinery for cleaning, Sortex sorting, hulling, grinding and packing.',
+    'Two factories at Unjha, Gujarat and units at Guntur and Nizamabad, with machinery for cleaning, Sortex sorting, hulling, grinding and packing.',
   alternates: { canonical: '/infrastructure/' },
 };
 

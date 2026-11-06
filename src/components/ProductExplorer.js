@@ -5,6 +5,10 @@ import ProductCard from './ProductCard';
 import Icon from './Icon';
 import styles from './ProductExplorer.module.css';
 
+// Unfiltered, each category shows its first products and a link to the rest, which keeps this page light;
+// a search or category filter shows every match.
+const PREVIEW = 8;
+
 export default function ProductExplorer({ products, categories }) {
   const [query, setQuery] = useState('');
   const [cat, setCat] = useState('all');
@@ -48,14 +52,23 @@ export default function ProductExplorer({ products, categories }) {
         cat === 'all' ? (
           // All products: one section per category, in catalogue order.
           categories.map((c) => {
-            const items = filtered.filter((p) => p.category === c.slug);
-            if (!items.length) return null;
+            const all = filtered.filter((p) => p.category === c.slug);
+            if (!all.length) return null;
+            const items = query.trim() ? all : all.slice(0, PREVIEW);
             return (
               <section key={c.slug} className={styles.group}>
                 <h2 className={styles.groupTitle}>{c.name}</h2>
                 <div className="grid-4">
                   {items.map((p, i) => <ProductCard key={p.slug} product={p} priority={c.slug === categories[0].slug && i < 4} />)}
                 </div>
+                {items.length < all.length && (
+                  <div className={styles.more}>
+                    <button type="button" className="btn btn-outline btn-sm" onClick={() => { setCat(c.slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                      Show all {all.length} {c.name.toLowerCase()}
+                    </button>
+                    <a href={`/products/${c.slug}/`} className="link-arrow">{c.name} page <Icon name="arrow-right" /></a>
+                  </div>
+                )}
               </section>
             );
           })

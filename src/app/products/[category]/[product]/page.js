@@ -7,7 +7,6 @@ import ProductGallery from '@/components/ProductGallery';
 import NameCard from '@/components/NameCard';
 import Icon from '@/components/Icon';
 import { SITE_URL, COMPANY, CONTACT, whatsappLink } from '@/config/site';
-import { faqSchema } from '@/lib/schemas';
 import { getLocalNames } from '@/data/catalog/localNames';
 import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_NOTE, REGULATED_NOTE, FMCG_NOTE, ON_REQUEST, farmingFor } from '@/lib/productDetails';
 import { Suspense } from 'react';
@@ -18,6 +17,7 @@ import { certificates } from '@/data/certificates';
 import { exportDestinations } from '@/data/countries';
 import styles from './product.module.css';
 import x from './extras.module.css';
+import { seoTitle } from '@/lib/seoTitle';
 
 // Inside dimensions of standard dry containers; the weight that fits depends on the product and packing.
 const CONTAINERS = [
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
   if (!product) return { title: 'Product not found' };
   const url = productUrl(product);
   return {
-    title: product.metaTitle,
+    title: seoTitle(product.metaTitle),
     description: product.metaDescription,
     alternates: { canonical: url },
     openGraph: { title: product.metaTitle, description: product.metaDescription, url, ...(product.image ? { images: [{ url: product.image }] } : {}) },
@@ -139,7 +139,7 @@ export default async function ProductDetailPage({ params }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+      {/* No FAQPage markup here: the questions repeat on every product, and Google shows FAQ results for very few sites. */}
 
       <section className={styles.top}>
         <div className="container">
@@ -194,7 +194,7 @@ export default async function ProductDetailPage({ params }) {
               {notes.map((t) => <p key={t} className={styles.notice}><Icon name="shield" size={16} /> {t}</p>)}
 
               <div className={`btn-row ${styles.ctas}`}>
-                <Link href={quoteHref} className="btn btn-primary btn-lg">Request quote <Icon name="arrow-right" /></Link>
+                <Link rel="nofollow" href={quoteHref} className="btn btn-primary btn-lg">Request quote <Icon name="arrow-right" /></Link>
                 <a href={pdfHref} download={pdfName} className="btn btn-outline btn-lg"><Icon name="download" /> Download specification sheet</a>
               </div>
               <p className={styles.ctaNote}>PDF · product details{specs.length ? ', specification table' : ''} and contact details</p>
@@ -254,7 +254,7 @@ export default async function ProductDetailPage({ params }) {
               ) : (
                 <div className={styles.onRequest}>
                   <p>{SPEC_ON_REQUEST}</p>
-                  <Link href={quoteHref} className="link-arrow">Ask for the full specification <Icon name="arrow-right" /></Link>
+                  <Link rel="nofollow" href={quoteHref} className="link-arrow">Ask for the full specification <Icon name="arrow-right" /></Link>
                 </div>
               )}
             </div>
@@ -346,7 +346,7 @@ export default async function ProductDetailPage({ params }) {
             <div className={styles.quoteCard}>
               <h3>Price for {n}</h3>
               <p>Tell us grade, packing, quantity and destination port. We reply within 24 hours.</p>
-              <Link href={quoteHref} className="btn btn-primary btn-block">Request quote <Icon name="arrow-right" /></Link>
+              <Link rel="nofollow" href={quoteHref} className="btn btn-primary btn-block">Request quote <Icon name="arrow-right" /></Link>
               <a href={whatsappLink(waText)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-block"><Icon name="whatsapp" /> WhatsApp {CONTACT.quotePhone.display}</a>
               {CONTACT.emails.map((e) => <a key={e} href={`mailto:${e}?subject=${encodeURIComponent(`Quote request: ${product.name}`)}`} className={styles.quoteMail}><Icon name="mail" size={16} /> {e}</a>)}
             </div>
@@ -436,7 +436,7 @@ export default async function ProductDetailPage({ params }) {
       )}
 
       <div className={styles.mobileBar} data-mobilebar>
-        <Link href={quoteHref} className="btn btn-primary">Request quote</Link>
+        <Link rel="nofollow" href={quoteHref} className="btn btn-primary">Request quote</Link>
         <a href={pdfHref} download={pdfName} className="btn btn-outline"><Icon name="download" /> Spec sheet</a>
       </div>
     </>

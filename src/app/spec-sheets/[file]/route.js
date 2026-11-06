@@ -285,6 +285,8 @@ export async function GET(_req, { params }) {
     headers: {
       'Content-Type': 'application/pdf',
       'Content-Disposition': `inline; filename="${p.slug}-specification-sunita-agri-exports.pdf"`,
+      // Tells Google the product page is the main version, so the PDF doesn't compete with it in search.
+      Link: `<${SITE_URL}${productUrl(p)}>; rel="canonical"`,
     },
   });
 }

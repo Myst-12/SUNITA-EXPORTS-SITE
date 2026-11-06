@@ -10,9 +10,9 @@ import s from '../pages.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Mixed Container from India — Consolidated Spices, Rice & Grocery',
+  title: 'Mixed Container of Spices, Rice & FMCG',
   description:
-    'Ship Indian spices, rice, pulses and FMCG groceries together in one mixed 20 ft or 40 ft container. Consolidation, documentation and FOB / CIF shipping from Mumbai by Sunita Agri Exports since 2010.',
+    'Ship Indian spices, rice, pulses and FMCG together in one 20 ft or 40 ft container. We consolidate, prepare documents and ship FOB or CIF from Mumbai.',
   alternates: { canonical: '/mixed-container/' },
 };
 
@@ -129,7 +129,7 @@ export default function MixedContainerPage() {
               <h2>Have a list ready?</h2>
               <p>Send it on WhatsApp to {CONTACT.quotePhone.display} or through our quote form. We reply with a load plan and prices within 24 hours.</p>
               <div className="btn-row mt-2">
-                <Link href="/contact/?product=Mixed%20container" className="btn btn-accent">Request a quote <Icon name="arrow-right" /></Link>
+                <Link rel="nofollow" href="/contact/?product=Mixed%20container" className="btn btn-accent">Request a quote <Icon name="arrow-right" /></Link>
                 <Link href="/products/" className="btn btn-ghost-light">Browse products</Link>
               </div>
             </div>

@@ -7,6 +7,7 @@ import { blogPosts } from '@/data/blog';
 import { articleSchema } from '@/lib/schemas';
 import { CONTACT, whatsappLink } from '@/config/site';
 import styles from './post.module.css';
+import { seoTitle } from '@/lib/seoTitle';
 
 export const dynamicParams = false;
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: 'Article not found' };
   return {
-    title: post.title,
+    title: seoTitle(post.title),
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}/` },
     openGraph: { type: 'article', title: post.title, description: post.excerpt, images: [{ url: post.image }], publishedTime: post.date },

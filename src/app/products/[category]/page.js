@@ -11,6 +11,7 @@ import { COMPANY, SITE_URL, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
 import { categorySummaries } from '@/data/catalog/categorySummaries';
 import styles from '../products.module.css';
+import { seoTitle } from '@/lib/seoTitle';
 
 export const dynamicParams = false;
 
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }) {
   if (!cat || cat.service) return { title: 'Category not found' };
   const url = `/products/${cat.slug}/`;
   return {
-    title: cat.metaTitle,
+    title: seoTitle(cat.metaTitle),
     description: cat.metaDescription,
     alternates: { canonical: url },
     openGraph: { title: cat.metaTitle, description: cat.metaDescription, url, images: [{ url: cat.image }] },
@@ -89,7 +90,7 @@ export default async function CategoryPage({ params }) {
                 </div>
               )}
               <div className="btn-row mt-3">
-                <Link href={`/contact/?product=${encodeURIComponent(name)}`} className="btn btn-primary">Request a quote <Icon name="arrow-right" /></Link>
+                <Link rel="nofollow" href={`/contact/?product=${encodeURIComponent(name)}`} className="btn btn-primary">Request a quote <Icon name="arrow-right" /></Link>
                 <a href={whatsappLink(`Hello, please share your ${lower} price list.`)} target="_blank" rel="noopener noreferrer" className="btn btn-outline"><Icon name="whatsapp" /> WhatsApp</a>
               </div>
             </div>

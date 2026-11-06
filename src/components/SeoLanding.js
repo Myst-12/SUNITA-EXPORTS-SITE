@@ -18,7 +18,7 @@ export default function SeoLanding({ crumb, href, eyebrow, title, lead, image, i
   return (
     <>
       <PageHero crumbs={[{ label: crumb, href }]} eyebrow={eyebrow} title={title} lead={lead} image={image} imageAlt={imageAlt}>
-        <Link href={`/contact/?product=${encodeURIComponent(quote)}`} className="btn btn-primary btn-lg">Get a quote <Icon name="arrow-right" /></Link>
+        <Link rel="nofollow" href={`/contact/?product=${encodeURIComponent(quote)}`} className="btn btn-primary btn-lg">Get a quote <Icon name="arrow-right" /></Link>
         <a href={whatsappLink(`Hello, I am interested in: ${quote}.`)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-lg"><Icon name="whatsapp" /> WhatsApp</a>
       </PageHero>
 

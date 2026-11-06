@@ -121,7 +121,7 @@ export default function ContainerPlanner() {
 
         <div className={styles.actions}>
           <a href={whatsappLink(summary)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> Send this list</a>
-          <Link href={quoteHref} className="btn btn-primary">Get a price <Icon name="arrow-right" /></Link>
+          <Link rel="nofollow" href={quoteHref} className="btn btn-primary">Get a price <Icon name="arrow-right" /></Link>
         </div>
         <p className={styles.note}>Estimate only. We confirm the final load plan with your quote.</p>
       </div>

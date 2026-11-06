@@ -26,7 +26,7 @@ function OrderCard({ product, line, onAdd, onRemove }) {
 
   return (
     <form className={`${s.card} ${line ? s.inOrder : ''}`} onSubmit={add}>
-      <div className={s.img}><Image src={product.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 25vw" /></div>
+      <div className={s.img}><Image src={product.image} alt={product.name} fill sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 25vw" /></div>
       <div className={s.body}>
         <h3>{product.name}</h3>
         <p className={s.desc}>{product.description}</p>

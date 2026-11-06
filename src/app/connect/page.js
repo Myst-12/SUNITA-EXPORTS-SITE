@@ -22,7 +22,7 @@ export default function ConnectPage() {
     <section className={styles.page}>
       <div className={styles.card}>
         <header className={styles.head}>
-          <Image src="/images/logo-mark.png" alt="" width={72} height={72} className={styles.logo} priority />
+          <Image src="/images/logo-mark-144.webp" alt="" width={72} height={72} className={styles.logo} priority />
           <h1>{COMPANY.legalName}</h1>
           <p className={styles.status}>{COMPANY.status}</p>
           <p className={styles.since}>Exporters of Indian spices, rice, pulses &amp; groceries · Since {COMPANY.foundingYear}</p>

@@ -6,7 +6,7 @@ import { blogPosts } from '@/data/blog';
 import s from './blog.module.css';
 
 export const metadata = {
-  title: 'Blog — Indian Spice & Food Export Insights',
+  title: 'Blog: Spice & Food Export Guides',
   description: 'Guides and insights on importing Indian spices, rice and groceries: regulations, quality standards, sourcing calendars and compliance.',
   alternates: { canonical: '/blog/' },
 };
@@ -40,7 +40,7 @@ export default function BlogPage() {
         <div className="container">
           {first && (
             <Link href={`/blog/${first.slug}/`} className={s.feature}>
-              <div className={s.featureImg}><Image src={first.image} alt="" fill priority sizes="(max-width: 860px) 100vw, 55vw" /></div>
+              <div className={s.featureImg}><Image src={first.image} alt={first.title} fill priority sizes="(max-width: 860px) 100vw, 55vw" /></div>
               <div className={s.featureBody}>
                 <Meta p={first} />
                 <h2>{first.title}</h2>
@@ -53,7 +53,7 @@ export default function BlogPage() {
             <div className={s.grid}>
               {rest.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}/`} className={s.card}>
-                  <div className={s.cardImg}><Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div>
+                  <div className={s.cardImg}><Image src={p.image} alt={p.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div>
                   <div className={s.cardBody}>
                     <Meta p={p} />
                     <h3>{p.title}</h3>

@@ -10,9 +10,9 @@ import { PAGE_FAQS } from '@/data/pageFaqs';
 import EmailLinks from '@/components/EmailLinks';
 
 export const metadata = {
-  title: 'Get an Export Quote — Spices, Rice & Indian Groceries',
+  title: 'Get an Export Quote for Indian Food',
   description:
-    'Request an export price for Indian spices, rice, pulses or a mixed FMCG container. FOB / CFR / CIF quotes within 24 hours from Sunita Agri Exports, Mumbai. WhatsApp +91 81692 82942.',
+    'Request an export price for Indian spices, rice, pulses or a mixed FMCG container. FOB, CFR or CIF quotes within 24 hours. WhatsApp +91 81692 82942.',
   alternates: { canonical: '/contact/' },
 };
 

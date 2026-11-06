@@ -15,9 +15,9 @@ import { websiteSchema, localBusinessSchema } from '@/lib/schemas';
 import styles from './home.module.css';
 
 export const metadata = {
-  title: { absolute: 'Indian Grocery, FMCG & Spices Exporter | Sunita Agri Exports, Mumbai' },
+  title: { absolute: 'Indian Grocery, Spices & FMCG Exporter | Sunita Agri Exports' },
   description:
-    'Indian grocery and FMCG exporter: spices, rice, pulses and branded Indian groceries shipped from Mumbai since 2010 to the UAE, Saudi Arabia, the Gulf and 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
+    'Indian spices, rice, pulses and FMCG groceries exported from Mumbai since 2010 to 40+ countries. Mixed containers, private label, FOB/CIF quotes in 24 hours.',
   alternates: { canonical: '/' },
 };
 
@@ -63,7 +63,7 @@ export default function HomePage() {
           {categories.map((c, i) => c.service ? (
             <ScrollReveal key={c.slug} className={styles.catWideWrap}>
               <Link href={c.href} className={styles.catWide}>
-                <span className={styles.catWideImg}><Image src={c.image} alt="" fill sizes="(max-width: 860px) 100vw, 40vw" /></span>
+                <span className={styles.catWideImg}><Image src={c.image} alt={`${c.name} exported from India`} fill sizes="(max-width: 860px) 100vw, 40vw" /></span>
                 <span className={styles.catWideBody}>
                   <span className={styles.catWideName}>{c.name}</span>
                   <span className={styles.catWideText}>Your brand on Indian spices, rice, flours and groceries — custom packs, labels and mixed containers, packed in Mumbai.</span>
@@ -75,7 +75,7 @@ export default function HomePage() {
             <ScrollReveal key={c.slug} delay={(i % 4) * 60}>
               <Link href={c.href} className={styles.cat}>
                 <span className={styles.catImg}>
-                  <Image src={c.image} alt="" fill sizes="(max-width: 860px) 50vw, 25vw" />
+                  <Image src={c.image} alt={`${c.name} exported from India`} fill sizes="(max-width: 860px) 50vw, 25vw" />
                 </span>
                 <span className={styles.catName}>{c.name}</span>
                 <span className={styles.catMeta}>{c.service ? 'Services' : `${c.productCount} products`}</span>

@@ -3,8 +3,8 @@ import { COMPANY } from '@/config/site';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Indian Grocery Exporter & Wholesale Supplier — Mumbai, India',
-  description: `Indian grocery exporter since ${COMPANY.foundingYear}: rice, atta, dals, spices, snacks, sweets, tea, ghee and branded Indian FMCG in mixed containers from Mumbai to the UAE, Saudi Arabia, the Gulf and 40+ countries.`,
+  title: 'Indian Grocery Exporter, Mumbai',
+  description: `Indian grocery exporter since ${COMPANY.foundingYear}: rice, atta, dals, spices, snacks, sweets, tea and branded FMCG in mixed containers from Mumbai to 40+ countries.`,
   alternates: { canonical: '/indian-grocery-exporter/' },
 };
 

@@ -8,8 +8,8 @@ import AddItem from './AddItem';
 import s from './catalogue.module.css';
 
 export const metadata = {
-  title: 'Indian FMCG product list — order by the carton',
-  description: `${FMCG_TOTAL.toLocaleString('en-IN')} Indian grocery, snack, spice, personal care, pooja and household products with carton packing and shelf life. Search by brand, add cartons and send your order.`,
+  title: 'Indian FMCG Product List by Carton',
+  description: `${FMCG_TOTAL.toLocaleString('en-IN')} Indian grocery, snack, spice, personal care, pooja and household products with carton packing and shelf life. Search by brand and order by the carton.`,
   alternates: { canonical: '/fmcg/catalogue/' },
 };
 
