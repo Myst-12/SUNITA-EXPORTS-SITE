@@ -83,6 +83,11 @@ export default async function CategoryPage({ params }) {
               <p className={styles.catCount}>{isFmcg
                 ? <>{cat.productCount} product categories · <Link href="/fmcg/catalogue/">{FMCG_TOTAL.toLocaleString('en-IN')} products to order online</Link></>
                 : `${cat.productCount} products · specification sheet and quote on every product`}</p>
+              {!isFmcg && (
+                <div className="chip-row mt-2" aria-label="Cultivation">
+                  {['Conventional', 'IPM', 'Organic'].map((t) => <span key={t} className="chip chip-lime">{t}</span>)}
+                </div>
+              )}
               <div className="btn-row mt-3">
                 <Link href={`/contact/?product=${encodeURIComponent(name)}`} className="btn btn-primary">Request a quote <Icon name="arrow-right" /></Link>
                 <a href={whatsappLink(`Hello, please share your ${lower} price list.`)} target="_blank" rel="noopener noreferrer" className="btn btn-outline"><Icon name="whatsapp" /> WhatsApp</a>

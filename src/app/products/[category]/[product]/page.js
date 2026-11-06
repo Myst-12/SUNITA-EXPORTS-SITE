@@ -9,7 +9,7 @@ import Icon from '@/components/Icon';
 import { SITE_URL, COMPANY, CONTACT, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
 import { getLocalNames } from '@/data/catalog/localNames';
-import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_NOTE, REGULATED_NOTE, FMCG_NOTE, ON_REQUEST } from '@/lib/productDetails';
+import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_NOTE, REGULATED_NOTE, FMCG_NOTE, ON_REQUEST, farmingFor } from '@/lib/productDetails';
 import { Suspense } from 'react';
 import Image from 'next/image';
 import InquiryForm from '@/components/InquiryForm';
@@ -60,6 +60,10 @@ function buildFaqs(p) {
         ? `FMCG products ship as part of a mixed container. Tell us the brands, pack sizes and carton quantities you need and we confirm availability and destination eligibility.`
         : `For bulk ${lower} we usually start at 1 metric ton. You can also add it to a mixed 20 ft or 40 ft container with other products — useful for trial orders and smaller importers.`,
     },
+    ...(p.type !== 'fmcg' ? [{
+      question: `Do you supply organic and IPM ${lower}?`,
+      answer: `Yes. ${p.shortName} is available as conventional, IPM (Integrated Pest Management) and certified organic. Organic lots ship with their organic certificates, and every lot is tested against your market's pesticide limits.`,
+    }] : []),
     {
       question: `How is ${lower} packed for export?`,
       answer: `${p.packaging.join('; ')}.${p.type !== 'fmcg' ? ` Indicative container load: 20 ft — ${load.twenty}; 40 ft — ${load.forty}.` : ''} Private label packing with your artwork and barcodes is available.`,
@@ -98,12 +102,13 @@ export default async function ProductDetailPage({ params }) {
   const notes = [product.feedOnly && FEED_NOTE, product.regulated && REGULATED_NOTE, product.type === 'fmcg' && FMCG_NOTE].filter(Boolean);
   const url = `${SITE_URL}${productUrl(product)}`;
   const uses = usesFor(product);
+  const farming = farmingFor(product);
   const isBulk = product.type !== 'fmcg';
   const toc = [
     ['uses', 'Uses'],
     ['details', 'Product details'],
     ['specs', 'Specifications'],
-    product.grades.length > 0 && ['grades', 'Grades'],
+    (product.grades.length > 0 || farming.length > 0) && ['grades', 'Varieties'],
     (product.packaging?.length > 0) && ['packing', 'Packing'],
     isBulk && ['containers', 'Container loads'],
     ['faq', 'FAQ'],
@@ -179,6 +184,13 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
+              {farming.length > 0 && (
+                <div className={styles.optionRow}>
+                  <span className={styles.optionLabel}>Cultivation</span>
+                  <div className="chip-row">{farming.map((f) => <span key={f.key} className={`chip ${x.farmChip}`}>{f.label}</span>)}</div>
+                </div>
+              )}
+
               {notes.map((t) => <p key={t} className={styles.notice}><Icon name="shield" size={16} /> {t}</p>)}
 
               <div className={`btn-row ${styles.ctas}`}>
@@ -247,12 +259,27 @@ export default async function ProductDetailPage({ params }) {
               )}
             </div>
 
-            {product.grades.length > 0 && (
+            {(product.grades.length > 0 || farming.length > 0) && (
               <div className={`${styles.block} ${x.anchor}`} id="grades">
-                <h2 className={styles.blockTitle}>Available grades</h2>
-                <ul className={x.grades} role="list">
-                  {product.grades.map((g) => <li key={g}><Icon name="check" size={16} /> {g}</li>)}
-                </ul>
+                <h2 className={styles.blockTitle}>Available varieties</h2>
+                {farming.length > 0 && (
+                  <ul className={x.farming} role="list">
+                    {farming.map((f) => (
+                      <li key={f.key} data-kind={f.key}>
+                        <b>{f.label === 'IPM' ? 'IPM' : f.label} {n}</b>
+                        <p>{f.note}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {product.grades.length > 0 && (
+                  <>
+                    <p className={x.gradeLabel}>Grades</p>
+                    <ul className={x.grades} role="list">
+                      {product.grades.map((g) => <li key={g}><Icon name="check" size={16} /> {g}</li>)}
+                    </ul>
+                  </>
+                )}
                 <p className={styles.note}>Other grades and cleaning levels to your specification. Samples are sent before you confirm.</p>
               </div>
             )}
@@ -380,6 +407,7 @@ export default async function ProductDetailPage({ params }) {
             <h2 className={x.enqTitle}>Get a quote for {n}</h2>
             <p className={x.marketText}>Share the grade, quantity, packing and destination. Our team replies within one business day with specifications and pricing.</p>
             <ul className={x.enqPoints} role="list">
+              <li><Icon name="check" size={16} /> Conventional, IPM and organic</li>
               <li><Icon name="check" size={16} /> Samples and lab reports on request</li>
               <li><Icon name="check" size={16} /> Private label and custom packing</li>
               <li><Icon name="check" size={16} /> Full containers or mixed loads</li>

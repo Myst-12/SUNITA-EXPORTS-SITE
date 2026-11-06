@@ -12,6 +12,14 @@ export const FMCG_NOTE =
   'Product family. Exact brands, pack sizes, units per carton and destination eligibility are confirmed with each order; we only offer brands we are authorised to supply.';
 export const SPEC_DISCLAIMER = 'Values are typical. Final specifications are confirmed per contract and lot, with a certificate of analysis.';
 
+// Every bulk (non-FMCG) product is offered in these three cultivation types.
+export const FARMING = [
+  { key: 'conventional', label: 'Conventional', note: 'Standard farming, tested to your market’s residue limits.' },
+  { key: 'ipm', label: 'IPM', note: 'Integrated Pest Management: fewer, controlled sprays for low-residue lots.' },
+  { key: 'organic', label: 'Organic', note: 'Certified organic farms and processing, with certificates per shipment.' },
+];
+export const farmingFor = (p) => (p.type === 'fmcg' ? [] : FARMING);
+
 export function containerLoadText(p) {
   const c = p.containerLoad;
   if (!c) return { twenty: ON_REQUEST, forty: ON_REQUEST };
@@ -27,6 +35,7 @@ export function detailRows(p) {
     ['Category', p.subcategoryName && p.subcategoryName !== p.categoryName ? `${p.categoryName} › ${p.subcategoryName}` : p.categoryName],
     p.forms.length > 0 && [p.type === 'fmcg' ? 'Pack types' : 'Forms available', p.forms.join(', ')],
     p.grades.length > 0 && ['Varieties / grades', p.grades.join(', ')],
+    p.type !== 'fmcg' && ['Cultivation', 'Conventional, IPM and Organic'],
     ['Origin', p.origin ? (/^india|blended|roasted/i.test(p.origin) ? p.origin : `India — ${p.origin}`) : 'Confirmed per lot'],
     p.hsCode && ['HS code (indicative)', p.hsCode],
     ['Packing', p.packaging.join('; ')],

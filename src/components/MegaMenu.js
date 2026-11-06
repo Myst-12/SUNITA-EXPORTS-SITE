@@ -68,6 +68,11 @@ export default function MegaMenu({ categories, onNavigate }) {
         <div className={styles.cardBody}>
           <p className={styles.cardTitle}>{cat.name}</p>
           <p className={styles.cardText}>{cat.blurb}</p>
+          {cat.slug !== 'foodstuff-fmcg' && (
+            <ul className={styles.tags} role="list" aria-label="Cultivation">
+              {['Conventional', 'IPM', 'Organic'].map((t) => <li key={t}>{t}</li>)}
+            </ul>
+          )}
           <Link href={`/contact/?product=${encodeURIComponent(cat.name)}`} className={`btn btn-primary btn-sm ${styles.cardBtn}`} onClick={onNavigate}>
             Request a quote <Icon name="arrow-right" size={15} />
           </Link>
