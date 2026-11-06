@@ -8,8 +8,16 @@ import Analytics from '@/components/Analytics';
 import { SITE_URL, GA_ID } from '@/config/site';
 import { organizationSchema as buildOrganizationSchema } from '@/lib/schemas';
 import { categories } from '@/data/products';
+import { FMCG_FAMILY_LINKS } from '@/data/fmcg/familyLinks';
 
-const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name, image: c.image, count: c.productCount, href: c.href, service: !!c.service }));
+// The Products menu shows the first products of each category with their photos (those with a photo first).
+const MENU_ITEMS = 24;
+const menuItems = (c) => [...c.products].sort((a, b) => Boolean(b.image) - Boolean(a.image)).slice(0, MENU_ITEMS)
+  .map((p) => ({ name: p.shortName, href: (p.category === 'foodstuff-fmcg' && FMCG_FAMILY_LINKS[p.slug]) || `/products/${p.category}/${p.slug}/`, image: p.image }));
+const navCategories = categories.map((c) => ({
+  slug: c.slug, name: c.name, image: c.image, count: c.productCount, href: c.href, service: !!c.service,
+  blurb: c.description, items: c.service ? [] : menuItems(c),
+}));
 
 const fraunces = Fraunces({
   subsets: ['latin'],

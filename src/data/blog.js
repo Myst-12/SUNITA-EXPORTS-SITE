@@ -1,4 +1,8 @@
-export const blogPosts = [
+import { postsA } from './blog/posts-a';
+import { postsB } from './blog/posts-b';
+import { postsC } from './blog/posts-c';
+
+const basePosts = [
   {
     slug: 'how-to-import-spices-from-india',
     image: '/images/scenes/port-crane.webp',
@@ -98,3 +102,5 @@ export const blogPosts = [
     `
   }
 ];
+
+export const blogPosts = [...basePosts, ...postsA, ...postsB, ...postsC];

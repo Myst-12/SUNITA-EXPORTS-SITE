@@ -41,6 +41,7 @@ const PATHS = {
   'chat-dots': <><path d="M5.5 4.5h13A2.5 2.5 0 0 1 21 7v8.5a2.5 2.5 0 0 1-2.5 2.5H12l-4.6 3.3a.5.5 0 0 1-.8-.4V18H5.5A2.5 2.5 0 0 1 3 15.5V7a2.5 2.5 0 0 1 2.5-2.5z" /><circle cx="8.2" cy="11.3" r="1.15" fill="currentColor" stroke="none" /><circle cx="12" cy="11.3" r="1.15" fill="currentColor" stroke="none" /><circle cx="15.8" cy="11.3" r="1.15" fill="currentColor" stroke="none" /></>,
   send: <><path d="M4 12 20 4l-4 16-4-7z" /><path d="m12 13 8-9" /></>,
   user: <><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></>,
+  bag: <><path d="M6 7h12l1.5 13h-15L6 7Z" /><path d="M9 7V5.5a3 3 0 0 1 6 0V7" /><path d="M8.5 12h7" /></>,
   box: <><rect x="3.5" y="7" width="17" height="13" rx="1.5" /><path d="M3.5 11h17" /><path d="M10 15h4" /><path d="M6 7l2-3h8l2 3" /></>,
 };
 

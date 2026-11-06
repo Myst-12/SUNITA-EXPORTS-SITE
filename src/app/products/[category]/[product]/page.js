@@ -10,7 +10,21 @@ import { SITE_URL, COMPANY, CONTACT, whatsappLink } from '@/config/site';
 import { faqSchema } from '@/lib/schemas';
 import { getLocalNames } from '@/data/catalog/localNames';
 import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_NOTE, REGULATED_NOTE, FMCG_NOTE, ON_REQUEST } from '@/lib/productDetails';
+import { Suspense } from 'react';
+import Image from 'next/image';
+import InquiryForm from '@/components/InquiryForm';
+import { usesFor } from '@/data/catalog/productUses';
+import { certificates } from '@/data/certificates';
+import { exportDestinations } from '@/data/countries';
 import styles from './product.module.css';
+import x from './extras.module.css';
+
+// Inside dimensions of standard dry containers; the weight that fits depends on the product and packing.
+const CONTAINERS = [
+  { size: '20 ft', volume: '33.2 m³', key: 'twenty' },
+  { size: '40 ft', volume: '67.7 m³', key: 'forty' },
+];
+const bagIcon = (p) => (/carton|box|pack|pouch|jar|bottle/i.test(p) ? 'box' : 'bag');
 
 export const dynamicParams = false;
 
@@ -83,6 +97,18 @@ export default async function ProductDetailPage({ params }) {
   const alsoIn = (product.also || []).map((a) => getCategoryBySlug(a.category)).filter(Boolean);
   const notes = [product.feedOnly && FEED_NOTE, product.regulated && REGULATED_NOTE, product.type === 'fmcg' && FMCG_NOTE].filter(Boolean);
   const url = `${SITE_URL}${productUrl(product)}`;
+  const uses = usesFor(product);
+  const isBulk = product.type !== 'fmcg';
+  const toc = [
+    ['uses', 'Uses'],
+    ['details', 'Product details'],
+    ['specs', 'Specifications'],
+    product.grades.length > 0 && ['grades', 'Grades'],
+    (product.packaging?.length > 0) && ['packing', 'Packing'],
+    isBulk && ['containers', 'Container loads'],
+    ['faq', 'FAQ'],
+    ['enquiry', 'Enquiry'],
+  ].filter((t) => t && (t[0] !== 'uses' || uses.length));
 
   const productLd = {
     '@context': 'https://schema.org',
@@ -165,10 +191,32 @@ export default async function ProductDetailPage({ params }) {
         </div>
       </section>
 
+      <nav className={x.toc} aria-label="On this page">
+        <div className={`container ${x.tocInner}`}>
+          <span className={x.tocLabel}>On this page</span>
+          {toc.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}
+        </div>
+      </nav>
+
       <section className="section-sm">
         <div className={`container ${styles.detailGrid}`}>
           <div className={styles.detailMain}>
-            <div className={styles.block}>
+            {uses.length > 0 && (
+              <div className={`${styles.block} ${x.anchor}`} id="uses">
+                <h2 className={styles.blockTitle}>Uses of {n.toLowerCase()}</h2>
+                <ul className={x.uses} role="list">
+                  {uses.map((u, i) => (
+                    <li key={u.title}>
+                      <span className={x.useNum} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                      <b>{u.title}</b>
+                      <p>{u.text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className={`${styles.block} ${x.anchor}`} id="details">
               <h2 className={styles.blockTitle}>Product details</h2>
               <div className={styles.tableWrap}>
                 <table className="spec-table">
@@ -180,7 +228,7 @@ export default async function ProductDetailPage({ params }) {
               {product.containerLoad && <p className={styles.note}>Container loads are indicative and depend on packing and shipping-line weight limits.</p>}
             </div>
 
-            <div className={styles.block}>
+            <div className={`${styles.block} ${x.anchor}`} id="specs">
               <h2 className={styles.blockTitle}>{specs.length ? 'Typical specifications' : 'Specifications'}</h2>
               {specs.length > 0 ? (
                 <>
@@ -199,6 +247,47 @@ export default async function ProductDetailPage({ params }) {
               )}
             </div>
 
+            {product.grades.length > 0 && (
+              <div className={`${styles.block} ${x.anchor}`} id="grades">
+                <h2 className={styles.blockTitle}>Available grades</h2>
+                <ul className={x.grades} role="list">
+                  {product.grades.map((g) => <li key={g}><Icon name="check" size={16} /> {g}</li>)}
+                </ul>
+                <p className={styles.note}>Other grades and cleaning levels to your specification. Samples are sent before you confirm.</p>
+              </div>
+            )}
+
+            {product.packaging?.length > 0 && (
+              <div className={`${styles.block} ${x.anchor}`} id="packing">
+                <h2 className={styles.blockTitle}>Packing options</h2>
+                <ul className={x.packs} role="list">
+                  {product.packaging.map((pk) => (
+                    <li key={pk}><Icon name={bagIcon(pk)} size={22} /><span>{pk}</span></li>
+                  ))}
+                  <li className={x.packCustom}><Icon name="tag" size={22} /><span>Private label and custom packing on request</span></li>
+                </ul>
+              </div>
+            )}
+
+            {isBulk && (
+              <div className={`${styles.block} ${x.anchor}`} id="containers">
+                <h2 className={styles.blockTitle}>Container loads</h2>
+                <div className={x.containers}>
+                  {CONTAINERS.map((c) => (
+                    <div key={c.key} className={x.box}>
+                      <Icon name="container" size={26} />
+                      <p className={x.boxSize}>{c.size} container</p>
+                      <dl>
+                        <div><dt>Space</dt><dd>{c.volume}</dd></div>
+                        <div><dt>{n}</dt><dd>{product.containerLoad?.[c.key] || 'Confirmed with your quote'}</dd></div>
+                      </dl>
+                    </div>
+                  ))}
+                </div>
+                <p className={styles.note}>Loads depend on packing and shipping-line weight limits. Smaller quantities can go in a <Link href="/mixed-container/">mixed container</Link>.</p>
+              </div>
+            )}
+
             {localNames.length > 0 && (
               <div className={styles.block}>
                 <h2 className={styles.blockTitle}>{n} in other languages</h2>
@@ -213,7 +302,7 @@ export default async function ProductDetailPage({ params }) {
               </div>
             )}
 
-            <div className={styles.block}>
+            <div className={`${styles.block} ${x.anchor}`} id="faq">
               <h2 className={styles.blockTitle}>{n}: questions buyers ask</h2>
               <div className="faq-list">
                 {faqs.map((f, i) => (
@@ -248,6 +337,59 @@ export default async function ProductDetailPage({ params }) {
               <p className={styles.alsoIn}>Also listed in {alsoIn.map((c, i) => <span key={c.slug}>{i > 0 && ', '}<Link href={`/products/${c.slug}/`}>{c.name}</Link></span>)}</p>
             )}
           </aside>
+        </div>
+      </section>
+
+      <section className={`section-sm ${x.certs}`} aria-labelledby="certs-title">
+        <div className="container">
+          <div className={x.certHead}>
+            <h2 id="certs-title" className={styles.blockTitle}>Our certifications</h2>
+            <Link href="/certifications/" className="link-arrow">See all certificates <Icon name="arrow-right" /></Link>
+          </div>
+        </div>
+        <div className={`marquee ${x.marquee}`}>
+          <div className="marquee-track">
+            {[...certificates, ...certificates].map((c, i) => (
+              <Link key={`${c.key}-${i}`} href="/certifications/" className={x.cert} aria-hidden={i >= certificates.length || undefined} tabIndex={i >= certificates.length ? -1 : undefined}>
+                <span className={x.certImg}><Image src={c.image} alt="" fill sizes="56px" /></span>
+                <span><b>{c.short}</b><small>{c.what}</small></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-sm">
+        <div className={`container ${x.markets}`}>
+          <div>
+            <h2 className={styles.blockTitle}>Exporting {n.toLowerCase()} to 40+ countries</h2>
+            <p className={x.marketText}>We ship from {CONTACT.port.split(' (')[0]}, Mumbai with the export documents each market asks for: phytosanitary and origin certificates, lab reports and importer paperwork. Some of our regular markets:</p>
+          </div>
+          <ul className={x.flags} role="list">
+            {exportDestinations.map((c) => (
+              <li key={c.slug}><Link href={`/exports/${c.slug}/`}><span aria-hidden="true">{c.flag}</span> {c.name}</Link></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className={`section-sm section-soft ${x.anchor}`} id="enquiry">
+        <div className={`container ${x.enquiry}`}>
+          <div>
+            <span className="eyebrow">Bulk & export enquiries</span>
+            <h2 className={x.enqTitle}>Get a quote for {n}</h2>
+            <p className={x.marketText}>Share the grade, quantity, packing and destination. Our team replies within one business day with specifications and pricing.</p>
+            <ul className={x.enqPoints} role="list">
+              <li><Icon name="check" size={16} /> Samples and lab reports on request</li>
+              <li><Icon name="check" size={16} /> Private label and custom packing</li>
+              <li><Icon name="check" size={16} /> Full containers or mixed loads</li>
+            </ul>
+          </div>
+          <div className={x.enqForm}>
+            <Suspense fallback={<p className="text-muted">Loading form…</p>}>
+              <InquiryForm product={product.name} />
+            </Suspense>
+          </div>
         </div>
       </section>
 

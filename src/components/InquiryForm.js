@@ -18,9 +18,9 @@ const TERMS = ['FOB Nhava Sheva', 'CFR', 'CIF', 'Not sure'];
 
 const EMPTY = { name: '', company: '', email: '', phone: '', country: '', buyerType: '', productInterest: '', estimatedQuantity: '', packaging: '', incoterm: '', port: '', message: '', website: '' };
 
-export default function InquiryForm() {
+export default function InquiryForm({ product = '' }) {
   const params = useSearchParams();
-  const [data, setData] = useState({ ...EMPTY, productInterest: params?.get('product') || '' });
+  const [data, setData] = useState({ ...EMPTY, productInterest: params?.get('product') || product });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [error, setError] = useState('');
 
