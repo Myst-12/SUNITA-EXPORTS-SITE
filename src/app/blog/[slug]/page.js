@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import { blogPosts } from '@/data/blog';
+import { BLOG_PRODUCTS } from '@/data/blogProducts';
+import { getAllProducts } from '@/data/products';
+import ProductCard from '@/components/ProductCard';
 import { articleSchema } from '@/lib/schemas';
 import { CONTACT, whatsappLink } from '@/config/site';
 import styles from './post.module.css';
@@ -34,6 +37,8 @@ export default async function BlogPostPage({ params }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
   const more = blogPosts.filter((p) => p.slug !== post.slug);
+  const all = getAllProducts();
+  const products = (BLOG_PRODUCTS[post.slug] || []).map((s) => all.find((p) => p.slug === s)).filter(Boolean);
 
   return (
     <>
@@ -62,6 +67,15 @@ export default async function BlogPostPage({ params }) {
           </aside>
         </div>
       </article>
+
+      {products.length > 0 && (
+        <section className="section-sm">
+          <div className="container">
+            <h2 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>Products in this guide</h2>
+            <div className="grid-4">{products.map((p) => <ProductCard key={p.slug} product={p} />)}</div>
+          </div>
+        </section>
+      )}
 
       {more.length > 0 && (
         <section className="section-sm section-soft">
