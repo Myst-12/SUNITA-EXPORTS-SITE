@@ -97,6 +97,14 @@ export default function HelpSearch() {
   };
 
   const close = () => { setClosing(true); buttonRef.current?.focus(); };
+  // Only one floating panel at a time: the WhatsApp enquiry closes this one and the other way round.
+  useEffect(() => {
+    if (!open || closing) return;
+    window.dispatchEvent(new CustomEvent('sx:panel', { detail: 'help' }));
+    const onOther = (e) => e.detail !== 'help' && setClosing(true);
+    window.addEventListener('sx:panel', onOther);
+    return () => window.removeEventListener('sx:panel', onOther);
+  }, [open, closing]);
   const onPanelAnimationEnd = (e) => {
     if (e.target === e.currentTarget && closing) { setOpen(false); setClosing(false); }
   };

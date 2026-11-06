@@ -16,3 +16,78 @@
 
 .fab:active { transform: scale(0.92); transition-duration: 120ms; }
 @media (prefers-reduced-motion: reduce) { .fab { animation: none; transition: box-shadow 0.2s; } .fab:hover, .fab:active { transform: none; } }
+
+/* Button is a <button> now: reset native styles and swap WhatsApp/close icons with a quarter turn, like the help button. */
+.fab { border: 0; cursor: pointer; font: inherit; }
+.fab:focus-visible { outline: 3px solid var(--lime-500); outline-offset: 3px; }
+.icons { position: relative; display: grid; place-items: center; width: 28px; height: 28px; }
+.icons > svg { grid-area: 1 / 1; transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.2s var(--ease); }
+.iconClose { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+.icons[data-open] .iconWa { opacity: 0; transform: rotate(90deg) scale(0.5); }
+.icons[data-open] .iconClose { opacity: 1; transform: none; }
+
+/* Enquiry panel, anchored to the button it grows from. */
+.panel {
+  position: fixed; right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(86px + env(safe-area-inset-bottom, 0px)); z-index: 130;
+  width: 400px; max-height: calc(100dvh - 120px);
+  display: flex; flex-direction: column; overflow: hidden;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  transform-origin: bottom right;
+  animation: panelIn 0.38s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.panelOut { animation: panelOut 0.2s cubic-bezier(0.4, 0, 1, 1) both; pointer-events: none; }
+@keyframes panelIn { from { opacity: 0; transform: translateY(18px) scale(0.92); } }
+@keyframes panelOut { to { opacity: 0; transform: translateY(12px) scale(0.95); } }
+
+.head { display: flex; align-items: center; gap: 12px; padding: 14px 12px 14px 16px; background: #128c4a; color: #fff; }
+.head > div { flex: 1; min-width: 0; }
+.avatar { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
+.title { margin: 0; font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: #fff; line-height: 1.25; }
+.sub { margin: 2px 0 0; font-size: 0.78rem; color: #d7f5e2; }
+.close { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+@media (hover: hover) and (pointer: fine) { .close:hover { background: rgba(255, 255, 255, 0.14); } }
+
+.form { overflow-y: auto; overscroll-behavior: contain; padding: 16px; display: grid; gap: 12px; }
+.intro { margin: 0; font-size: 0.88rem; line-height: 1.45; color: var(--ink-2); }
+.intro b { color: var(--ink); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field { display: grid; gap: 4px; min-width: 0; }
+.wide { grid-column: 1 / -1; }
+.field label { font-size: 0.76rem; font-weight: 700; color: var(--ink-2); }
+.field input {
+  width: 100%; height: 42px; padding: 0 11px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: #fff;
+  font: inherit; font-size: 16px; color: var(--ink); /* 16px keeps iOS from zooming in */
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+.field input::placeholder { color: #93a097; }
+.field input:focus { outline: none; border-color: #1faa53; box-shadow: 0 0 0 3px rgba(31, 170, 83, 0.18); }
+
+.send {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; margin-top: 2px;
+  border: 0; border-radius: 999px; background: #1faa53; color: #fff; font: inherit; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+  transition: background-color 0.2s var(--ease), transform 0.15s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) { .send:hover { background: #178f45; } }
+.send:active { transform: scale(0.97); }
+.send:focus-visible, .direct:focus-visible { outline: 3px solid var(--lime-500); outline-offset: 2px; }
+.direct { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 6px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; color: var(--green-700); text-decoration: none; }
+.direct svg { transition: transform 0.2s var(--ease); }
+@media (hover: hover) and (pointer: fine) { .direct:hover { text-decoration: underline; } .direct:hover svg { transform: translateX(3px); } }
+.note { margin: 0; text-align: center; font-size: 0.74rem; color: var(--muted); }
+
+/* Phone: a bottom sheet over the whole width. */
+@media (max-width: 640px) {
+  .panel { right: 0; left: 0; bottom: 0; width: auto; max-height: 92dvh; border-radius: 20px 20px 0 0; border-bottom: 0; padding-bottom: env(safe-area-inset-bottom, 0px); animation-name: sheetIn; }
+  .panelOut { animation-name: sheetOut; }
+  @keyframes sheetIn { from { transform: translateY(100%); } }
+  @keyframes sheetOut { to { transform: translateY(100%); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel, .panelOut { animation-name: fadeIn; animation-duration: 0.2s; }
+  .panelOut { animation-name: fadeOut; }
+  @keyframes fadeIn { from { opacity: 0; } }
+  @keyframes fadeOut { to { opacity: 0; } }
+  .icons > svg { transition: opacity 0.2s; }
+}
