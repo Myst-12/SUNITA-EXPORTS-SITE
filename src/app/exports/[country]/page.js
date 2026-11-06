@@ -7,6 +7,7 @@ import Icon from '@/components/Icon';
 import { exportDestinations } from '@/data/countries';
 import { getAllProducts } from '@/data/products';
 import { MARKET_CONTENT } from '@/data/marketContent';
+import { MARKET_CONTENT_WORLD } from '@/data/marketContentWorld';
 import { COMPANY, CONTACT, whatsappLink, flagCode } from '@/config/site';
 import s from '../../pages.module.css';
 import { seoTitle } from '@/lib/seoTitle';
@@ -45,7 +46,7 @@ export default async function CountryPage({ params }) {
   if (!c) notFound();
 
   const all = getAllProducts();
-  const extra = MARKET_CONTENT[c.slug] || {};
+  const extra = MARKET_CONTENT[c.slug] || MARKET_CONTENT_WORLD[c.slug] || {};
   const featured = (extra.featured || FEATURED).map((slug) => all.find((p) => p.slug === slug)).filter(Boolean);
   const name = c.name;
   const faqs = [
@@ -104,6 +105,13 @@ export default async function CountryPage({ params }) {
                 {sec.paras.map((para) => <p key={para.slice(0, 40)} className="lead" style={{ fontSize: '1.02rem', marginBottom: '0.9rem' }}>{para}</p>)}
               </div>
             ))}
+            {extra.sources && (
+              <div className={s.sources}>
+                <h3>Official sources</h3>
+                <p>Rules change; check current requirements with your customs broker. The regulator’s own pages:</p>
+                <ul>{extra.sources.map((x) => <li key={x.url}><a href={x.url} target="_blank" rel="noopener noreferrer">{x.label}</a></li>)}</ul>
+              </div>
+            )}
           </div>
         </section>
       )}

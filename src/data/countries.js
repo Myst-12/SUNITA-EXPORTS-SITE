@@ -222,5 +222,57 @@ export const exportDestinations = [
     keyProducts: ['Parboiled & Basmati Rice', 'Spices', 'Pulses', 'Indian FMCG'],
     certificationsRequired: ['Pre-Export Verification of Conformity (PVoC)', 'Certificate of Origin', 'Phytosanitary Certificate'],
     shippingPorts: ['Mombasa (for Uganda & Kenya)', 'Dar es Salaam']
+  },
+  {
+    name: 'Germany',
+    slug: 'germany',
+    coords: [53.55, 9.99],
+    region: 'Europe',
+    flag: '🇩🇪',
+    seoTitle: 'Indian Spices & Botanicals Exporter to Germany',
+    seoDescription: 'Indian spices, herbs, psyllium, sesame and dehydrated onion for German food, tea and supplement makers, tested to EU limits and shipped to Hamburg.',
+    introText: 'Germany buys Indian spices, herbs, psyllium and botanicals for its food, tea and supplement industries. We ship tested, documented lots to Hamburg and Bremerhaven, or via Rotterdam.',
+    keyProducts: ['Spices', 'Herbs & Botanicals', 'Psyllium', 'Sesame'],
+    certificationsRequired: ['Phytosanitary Certificate', 'Lab report to EU MRLs', 'Official certificate where Reg. (EU) 2019/1793 applies'],
+    shippingPorts: ['Hamburg', 'Bremerhaven', 'Rotterdam (onward)']
+  },
+  {
+    name: 'Netherlands',
+    slug: 'netherlands',
+    coords: [51.92, 4.48],
+    region: 'Europe',
+    flag: '🇳🇱',
+    seoTitle: 'Indian Spices & Food Exporter to the Netherlands',
+    seoDescription: 'Indian spices, sesame, psyllium, dehydrated onion and rice shipped to Rotterdam for Dutch importers, processors and EU distribution.',
+    introText: 'Rotterdam is Europe’s main gateway for spices and dried ingredients. We supply Dutch importers and processors with bulk Indian spices, seeds and rice, tested to EU limits.',
+    keyProducts: ['Spices', 'Sesame', 'Psyllium', 'Dehydrated Onion'],
+    certificationsRequired: ['Phytosanitary Certificate', 'Lab report to EU MRLs', 'CHED-D pre-notification where required'],
+    shippingPorts: ['Rotterdam', 'Antwerp']
+  },
+  {
+    name: 'South Africa',
+    slug: 'south-africa',
+    coords: [-29.86, 31.02],
+    region: 'Africa',
+    flag: '🇿🇦',
+    seoTitle: 'Indian Spices & Grocery Exporter to South Africa',
+    seoDescription: 'Indian spices, masalas, rice, dals and snacks exported to Durban and Cape Town for South African wholesalers and retailers.',
+    introText: 'South Africa, and Durban above all, has a large Indian community with strong demand for spices, masalas, rice and dals. We ship bulk and retail packs to Durban and Cape Town.',
+    keyProducts: ['Spices & Masalas', 'Rice', 'Pulses', 'Indian FMCG'],
+    certificationsRequired: ['Import permit (plant products, where required)', 'Phytosanitary Certificate', 'Certificate of Origin'],
+    shippingPorts: ['Durban', 'Cape Town']
+  },
+  {
+    name: 'Egypt',
+    slug: 'egypt',
+    coords: [31.2, 29.92],
+    region: 'Africa',
+    flag: '🇪🇬',
+    seoTitle: 'Indian Sesame, Spices & Pulses Exporter to Egypt',
+    seoDescription: 'Indian sesame, cumin, pepper, turmeric, lentils and fava beans for Egyptian processors and wholesalers, shipped to Alexandria and Damietta.',
+    introText: 'Egypt is one of our regular markets for sesame, spices and pulses. We ship full containers to Alexandria, Damietta, Port Said and Sokhna for processors and wholesalers.',
+    keyProducts: ['Sesame', 'Spices', 'Lentils & Fava Beans', 'Turmeric'],
+    certificationsRequired: ['Phytosanitary Certificate', 'Certificate of Origin (attested)', 'NFSA inspection at port'],
+    shippingPorts: ['Alexandria', 'Damietta', 'Port Said', 'Sokhna']
   }
 ];

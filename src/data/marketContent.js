@@ -6,6 +6,7 @@ const GULF_LABEL = 'GCC food labelling (GSO 9) needs Arabic on the label — bil
 
 export const MARKET_CONTENT = {
   uae: {
+    sources: [{ label: 'Dubai Municipality: food import and re-export', url: 'https://www.dm.gov.ae/' }, { label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'chana-dal', 'turmeric-powder', 'red-chilli-powder', 'snacks-namkeen', 'packaged-atta-flours', 'green-cardamom', 'biscuits-bakery'],
     sections: [
       {
@@ -37,6 +38,7 @@ export const MARKET_CONTENT = {
   },
 
   'saudi-arabia': {
+    sources: [{ label: 'Saudi Food and Drug Authority (SFDA)', url: 'https://www.sfda.gov.sa/en' }, { label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'golden-sella-rice', 'green-cardamom', 'black-pepper', 'chana-dal', 'red-lentils', 'cumin-seeds', 'snacks-namkeen'],
     sections: [
       {
@@ -61,6 +63,7 @@ export const MARKET_CONTENT = {
   },
 
   kuwait: {
+    sources: [{ label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'turmeric-powder', 'chana-dal', 'whole-green-moong', 'snacks-namkeen', 'sweets-confectionery', 'garam-masala', 'packaged-atta-flours'],
     sections: [
       {
@@ -74,6 +77,7 @@ export const MARKET_CONTENT = {
   },
 
   qatar: {
+    sources: [{ label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'chana-dal', 'turmeric-powder', 'garam-masala', 'dairy-products', 'chakki-atta', 'snacks-namkeen', 'packaged-spices-masalas'],
     sections: [
       {
@@ -87,6 +91,7 @@ export const MARKET_CONTENT = {
   },
 
   oman: {
+    sources: [{ label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'turmeric-powder', 'red-chilli-powder', 'chana-dal', 'red-lentils', 'snacks-namkeen', 'packaged-atta-flours', 'coriander-seeds'],
     sections: [
       {
@@ -99,6 +104,7 @@ export const MARKET_CONTENT = {
   },
 
   bahrain: {
+    sources: [{ label: 'GCC Standardization Organization (GSO)', url: 'https://www.gso.org.sa/en/' }],
     featured: ['1121-basmati-rice', 'chana-dal', 'turmeric-powder', 'garam-masala', 'snacks-namkeen', 'biscuits-bakery', 'packaged-atta-flours', 'tea-instant-beverages'],
     sections: [
       {

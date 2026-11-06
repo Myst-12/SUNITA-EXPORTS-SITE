@@ -76,3 +76,10 @@
 .certValid { color: var(--green-700) !important; font-weight: 700; }
 .certOpen { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--green-700) !important; font-size: 0.86rem !important; }
 @media (max-width: 480px) { .certGrid { grid-template-columns: 1fr 1fr; gap: 10px; } .certBody { padding: 10px 12px 12px; } .certImg { margin: 8px 8px 0; } }
+
+/* Country pages: links to the regulator's own pages. */
+.sources { margin-top: 0.5rem; padding: 18px 20px; border-radius: var(--radius); background: var(--bg-mist); }
+.sources h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.sources p { margin: 0 0 8px; font-size: 0.9rem; color: var(--muted); }
+.sources ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.sources a { font-weight: 650; color: var(--green-700); text-decoration: underline; text-underline-offset: 2px; }
