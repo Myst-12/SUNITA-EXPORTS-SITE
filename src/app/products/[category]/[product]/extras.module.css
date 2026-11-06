@@ -70,3 +70,6 @@
 
 .overview { display: grid; gap: 14px; max-width: 68ch; }
 .overview p { margin: 0; font-size: 1.02rem; line-height: 1.7; color: var(--ink); }
+
+.quick { margin: 0; padding: 16px 18px; border-left: 4px solid var(--green-600); border-radius: 0 var(--radius) var(--radius) 0; background: var(--green-50); font-size: 0.98rem; line-height: 1.65; color: var(--ink); }
+.quick b { color: var(--green-800); }

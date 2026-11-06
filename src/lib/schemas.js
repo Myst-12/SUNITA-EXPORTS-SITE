@@ -3,7 +3,10 @@
  * Sunita Agri Exports Pvt. Ltd.
  */
 
-import { SITE_URL, COMPANY as SITE_COMPANY, CONTACT, SOCIAL, LISTINGS } from '@/config/site';
+import { SITE_URL, COMPANY as SITE_COMPANY, CONTACT, SOCIAL, LISTINGS, DIRECTORS } from '@/config/site';
+import { certificates } from '@/data/certificates';
+import { exportDestinations } from '@/data/countries';
+import { productCategories } from '@/data/products';
 
 const COMPANY = {
   name: SITE_COMPANY.legalName,
@@ -48,8 +51,10 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
     name: COMPANY.name,
     legalName: COMPANY.legalName,
+    alternateName: [SITE_COMPANY.name, SITE_COMPANY.shortName],
     url: COMPANY.url,
     logo: COMPANY.logo,
     foundingDate: COMPANY.foundingDate,
@@ -67,6 +72,11 @@ export function organizationSchema() {
       { '@type': 'PostalAddress', ...COMPANY.ukAddress },
     ],
     sameAs: COMPANY.sameAs,
+    // Who runs it, what it knows and where it sells: the facts AI assistants use to describe a company.
+    employee: DIRECTORS.map((d) => ({ '@type': 'Person', name: d.name, jobTitle: d.role })),
+    knowsAbout: productCategories.map((c) => c.name),
+    areaServed: exportDestinations.map((d) => ({ '@type': 'Place', name: d.name })),
+    hasCertification: certificates.map((c) => ({ '@type': 'Certification', name: c.name, description: c.what, issuedBy: { '@type': 'Organization', name: c.issuer } })),
   };
 }
 

@@ -1,0 +1,7 @@
+.wrap { max-width: 880px; }
+.summary { margin: 0 0 8px; font-size: 1.1rem; line-height: 1.7; color: var(--ink); }
+.h2 { margin: 2rem 0 0.8rem; font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+.list { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; color: var(--ink-2); }
+.list a { font-weight: 650; color: var(--green-700); }
+.note { margin-top: 2rem; font-size: 0.9rem; color: var(--muted); }
+.wrap :global(.spec-table) a { color: var(--green-700); font-weight: 650; }

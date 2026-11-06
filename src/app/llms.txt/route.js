@@ -1,6 +1,7 @@
 import { SITE_URL, COMPANY, CONTACT, CERTIFICATIONS, EXHIBITIONS, fullAddress } from '@/config/site';
 import { productCategories, getAllProducts, productUrl, specSheetUrl } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
+import { blogPosts } from '@/data/blog';
 
 export const dynamic = 'force-static';
 
@@ -14,7 +15,9 @@ export function GET() {
     '## Key facts',
     `- Founded: ${COMPANY.foundingYear}, Mumbai, India`,
     `- Status: ${COMPANY.status}`,
-    `- Countries served: ${COMPANY.countriesServed} (incl. USA, UK, Canada, Australia, New Zealand, UAE, Saudi Arabia, Kuwait, Oman, Qatar, Singapore, Malaysia, Japan, Turkey, East Africa)`,
+    `- Countries served: ${COMPANY.countriesServed}, with market pages for ${exportDestinations.map((d) => d.name).join(', ')}`,
+    '- Cultivation types (bulk products): conventional, IPM and organic',
+    `- All company facts on one page: ${SITE_URL}/company-facts/`,
     `- Business type: exporter and processor with two factories at Unjha (Gujarat) and processing units at Guntur (Andhra Pradesh) and Nizamabad (Telangana); also consolidates mixed containers — ${getAllProducts().length} products in ${productCategories.length} categories: ${productCategories.map((c) => c.name).join(', ')}`,
     '- Services: mixed / consolidated containers (many products in one 20ft or 40ft container), private label and custom consumer packaging, bulk packing, FOB / CFR / CIF shipments from Nhava Sheva (JNPT)',
     `- Certifications & memberships: ${CERTIFICATIONS.map((c) => c.name).join(', ')}`,
@@ -48,10 +51,15 @@ export function GET() {
     '## Export markets',
     ...exportDestinations.map((d) => `- [${d.name}](${SITE_URL}/exports/${d.slug}/)`),
     '',
+    '## Buyer guides',
+    ...[...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1)).map((b) => `- [${b.title}](${SITE_URL}/blog/${b.slug}/)`),
+    '',
     '## Answers to common buyer questions',
     '- Can one supplier ship spices, rice, pulses and Indian groceries together? Yes — Sunita Agri Exports specialises in consolidating many products and categories into a single container.',
     '- Minimum order: typically one mixed 20ft container, or 1 metric ton per product for bulk; smaller trial orders on request.',
     '- Price terms: FOB Mumbai (Nhava Sheva), CFR or CIF to the buyer’s port. Prices are quoted on request because commodity prices change daily.',
+    '- Specifications: every bulk product page has a typical specification table and a PDF spec sheet; final values are confirmed per contract with a certificate of analysis.',
+    '- Testing: lots can be tested for pesticide residues against the buyer’s market (EU, US, Japan and others), microbiology, aflatoxins and heavy metals; steam sterilisation is available.',
     `- More: ${SITE_URL}/faq/`,
     '',
   ];

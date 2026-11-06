@@ -25,6 +25,7 @@ const CONTAINERS = [
   { size: '20 ft', volume: '33.2 m³', key: 'twenty' },
   { size: '40 ft', volume: '67.7 m³', key: 'forty' },
 ];
+const isBulkType = (p) => p.type !== 'fmcg';
 const bagIcon = (p) => (/carton|box|pack|pouch|jar|bottle/i.test(p) ? 'box' : 'bag');
 
 export const dynamicParams = false;
@@ -106,6 +107,11 @@ export default async function ProductDetailPage({ params }) {
   const url = `${SITE_URL}${productUrl(product)}`;
   const uses = usesFor(product);
   const content = contentFor(product.slug);
+  // One answer-first paragraph with the facts buyers and AI assistants ask for most.
+  const lc = (list) => list.map((f) => f.charAt(0).toLowerCase() + f.slice(1));
+  const quick = isBulkType(product)
+    ? `${product.name}${product.latin ? ` (${product.latin})` : ''} is exported from India by ${COMPANY.name}${product.forms.length ? ` as ${lc(product.forms).join(', ')}` : ''}${product.grades.length ? `, in ${product.grades.slice(0, 3).join(', ')}${product.grades.length > 3 ? ' and other' : ''} grades` : ''}. It is packed in ${lc(product.packaging).slice(0, 2).join(' or ')}${product.hsCode ? `, HS code ${product.hsCode}` : ''}, and shipped FOB, CFR or CIF from ${CONTACT.port.split(' (')[0]}, Mumbai. Minimum order is 1 metric ton, or part of a mixed container, and conventional, IPM and organic lots are available.`
+    : `${product.name} from Indian brands is supplied by ${COMPANY.name} by the carton, in mixed containers with other groceries, spices and rice, shipped from ${CONTACT.port.split(' (')[0]}, Mumbai.`;
   const farming = farmingFor(product);
   const isBulk = product.type !== 'fmcg';
   const toc = [
@@ -218,6 +224,8 @@ export default async function ProductDetailPage({ params }) {
       <section className="section-sm">
         <div className={`container ${styles.detailGrid}`}>
           <div className={styles.detailMain}>
+            <p className={x.quick}><b>In short:</b> {quick}</p>
+
             {content && (
               <div className={`${styles.block} ${x.anchor}`} id="overview">
                 <h2 className={styles.blockTitle}>{n} from India</h2>

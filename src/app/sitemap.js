@@ -28,6 +28,7 @@ export default function sitemap() {
     '/mixed-container',
     '/private-label',
     '/knowledge',
+    '/company-facts',
     '/privacy',
     '/terms',
   ].map((route) => ({

@@ -17,6 +17,7 @@ const COMPANY_LINKS = [
   { label: 'Buyer guides', href: '/knowledge/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'FAQ', href: '/faq/' },
+  { label: 'Company facts', href: '/company-facts/' },
 ];
 
 export default function Footer({ categories = [] }) {
