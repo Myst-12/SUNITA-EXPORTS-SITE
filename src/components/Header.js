@@ -21,6 +21,7 @@ const ABOUT_LINKS = [
 const LINKS = [
   { label: 'Mixed Container', href: '/mixed-container/' },
   { label: 'Private Label', href: '/private-label/' },
+  { label: 'Blog', href: '/blog/' },
 ];
 
 export default function Header({ categories = [] }) {

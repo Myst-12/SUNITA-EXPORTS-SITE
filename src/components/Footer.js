@@ -14,6 +14,7 @@ const COMPANY_LINKS = [
   { label: 'Mixed container', href: '/mixed-container/' },
   { label: 'Private label', href: '/private-label/' },
   { label: 'Buyer guides', href: '/knowledge/' },
+  { label: 'Blog', href: '/blog/' },
   { label: 'FAQ', href: '/faq/' },
 ];
 
