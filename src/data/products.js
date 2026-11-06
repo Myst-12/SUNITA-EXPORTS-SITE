@@ -3,6 +3,7 @@ import { products as baseProducts } from './catalog/products.js';
 import { addedProducts, renamedProducts } from './catalog/products-added.js';
 import { productImages } from './catalog/images.js';
 import { PRODUCT_CONTENT } from './catalog/productContent.js';
+import { typicalSpecs } from './catalog/typicalSpecs.js';
 
 /**
  * Catalogue API used by pages. Data lives in ./catalog/ (categories + products).
@@ -37,7 +38,7 @@ function normalize(raw) {
     gallery: p.image ? [p.image] : [],
     ...p,
     // Typical specifications from the product write-up fill in products that had none listed.
-    specifications: Object.keys(p.specifications || {}).length ? p.specifications : PRODUCT_CONTENT[p.slug]?.specs || {},
+    specifications: Object.keys(p.specifications || {}).length ? p.specifications : PRODUCT_CONTENT[p.slug]?.specs || typicalSpecs(p),
     origin: 'India', // owner: every product is listed with origin India
     shortName: n,
     latin,
