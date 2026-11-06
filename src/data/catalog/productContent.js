@@ -1,6 +1,11 @@
 // Full write-ups for the priority products: an overview, typical specifications for products that had none,
 // and questions buyers ask about this product in particular. Shown on the product page; other products use
 // their catalogue data only. Specifications are typical trade values, confirmed per contract and lot.
+import { INTROS_SPICES } from './intros/spices.js';
+import { INTROS_STAPLES } from './intros/staples.js';
+import { INTROS_HERBS } from './intros/herbs.js';
+import { INTROS_FEED_FMCG } from './intros/feed-fmcg.js';
+
 const q = (question, answer) => ({ question, answer });
 
 export const PRODUCT_CONTENT = {
@@ -305,4 +310,6 @@ export const PRODUCT_CONTENT = {
   },
 };
 
-export const contentFor = (slug) => PRODUCT_CONTENT[slug] || null;
+// Every other product has a one-paragraph introduction, shown as its overview.
+const INTROS = { ...INTROS_SPICES, ...INTROS_STAPLES, ...INTROS_HERBS, ...INTROS_FEED_FMCG };
+export const contentFor = (slug) => PRODUCT_CONTENT[slug] || (INTROS[slug] ? { overview: [INTROS[slug]] } : null);
