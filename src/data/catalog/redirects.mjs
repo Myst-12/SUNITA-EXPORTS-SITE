@@ -1,6 +1,10 @@
 // 301s for catalogue URLs that changed in the taxonomy rebuild (Oct 2026). Generated once from the old catalogue.
 // Order matters: exact product URLs first, then old category pages, then anything else under an old category.
 export const catalogueRedirects = [
+  ['/products/rice/pusa-basmati-1121', '/products/rice/1121-basmati-rice/'], // same variety, merged (Nov 2026)
+  ['/products/rice/pusa-basmati-1509', '/products/rice/1509-basmati-rice/'], // same variety, merged (Nov 2026)
+  ['/spec-sheets/pusa-basmati-1121.pdf', '/spec-sheets/1121-basmati-rice.pdf'],
+  ['/spec-sheets/pusa-basmati-1509.pdf', '/spec-sheets/1509-basmati-rice.pdf'],
   ['/products/coconut-products/coconut-chips', '/products/coconut-products/'], // removed (owner, 31 Oct 2026)
   ['/products/coconut-products/coconut-flakes', '/products/coconut-products/'], // removed (owner, 31 Oct 2026)
   ['/products/coconut-products/coconut-powder', '/products/coconut-products/'], // removed (owner, 31 Oct 2026)

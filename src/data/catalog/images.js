@@ -123,6 +123,7 @@ export const productImages = {
   'mace': '/images/catalog/mace.webp', // client
   'maida': '/images/catalog/maida.webp', // client
   'makhana-healthy-snacks': '/images/catalog/makhana-healthy-snacks.webp', // client
+  'makhana': '/images/catalog/makhana-healthy-snacks.webp', // client (same photo)
   'manjistha-root': '/images/catalog/manjistha-root.webp', // client
   'matta-rice': '/images/catalog/matta-rice.webp', // generated
   'moong-chilka': '/images/catalog/moong-chilka.webp', // client

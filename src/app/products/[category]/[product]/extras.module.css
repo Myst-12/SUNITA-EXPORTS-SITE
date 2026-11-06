@@ -67,3 +67,6 @@
 .farming p { margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--ink-2); }
 .gradeLabel { margin: 0 0 8px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 @media (max-width: 720px) { .farming { grid-template-columns: 1fr; } }
+
+.overview { display: grid; gap: 14px; max-width: 68ch; }
+.overview p { margin: 0; font-size: 1.02rem; line-height: 1.7; color: var(--ink); }

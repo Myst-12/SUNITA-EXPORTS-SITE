@@ -4221,31 +4221,6 @@ export const products = [
     ]
   },
   {
-    "slug": "pusa-basmati-1121",
-    "name": "Pusa Basmati 1121",
-    "category": "rice",
-    "subcategory": "basmati-rice",
-    "type": "bulk",
-    "botanicalName": "Oryza sativa (PB-1121)",
-    "hsCode": "1006.30",
-    "origin": "Punjab, Haryana, Uttar Pradesh",
-    "forms": [
-      "Raw",
-      "Steam",
-      "Sella"
-    ],
-    "description": "Pusa Basmati 1121 (PB-1121) is the notified variety name behind 1121 basmati; this page covers buyers who specify the variety by its official name.",
-    "packaging": [
-      "5 / 10 / 20 / 25 kg BOPP or non-woven bags",
-      "50 kg PP bags",
-      "Private-label retail packs"
-    ],
-    "containerLoad": {
-      "twenty": "approx. 24–25 MT",
-      "forty": "approx. 26 MT (weight-limited)"
-    }
-  },
-  {
     "slug": "1509-basmati-rice",
     "name": "1509 Basmati Rice",
     "category": "rice",
@@ -4260,31 +4235,6 @@ export const products = [
       "Sella"
     ],
     "description": "Early-maturing 1509 basmati with long slender grains, a value alternative to 1121 for many Gulf and European buyers.",
-    "packaging": [
-      "5 / 10 / 20 / 25 kg BOPP or non-woven bags",
-      "50 kg PP bags",
-      "Private-label retail packs"
-    ],
-    "containerLoad": {
-      "twenty": "approx. 24–25 MT",
-      "forty": "approx. 26 MT (weight-limited)"
-    }
-  },
-  {
-    "slug": "pusa-basmati-1509",
-    "name": "Pusa Basmati 1509",
-    "category": "rice",
-    "subcategory": "basmati-rice",
-    "type": "bulk",
-    "botanicalName": "Oryza sativa (PB-1509)",
-    "hsCode": "1006.30",
-    "origin": "Punjab, Haryana, Uttar Pradesh",
-    "forms": [
-      "Raw",
-      "Steam",
-      "Sella"
-    ],
-    "description": "Pusa Basmati 1509 (PB-1509) is the notified variety name for 1509 basmati, offered raw, steam and sella.",
     "packaging": [
       "5 / 10 / 20 / 25 kg BOPP or non-woven bags",
       "50 kg PP bags",

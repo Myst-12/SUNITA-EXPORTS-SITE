@@ -13,6 +13,7 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import InquiryForm from '@/components/InquiryForm';
 import { usesFor } from '@/data/catalog/productUses';
+import { contentFor } from '@/data/catalog/productContent';
 import { certificates } from '@/data/certificates';
 import { exportDestinations } from '@/data/countries';
 import styles from './product.module.css';
@@ -79,7 +80,9 @@ function buildFaqs(p) {
       answer: `Send your required grade, packing, quantity and destination port through the quote form or WhatsApp (${CONTACT.quotePhone.display}). We quote FOB ${CONTACT.port.split(' (')[0]}, CFR or CIF, usually within 24 hours.`,
     },
   );
-  return faqs;
+  // Product-specific questions from the write-up come first.
+  const own = contentFor(p.slug)?.faqs || [];
+  return [...own, ...faqs];
 }
 
 export default async function ProductDetailPage({ params }) {
@@ -102,9 +105,11 @@ export default async function ProductDetailPage({ params }) {
   const notes = [product.feedOnly && FEED_NOTE, product.regulated && REGULATED_NOTE, product.type === 'fmcg' && FMCG_NOTE].filter(Boolean);
   const url = `${SITE_URL}${productUrl(product)}`;
   const uses = usesFor(product);
+  const content = contentFor(product.slug);
   const farming = farmingFor(product);
   const isBulk = product.type !== 'fmcg';
   const toc = [
+    content && ['overview', 'Overview'],
     ['uses', 'Uses'],
     ['details', 'Product details'],
     ['specs', 'Specifications'],
@@ -213,6 +218,13 @@ export default async function ProductDetailPage({ params }) {
       <section className="section-sm">
         <div className={`container ${styles.detailGrid}`}>
           <div className={styles.detailMain}>
+            {content && (
+              <div className={`${styles.block} ${x.anchor}`} id="overview">
+                <h2 className={styles.blockTitle}>{n} from India</h2>
+                <div className={x.overview}>{content.overview.map((t) => <p key={t.slice(0, 24)}>{t}</p>)}</div>
+              </div>
+            )}
+
             {uses.length > 0 && (
               <div className={`${styles.block} ${x.anchor}`} id="uses">
                 <h2 className={styles.blockTitle}>Uses of {n.toLowerCase()}</h2>

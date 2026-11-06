@@ -237,6 +237,10 @@ export const addedProducts = [
   herb('botanical-extracts', 'papain', 'Papain (Papaya Enzyme)', 'Carica papaya', ['Powder', 'Liquid'], 'Papain enzyme from papaya latex for meat tenderising, brewing, pharma and cosmetics.', { hsCode: '3507.90', packaging: EXTRACT }),
 
   // ── Superfoods: quinoa & amaranth (added 30 Oct 2026, client photos) ──
+  // Phool makhana in bulk (Nov 2026); the packaged snack range stays under Foodstuff & FMCG.
+  item('superfoods-functional-seeds', 'moringa-functional-seeds', 'makhana', 'Makhana (Phool Makhana / Fox Nuts)', 'Euryale ferox', ['Raw (popped) makhana', 'Roasted makhana', 'Makhana powder'],
+    'Popped lotus seeds (phool makhana) from Bihar, graded by size from 4 suta to 6 suta+, for snack makers, roasters, sweet makers and retail packers.',
+    { hsCode: '2008.19', shelfLife: '9–12 months', packaging: ['10 kg cartons or 5–10 kg poly-lined bags (light, bulky product)', 'Retail and private-label pouches on request'] }),
   item('superfoods-functional-seeds', 'quinoa-amaranth', 'white-quinoa', 'White Quinoa', 'Chenopodium quinoa', ['Whole grain (washed)'],
     'White quinoa grown in India — gluten-free and high in protein, cleaned and graded for health-food brands, retail packs and food manufacturers.', { hsCode: '1008.50' }),
   item('superfoods-functional-seeds', 'quinoa-amaranth', 'red-quinoa', 'Red Quinoa', 'Chenopodium quinoa', ['Whole grain (washed)'],
