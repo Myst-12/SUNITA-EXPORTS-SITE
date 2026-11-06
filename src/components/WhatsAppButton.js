@@ -23,10 +23,24 @@ const FIELDS = [
   { name: 'quantity', label: 'Quantity', placeholder: 'e.g. 20 ft container' },
 ];
 
-function buildMessage(v) {
+// `base` is the message of the link that was clicked (a product page asks about that product); the details go under it.
+function buildMessage(v, base = DIRECT) {
   const lines = FIELDS.filter((f) => v[f.name]?.trim()).map((f) => `${f.label.replace('Your name', 'Name')}: ${v[f.name].trim()}`);
-  if (!lines.length) return DIRECT;
+  if (!lines.length) return base;
+  if (base !== DIRECT) return `${base}\n\n${lines.join('\n')}`;
   return `Hello Sunita Agri Exports, I would like a quotation.\n\n${lines.join('\n')}\n\nPlease share your best price and availability.`;
+}
+
+// Text of a wa.me link to our sales number, or null for any other link (a buyer's number in admin, the channel).
+function ourWhatsAppText(a) {
+  try {
+    const u = new URL(a.href);
+    if (!/^(wa\.me|api\.whatsapp\.com)$/.test(u.hostname)) return null;
+    const phone = u.hostname === 'wa.me' ? u.pathname.slice(1) : u.searchParams.get('phone');
+    if (phone?.replace(/\D/g, '') !== CONTACT.whatsapp) return null;
+    const text = u.searchParams.get('text')?.trim();
+    return !text || text === CONTACT.whatsappMessage ? DIRECT : text; // the site-wide default ends in "for", so use the full greeting
+  } catch { return null; }
 }
 
 const load = () => { try { return JSON.parse(localStorage.getItem(SAVE_KEY)) || {}; } catch { return {}; } };
@@ -37,11 +51,14 @@ export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const [values, setValues] = useState({});
+  const [base, setBase] = useState(DIRECT);
+  const panelRef = useRef(null);
   const buttonRef = useRef(null);
   const firstRef = useRef(null);
   const id = useId();
 
-  const show = () => {
+  const show = (text = DIRECT) => {
+    setBase(text);
     setValues(load());
     setClosing(false); setOpen(true);
     track('whatsapp_open');
@@ -49,6 +66,23 @@ export default function WhatsAppButton() {
   };
   const close = (refocus = true) => { setClosing(true); if (refocus) buttonRef.current?.focus(); };
   const toggle = () => (open && !closing ? close() : show());
+
+  // Every WhatsApp link on the site (header, contact page, product pages…) opens this form first.
+  const showRef = useRef(show);
+  showRef.current = show;
+  useEffect(() => {
+    const onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest?.('a[href]');
+      if (!a || panelRef.current?.contains(a)) return;
+      const text = ourWhatsAppText(a);
+      if (text === null) return;
+      e.preventDefault();
+      showRef.current(text);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -73,7 +107,7 @@ export default function WhatsAppButton() {
     e.preventDefault();
     save(values);
     track('whatsapp_send', { filled });
-    window.open(whatsappLink(buildMessage(values)), '_blank', 'noopener,noreferrer');
+    window.open(whatsappLink(buildMessage(values, base)), '_blank', 'noopener,noreferrer');
     close();
   };
 
@@ -99,6 +133,7 @@ export default function WhatsAppButton() {
       {open && (
         <div
           id={id}
+          ref={panelRef}
           role="dialog"
           aria-labelledby={`${id}-t`}
           className={`${styles.panel} ${closing ? styles.panelOut : ''}`}
@@ -144,7 +179,7 @@ export default function WhatsAppButton() {
             </button>
             <a
               className={styles.direct}
-              href={whatsappLink(DIRECT)}
+              href={whatsappLink(base)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => { track('whatsapp_direct'); close(); }}
