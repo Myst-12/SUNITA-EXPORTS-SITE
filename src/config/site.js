@@ -121,7 +121,7 @@ export const EXHIBITIONS = [
 export const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029VbCqFBmCBtxJQp1BVC2s';
 
 export const SOCIAL = [
-  { name: 'LinkedIn', icon: 'linkedin', url: '' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/company/sunita-agri-exports/' },
   { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/sunitaexportsindia/' },
   { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/SunitaExportsIndia' },
   { name: 'X', icon: 'x', url: 'https://x.com/SUNITAEXPORTS' },
