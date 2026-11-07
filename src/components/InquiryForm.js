@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Icon from './Icon';
 import { track } from '@/lib/track';
+import { useBasket, clearBasket } from '@/lib/enquiryBasket';
 import { CONTACT, WEB3FORMS_KEY, whatsappLink } from '@/config/site';
 import styles from './InquiryForm.module.css';
 
@@ -34,6 +35,18 @@ export default function InquiryForm({ product = '' }) {
   const [error, setError] = useState('');
   const [ref, setRef] = useState('');
   const sample = mode === 'sample';
+  // On the quote page, products collected with "Add to quote list" fill the product lines (once).
+  const basket = useBasket();
+  const fromBasket = useRef(false);
+  useEffect(() => {
+    if (product || fromBasket.current || !basket.ready || !basket.items.length) return;
+    fromBasket.current = true;
+    setLines((ls) => {
+      const kept = ls.filter((l) => l.product.trim());
+      const have = new Set(kept.map((l) => l.product.toLowerCase()));
+      return [...kept, ...basket.items.filter((i) => !have.has(i.name.toLowerCase())).map((i) => ({ ...LINE, product: i.name }))];
+    });
+  }, [product, basket.ready, basket.items]);
 
   const set = (e) => setData((d) => ({ ...d, [e.target.name]: e.target.value }));
   const pick = (name, value) => setData((d) => ({ ...d, [name]: d[name] === value ? '' : value }));
@@ -75,6 +88,7 @@ export default function InquiryForm({ product = '' }) {
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
         track('generate_lead', { form: mode, country: data.country, products: productList.slice(0, 100) });
+        if (fromBasket.current) clearBasket();
         setStatus('sent');
       } else {
         setStatus('error');
@@ -126,7 +140,7 @@ export default function InquiryForm({ product = '' }) {
                 <input id={`qty-${i}`} value={l.qty} onChange={(e) => setLine(i, 'qty', e.target.value)} placeholder={sample ? 'e.g. 500 g' : 'e.g. 5 MT'} />
               </div>
               {lines.length > 1 && (
-                <button type="button" className={styles.lineRemove} aria-label={`Remove product ${i + 1}`} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))}>×</button>
+                <button type="button" className={styles.lineRemove} aria-label={`Remove product ${i + 1}`} onClick={() => { const gone = basket.items.find((b) => b.name === l.product); if (gone) basket.remove(gone.slug); setLines((ls) => ls.filter((_, j) => j !== i)); }}>×</button>
               )}
             </div>
           ))}

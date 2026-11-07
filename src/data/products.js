@@ -77,7 +77,10 @@ export const categories = categoryList.map((c) => {
   const subcategories = c.subcategories
     ? c.subcategories.map((s) => ({ ...s, products: products.filter((p) => subIn(p, c.slug) === s.slug) })).filter((s) => s.products.length)
     : [];
-  return { ...c, href: c.href || `/products/${c.slug}/`, products, subcategories, productCount: products.length };
+  // productCount counts each product once, in its main category, so the category counts always add up to the
+  // catalogue total. listedCount also includes products listed here from another category (shown on this page).
+  const productCount = products.filter((p) => p.category === c.slug).length;
+  return { ...c, href: c.href || `/products/${c.slug}/`, products, subcategories, productCount, listedCount: products.length };
 });
 
 export const productCategories = categories.filter((c) => !c.service);

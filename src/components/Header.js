@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useBasket } from '@/lib/enquiryBasket';
 import Link from 'next/link';
 import HomeLink from './HomeLink';
 import { usePathname } from 'next/navigation';
@@ -27,6 +28,7 @@ const LINKS = [
 export default function Header({ categories = [] }) {
   const pathname = usePathname() || '/';
   const [scrolled, setScrolled] = useState(false);
+  const listCount = useBasket().items.length; // products collected for one quote request
   const [open, setOpen] = useState(false);
   const [mobileSub, setMobileSub] = useState(null);
   const onHero = pathname === '/';
@@ -107,8 +109,8 @@ export default function Header({ categories = [] }) {
             <Link href="/account/" className={styles.acctBtn} aria-label="My account and orders">
               <Icon name="user" size={19} />
             </Link>
-            <Link href="/contact/" className={`btn btn-sm ${clear ? 'btn-light' : 'btn-primary'} ${styles.quoteBtn}`}>
-              Get a Quote
+            <Link href={listCount ? '/contact/?list=1' : '/contact/'} className={`btn btn-sm ${clear ? 'btn-light' : 'btn-primary'} ${styles.quoteBtn}`}>
+              Get a Quote{listCount > 0 && <span className={styles.listBadge} aria-label={`${listCount} products in your quote list`}>{listCount}</span>}
             </Link>
             <button
               type="button"
@@ -154,7 +156,7 @@ export default function Header({ categories = [] }) {
           <Link href="/account/" className={styles.drawerLink}>My account / Log in</Link>
         </nav>
         <div className={styles.drawerFoot}>
-          <Link href="/contact/" className="btn btn-primary btn-block">Get a Quote</Link>
+          <Link href={listCount ? '/contact/?list=1' : '/contact/'} className="btn btn-primary btn-block">Get a Quote{listCount > 0 ? ` (${listCount} products)` : ''}</Link>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block">
             <Icon name="whatsapp" /> WhatsApp us
           </a>

@@ -22,7 +22,7 @@ export default function ProductExplorer({ preview, total, categories }) {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return products.filter((p) => {
-      if (cat !== 'all' && !p.categories.includes(cat)) return false;
+      if (cat !== 'all' && p.category !== cat) return false; // main category only, matching the chip counts
       if (!q) return true;
       const hay = [p.name, p.latin, p.categoryName, p.hsCode, ...p.forms, p.q].join(' ').toLowerCase();
       return q.split(/\s+/).every((w) => hay.includes(w));

@@ -48,8 +48,8 @@ export default async function CategoryPage({ params }) {
     {
       question: `Which ${lower} do you export?`,
       answer: isFmcg
-        ? `${cat.productCount} product categories — ${cat.products.map((pr) => pr.name).join(', ')}. Each one opens our FMCG product list of ${FMCG_TOTAL.toLocaleString('en-IN')} products, where you can see every pack and order online.`
-        : `${cat.productCount} products${grouped ? ` across ${cat.subcategories.length} groups — ${cat.subcategories.map((s) => s.name).join(', ')}` : ''}. Each product page has a downloadable specification sheet and a quote button.`,
+        ? `${cat.listedCount} product categories — ${cat.products.map((pr) => pr.name).join(', ')}. Each one opens our FMCG product list of ${FMCG_TOTAL.toLocaleString('en-IN')} products, where you can see every pack and order online.`
+        : `${cat.listedCount} products${grouped ? ` across ${cat.subcategories.length} groups — ${cat.subcategories.map((s) => s.name).join(', ')}` : ''}. Each product page has a downloadable specification sheet and a quote button.`,
     },
     {
       question: `How can I get a price list for ${lower}?`,
@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${name} exported by ${COMPANY.name}`,
-    numberOfItems: cat.productCount,
+    numberOfItems: cat.listedCount,
     itemListElement: cat.products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/products/${p.category}/${p.slug}/` })),
   };
 
@@ -82,8 +82,8 @@ export default async function CategoryPage({ params }) {
               <h1>{name} exporter from India</h1>
               <p className="lead">{cat.description}</p>
               <p className={styles.catCount}>{isFmcg
-                ? <>{cat.productCount} product categories · <Link href="/fmcg/catalogue/">{FMCG_TOTAL.toLocaleString('en-IN')} products to order online</Link></>
-                : `${cat.productCount} products · specification sheet and quote on every product`}</p>
+                ? <>{cat.productCount} product categories{cat.listedCount > cat.productCount ? `, plus ${cat.listedCount - cat.productCount} listed from other ranges` : ''} · <Link href="/fmcg/catalogue/">{FMCG_TOTAL.toLocaleString('en-IN')} products to order online</Link></>
+                : `${cat.productCount} products${cat.listedCount > cat.productCount ? `, plus ${cat.listedCount - cat.productCount} also listed in other ranges` : ''} · specification sheet and quote on every product`}</p>
               {!isFmcg && (
                 <div className="chip-row mt-2" aria-label="Cultivation">
                   {['Conventional', 'IPM', 'Organic'].map((t) => <span key={t} className="chip chip-lime">{t}</span>)}

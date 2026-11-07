@@ -26,3 +26,5 @@
 }
 
 .card:active { transform: scale(0.985); transition-duration: 100ms; }
+
+.addWrap { position: relative; display: grid; }

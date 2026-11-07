@@ -110,3 +110,4 @@
 .drawerContacts { display: grid; gap: 0.5rem; margin-top: 8px; font-size: 0.9rem; font-weight: 600; color: var(--green-800); }
 .drawerContacts a { display: flex; align-items: center; gap: 0.5rem; }
 @media (min-width: 1180px) { .drawer { display: none; } }
+.listBadge { display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-inline-start: 6px; padding: 0 6px; border-radius: 999px; background: var(--green-700); color: #fff; border: 1.5px solid #fff; font-size: 0.75rem; font-weight: 800; }

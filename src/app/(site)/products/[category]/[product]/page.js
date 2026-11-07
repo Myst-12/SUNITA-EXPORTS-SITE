@@ -12,6 +12,7 @@ import { detailRows, containerLoadText, SPEC_ON_REQUEST, SPEC_DISCLAIMER, FEED_N
 import { Suspense } from 'react';
 import Image from 'next/image';
 import InquiryForm from '@/components/InquiryForm';
+import AddToEnquiry from '@/components/AddToEnquiry';
 import { usesFor } from '@/data/catalog/productUses';
 import { contentFor } from '@/data/catalog/productContent';
 import { certificates } from '@/data/certificates';
@@ -207,6 +208,7 @@ export default async function ProductDetailPage({ params }) {
 
               <div className={`btn-row ${styles.ctas}`}>
                 <Link rel="nofollow" href={quoteHref} className="btn btn-primary btn-lg">Request quote <Icon name="arrow-right" /></Link>
+                {product.type !== 'fmcg' && <AddToEnquiry slug={product.slug} name={product.name} />}
                 <a href={pdfHref} download={pdfName} className="btn btn-outline btn-lg"><Icon name="download" /> Download specification sheet</a>
                 <Link rel="nofollow" href={`${quoteHref}&type=sample`} className="link-arrow">Request a sample <Icon name="arrow-right" /></Link>
               </div>

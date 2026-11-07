@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from './Icon';
 import NameCard from './NameCard';
+import AddToEnquiry from './AddToEnquiry';
 import styles from './ProductCard.module.css';
 
 /**
@@ -18,7 +19,7 @@ export default function ProductCard({ product, name, href, description, image, p
     ? [product.forms?.[0], product.hsCode && `HS ${product.hsCode}`].filter(Boolean).join(' · ')
     : productCount ? `${productCount} products` : '';
 
-  return (
+  const card = (
     <Link href={link} className={styles.card}>
       <div className={styles.media}>
         {img ? (
@@ -42,4 +43,7 @@ export default function ProductCard({ product, name, href, description, image, p
       </div>
     </Link>
   );
+  // Bulk products get a "+" to collect several into one quote request; FMCG families order through their own list.
+  if (!product || href || product.type === 'fmcg') return card;
+  return <div className={styles.addWrap}>{card}<AddToEnquiry compact slug={product.slug} name={product.name} /></div>;
 }

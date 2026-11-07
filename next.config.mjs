@@ -1,4 +1,5 @@
 import { catalogueRedirects } from './src/data/catalog/redirects.mjs';
+import { legacyRedirects, goneRewrites } from './src/data/legacyRedirects.mjs';
 
 /** @type {import('next').NextConfig} */
 // Security headers on every response. The CSP is limited to rules that cannot break the site's scripts, maps or
@@ -36,6 +37,10 @@ const nextConfig = {
       ...['/admin/:path*', '/account/:path*', '/order/:path*', '/f/:path*'].map((source) => ({ source, headers: NOINDEX })),
     ];
   },
+  // Old-site URLs with no equivalent answer 410 Gone (Next applies the redirects below first).
+  async rewrites() {
+    return { beforeFiles: goneRewrites };
+  },
   async redirects() {
     return [
       { source: '/why-choose-us', destination: '/about/', permanent: true },
@@ -44,13 +49,7 @@ const nextConfig = {
       { source: '/quality', destination: '/certifications/', permanent: true },
       { source: '/exhibitions', destination: '/about/#exhibitions', permanent: true },
       { source: '/packaging', destination: '/private-label/#packaging', permanent: true },
-      // Old site (sunitaexports.com) PHP URLs
-      { source: '/:page(Products|products)\\.php', destination: '/products/', permanent: true },
-      { source: '/:page(contact)\\.php', destination: '/contact/', permanent: true },
-      { source: '/:page(about)\\.php', destination: '/about/', permanent: true },
-      { source: '/:page(index)\\.php', destination: '/', permanent: true },
-      // Any other old PHP page (sub_category.php?id=…, product pages of the old site) goes to the catalogue.
-      { source: '/:page([A-Za-z0-9_-]+)\\.php', destination: '/products/', permanent: true },
+      ...legacyRedirects, // old PHP/HTML site pages that have a new equivalent
       ...catalogueRedirects.map(([source, destination]) => ({ source, destination, statusCode: 301 })),
     ];
   },

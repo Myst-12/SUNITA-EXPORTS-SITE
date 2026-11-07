@@ -20,7 +20,6 @@ export function productIndex() {
       latin: p.latin,
       type: p.type,
       category: p.category,
-      categories: [p.category, ...(p.also || []).map((a) => a.category)],
       categoryName: p.categoryName,
       image: p.image,
       hsCode: p.hsCode || null,
