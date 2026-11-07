@@ -1,29 +1,39 @@
 // Translated sections of the site. English lives at the root (/products/…); each other language
 // sits under its own prefix with the same slugs (/ar/products/…), so every page maps one-to-one.
-//
-// A language stays out of search (noindex, no hreflang, not in the sitemap) until a native speaker
-// has approved its text: set `live: true` only then.
+import { TEXT } from '@/data/i18n';
+
 export const LOCALES = {
-  ar: { live: true, name: 'العربية', hreflang: 'ar', ogLocale: 'ar_AE' },
+  ar: { dir: 'rtl', ogLocale: 'ar_AE' },
+  fr: { dir: 'ltr', ogLocale: 'fr_FR' },
+  es: { dir: 'ltr', ogLocale: 'es_ES' },
+  de: { dir: 'ltr', ogLocale: 'de_DE' },
+  ru: { dir: 'ltr', ogLocale: 'ru_RU' },
 };
+export const LANG_CODES = Object.keys(LOCALES);
 
-// English paths that have an Arabic version (filled from the Arabic data so the two never drift).
-import { AR_PATHS } from '@/data/ar';
+// English paths that have a version in each language.
+const PATHS = Object.fromEntries(LANG_CODES.map((l) => [l, new Set([
+  '/', '/products/', '/exports/', '/contact/',
+  ...Object.keys(TEXT[l].markets || {}).map((s) => `/exports/${s}/`),
+  ...Object.entries(TEXT[l].products).map(([s, p]) => `/products/${p.category}/${s}/`),
+])]));
 
-export const hasAr = (path) => AR_PATHS.has(path);
-export const arPath = (path) => `/ar${path}`;
+export const hasLang = (lang, path) => PATHS[lang].has(path);
+export const langPath = (lang, path) => `/${lang}${path}`;
 
-// `alternates` for an English page: its canonical, plus hreflang to the Arabic page once Arabic is live.
+// hreflang map for an English path: English, every language that has the page, and x-default → English.
+export function languagesFor(path) {
+  const languages = { en: path };
+  for (const l of LANG_CODES) if (hasLang(l, path)) languages[l] = langPath(l, path);
+  languages['x-default'] = path;
+  return languages;
+}
+
+// `alternates` for an English page.
 export function enAlternates(path) {
-  if (!LOCALES.ar.live || !hasAr(path)) return { canonical: path };
-  return { canonical: path, languages: { en: path, ar: arPath(path), 'x-default': path } };
+  const languages = languagesFor(path);
+  return Object.keys(languages).length > 2 ? { canonical: path, languages } : { canonical: path };
 }
 
-// `alternates` for an Arabic page: self-canonical, plus hreflang back to English once live.
-export function arAlternates(path) {
-  const ar = arPath(path);
-  if (!LOCALES.ar.live) return { canonical: ar };
-  return { canonical: ar, languages: { en: path, ar, 'x-default': path } };
-}
-
-export const arRobots = () => (LOCALES.ar.live ? { index: true, follow: true } : { index: false, follow: true });
+// `alternates` for a translated page: self-canonical plus the same hreflang set.
+export const langAlternates = (lang, path) => ({ canonical: langPath(lang, path), languages: languagesFor(path) });

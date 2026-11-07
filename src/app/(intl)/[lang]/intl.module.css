@@ -1,5 +1,5 @@
-.body { font-family: var(--font-ar), system-ui, sans-serif; background: #fff; color: var(--ink); }
-.body :where(h1, h2, h3) { font-family: var(--font-ar), system-ui, sans-serif; letter-spacing: 0; line-height: 1.35; }
+.body { font-family: var(--font-intl), system-ui, sans-serif; background: #fff; color: var(--ink); }
+.body :where(h1, h2, h3) { font-family: var(--font-intl), system-ui, sans-serif; letter-spacing: 0; line-height: 1.35; }
 .header { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .headerInner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
@@ -45,7 +45,7 @@
 .prod small { color: var(--muted); font-family: var(--font-manrope, system-ui); }
 .steps { counter-reset: s; display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; max-width: 720px; }
 .steps li { counter-increment: s; display: flex; gap: 14px; align-items: baseline; font-size: 1.02rem; line-height: 1.7; }
-.steps li::before { content: counter(s, arabic-indic); flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--green-700); color: #fff; font-weight: 700; }
+.steps li::before { content: counter(s); flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--green-700); color: #fff; font-weight: 700; }
 .chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chips a { padding: 0.5rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--line-strong); color: var(--ink); text-decoration: none; font-weight: 600; background: #fff; }
 .page { padding: clamp(32px, 5vw, 56px) 0; }
@@ -74,3 +74,5 @@
 .err { padding: 12px 16px; border-radius: 10px; background: #fff6e0; color: #6b4d00; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 @media (max-width: 760px) { .facts { grid-template-columns: 1fr 1fr; } .facts div:nth-child(3) { border-inline-start: 0; } .pgrid, .row { grid-template-columns: 1fr; } }
+
+:global([dir='rtl']) .steps li::before { content: counter(s, arabic-indic); }
