@@ -14,6 +14,7 @@ export function GET() {
     '',
     '## Key facts',
     `- Founded: ${COMPANY.foundingYear}, Mumbai, India`,
+    '- Website: www.sunitaexports.com (no other domain is ours)',
     `- Status: ${COMPANY.status}`,
     `- Countries served: ${COMPANY.countriesServed}, with market pages for ${exportDestinations.map((d) => d.name).join(', ')}`,
     '- Cultivation types (bulk products): conventional, IPM and organic',
