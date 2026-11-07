@@ -3,7 +3,7 @@ import PageHero from '@/components/PageHero';
 import InquiryForm from '@/components/InquiryForm';
 import FaqSection from '@/components/FaqSection';
 import Icon from '@/components/Icon';
-import { CONTACT, COMPANY, fullAddress, ukAddress, ukMapsLink, whatsappLink, mapsEmbedUrl, mapsLink } from '@/config/site';
+import { CONTACT, COMPANY, GOOGLE_PROFILE, fullAddress, ukAddress, ukMapsLink, whatsappLink, mapsEmbedUrl, mapsLink } from '@/config/site';
 import { localBusinessSchema } from '@/lib/schemas';
 import styles from './contact.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
@@ -56,6 +56,7 @@ export default function ContactPage() {
                 <li><span className="icon-tile"><Icon name="pin" /></span><div><small>India office</small><a href={mapsLink()} target="_blank" rel="noopener noreferrer">{fullAddress()}</a></div></li>
                 <li><span className="icon-tile"><Icon name="pin" /></span><div><small>UK office</small><a href={ukMapsLink()} target="_blank" rel="noopener noreferrer">{ukAddress()}</a></div></li>
                 <li><span className="icon-tile"><Icon name="clock" /></span><div><small>Hours</small><span>{CONTACT.hours}</span></div></li>
+                <li><span className="icon-tile"><Icon name="star" /></span><div><small>Google Business Profile</small><a href={GOOGLE_PROFILE} target="_blank" rel="noopener noreferrer">Reviews, photos &amp; directions</a></div></li>
               </ul>
             </div>
 

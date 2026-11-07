@@ -130,7 +130,11 @@ export const SOCIAL = [
 
 // Other public profiles of the company (directories, trade fairs). Listed in the schema "sameAs" so search engines and
 // AI tools connect them to this site; not shown as icons.
+// Google Business Profile (verified). Share link from the profile itself.
+export const GOOGLE_PROFILE = 'https://share.google/37cXHMPWdXzbOXzyL';
+
 export const LISTINGS = [
+  GOOGLE_PROFILE,
   'https://www.indiamart.com/sunita-agri-exports-private-limited/',
   'https://www.justdial.com/jdmart/Mumbai/Sunita-Agri-Exports-Pvt-Ltd-Lalji-Pada-Police-Station/022PXX22-XX22-210517121019-L6V6_BZDET/catalogue',
   'https://www.gulfood.com/exhibitors/sunita-agri-exports-pvtltd',
