@@ -20,7 +20,7 @@ export default function ExportsPage() {
         crumbs={[{ label: 'Export Markets', href: '/exports/' }]}
         eyebrow="Global reach"
         title={`Shipping Indian food to ${COMPANY.countriesServed} countries`}
-        lead={`Exporting from Mumbai since ${COMPANY.foundingYear}, with market-specific labelling, documents and port experience across North America, Europe, the Gulf, Asia, Oceania and Africa.`}
+        lead={`Exporting from Mumbai since ${COMPANY.foundingYear}, with market-specific labelling, documents and port experience. Below are guides for the ${exportDestinations.length} markets we ship to most; for any other country, just ask.`}
         image="/images/scenes/ship-aerial.webp"
         imageAlt="Container ship at sea"
       />

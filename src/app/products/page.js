@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { productCategories, getAllProducts } from '@/data/products';
 import ProductExplorer from '@/components/ProductExplorer';
+import { productIndex, PREVIEW } from '@/lib/productIndex';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import styles from './products.module.css';
@@ -12,32 +13,12 @@ export const metadata = {
   alternates: { canonical: '/products/' },
 };
 
-// Catalogue order: by category, then by group within the category.
-const catIndex = Object.fromEntries(productCategories.map((c, i) => [c.slug, i]));
-const subIndex = Object.fromEntries(productCategories.flatMap((c) => c.subcategories.map((s, i) => [`${c.slug}/${s.slug}`, i])));
-const rank = (p) => [catIndex[p.category] ?? 99, subIndex[`${p.category}/${p.subcategory}`] ?? 99];
-
 export default function ProductsPage() {
-  const sorted = getAllProducts()
-    .map((p, i) => ({ p, i, r: rank(p) }))
-    .sort((a, b) => a.r[0] - b.r[0] || a.r[1] - b.r[1] || a.i - b.i)
-    .map(({ p }) => p);
-  const products = sorted.map((p) => ({
-    slug: p.slug,
-    name: p.name,
-    shortName: p.shortName,
-    latin: p.latin,
-    type: p.type,
-    category: p.category,
-    categories: [p.category, ...(p.also || []).map((a) => a.category)],
-    categoryName: p.categoryName,
-    subcategoryName: p.subcategoryName,
-    image: p.image,
-    hsCode: p.hsCode || null,
-    forms: p.forms,
-    grades: p.grades,
-  }));
-  const cats = productCategories.map((c) => ({ slug: c.slug, name: c.name, count: c.productCount }));
+  const products = productIndex();
+  const primary = (slug) => products.filter((p) => p.category === slug);
+  const cats = productCategories.map((c) => ({ slug: c.slug, name: c.name, count: c.productCount, primary: primary(c.slug).length }));
+  // Only each category's first products go into the page; the full list loads on the first search or filter.
+  const preview = productCategories.flatMap((c) => primary(c.slug).slice(0, PREVIEW));
 
   return (
     <>
@@ -59,7 +40,7 @@ export default function ProductsPage() {
 
       <section className="section-sm">
         <div className="container">
-          <ProductExplorer products={products} categories={cats} />
+          <ProductExplorer preview={preview} total={products.length} categories={cats} />
         </div>
       </section>
 

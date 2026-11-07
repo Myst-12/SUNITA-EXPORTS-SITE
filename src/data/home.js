@@ -72,7 +72,7 @@ export const HOME = {
   },
   reach: {
     title: 'From Mumbai to 40+ countries',
-    text: 'Regular sailings from Nhava Sheva to North America, the Gulf, the UK and Europe, East Asia, Australia, New Zealand and East Africa — with labels and documents for each market.',
+    text: 'Regular sailings from Nhava Sheva to North America, the Gulf, the UK and Europe, East Asia, Australia, New Zealand and East Africa — with labels and documents for each market. These are the markets we ship to most, each with its own buyer guide.',
     link: 'Our export markets',
     globeLabel: 'Globe showing shipping routes from Mumbai to export markets worldwide',
   },
