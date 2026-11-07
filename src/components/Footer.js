@@ -14,6 +14,8 @@ const COMPANY_LINKS = [
   { label: 'Indian spices exporter', href: '/indian-spices-exporter/' },
   { label: 'Mixed container', href: '/mixed-container/' },
   { label: 'Private label', href: '/private-label/' },
+  { label: 'For importers', href: '/for-importers/' },
+  { label: 'For food manufacturers', href: '/for-food-manufacturers/' },
   { label: 'Buyer guides', href: '/knowledge/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'FAQ', href: '/faq/' },

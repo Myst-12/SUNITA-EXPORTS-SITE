@@ -27,6 +27,8 @@ export default function sitemap() {
     '/indian-spices-exporter',
     '/mixed-container',
     '/private-label',
+    '/for-importers',
+    '/for-food-manufacturers',
     '/knowledge',
     '/company-facts',
     '/privacy',

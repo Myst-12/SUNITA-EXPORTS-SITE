@@ -80,6 +80,7 @@ export const HOME = {
     title: 'Tell us what you need',
     text: 'Send your product list and we will reply with FOB or CIF prices within 24 hours.',
     cta: 'Get a quote',
+    sample: 'Request a sample',
     whatsapp: 'or message us on WhatsApp',
   },
 };

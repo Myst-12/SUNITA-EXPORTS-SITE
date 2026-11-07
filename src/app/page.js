@@ -201,6 +201,7 @@ export default function HomePage() {
             <p className={styles.text}>{quote.text}</p>
             <div className={styles.quoteActions}>
               <Link href="/contact/" className="btn btn-primary btn-lg">{quote.cta} <Icon name="arrow-right" /></Link>
+              <Link href="/contact/?type=sample" className="btn btn-outline btn-lg">{quote.sample}</Link>
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={styles.quoteLink}>{quote.whatsapp}</a>
             </div>
           </ScrollReveal>

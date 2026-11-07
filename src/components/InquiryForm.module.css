@@ -16,3 +16,12 @@
 .success h2 { font-size: 1.6rem; margin: 0; }
 .successIcon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--green-700); color: #fff; }
 @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+.modes { display: inline-flex; padding: 4px; gap: 4px; border-radius: 999px; background: var(--green-50); border: 1px solid var(--green-100); justify-self: start; }
+.modes button { padding: 0.5rem 1.1rem; border-radius: 999px; border: 0; background: transparent; font-size: 0.9rem; font-weight: 700; color: var(--ink-2); transition: background 0.2s, color 0.2s; }
+.modes .modeOn { background: var(--green-700); color: #fff; }
+.lines { display: grid; gap: 10px; }
+.line { display: grid; grid-template-columns: 2fr 1fr auto; gap: 10px; align-items: end; }
+.lineRemove { width: 40px; height: 44px; border-radius: var(--radius-sm); border: 1.5px solid var(--line-strong); background: #fff; font-size: 1.3rem; line-height: 1; color: var(--muted); }
+.lineAdd { justify-self: start; padding: 0.4rem 0; border: 0; background: none; font-weight: 700; font-size: 0.9rem; color: var(--green-700); }
+@media (hover: hover) and (pointer: fine) { .lineAdd:hover { text-decoration: underline; } .lineRemove:hover { color: var(--ink); border-color: var(--ink-2); } }
+@media (max-width: 640px) { .line { grid-template-columns: 1fr 96px auto; } }

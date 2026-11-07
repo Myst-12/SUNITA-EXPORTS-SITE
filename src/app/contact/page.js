@@ -62,8 +62,10 @@ export default function ContactPage() {
               <p className={styles.promiseTitle}>What happens next</p>
               <ol>
                 <li>We confirm grades, packing &amp; availability</li>
-                <li>You receive a written FOB / CFR / CIF offer</li>
-                <li>Samples, proforma invoice &amp; shipment plan</li>
+                <li>Written FOB / CFR / CIF offer within 24 hours</li>
+                <li>Samples by courier, if you want to check first</li>
+                <li>Proforma invoice, advance &amp; production</li>
+                <li>Loading, shipping &amp; full export documents</li>
               </ol>
               <p className="small text-muted">{COMPANY.status} · exporting since {COMPANY.foundingYear}</p>
             </div>

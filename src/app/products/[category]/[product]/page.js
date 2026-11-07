@@ -207,6 +207,7 @@ export default async function ProductDetailPage({ params }) {
               <div className={`btn-row ${styles.ctas}`}>
                 <Link rel="nofollow" href={quoteHref} className="btn btn-primary btn-lg">Request quote <Icon name="arrow-right" /></Link>
                 <a href={pdfHref} download={pdfName} className="btn btn-outline btn-lg"><Icon name="download" /> Download specification sheet</a>
+                <Link rel="nofollow" href={`${quoteHref}&type=sample`} className="link-arrow">Request a sample <Icon name="arrow-right" /></Link>
               </div>
               <p className={styles.ctaNote}>PDF · product details{specs.length ? ', specification table' : ''} and contact details</p>
             </div>

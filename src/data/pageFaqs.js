@@ -3,6 +3,20 @@
 import { COMPANY, CONTACT, fullAddress } from '@/config/site';
 
 export const PAGE_FAQS = {
+  'for-importers': [
+    { question: 'What is your minimum order for importers?', answer: '1 MT per bulk product, or one 20 ft mixed container for packaged goods and smaller lines. Many first orders are a mixed container so you can test several products at once.' },
+    { question: 'Which price terms do you quote?', answer: 'FOB Nhava Sheva, CFR or CIF to your port. Quotes are in US dollars and are sent in writing within 24 hours of a complete enquiry.' },
+    { question: 'Can I get samples before ordering?', answer: 'Yes. Use the sample request on any product page or the quote page. We courier samples of the grade you would receive, with the specification sheet.' },
+    { question: 'Which documents come with the shipment?', answer: 'Commercial invoice, packing list, bill of lading, certificate of origin, and phytosanitary, fumigation and analysis certificates where the product or market needs them.' },
+    { question: 'Do you work with distributors who supply supermarkets?', answer: 'Yes. Retail packs can carry your brand or ours, with labels in the languages your market requires, and can ship with bulk lines in the same container.' },
+  ],
+  'for-food-manufacturers': [
+    { question: 'Can you supply to a fixed specification?', answer: 'Yes. Send your specification for moisture, purity, colour, volatile oil, mesh size, micro or pesticide limits, and we confirm which grade meets it before quoting.' },
+    { question: 'Do you offer steam-sterilised spices?', answer: 'Yes, for products and markets with strict microbiological limits. Ask for steam-sterilised material in your enquiry.' },
+    { question: 'Which bulk packing do you use?', answer: 'Usually 25 kg or 50 kg PP or paper bags with food-grade liners, or jumbo bags for some products. Other sizes on request.' },
+    { question: 'Can you share lab reports?', answer: 'Certificates of analysis are provided per lot, and third-party lab reports can be arranged before shipment.' },
+    { question: 'Do you offer annual or contract supply?', answer: 'Yes. For regular buyers we can plan shipments across the season. Prices depend on the crop, so contracts are discussed case by case.' },
+  ],
   'mixed-container': [
     { question: 'What is a mixed container?', answer: 'A mixed (consolidated) container is a single 20 ft or 40 ft shipping container carrying many different products — for example whole spices, basmati rice, dals, snacks and pickles — bought from one exporter on one invoice.' },
     { question: 'How many products can go in one container?', answer: 'There is no fixed limit. Our buyers typically combine 15 to 150 different items. We plan the load by weight and volume so the container is used efficiently and heavier goods are stowed safely.' },

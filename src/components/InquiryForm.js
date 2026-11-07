@@ -16,27 +16,46 @@ const BUYER_TYPES = ['Importer / Distributor', 'Supermarket / Retail chain', 'Wh
 const PACKING = ['Bulk (25–50 kg)', 'Retail packs', 'Private label', 'Mixed container', 'Not sure yet'];
 const TERMS = ['FOB Nhava Sheva', 'CFR', 'CIF', 'Not sure'];
 
-const EMPTY = { name: '', company: '', email: '', phone: '', country: '', buyerType: '', productInterest: '', estimatedQuantity: '', packaging: '', incoterm: '', port: '', message: '', website: '' };
+const COURIER = ['We will pay the courier', 'Please quote the courier'];
+const MODES = [['quote', 'Price quote'], ['sample', 'Sample request']];
+
+const EMPTY = { name: '', company: '', email: '', phone: '', country: '', buyerType: '', estimatedQuantity: '', packaging: '', incoterm: '', courier: '', port: '', message: '', website: '' };
+const LINE = { product: '', qty: '' };
+
+// Short reference the buyer can quote back: SX-YYMMDD-XXXX.
+const makeRef = () => `SX-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 
 export default function InquiryForm({ product = '' }) {
   const params = useSearchParams();
-  const [data, setData] = useState({ ...EMPTY, productInterest: params?.get('product') || product });
+  const [mode, setMode] = useState(params?.get('type') === 'sample' ? 'sample' : 'quote');
+  const [data, setData] = useState(EMPTY);
+  const [lines, setLines] = useState([{ ...LINE, product: params?.get('product') || product }]);
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [error, setError] = useState('');
+  const [ref, setRef] = useState('');
+  const sample = mode === 'sample';
 
   const set = (e) => setData((d) => ({ ...d, [e.target.name]: e.target.value }));
   const pick = (name, value) => setData((d) => ({ ...d, [name]: d[name] === value ? '' : value }));
+  const setLine = (i, k, v) => setLines((ls) => ls.map((l, j) => (j === i ? { ...l, [k]: v } : l)));
+  const filled = lines.filter((l) => l.product.trim());
+  const productList = filled.map((l) => (l.qty ? `${l.product} (${l.qty})` : l.product)).join('; ');
 
   const submit = async (e) => {
     e.preventDefault();
     if (data.website) { setStatus('sent'); return; } // honeypot: bots fill hidden fields
     setStatus('sending');
     setError('');
+    const reference = ref || makeRef();
+    setRef(reference);
     const fields = [
+      ['Reference', reference], ['Request', sample ? 'Sample request' : 'Price quote'],
       ['Name', data.name], ['Company', data.company], ['Email', data.email], ['Phone / WhatsApp', data.phone],
-      ['Country', data.country], ['Business type', data.buyerType], ['Products', data.productInterest],
-      ['Quantity', data.estimatedQuantity], ['Packing', data.packaging], ['Price terms', data.incoterm],
-      ['Destination port', data.port], ['Notes', data.message],
+      ['Country', data.country], ['Business type', data.buyerType],
+      ['Products', filled.map((l, i) => `\n  ${i + 1}. ${l.product}${l.qty ? ` — ${l.qty}` : ''}`).join('')],
+      ['Total quantity', data.estimatedQuantity], ['Packing', data.packaging],
+      sample ? ['Courier', data.courier] : ['Price terms', data.incoterm],
+      [sample ? 'Courier address (city, country)' : 'Destination port', data.port], ['Notes', data.message],
     ];
     try {
       // Sent from the browser: Web3Forms' free plan rejects server-side submissions.
@@ -45,7 +64,7 @@ export default function InquiryForm({ product = '' }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `[Quote request] ${data.productInterest.slice(0, 60)} — ${data.company} (${data.country})`,
+          subject: `[${sample ? 'Sample request' : 'Quote request'} ${reference}] ${productList.slice(0, 60)} — ${data.company} (${data.country})`,
           from_name: 'Sunita Exports Website',
           name: `${data.name} (${data.company})`,
           email: data.email,
@@ -55,7 +74,7 @@ export default function InquiryForm({ product = '' }) {
       });
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
-        track('generate_lead', { form: 'quote', country: data.country, products: data.productInterest.slice(0, 100) });
+        track('generate_lead', { form: mode, country: data.country, products: productList.slice(0, 100) });
         setStatus('sent');
       } else {
         setStatus('error');
@@ -67,17 +86,18 @@ export default function InquiryForm({ product = '' }) {
     }
   };
 
-  const waSummary = `Hello Sunita Agri Exports, I'd like a quote.\nName: ${data.name}\nCompany: ${data.company}\nCountry: ${data.country}\nProducts: ${data.productInterest}\nQuantity: ${data.estimatedQuantity}\n${data.message}`;
+  const waSummary = `Hello Sunita Agri Exports, I'd like ${sample ? 'a sample' : 'a quote'}${ref ? ` (ref ${ref})` : ''}.\nName: ${data.name}\nCompany: ${data.company}\nCountry: ${data.country}\nProducts: ${productList}\nQuantity: ${data.estimatedQuantity}\n${data.message}`;
 
   if (status === 'sent') {
     return (
       <div className={styles.success}>
         <span className={styles.successIcon}><Icon name="check" size={28} /></span>
-        <h2>Thank you — enquiry received</h2>
+        <h2>Thank you — {sample ? 'sample request' : 'enquiry'} received</h2>
+        {ref && <p>Your reference: <strong>{ref}</strong>. Please quote it in any reply.</p>}
         <p>Our export team will reply to <strong>{data.email}</strong> within 24 hours (Mon–Sat). For anything urgent, message us on WhatsApp.</p>
         <div className="btn-row">
-          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> WhatsApp {CONTACT.quotePhone.display}</a>
-          <button type="button" className="btn btn-outline" onClick={() => { setData(EMPTY); setStatus('idle'); }}>Send another enquiry</button>
+          <a href={whatsappLink(`Hello, following up on ${ref}.`)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"><Icon name="whatsapp" /> WhatsApp {CONTACT.quotePhone.display}</a>
+          <button type="button" className="btn btn-outline" onClick={() => { setData(EMPTY); setLines([{ ...LINE }]); setRef(''); setStatus('idle'); }}>Send another enquiry</button>
         </div>
       </div>
     );
@@ -85,23 +105,57 @@ export default function InquiryForm({ product = '' }) {
 
   return (
     <form onSubmit={submit} className={styles.form} noValidate={false}>
+      <div className={styles.modes} role="radiogroup" aria-label="Type of request">
+        {MODES.map(([k, label]) => (
+          <button key={k} type="button" role="radio" aria-checked={mode === k} className={mode === k ? styles.modeOn : ''} onClick={() => setMode(k)}>{label}</button>
+        ))}
+      </div>
+
       <fieldset className={styles.group}>
-        <legend>1 · What do you need?</legend>
-        <div className="field">
-          <label htmlFor="productInterest">Products *</label>
-          <textarea id="productInterest" name="productInterest" rows={3} required value={data.productInterest} onChange={set}
-            placeholder="e.g. Turmeric fingers (Salem), Cumin 99.5%, 1121 Basmati sella, Toor dal — or paste your full list" />
+        <legend>1 · {sample ? 'Which samples?' : 'What do you need?'}</legend>
+        <div className={styles.lines}>
+          {lines.map((l, i) => (
+            <div key={i} className={styles.line}>
+              <div className="field">
+                <label htmlFor={`product-${i}`}>{i === 0 ? 'Product *' : `Product ${i + 1}`}</label>
+                <input id={`product-${i}`} required={i === 0} value={l.product} onChange={(e) => setLine(i, 'product', e.target.value)}
+                  placeholder={i === 0 ? 'e.g. Cumin seeds 99.5%' : 'e.g. Turmeric powder'} />
+              </div>
+              <div className="field">
+                <label htmlFor={`qty-${i}`}>{sample ? 'Sample size' : 'Quantity'}</label>
+                <input id={`qty-${i}`} value={l.qty} onChange={(e) => setLine(i, 'qty', e.target.value)} placeholder={sample ? 'e.g. 500 g' : 'e.g. 5 MT'} />
+              </div>
+              {lines.length > 1 && (
+                <button type="button" className={styles.lineRemove} aria-label={`Remove product ${i + 1}`} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))}>×</button>
+              )}
+            </div>
+          ))}
+          {lines.length < 15 && (
+            <button type="button" className={styles.lineAdd} onClick={() => setLines((ls) => [...ls, { ...LINE }])}>+ Add another product</button>
+          )}
         </div>
         <div className={styles.row}>
+          {!sample && (
+            <div className="field">
+              <label htmlFor="estimatedQuantity">Total / container</label>
+              <input id="estimatedQuantity" name="estimatedQuantity" value={data.estimatedQuantity} onChange={set} placeholder="e.g. 1 × 20 ft mixed container" />
+            </div>
+          )}
           <div className="field">
-            <label htmlFor="estimatedQuantity">Quantity</label>
-            <input id="estimatedQuantity" name="estimatedQuantity" value={data.estimatedQuantity} onChange={set} placeholder="e.g. 1 × 20 ft FCL, 5 MT each" />
-          </div>
-          <div className="field">
-            <label htmlFor="port">Destination port</label>
-            <input id="port" name="port" value={data.port} onChange={set} placeholder="e.g. Jebel Ali, New York, Mombasa" />
+            <label htmlFor="port">{sample ? 'Courier to (city, country)' : 'Destination port'}</label>
+            <input id="port" name="port" value={data.port} onChange={set} placeholder={sample ? 'e.g. Dubai, UAE' : 'e.g. Jebel Ali, New York, Mombasa'} />
           </div>
         </div>
+        {sample && (
+          <div className="field">
+            <span className={styles.pillLabel}>Courier</span>
+            <div className={styles.pills}>
+              {COURIER.map((c) => (
+                <button key={c} type="button" className={data.courier === c ? styles.pillOn : ''} aria-pressed={data.courier === c} onClick={() => pick('courier', c)}>{c}</button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="field">
           <span className={styles.pillLabel}>Packing</span>
           <div className={styles.pills}>
@@ -110,14 +164,14 @@ export default function InquiryForm({ product = '' }) {
             ))}
           </div>
         </div>
-        <div className="field">
+        {!sample && <div className="field">
           <span className={styles.pillLabel}>Price terms</span>
           <div className={styles.pills}>
             {TERMS.map((t) => (
               <button key={t} type="button" className={data.incoterm === t ? styles.pillOn : ''} aria-pressed={data.incoterm === t} onClick={() => pick('incoterm', t)}>{t}</button>
             ))}
           </div>
-        </div>
+        </div>}
       </fieldset>
 
       <fieldset className={styles.group}>
@@ -179,7 +233,7 @@ export default function InquiryForm({ product = '' }) {
 
       <div className={styles.submitRow}>
         <button type="submit" className="btn btn-primary btn-lg" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : <>Send enquiry <Icon name="arrow-right" /></>}
+          {status === 'sending' ? 'Sending…' : <>{sample ? 'Request samples' : 'Send enquiry'} <Icon name="arrow-right" /></>}
         </button>
         <p className={styles.privacy}>We reply within 24 hours. Your details are used only to answer this enquiry. See our <a href="/privacy/" className="text-green">privacy policy</a>.</p>
       </div>
