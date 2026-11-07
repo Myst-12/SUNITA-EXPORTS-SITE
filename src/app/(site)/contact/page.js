@@ -8,12 +8,13 @@ import { localBusinessSchema } from '@/lib/schemas';
 import styles from './contact.module.css';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 import EmailLinks from '@/components/EmailLinks';
+import { enAlternates } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Get an Export Quote for Indian Food',
   description:
     'Request an export price for Indian spices, rice, pulses or a mixed FMCG container. FOB, CFR or CIF quotes within 24 hours. WhatsApp +91 81692 82942.',
-  alternates: { canonical: '/contact/' },
+  alternates: enAlternates('/contact/'),
 };
 
 const FAQS = PAGE_FAQS['contact'];

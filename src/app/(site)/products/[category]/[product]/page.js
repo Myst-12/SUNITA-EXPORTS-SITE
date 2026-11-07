@@ -19,6 +19,7 @@ import { exportDestinations } from '@/data/countries';
 import styles from './product.module.css';
 import x from './extras.module.css';
 import { seoTitle } from '@/lib/seoTitle';
+import { enAlternates } from '@/lib/i18n';
 
 // Inside dimensions of standard dry containers; the weight that fits depends on the product and packing.
 const CONTAINERS = [
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }) {
   return {
     title: seoTitle(product.metaTitle),
     description: product.metaDescription,
-    alternates: { canonical: url },
+    alternates: enAlternates(url),
     openGraph: { title: product.metaTitle, description: product.metaDescription, url, ...(product.image ? { images: [{ url: product.image }] } : {}) },
   };
 }

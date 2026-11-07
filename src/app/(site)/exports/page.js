@@ -4,12 +4,13 @@ import Icon from '@/components/Icon';
 import { exportDestinations } from '@/data/countries';
 import { COMPANY, flagCode } from '@/config/site';
 import s from '../pages.module.css';
+import { enAlternates } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Indian Food Export Markets',
   description:
     'Indian spices, rice, pulses and FMCG shipped to 40+ countries, including the USA, UK, Canada, Australia, UAE, Saudi Arabia, Singapore and East Africa.',
-  alternates: { canonical: '/exports/' },
+  alternates: enAlternates('/exports/'),
 };
 
 export default function ExportsPage() {

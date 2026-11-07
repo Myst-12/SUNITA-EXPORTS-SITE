@@ -2,7 +2,7 @@
 
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
-import PasswordInput from '@/app/admin/PasswordInput';
+import PasswordInput from '@/app/(site)/admin/PasswordInput';
 import { signupAction, loginAction } from './actions';
 import s from './account.module.css';
 

@@ -15,6 +15,7 @@ const SECURITY_HEADERS = [
 const NOINDEX = [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }];
 
 const nextConfig = {
+  experimental: { globalNotFound: true }, // one 404 page for both the English and Arabic root layouts
   // Server mode (not static export) so the inquiry API route and redirects work. Deploy target: Vercel (or any Node host).
   // Images: sizes are made ahead of time by scripts/size-images.mjs and picked by a custom loader,
   // so Vercel does no image resizing (its free plan stops at 5,000 a month).

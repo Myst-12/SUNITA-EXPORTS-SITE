@@ -5,12 +5,13 @@ import { productIndex, PREVIEW } from '@/lib/productIndex';
 import Breadcrumb from '@/components/Breadcrumb';
 import Icon from '@/components/Icon';
 import styles from './products.module.css';
+import { enAlternates } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Product Catalogue: Spices, Rice & FMCG',
   description:
     `Browse ${getAllProducts().length} export products from India in ${productCategories.length} categories: spices, herbs, dehydrated onion, rice, pulses, flours, oilseeds, coffee, superfoods, FMCG and more.`,
-  alternates: { canonical: '/products/' },
+  alternates: enAlternates('/products/'),
 };
 
 export default function ProductsPage() {

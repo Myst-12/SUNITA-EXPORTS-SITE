@@ -11,6 +11,7 @@ import { MARKET_CONTENT_WORLD } from '@/data/marketContentWorld';
 import { COMPANY, CONTACT, whatsappLink, flagCode } from '@/config/site';
 import s from '../../pages.module.css';
 import { seoTitle } from '@/lib/seoTitle';
+import { enAlternates } from '@/lib/i18n';
 
 export const dynamicParams = false;
 
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }) {
   return {
     title: seoTitle(c.seoTitle),
     description: c.seoDescription,
-    alternates: { canonical: `/exports/${c.slug}/` },
+    alternates: enAlternates(`/exports/${c.slug}/`),
   };
 }
 

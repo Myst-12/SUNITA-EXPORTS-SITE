@@ -6,7 +6,7 @@ import Icon from '@/components/Icon';
 import { getAllProducts } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
 import { whatsappLink, flagCode } from '@/config/site';
-import s from '@/app/pages.module.css';
+import s from '@/app/(site)/pages.module.css';
 
 // Shared layout for the pages written around one buyer search ("Indian grocery exporter", …).
 export default function SeoLanding({ crumb, href, eyebrow, title, lead, image, imageAlt, quote, sections, range, rangeTitle, featured, faqs, faqTitle }) {
