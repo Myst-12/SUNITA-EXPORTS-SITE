@@ -73,3 +73,13 @@
 
 .quick { margin: 0; padding: 16px 18px; border-left: 4px solid var(--green-600); border-radius: 0 var(--radius) var(--radius) 0; background: var(--green-50); font-size: 0.98rem; line-height: 1.65; color: var(--ink); }
 .quick b { color: var(--green-800); }
+
+/* Buying guide */
+.guideH { font-size: 1.02rem; margin: 1.4rem 0 0.6rem; }
+.season { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0; }
+.season div { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
+.season dt { font-weight: 700; font-size: 0.85rem; color: var(--green-700); }
+.season dd { margin: 4px 0 0; font-size: 0.92rem; color: var(--ink-2); }
+.priceList { display: grid; gap: 6px; padding-left: 1.1em; margin: 0 0 0.8rem; font-size: 0.95rem; }
+.guideTable th[scope='row'], .guideTable td { width: 33%; }
+.priceList li { list-style: disc; }

@@ -15,6 +15,7 @@ import InquiryForm from '@/components/InquiryForm';
 import AddToEnquiry from '@/components/AddToEnquiry';
 import { usesFor } from '@/data/catalog/productUses';
 import { contentFor } from '@/data/catalog/productContent';
+import { guideFor } from '@/data/catalog/buyingGuides';
 import { certificates } from '@/data/certificates';
 import { exportDestinations } from '@/data/countries';
 import styles from './product.module.css';
@@ -109,6 +110,7 @@ export default async function ProductDetailPage({ params }) {
   const url = `${SITE_URL}${productUrl(product)}`;
   const uses = usesFor(product);
   const content = contentFor(product.slug);
+  const guide = guideFor(product.slug);
   // One answer-first paragraph with the facts buyers and AI assistants ask for most.
   const lc = (list) => list.map((f) => f.charAt(0).toLowerCase() + f.slice(1));
   const quick = isBulkType(product)
@@ -118,6 +120,7 @@ export default async function ProductDetailPage({ params }) {
   const isBulk = product.type !== 'fmcg';
   const toc = [
     content && ['overview', 'Overview'],
+    guide && ['guide', 'Buying guide'],
     ['uses', 'Uses'],
     ['details', 'Product details'],
     ['specs', 'Specifications'],
@@ -234,6 +237,24 @@ export default async function ProductDetailPage({ params }) {
               <div className={`${styles.block} ${x.anchor}`} id="overview">
                 <h2 className={styles.blockTitle}>{n} from India</h2>
                 <div className={x.overview}>{content.overview.map((t) => <p key={t.slice(0, 24)}>{t}</p>)}</div>
+              </div>
+            )}
+
+            {guide && (
+              <div className={`${styles.block} ${x.anchor}`} id="guide">
+                <h2 className={styles.blockTitle}>Buying guide: {n.toLowerCase()}</h2>
+                <h3 className={x.guideH}>Which grade to buy</h3>
+                <div className={styles.tableWrap}>
+                  <table className={`spec-table ${x.guideTable}`}>
+                    <thead><tr><th scope="col">Grade</th><th scope="col">What it is</th><th scope="col">Best for</th></tr></thead>
+                    <tbody>{guide.grades.map(([g, what, best]) => <tr key={g}><th scope="row">{g}</th><td>{what}</td><td>{best}</td></tr>)}</tbody>
+                  </table>
+                </div>
+                <h3 className={x.guideH}>Crop calendar</h3>
+                <dl className={x.season}>{guide.season.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+                <h3 className={x.guideH}>What moves the price</h3>
+                <ul className={x.priceList}>{guide.price.map((f) => <li key={f}>{f}</li>)}</ul>
+                <p className="small text-muted">Ask for today’s price and the current crop situation: we reply within 24 hours.</p>
               </div>
             )}
 
