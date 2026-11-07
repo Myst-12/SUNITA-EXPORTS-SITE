@@ -367,6 +367,182 @@ export const BUYING_GUIDES = {
       'Polished or unpolished finish.',
     ],
   },
+  'cloves': {
+    season: [
+      ['Harvest', 'Buds picked January–April, before they open, mainly in Tamil Nadu and Kerala.'],
+      ['Drying', 'Sun-dried for several days until dark brown and brittle.'],
+      ['Best time to book', 'March–June, after the new crop is dried and graded.'],
+    ],
+    grades: [
+      ['Lal Pari (Premium Grade)', 'Bold, reddish-brown buds with heads intact and high oil.', 'Premium retail packs and the Gulf market.'],
+      ['Handpicked Grade', 'Hand-sorted to remove stems, headless and khoker (exhausted) buds.', 'Whole-clove retail and food service.'],
+      ['Standard Export Grade', 'Machine-cleaned with some headless buds and stems.', 'Grinding and blending.'],
+    ],
+    price: [
+      'World supply from Madagascar, Indonesia and Zanzibar, which sets the price.',
+      'Share of headless buds and stems.',
+      'Volatile oil content.',
+      'Indian crop size, which is small compared with world demand.',
+    ],
+  },
+  'cinnamon': {
+    season: [
+      ['Harvest', 'Bark is cut in the wet season, mainly June–November, in Kerala and Karnataka.'],
+      ['Processing', 'Peeled, rolled into quills and dried in the shade.'],
+      ['Best time to book', 'October–February, when new quills are graded.'],
+    ],
+    grades: [
+      ['Premium Quills (Cochin)', 'Rolled quills of even length and thickness.', 'Retail packs, whole-spice blends and food service.'],
+      ['Broken Cinnamon Bark', 'Broken pieces and featherings.', 'Grinding and extraction.'],
+    ],
+    price: [
+      'World supply of cinnamon and cassia from Sri Lanka, Indonesia, Vietnam and China.',
+      'Quill length, thickness and colour.',
+      'Coumarin limits in your market, which affect the cinnamon versus cassia choice.',
+      'Share of broken pieces in the lot.',
+    ],
+  },
+  'kashmiri-chilli': {
+    season: [
+      ['Harvest', 'December–March for Karnataka-grown Kashmiri-type chilli; the Kashmir crop is September–October.'],
+      ['Arrivals', 'Byadgi and Haveri markets in Karnataka, peak February–April; cold storage the rest of the year.'],
+      ['Best time to book', 'February–April for the deepest colour.'],
+    ],
+    grades: [
+      ['With stem', 'Whole dried pods with the stem on.', 'Traders and retail packs sold by appearance.'],
+      ['Stemless', 'Stem removed; less waste when grinding.', 'Powder makers who need high colour.'],
+    ],
+    price: [
+      'Colour value (ASTA): the reason buyers choose Kashmiri chilli.',
+      'Crop size in Karnataka and cold-storage stocks.',
+      'Share of discoloured or white-patched pods.',
+      'Aflatoxin limits of your market.',
+    ],
+  },
+  'garam-masala': {
+    season: [
+      ['Raw materials', 'Blended from whole spices bought through the year, each at its own harvest.'],
+      ['Availability', 'All year, ground and blended to order.'],
+      ['Best time to book', 'Any time; fixed recipes are priced on current spice prices.'],
+    ],
+    grades: [
+      ['Standard Indian Blend', 'A classic north Indian recipe in standard proportions.', 'Retail packs for Indian and South Asian communities.'],
+      ['Premium Export Quality', 'Higher share of cardamom, cloves and cinnamon; Sortex-cleaned inputs.', 'Premium retail and restaurants.'],
+      ['Custom Formula', 'Your own recipe, mesh size and pack.', 'Private-label brands and food manufacturers.'],
+    ],
+    price: [
+      'Prices of the most expensive inputs: cardamom, cloves and black pepper.',
+      'Recipe: share of premium spices versus coriander and cumin.',
+      'Steam sterilisation and testing asked for.',
+      'Packing: bulk bags or printed retail pouches.',
+    ],
+  },
+  'traditional-basmati-rice': {
+    season: [
+      ['Harvest', 'October–November in Punjab, Haryana and western Uttar Pradesh.'],
+      ['Ageing', 'Usually aged 6–12 months; aroma and cooking quality improve with age.'],
+      ['Best time to book', 'December–March for new crop; aged rice all year.'],
+    ],
+    grades: [
+      ['Raw', 'Milled without parboiling; strongest aroma, slender grain.', 'Premium retail and fine dining.'],
+      ['Steam', 'Steamed before milling; firmer grain.', 'Buyers between raw and sella.'],
+      ['Sella', 'Parboiled; grains stay separate.', 'Catering and biryani.'],
+    ],
+    price: [
+      'Traditional basmati yields less than 1121 or 1509, so it costs more.',
+      'Age of the rice.',
+      'Broken-grain percentage and sorting.',
+      'Government rules on rice exports at the time.',
+    ],
+  },
+  'sona-masuri-rice': {
+    season: [
+      ['Harvest', 'Two crops: October–December (kharif) and March–May (rabi) in Andhra Pradesh, Telangana and Karnataka.'],
+      ['Ageing', 'Often aged a few months so the rice cooks soft and separate.'],
+      ['Best time to book', 'Any time; prices are usually lowest after each harvest.'],
+    ],
+    grades: [
+      ['Raw', 'Milled without parboiling; light, medium grain.', 'Everyday cooking for South Indian communities abroad.'],
+      ['Steam', 'Steamed before milling; firmer and less sticky.', 'Restaurants and food service.'],
+    ],
+    price: [
+      'Paddy price after each of the two harvests.',
+      'Age of the rice.',
+      'Broken-grain percentage.',
+      'Government rules on non-basmati rice exports at the time.',
+    ],
+  },
+  'ir64-rice': {
+    season: [
+      ['Harvest', 'October–December (kharif) and March–May (rabi) in Andhra Pradesh, Chhattisgarh and West Bengal.'],
+      ['Availability', 'All year from mills.'],
+      ['Best time to book', 'After each harvest, when paddy prices are lowest.'],
+    ],
+    grades: [
+      ['IR64 Raw (5% Broken)', 'Long-grain white rice with up to 5% broken.', 'Retail packs and wholesale.'],
+      ['IR64 Raw (25% Broken)', 'More broken grain at a lower price.', 'Price-led markets and food aid.'],
+      ['IR64 Parboiled (5% Broken)', 'Parboiled; grains stay firm and separate.', 'West and East Africa, the Middle East and catering.'],
+    ],
+    price: [
+      'Indian government rules on non-basmati exports (duties, minimum prices, bans).',
+      'Paddy price and the size of the crop.',
+      'Broken-grain percentage.',
+      'World price set by Thailand, Vietnam and Pakistan.',
+    ],
+  },
+  'yellow-moong-dal': {
+    season: [
+      ['Harvest', 'Kharif moong September–October and summer moong May–June, mainly in Rajasthan and Madhya Pradesh.'],
+      ['Processing', 'Hulled and split in dal mills all year.'],
+      ['Best time to book', 'October–January and June–August, after each harvest.'],
+    ],
+    grades: [
+      ['Polished', 'Split, skinless dal with a glossy finish.', 'Retail packs.'],
+      ['Unpolished', 'No polish; natural finish.', 'Health-food buyers and markets that prefer unpolished dal.'],
+    ],
+    price: [
+      'Moong crop size in Rajasthan, which depends on monsoon rain.',
+      'Government stock limits and export rules on pulses.',
+      'Grain size and broken percentage.',
+      'Polished or unpolished finish.',
+    ],
+  },
+  'ashwagandha-root': {
+    season: [
+      ['Sowing', 'August–September, after the monsoon, in Neemuch and Mandsaur (Madhya Pradesh) and Rajasthan.'],
+      ['Harvest and arrivals', 'January–March, when the plant dries; Neemuch is the main market.'],
+      ['Best time to book', 'February–May, when new-crop roots are graded.'],
+    ],
+    grades: [
+      ['Whole roots', 'Dried roots graded by thickness: thinner, whiter roots are usually preferred.', 'Herbal traders and extraction companies.'],
+      ['Cut roots', 'Roots cut to size (tea-bag cut or larger).', 'Herbal teas and extraction.'],
+      ['Powder', 'Root ground to a set mesh.', 'Supplement makers and retail packs.'],
+    ],
+    price: [
+      'Crop size in Neemuch and Mandsaur.',
+      'Root thickness and colour; stem content lowers value.',
+      'Withanolide content, when buyers specify it.',
+      'Microbiology and heavy-metal testing for supplement buyers.',
+    ],
+  },
+  'moringa-leaf-powder': {
+    season: [
+      ['Harvest', 'Leaves are cut several times a year in Tamil Nadu and Andhra Pradesh.'],
+      ['Drying', 'Shade- or low-temperature dried to keep the green colour, then milled.'],
+      ['Best time to book', 'All year; the dry months give the brightest green.'],
+    ],
+    grades: [
+      ['Fine powder (80 mesh and finer)', 'Bright green, smooth powder.', 'Supplements, capsules and smoothie mixes.'],
+      ['Coarser powder / tea cut', 'Larger particles of dried leaf.', 'Herbal teas and further processing.'],
+      ['Organic', 'From certified organic farms (on request).', 'Health-food brands and organic markets.'],
+    ],
+    price: [
+      'Colour: brighter green powder costs more.',
+      'Mesh size asked for.',
+      'Microbiology, heavy-metal and pesticide testing.',
+      'Organic certification.',
+    ],
+  },
 };
 
 export const guideFor = (slug) => BUYING_GUIDES[slug] || null;
