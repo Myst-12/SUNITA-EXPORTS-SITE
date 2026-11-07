@@ -23,6 +23,10 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './src/lib/imageLoader.js',
     qualities: [75, 90],
+    // Only widths that exist as files: the pre-made sizes plus one for the ~1200px originals. Next's defaults
+    // (up to 3840) listed the same original five times in every srcset.
+    deviceSizes: [640, 828, 1200],
+    imageSizes: [256, 384],
   },
   trailingSlash: true,
   poweredByHeader: false,

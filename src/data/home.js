@@ -32,9 +32,9 @@ export const HOME = {
     link: 'View all products',
   },
   directors: {
-    quote: 'We’re a business bringing the taste of India’s farms to kitchens in 40+ countries — and every buyer is treated like family.',
+    quote: 'We’re a business bringing the taste of India’s farms to kitchens around the world — and every buyer is treated like family.',
     paras: [
-      'We started Sunita Agri Exports in 2010 with one promise to our buyers: what we show in the sample is what arrives in the container. Today, shipping to 40+ countries, that promise still decides how we source, grade and pack every order.',
+      'We started Sunita Agri Exports in 2010 with one promise to our buyers: what we show in the sample is what arrives in the container. Today, that promise still decides how we source, grade and pack every order.',
       'Whether you buy one mixed container of groceries or a full load of spices, you deal with us directly — one team in Mumbai answering for quality, timing and paperwork.',
     ],
     sign: 'Alok Dhanuka & Ankit Dhanuka, Directors',
