@@ -3,7 +3,7 @@ import { COMPANY, CONTACT } from '@/config/site';
 import { PAGE_FAQS } from '@/data/pageFaqs';
 
 export const metadata = {
-  title: 'Indian Food Supplier for Importers & Distributors',
+  title: 'Indian Food Supplier for Importers',
   description: `Supplier of Indian spices, rice, pulses and groceries for importers and distributors since ${COMPANY.foundingYear}. Mixed containers, private label, FOB/CIF quotes in 24 hours.`,
   alternates: { canonical: '/for-importers/' },
 };

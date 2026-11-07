@@ -79,7 +79,7 @@ export default async function CategoryPage({ params }) {
           <Breadcrumb inline items={[{ label: 'Products', href: '/products/' }, { label: name, href: `/products/${cat.slug}/` }]} />
           <div className={styles.catHeroGrid}>
             <div>
-              <h1>{name} exporter from India</h1>
+              <h1>{name} exporter{/^Indian\b/.test(name) ? '' : ' from India'}</h1>
               <p className="lead">{cat.description}</p>
               <p className={styles.catCount}>{isFmcg
                 ? <>{cat.productCount} product categories{cat.listedCount > cat.productCount ? `, plus ${cat.listedCount - cat.productCount} listed from other ranges` : ''} · <Link href="/fmcg/catalogue/">{FMCG_TOTAL.toLocaleString('en-IN')} products to order online</Link></>

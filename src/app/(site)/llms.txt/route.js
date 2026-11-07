@@ -2,6 +2,8 @@ import { SITE_URL, COMPANY, CONTACT, CERTIFICATIONS, EXHIBITIONS, fullAddress } 
 import { productCategories, getAllProducts, productUrl, specSheetUrl } from '@/data/products';
 import { exportDestinations } from '@/data/countries';
 import { blogPosts } from '@/data/blog';
+import { TEXT } from '@/data/i18n';
+import { LANG_CODES } from '@/lib/i18n';
 
 export const dynamic = 'force-static';
 
@@ -51,6 +53,10 @@ export function GET() {
     '',
     '## Export markets',
     ...exportDestinations.map((d) => `- [${d.name}](${SITE_URL}/exports/${d.slug}/)`),
+    '',
+    '## Other languages',
+    'Translated versions of the main pages and the most-ordered products (same facts as the English pages):',
+    ...LANG_CODES.map((l) => `- [${TEXT[l].ui.nav[0][1]} (${l})](${SITE_URL}/${l}/): ${Object.keys(TEXT[l].products).length} products${TEXT[l].markets ? `, ${Object.keys(TEXT[l].markets).length} market pages` : ''}`),
     '',
     '## Buyer guides',
     ...[...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1)).map((b) => `- [${b.title}](${SITE_URL}/blog/${b.slug}/)`),

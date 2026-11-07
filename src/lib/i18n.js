@@ -21,6 +21,13 @@ const PATHS = Object.fromEntries(LANG_CODES.map((l) => [l, new Set([
 export const hasLang = (lang, path) => PATHS[lang].has(path);
 export const langPath = (lang, path) => `/${lang}${path}`;
 
+// { englishPath: [codes] } for every translated page, small enough to send to the language switcher.
+export function langPathIndex() {
+  const index = {};
+  for (const l of LANG_CODES) for (const p of PATHS[l]) (index[p] ||= []).push(l);
+  return index;
+}
+
 // hreflang map for an English path: English, every language that has the page, and x-default → English.
 export function languagesFor(path) {
   const languages = { en: path };

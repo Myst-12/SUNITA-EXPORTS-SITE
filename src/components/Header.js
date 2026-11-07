@@ -25,7 +25,7 @@ const LINKS = [
   { label: 'Blog', href: '/blog/' },
 ];
 
-export default function Header({ categories = [] }) {
+export default function Header({ categories = [], langPaths = {} }) {
   const pathname = usePathname() || '/';
   const [scrolled, setScrolled] = useState(false);
   const listCount = useBasket().items.length; // products collected for one quote request
@@ -102,7 +102,7 @@ export default function Header({ categories = [] }) {
           </nav>
 
           <div className={styles.actions}>
-            <span className={styles.lang}><LanguageSwitcher /></span>
+            <span className={styles.lang}><LanguageSwitcher langPaths={langPaths} /></span>
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={styles.waBtn} aria-label="Chat on WhatsApp">
               <Icon name="whatsapp" size={19} />
             </a>

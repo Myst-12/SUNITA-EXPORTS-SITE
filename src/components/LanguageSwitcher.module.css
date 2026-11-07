@@ -16,7 +16,7 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 0 4px; max-height: min(70vh, 520px); overflow-y: auto; overscroll-behavior: contain;
   background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-float);
 }
-.option { display: block; width: 100%; padding: 0.5rem 0.75rem; border-radius: 8px; text-align: left; font-size: 0.9rem; color: var(--ink-2); }
+.option { display: block; text-decoration: none; width: 100%; padding: 0.5rem 0.75rem; border-radius: 8px; text-align: left; font-size: 0.9rem; color: var(--ink-2); }
 @media (hover: hover) and (pointer: fine) { .option:hover { background: var(--bg-mist); color: var(--green-700); } }
 .current { font-weight: 700; color: var(--green-700); }
 

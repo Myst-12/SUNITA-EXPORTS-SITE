@@ -6,6 +6,8 @@ import Analytics from '@/components/Analytics';
 import { SITE_URL, GA_ID, CONTACT, whatsappLink } from '@/config/site';
 import { TEXT } from '@/data/i18n';
 import { LOCALES, LANG_CODES } from '@/lib/i18n';
+import { organizationSchema } from '@/lib/schemas';
+import EnglishLink from './EnglishLink';
 import s from './intl.module.css';
 
 const arabic = IBM_Plex_Sans_Arabic({ subsets: ['arabic'], weight: ['400', '600', '700'], variable: '--font-intl', display: 'swap' });
@@ -33,6 +35,9 @@ export default async function LangLayout({ children, params }) {
   const { ui } = t;
   return (
     <html lang={lang} dir={LOCALES[lang].dir} className={(lang === 'ar' ? arabic : latin).variable}>
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }} />
+      </head>
       <body className={s.body}>
         <a href="#main-content" className="skip-link">{ui.skip}</a>
         <header className={s.header}>
@@ -43,7 +48,7 @@ export default async function LangLayout({ children, params }) {
             </Link>
             <nav className={s.nav} aria-label={ui.nav[0][1]}>
               {ui.nav.map(([href, label]) => <Link key={href} href={`/${lang}/${href}`}>{label}</Link>)}
-              <a href="/" hrefLang="en" lang="en" className={s.lang}>{ui.english}</a>
+              <EnglishLink lang={lang} className={s.lang}>{ui.english}</EnglishLink>
             </nav>
           </div>
         </header>

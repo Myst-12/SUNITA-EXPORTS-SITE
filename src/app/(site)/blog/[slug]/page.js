@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }) {
             <div className={styles.more}>
               {more.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}/`} className={styles.moreItem}>
-                  <span className={styles.moreImg}><Image src={p.image} alt="" fill sizes="96px" /></span>
+                  <span className={styles.moreImg}><Image src={p.image} alt={`Cover image: ${p.title}`} fill sizes="96px" /></span>
                   <span><strong>{p.title}</strong><small>{p.readTime} read</small></span>
                 </Link>
               ))}

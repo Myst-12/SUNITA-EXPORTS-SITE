@@ -1,7 +1,7 @@
 // Homepage copy, kept in one place so wording changes don't touch layout code.
 export const HOME = {
   hero: {
-    title: 'Indian spices, shipped worldwide',
+    title: 'Indian spice exporter, shipping worldwide',
     lead: 'Indian spices, rice, pulses and grocery exporter. We source from India’s growing belts, clean and grade to your specification, and pack in bulk, under your own label or in one mixed container.',
     // Phones show the short lead and only the first part of the trust line, so the first screen isn't crowded.
     leadShort: 'Spices, rice, pulses and Indian groceries, packed in bulk, under your own label or in one mixed container.',

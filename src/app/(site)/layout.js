@@ -8,7 +8,9 @@ import Analytics from '@/components/Analytics';
 import { SITE_URL, GA_ID } from '@/config/site';
 import { organizationSchema as buildOrganizationSchema } from '@/lib/schemas';
 import { categories } from '@/data/products';
+import { langPathIndex } from '@/lib/i18n';
 
+const langPaths = langPathIndex(); // which pages have translations, for the language menu
 const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name, image: c.image, count: c.productCount, href: c.href, service: !!c.service }));
 
 const fraunces = Fraunces({
@@ -97,7 +99,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to content</a>
-        <Header categories={navCategories} />
+        <Header categories={navCategories} langPaths={langPaths} />
         <main id="main-content">
           {children}
         </main>

@@ -7,7 +7,7 @@ import { exportDestinations } from '@/data/countries';
 import s from './facts.module.css';
 
 export const metadata = {
-  title: 'Company Facts: Sunita Agri Exports',
+  title: 'Company Facts',
   description: `Key facts about ${COMPANY.legalName}: founded ${COMPANY.foundingYear}, Mumbai; Star Export House; ${getAllProducts().length} export products; certificates, markets, ports and contacts.`,
   alternates: { canonical: '/company-facts/' },
 };
