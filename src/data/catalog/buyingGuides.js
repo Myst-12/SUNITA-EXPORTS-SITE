@@ -192,6 +192,181 @@ export const BUYING_GUIDES = {
       'Bag size and private-label packing.',
     ],
   },
+  'hulled-white-sesame': {
+    season: [
+      ['Kharif crop', 'Sown June–July, harvested September–November (Gujarat, Rajasthan, Madhya Pradesh).'],
+      ['Summer crop', 'Harvested April–June, mainly in Gujarat and West Bengal; often the whitest seed.'],
+      ['Best time to book', 'October–December and May–July, after each harvest.'],
+    ],
+    grades: [
+      ['Hulled, auto-dry process', 'Husk removed by machine and dried in a continuous dryer; even colour, low moisture.', 'Tahini, halwa and bakery makers who need consistent volume.'],
+      ['Hulled, 99.95% purity', 'Cleaned and sorted to the highest purity, very low foreign matter.', 'Bakery toppings, retail packs and strict EU, US or Japan buyers.'],
+    ],
+    price: [
+      'Size of the Indian crop and supply from African origins (Sudan, Nigeria, Ethiopia).',
+      'Whiteness and purity asked for.',
+      'Salmonella and pesticide limits of your market, which narrow the usable lots.',
+      'Demand from tahini and halwa makers in the Middle East and from Japan, Korea and China.',
+    ],
+  },
+  'natural-white-sesame': {
+    season: [
+      ['Kharif crop', 'Sown June–July, harvested September–November.'],
+      ['Summer crop', 'Harvested April–June in Gujarat and West Bengal.'],
+      ['Best time to book', 'October–December and May–July.'],
+    ],
+    grades: [
+      ['Natural white 99/1', 'Machine-cleaned, about 99% purity.', 'Oil mills and bakeries.'],
+      ['Natural white 99.95% (Sortex)', 'Optically sorted for colour, very low foreign matter.', 'Retail packs and strict import markets.'],
+      ['Natural white 98/2', 'Cleaned to about 98% purity.', 'Crushing for oil and price-led buyers.'],
+    ],
+    price: [
+      'Indian crop size and African supply in the same season.',
+      'Purity and whiteness: Sortex-cleaned seed costs more.',
+      'Oil content, for buyers who crush.',
+      'Demand from China, which can move the world price quickly.',
+    ],
+  },
+  'psyllium-husk': {
+    season: [
+      ['Sowing', 'November in north Gujarat and Rajasthan.'],
+      ['Harvest and arrivals', 'February–April; Unjha is the world centre for psyllium processing.'],
+      ['Best time to book', 'March–June, when new-crop seed is being processed.'],
+    ],
+    grades: [
+      ['99%', 'Highest purity husk, very low light extraneous matter.', 'Pharmaceutical and premium supplement makers.'],
+      ['98%', 'High purity, the standard export grade.', 'Fibre supplements and health-food packs.'],
+      ['95%', 'Good purity at a lower price.', 'Food uses, bakery and some supplements.'],
+      ['85%', 'Lower purity, more extraneous matter.', 'Animal feed and industrial uses.'],
+    ],
+    price: [
+      'Seed crop size in Gujarat and Rajasthan, which swings with winter rain.',
+      'Purity grade: each step up removes more light matter.',
+      'Mesh size for husk powder.',
+      'Microbiological testing and steam sterilisation for pharmaceutical buyers.',
+    ],
+  },
+  'dehydrated-white-onion-flakes': {
+    season: [
+      ['Onion harvest', 'White onion is harvested February–May around Mahuva, Gujarat.'],
+      ['Dehydration season', 'February–June, while fresh onions are available; the rest of the year from stock.'],
+      ['Best time to book', 'March–June for new-season flakes with the lightest colour.'],
+    ],
+    grades: [
+      ['A grade (light colour)', 'Creamy-white flakes, few dark or burnt pieces.', 'Seasoning makers, soups and retail packs.'],
+      ['Commercial grade', 'Slightly more colour variation.', 'Further processing and price-led buyers.'],
+    ],
+    price: [
+      'Fresh onion price and the size of the Mahuva crop.',
+      'Colour and moisture of the flakes.',
+      'Microbiological limits; steam sterilisation adds cost.',
+      'Stocks carried from the previous season.',
+    ],
+  },
+  'dehydrated-onion-powder': {
+    season: [
+      ['Raw material', 'Milled from white onion flakes dehydrated February–June in Mahuva, Gujarat.'],
+      ['Availability', 'All year, milled from stored flakes.'],
+      ['Best time to book', 'April–July for new-season colour.'],
+    ],
+    grades: [
+      ['Fine powder (80–100 mesh)', 'Free-flowing, light-coloured powder.', 'Seasoning blends, snacks and sauces.'],
+      ['Steam-sterilised powder', 'Lower microbial counts for ready-to-eat foods.', 'Food manufacturers with strict micro limits.'],
+    ],
+    price: [
+      'Price of the flakes it is milled from.',
+      'Mesh size and colour asked for.',
+      'Steam sterilisation and testing.',
+      'Anti-caking agents, if requested.',
+    ],
+  },
+  'dehydrated-garlic-flakes': {
+    season: [
+      ['Garlic harvest', 'February–April in Gujarat and Madhya Pradesh.'],
+      ['Dehydration season', 'March–July; the rest of the year from stock.'],
+      ['Best time to book', 'April–July for new-season flakes.'],
+    ],
+    grades: [
+      ['A grade (light, rootless)', 'Light-coloured flakes with roots removed.', 'Seasonings, retail packs and food service.'],
+      ['Commercial grade', 'More colour variation, some root pieces.', 'Further processing and grinding.'],
+    ],
+    price: [
+      'Fresh garlic price and crop size in Madhya Pradesh and Gujarat.',
+      'Colour and root content of the flakes.',
+      'Competition and prices from Chinese dehydrated garlic.',
+      'Microbiological limits and steam sterilisation.',
+    ],
+  },
+  'dehydrated-garlic-powder': {
+    season: [
+      ['Raw material', 'Milled from garlic flakes dehydrated March–July.'],
+      ['Availability', 'All year, milled from stored flakes.'],
+      ['Best time to book', 'May–August for new-season colour.'],
+    ],
+    grades: [
+      ['Fine powder (80–100 mesh)', 'Free-flowing, light cream powder with strong flavour.', 'Seasoning blends, snacks and sauces.'],
+      ['Steam-sterilised powder', 'Lower microbial counts for ready-to-eat foods.', 'Food manufacturers with strict micro limits.'],
+    ],
+    price: [
+      'Price of the flakes it is milled from.',
+      'Mesh size, colour and pungency asked for.',
+      'Steam sterilisation and testing.',
+      'World price of Chinese garlic powder.',
+    ],
+  },
+  '1509-basmati-rice': {
+    season: [
+      ['Harvest', 'September–October; 1509 is an early variety, harvested before 1121.'],
+      ['Ageing', 'Usually aged a few months before export for better cooking.'],
+      ['Best time to book', 'November–March for new crop; aged rice all year.'],
+    ],
+    grades: [
+      ['Raw', 'Milled without parboiling; long grain and good aroma.', 'Restaurants and retail where price matters more than 1121 length.'],
+      ['Steam', 'Steamed before milling; firmer grain.', 'Buyers between raw and sella.'],
+      ['Sella', 'Parboiled (white or golden); grains stay separate.', 'Catering, kabsa and biryani in the Gulf.'],
+    ],
+    price: [
+      'Paddy price at harvest and the size of the basmati crop.',
+      'Price gap to 1121, which buyers switch between.',
+      'Broken-grain percentage and sorting asked for.',
+      'Government rules on rice exports at the time.',
+    ],
+  },
+  'kabuli-chickpeas': {
+    season: [
+      ['Sowing', 'October–November (rabi crop) in Madhya Pradesh and Maharashtra.'],
+      ['Harvest and arrivals', 'February–April; Indore is the main market.'],
+      ['Best time to book', 'March–June for new crop.'],
+    ],
+    grades: [
+      ['Bold 9mm (42-44 count)', 'Largest seed, about 42–44 per ounce.', 'Retail packs, canning and premium markets.'],
+      ['Medium 8mm (44-46 count)', 'Medium size, the most traded export grade.', 'Wholesale, hummus and food service.'],
+      ['Small 7mm (58-60 count)', 'Smaller seed at a lower price.', 'Processing, flour and price-led buyers.'],
+    ],
+    price: [
+      'Indian crop size and supply from Mexico, Russia and Turkey.',
+      'Seed size: bolder chickpeas earn a premium.',
+      'Import duties in buyer countries, which shift demand.',
+      'Weather at harvest, which affects colour and size.',
+    ],
+  },
+  'split-toor-dal': {
+    season: [
+      ['Harvest', 'December–February in Maharashtra and Karnataka.'],
+      ['Processing', 'Hulled and split in dal mills (Latur, Akola, Gulbarga) all year.'],
+      ['Best time to book', 'January–April for new crop.'],
+    ],
+    grades: [
+      ['Polished', 'Split dal finished with oil or water polish; glossy look.', 'Retail packs for Indian and South Asian communities.'],
+      ['Unpolished', 'No polish; natural, slightly duller look.', 'Health-food buyers and markets that prefer unpolished dal.'],
+    ],
+    price: [
+      'Indian toor crop size and imports from East Africa and Myanmar.',
+      'Government stock limits and export rules on pulses.',
+      'Grain size and broken percentage.',
+      'Polished or unpolished finish.',
+    ],
+  },
 };
 
 export const guideFor = (slug) => BUYING_GUIDES[slug] || null;
