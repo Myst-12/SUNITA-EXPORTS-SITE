@@ -39,7 +39,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }} />
       {/* 1 — Hero */}
       <section className={styles.hero}>
-        <Image src={hero.image} alt={hero.imageAlt} fill priority quality={90} sizes="100vw" className={styles.heroImg} />
+        <Image src={hero.image} alt={hero.imageAlt} fill priority fetchPriority="high" quality={90} sizes="100vw" className={styles.heroImg} />
         <span className={styles.heroScrim} aria-hidden="true" />
         <div className={`container ${styles.heroInner}`}>
           <h1 className={styles.heroTitle}>{hero.title}</h1>
