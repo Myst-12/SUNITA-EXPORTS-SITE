@@ -11,6 +11,14 @@
 .type:has(input:disabled) { opacity: 0.45; cursor: not-allowed; }
 .type:has(input:disabled) input { cursor: not-allowed; }
 
+.packing { display: grid; gap: 10px; padding: 14px 16px; border-radius: var(--radius); background: var(--bg-mist); }
+.packRow { display: flex; flex-wrap: wrap; gap: 12px; }
+.packField { display: grid; gap: 4px; width: 170px; font-size: 0.8rem; font-weight: 600; color: var(--ink-2); }
+.withUnit { display: flex; gap: 6px; }
+.withUnit .small:first-child { flex: 1; min-width: 0; }
+.withUnit select.small { width: auto; flex: none; }
+.packing .unit { margin: 0; }
+.grand { padding-top: 4px; border-top: 1px solid var(--line); font-weight: 700; }
 .chain { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 18px 10px; }
 .pair { display: flex; align-items: flex-start; gap: 10px; }
 .op { flex: none; width: 22px; padding-top: 92px; text-align: center; font-size: 1.6rem; font-weight: 700; line-height: 1; color: var(--ink-2); }
@@ -55,6 +63,7 @@
   .step > .box:first-child { margin-top: 0; }
   .box { min-height: 0; }
   .types { gap: 8px; }
+  .packField { width: calc(50% - 6px); }
   .type { flex-direction: column; justify-content: center; gap: 6px; min-height: 72px; padding: 8px; font-size: 0.9rem; }
   .type input { order: 0; }
 }

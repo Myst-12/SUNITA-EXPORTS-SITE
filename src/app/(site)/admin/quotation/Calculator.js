@@ -18,24 +18,45 @@ function useRemembered(key) {
   return [v, (x) => { setV(x); try { localStorage.setItem(key, x); } catch {} }];
 }
 
-function Qty({ value, onChange, label }) {
+const qtyText = (n) => n.toLocaleString('en-IN', { maximumFractionDigits: 3 });
+
+// Everything is worked out for one carton (one bag in Bulk), like the client's price lists: a box's quantity
+// comes from its unit and the packing (per kg → kg in a carton, per label → pieces × labels per piece, per
+// container → shared over the cartons). Typing a quantity in a box overrides it.
+function autoQty(unit, pack) {
+  const u = unit.toLowerCase();
+  if (/per kg/.test(u)) return pack.kg;
+  if (/per label/.test(u)) return pack.labels;
+  if (/per (pouch|packet|tin|jar|piece)/.test(u)) return pack.pieces;
+  if (/container|thc/.test(u)) return pack.cartons ? 1 / pack.cartons : null;
+  return 1; // per carton, per bag, per gajjat, per box
+}
+
+/** "₹5 × 20 = ₹100", or "₹1,200 ÷ 30 = ₹40" for a per-container cost shared over the cartons. */
+function line(rate, qty) {
+  if (qty === 1) return inr(rate);
+  if (qty < 1 && Number.isInteger(Math.round(1 / qty * 1e6) / 1e6)) return `${inr(rate)} ÷ ${qtyText(1 / qty)} = ${inr(rate * qty)}`;
+  return `${inr(rate)} × ${qtyText(qty)} = ${inr(rate * qty)}`;
+}
+
+function Qty({ value, onChange, label, auto }) {
   return (
     <label className={s.qty}>
       <span aria-hidden="true">×</span>
-      <input type="number" inputMode="decimal" min="0" step="any" placeholder="1" value={value} onChange={(e) => onChange(e.target.value)} aria-label={label} />
+      <input type="number" inputMode="decimal" min="0" step="any" placeholder={auto != null ? qtyText(auto) : '1'} value={value} onChange={(e) => onChange(e.target.value)} aria-label={label} />
     </label>
   );
 }
 
-/** One cost row: pick a saved option (or add one), optionally × a quantity; its amount shows below. */
-function CostBox({ tab, head, options, pick, onPick, onOptions }) {
+/** One cost row: pick a saved option (or add one); its amount × the quantity for one carton shows below. */
+function CostBox({ tab, head, options, pick, onPick, onOptions, auto }) {
   const [adding, setAdding] = useState(false);
   const [label, setLabel] = useState('');
   const [amount, setAmount] = useState('');
   const [error, setError] = useState('');
   const [busy, start] = useTransition();
   const chosen = options.find((o) => o.id === pick.id);
-  const qty = num(pick.qty) ?? 1;
+  const qty = num(pick.qty) ?? auto ?? 1;
 
   const save = () => start(async () => {
     const r = await addOptionAction(tab, head.key, label, amount);
@@ -74,7 +95,7 @@ function CostBox({ tab, head, options, pick, onPick, onOptions }) {
             </select>
             {chosen && (
               <div className={s.boxFoot}>
-                <Qty value={pick.qty} onChange={(v) => onPick({ ...pick, qty: v })} label={`${head.name}: quantity`} />
+                <Qty value={pick.qty} onChange={(v) => onPick({ ...pick, qty: v })} label={`${head.name}: quantity per carton`} auto={auto} />
                 <button type="button" className={s.remove} onClick={remove} disabled={busy}>Remove</button>
               </div>
             )}
@@ -82,7 +103,7 @@ function CostBox({ tab, head, options, pick, onPick, onOptions }) {
         )}
         {error && <p className={a.err}>{error}</p>}
       </div>
-      <p className={s.price}>{chosen ? (qty === 1 ? inr(chosen.amount) : `${inr(chosen.amount)} × ${qty} = ${inr(chosen.amount * qty)}`) : '—'}</p>
+      <p className={s.price}>{chosen ? line(chosen.amount, qty) : '—'}</p>
     </div>
   );
 }
@@ -98,7 +119,9 @@ export default function Calculator({ products, saved }) {
   const [options, setOptions] = useState(saved);
   const [picks, setPicks] = useState({});
   const [buy, setBuy] = useState('');
+  const [buyUnit, setBuyUnit] = useState('kg');
   const [buyQty, setBuyQty] = useState('');
+  const [packIn, setPackIn] = useState({ size: '', sizeUnit: 'g', pieces: '', labels: '', cartons: '' });
   const [profit, setProfit] = useState('');
   const [insurance, setInsurance] = useRemembered('quote-insurance');
   const [rate, setRate] = useRemembered('quote-usd');
@@ -111,17 +134,32 @@ export default function Calculator({ products, saved }) {
 
   const choose = (p) => {
     setSlug(p.slug); setQuery(p.name); setOpen(false);
-    if (!p.tabs.includes(tabKey)) { setTabKey(p.tabs[0]); setPicks({}); }
+    if (!p.tabs.includes(tabKey)) switchTab(p.tabs[0]);
   };
-  const switchTab = (k) => { setTabKey(k); setPicks({}); };
+  function switchTab(k) { setTabKey(k); setPicks({}); setBuyUnit(k === 'fmcg' ? 'piece' : 'kg'); }
+  const setPack = (k) => (e) => setPackIn((x) => ({ ...x, [k]: e.target.value }));
+
+  // One carton (one bag in Bulk): its kg, pieces and labels, and how many cartons share the container costs.
+  const bulk = tabKey === 'bulk';
+  const pieces = bulk ? 1 : num(packIn.pieces);
+  const size = num(packIn.size);
+  const pack = {
+    pieces,
+    kg: size == null ? null : bulk ? size : pieces == null ? null : (size * pieces) / (packIn.sizeUnit === 'g' ? 1000 : 1),
+    labels: pieces == null ? null : pieces * (num(packIn.labels) ?? 1),
+    cartons: num(packIn.cartons),
+  };
+  const per = bulk ? 'bag' : 'carton';
 
   const rowsOf = (h) => options[tabKey]?.[h.key] || [];
   const amountOf = (h) => {
     const p = picks[h.key];
     const o = p && rowsOf(h).find((x) => x.id === p.id);
-    return o ? o.amount * (num(p.qty) ?? 1) : 0;
+    return o ? o.amount * (num(p.qty) ?? autoQty(h.unit, pack) ?? 1) : 0;
   };
-  const productAmount = (num(buy) ?? 0) * (num(buyQty) ?? 1);
+  const buyAuto = buyUnit === 'kg' ? pack.kg : buyUnit === 'piece' ? pack.pieces : 1;
+  const productQty = num(buyQty) ?? buyAuto ?? 1;
+  const productAmount = (num(buy) ?? 0) * productQty;
   const costs = productAmount + tab.heads.filter((h) => !h.freight).reduce((t, h) => t + amountOf(h), 0);
   const profitAmount = (costs * (num(profit) ?? 0)) / 100;
   const fob = costs + profitAmount;
@@ -140,6 +178,7 @@ export default function Calculator({ products, saved }) {
       pick={picks[h.key] || { id: '', qty: '' }}
       onPick={(p) => setPicks((x) => ({ ...x, [h.key]: p }))}
       onOptions={(list) => setOptions((x) => ({ ...x, [tabKey]: { ...x[tabKey], [h.key]: list } }))}
+      auto={autoQty(h.unit, pack)}
     />
   );
   const pct = (title, unit, value, set, amountNow) => (
@@ -164,6 +203,36 @@ export default function Calculator({ products, saved }) {
           </label>
         ))}
       </fieldset>
+
+      <div className={s.packing}>
+        <b className={s.boxTitle}>Packing, one {per}</b>
+        <div className={s.packRow}>
+          <label className={s.packField}>
+            <span>{bulk ? 'Bag size (kg)' : 'Pack size'}</span>
+            <span className={s.withUnit}>
+              <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder={bulk ? '25' : '500'} value={packIn.size} onChange={setPack('size')} />
+              {!bulk && (
+                <select className={s.small} value={packIn.sizeUnit} onChange={setPack('sizeUnit')} aria-label="Pack size unit">
+                  <option value="g">g</option>
+                  <option value="kg">kg</option>
+                </select>
+              )}
+            </span>
+          </label>
+          {!bulk && (
+            <>
+              <label className={s.packField}><span>Pieces per carton</span><input className={s.small} type="number" inputMode="numeric" min="0" step="1" placeholder="20" value={packIn.pieces} onChange={setPack('pieces')} /></label>
+              <label className={s.packField}><span>Labels per piece</span><input className={s.small} type="number" inputMode="numeric" min="0" step="1" placeholder="1" value={packIn.labels} onChange={setPack('labels')} /></label>
+            </>
+          )}
+          <label className={s.packField}><span>Number of {per}s</span><input className={s.small} type="number" inputMode="numeric" min="0" step="1" placeholder={bulk ? '1080' : '600'} value={packIn.cartons} onChange={setPack('cartons')} /></label>
+        </div>
+        <p className={s.unit}>
+          {pack.kg != null ? `One ${per}: ${qtyText(pack.kg)} kg` : `Fill the packing and each box works out its quantity for one ${per}.`}
+          {pack.kg != null && !bulk && pieces != null && ` · ${qtyText(pieces)} pieces · ${qtyText(pack.labels)} labels`}
+          {pack.kg != null && (pack.cartons ? ` · container costs shared over ${qtyText(pack.cartons)} ${per}s` : ` · add the number of ${per}s to share container costs`)}
+        </p>
+      </div>
 
       <div className={s.chain}>
         <div className={`${s.step} ${s.search}`}>
@@ -191,11 +260,16 @@ export default function Calculator({ products, saved }) {
         <div className={s.step}>
           <div className={`${s.box} ${productAmount ? s.boxSet : ''}`}>
             <b className={s.boxTitle}>Product price</b>
-            <span className={s.unit}>Today&apos;s buying price, ₹ per {tab.productUnit}</span>
+            <span className={s.unit}>Today&apos;s buying price</span>
             <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder="₹" value={buy} onChange={(e) => setBuy(e.target.value)} aria-label="Product price in rupees" />
-            <div className={s.boxFoot}><Qty value={buyQty} onChange={setBuyQty} label={`Product quantity in ${tab.productUnit}`} /></div>
+            <select className={s.small} value={buyUnit} onChange={(e) => setBuyUnit(e.target.value)} aria-label="Price is per">
+              <option value="kg">₹ per kg</option>
+              {!bulk && <option value="piece">₹ per piece</option>}
+              <option value="carton">₹ per {per}</option>
+            </select>
+            <div className={s.boxFoot}><Qty value={buyQty} onChange={setBuyQty} label="Product quantity per carton" auto={buyAuto} /></div>
           </div>
-          <p className={s.price}>{productAmount ? (num(buyQty) && num(buyQty) !== 1 ? `${inr(num(buy) ?? 0)} × ${num(buyQty)} = ${inr(productAmount)}` : inr(productAmount)) : '—'}</p>
+          <p className={s.price}>{num(buy) != null ? line(num(buy), productQty) : '—'}</p>
         </div>
 
         {tab.heads.filter((h) => !h.freight).map((h) => <div key={`${tabKey}-${h.key}`} className={s.pair}><Op>+</Op>{box(h)}</div>)}
@@ -207,12 +281,14 @@ export default function Calculator({ products, saved }) {
           <Op>=</Op>
           <div className={s.step}>
             <div className={`${s.box} ${s.final}`}>
-              <b className={s.boxTitle}>Final price (CIF)</b>
+              <b className={s.boxTitle}>Final price (CIF), per {per}</b>
               <strong className={s.total}>{fx ? usd(cif / fx) : inr(cif)}</strong>
               {fx && <span className={s.unit}>{inr(cif)}</span>}
               <dl className={s.breakdown}>
                 <div><dt>FOB</dt><dd>{both(fob)}</dd></div>
                 <div><dt>CFR</dt><dd>{both(cfr)}</dd></div>
+                {pack.kg ? <div><dt>CIF per kg</dt><dd>{both(cif / pack.kg)}</dd></div> : null}
+                {pack.cartons ? <div className={s.grand}><dt>× {qtyText(pack.cartons)} {per}s</dt><dd>{both(cif * pack.cartons)}</dd></div> : null}
               </dl>
               <label className={s.rate}>
                 <span>₹ per 1 USD</span>
