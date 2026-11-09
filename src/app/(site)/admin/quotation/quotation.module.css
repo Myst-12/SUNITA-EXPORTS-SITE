@@ -1,0 +1,31 @@
+/* Quotation cost calculator (admin). Shares inputs, cards and tables with ../admin.module.css. */
+.calc { display: grid; gap: 14px; }
+.pick { display: grid; gap: 14px; }
+.field { display: block; min-width: 0; }
+.field select { text-overflow: ellipsis; }
+@media (min-width: 760px) {
+  .pick { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+}
+
+.result { display: grid; gap: 12px; }
+.load { margin: 0; line-height: 1.5; color: var(--ink-2); }
+.muted { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.prices td, .prices th[scope='row'] { white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .prices th, .prices td { padding-inline: 8px; } }
+.prices th[scope='row'] { font-size: 0.95rem; color: var(--ink); }
+.prices td b { font-size: 1.05rem; color: var(--green-800); }
+.prices td small { display: block; font-size: 0.75rem; color: var(--muted); white-space: normal; }
+.lines td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lines td small { display: block; margin-top: 2px; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.missingRow td small { color: inherit; }
+.lines td:last-child, .lines th:last-child { text-align: right; }
+.missingRow td { color: #b42318; }
+.total td { font-weight: 700; background: var(--green-50); }
+
+.sheetCard { display: grid; justify-items: start; gap: 12px; margin-top: 28px; }
+.sheetCard .h2, .sheetCard p { margin: 0; }
+.summary { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.92rem; }
+.summary b { margin-right: 8px; }
+.upload { display: grid; gap: 4px; width: 100%; margin-top: 4px; }
+.uploadRow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.file { flex: 1 1 220px; min-height: 48px; padding: 10px 12px; border-radius: var(--radius-sm); border: 1.5px dashed var(--line-strong); background: #fff; font-size: 0.92rem; }

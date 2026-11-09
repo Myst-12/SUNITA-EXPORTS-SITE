@@ -32,7 +32,6 @@ export const TOOLS = [
     short: 'Quotation',
     href: '/admin/quotation/',
     icon: 'tag',
-    description: 'Pick a product and get its export cost worked out automatically.',
-    soon: true,
+    description: 'Pick a product, packing and profit % to get FOB, CFR and CIF prices in USD.',
   },
 ];
