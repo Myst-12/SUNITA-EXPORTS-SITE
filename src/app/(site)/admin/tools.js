@@ -32,6 +32,6 @@ export const TOOLS = [
     short: 'Quotation',
     href: '/admin/quotation/',
     icon: 'tag',
-    description: 'Pick a product, packing and profit % to get FOB, CFR and CIF prices in USD.',
+    description: 'Search a product, fill the cost boxes from your saved options, and get FOB, CFR and CIF prices.',
   },
 ];

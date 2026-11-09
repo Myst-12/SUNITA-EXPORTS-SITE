@@ -1,153 +1,227 @@
 'use client';
 
-import { useState } from 'react';
-import { TABS } from '@/lib/costing/heads';
-import { quote } from '@/lib/costing/calc';
+import { useEffect, useState, useTransition } from 'react';
+import { TABS, TAB } from '@/lib/costing/heads';
+import { addOptionAction, removeOptionAction } from './actions';
 import a from '../admin.module.css';
 import s from './quotation.module.css';
 
 const inr = (n) => { const d = Number.isInteger(Math.round(n * 100) / 100) ? 0 : 2; return `₹${n.toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d })}`; };
-// Small per-kg prices need the third decimal ($1.235/kg); container totals do not.
-const usd = (n) => { const d = Math.abs(n) < 10 ? 3 : 2; return `$${n.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d })}`; };
-const qty = (n) => n.toLocaleString('en-IN', { maximumFractionDigits: 2 });
-const PER = { kg: 'kg', bag: 'bag', carton: 'carton', pack: 'pack' };
+const usd = (n) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const num = (v) => (v === '' || v == null || !Number.isFinite(Number(v)) ? null : Number(v));
+const norm = (t) => t.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, ' ').trim();
 
-/** Product + packing + today's buying price + profit % → FOB, CFR and CIF prices in USD, with the full cost list in ₹. */
-export default function Calculator({ costing, products }) {
+// The dollar rate and insurance % are kept in this browser between quotes (a convenience; not shared).
+function useRemembered(key) {
+  const [v, setV] = useState('');
+  useEffect(() => { try { const saved = localStorage.getItem(key); if (saved) setV(saved); } catch {} }, [key]); // eslint-disable-line react-hooks/set-state-in-effect
+  return [v, (x) => { setV(x); try { localStorage.setItem(key, x); } catch {} }];
+}
+
+function Qty({ value, onChange, label }) {
+  return (
+    <label className={s.qty}>
+      <span aria-hidden="true">×</span>
+      <input type="number" inputMode="decimal" min="0" step="any" placeholder="1" value={value} onChange={(e) => onChange(e.target.value)} aria-label={label} />
+    </label>
+  );
+}
+
+/** One cost row: pick a saved option (or add one), optionally × a quantity; its amount shows below. */
+function CostBox({ tab, head, options, pick, onPick, onOptions }) {
+  const [adding, setAdding] = useState(false);
+  const [label, setLabel] = useState('');
+  const [amount, setAmount] = useState('');
+  const [error, setError] = useState('');
+  const [busy, start] = useTransition();
+  const chosen = options.find((o) => o.id === pick.id);
+  const qty = num(pick.qty) ?? 1;
+
+  const save = () => start(async () => {
+    const r = await addOptionAction(tab, head.key, label, amount);
+    if (r.error) return setError(r.error);
+    onOptions(r.options);
+    onPick({ ...pick, id: r.added });
+    setAdding(false); setLabel(''); setAmount(''); setError('');
+  });
+  const remove = () => {
+    if (!chosen || !window.confirm(`Remove the saved option "${chosen.label}" from ${head.name}?`)) return;
+    start(async () => {
+      const r = await removeOptionAction(tab, head.key, chosen.id);
+      if (r.error) return setError(r.error);
+      onOptions(r.options);
+      onPick({ ...pick, id: '' });
+    });
+  };
+
+  return (
+    <div className={s.step}>
+      <button type="button" className={s.add} onClick={() => setAdding((x) => !x)} aria-expanded={adding}>{adding ? 'Cancel' : 'Add +'}</button>
+      <div className={`${s.box} ${chosen ? s.boxSet : ''}`}>
+        <b className={s.boxTitle}>{head.name}</b>
+        <span className={s.unit}>{head.unit}</span>
+        {adding ? (
+          <div className={s.addForm}>
+            <input className={s.small} placeholder="Name, e.g. 500 × 1000" value={label} onChange={(e) => setLabel(e.target.value)} aria-label={`${head.name}: option name`} />
+            <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder="₹ amount" value={amount} onChange={(e) => setAmount(e.target.value)} aria-label={`${head.name}: amount in rupees`} />
+            <button type="button" className={`btn btn-primary ${s.saveBtn}`} onClick={save} disabled={busy}>{busy ? 'Saving…' : 'Save'}</button>
+          </div>
+        ) : (
+          <>
+            <select className={s.small} value={pick.id} onChange={(e) => onPick({ ...pick, id: e.target.value })} aria-label={head.name}>
+              <option value="">{options.length ? 'Choose…' : 'Use Add + first'}</option>
+              {options.map((o) => <option key={o.id} value={o.id}>{o.label}: {inr(o.amount)}</option>)}
+            </select>
+            {chosen && (
+              <div className={s.boxFoot}>
+                <Qty value={pick.qty} onChange={(v) => onPick({ ...pick, qty: v })} label={`${head.name}: quantity`} />
+                <button type="button" className={s.remove} onClick={remove} disabled={busy}>Remove</button>
+              </div>
+            )}
+          </>
+        )}
+        {error && <p className={a.err}>{error}</p>}
+      </div>
+      <p className={s.price}>{chosen ? (qty === 1 ? inr(chosen.amount) : `${inr(chosen.amount)} × ${qty} = ${inr(chosen.amount * qty)}`) : '—'}</p>
+    </div>
+  );
+}
+
+const Op = ({ children }) => <span className={s.op} aria-hidden="true">{children}</span>;
+
+/** Search a product, pick Consumer / Bulk / FMCG, fill the cost boxes, and read the final price. */
+export default function Calculator({ products, saved }) {
+  const [query, setQuery] = useState('');
+  const [open, setOpen] = useState(false);
   const [slug, setSlug] = useState('');
-  const [packingKey, setPackingKey] = useState('');
+  const [tabKey, setTabKey] = useState('consumer');
+  const [options, setOptions] = useState(saved);
+  const [picks, setPicks] = useState({});
   const [buy, setBuy] = useState('');
+  const [buyQty, setBuyQty] = useState('');
   const [profit, setProfit] = useState('');
+  const [insurance, setInsurance] = useRemembered('quote-insurance');
+  const [rate, setRate] = useRemembered('quote-usd');
 
   const product = products.find((p) => p.slug === slug);
-  const packings = product ? TABS.filter((t) => product.tabs.includes(t.key)).map((t) => ({ tab: t, list: costing.packings?.[t.key] || [] })) : [];
-  const [tabKey, packingId] = packingKey.split('|');
-  const buyUnit = TABS.find((t) => t.key === (tabKey || product?.tabs[0]))?.priceUnit || 'kg';
-  const q = product && packingId && buy !== '' ? quote(costing, tabKey, packingId, buy, profit) : null;
+  const allowed = product ? product.tabs : TABS.map((t) => t.key);
+  const tab = TAB[tabKey];
+  const words = norm(query).split(' ').filter(Boolean);
+  const matches = words.length && !product ? products.filter((p) => words.every((w) => p.hay.includes(` ${w}`))).slice(0, 8) : [];
 
-  const groups = [];
-  for (const p of products) {
-    const g = groups.at(-1);
-    if (g?.cat === p.cat) g.items.push(p); else groups.push({ cat: p.cat, items: [p] });
-  }
+  const choose = (p) => {
+    setSlug(p.slug); setQuery(p.name); setOpen(false);
+    if (!p.tabs.includes(tabKey)) { setTabKey(p.tabs[0]); setPicks({}); }
+  };
+  const switchTab = (k) => { setTabKey(k); setPicks({}); };
 
-  const price = (rs, n = 1) => (q.usdRate ? usd(rs / n / q.usdRate) : inr(rs / n));
-  const rows = q && [
-    { name: 'FOB', rs: q.fob },
-    { name: 'CFR', rs: q.cfr, note: q.freight ? null : 'no freight in the sheet' },
-    { name: 'CIF', rs: q.cif, note: q.cif == null ? 'insurance % not in the sheet' : null },
-  ];
+  const rowsOf = (h) => options[tabKey]?.[h.key] || [];
+  const amountOf = (h) => {
+    const p = picks[h.key];
+    const o = p && rowsOf(h).find((x) => x.id === p.id);
+    return o ? o.amount * (num(p.qty) ?? 1) : 0;
+  };
+  const productAmount = (num(buy) ?? 0) * (num(buyQty) ?? 1);
+  const costs = productAmount + tab.heads.filter((h) => !h.freight).reduce((t, h) => t + amountOf(h), 0);
+  const profitAmount = (costs * (num(profit) ?? 0)) / 100;
+  const fob = costs + profitAmount;
+  const freight = tab.heads.filter((h) => h.freight).reduce((t, h) => t + amountOf(h), 0);
+  const cfr = fob + freight;
+  const insuranceAmount = (cfr * (num(insurance) ?? 0)) / 100;
+  const cif = cfr + insuranceAmount;
+  const fx = num(rate);
+  const both = (n) => (fx ? <>{usd(n / fx)} <small>{inr(n)}</small></> : inr(n));
+
+  const box = (h) => (
+    <CostBox
+      tab={tabKey}
+      head={h}
+      options={rowsOf(h)}
+      pick={picks[h.key] || { id: '', qty: '' }}
+      onPick={(p) => setPicks((x) => ({ ...x, [h.key]: p }))}
+      onOptions={(list) => setOptions((x) => ({ ...x, [tabKey]: { ...x[tabKey], [h.key]: list } }))}
+    />
+  );
+  const pct = (title, unit, value, set, amountNow) => (
+    <div className={s.step}>
+      <div className={`${s.box} ${num(value) ? s.boxSet : ''}`}>
+        <b className={s.boxTitle}>{title}</b>
+        <span className={s.unit}>{unit}</span>
+        <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder="%" value={value} onChange={(e) => set(e.target.value)} aria-label={`${title} %`} />
+      </div>
+      <p className={s.price}>{num(value) ? `${num(value)}% = ${inr(amountNow)}` : '—'}</p>
+    </div>
+  );
 
   return (
     <div className={s.calc}>
-      <div className={`${a.card} ${s.pick}`}>
-        <label className={s.field}>
-          <span className={a.label}>Product</span>
-          <select className={a.input} value={slug} onChange={(e) => { setSlug(e.target.value); setPackingKey(''); }}>
-            <option value="">Choose a product</option>
-            {groups.map((g) => (
-              <optgroup key={g.cat} label={g.cat}>
-                {g.items.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
-              </optgroup>
-            ))}
-          </select>
-        </label>
-        <label className={s.field}>
-          <span className={a.label}>Packing</span>
-          <select className={a.input} value={packingKey} onChange={(e) => setPackingKey(e.target.value)} disabled={!product}>
-            <option value="">{product ? 'Choose a packing' : 'Choose a product first'}</option>
-            {packings.map(({ tab, list }) => (
-              <optgroup key={tab.key} label={list.length ? tab.name : `${tab.name} (none in the sheet yet)`}>
-                {list.map((p) => <option key={p.id} value={`${tab.key}|${p.id}`}>{p.name}{p.container ? ` · ${p.container}` : ''}</option>)}
-              </optgroup>
-            ))}
-          </select>
-        </label>
-        <label className={s.field}>
-          <span className={a.label}>Buying price today <span className={a.hint}>(₹ per {buyUnit})</span></span>
-          <input className={a.input} type="number" inputMode="decimal" min="0" step="any" placeholder="₹" value={buy} onChange={(e) => setBuy(e.target.value)} />
-        </label>
-        <label className={s.field}>
-          <span className={a.label}>Profit %</span>
-          <input className={a.input} type="number" inputMode="decimal" min="0" step="0.5" placeholder="0" value={profit} onChange={(e) => setProfit(e.target.value)} />
-        </label>
+      <fieldset className={s.types}>
+        <legend className={s.srOnly}>Packing type</legend>
+        {TABS.map((t) => (
+          <label key={t.key} className={s.type}>
+            <input type="radio" name="type" value={t.key} checked={tabKey === t.key} disabled={!allowed.includes(t.key)} onChange={() => switchTab(t.key)} />
+            <span>{t.name}</span>
+          </label>
+        ))}
+      </fieldset>
+
+      <div className={s.chain}>
+        <div className={`${s.step} ${s.search}`}>
+          <div className={`${s.box} ${product ? s.boxSet : ''}`}>
+            <label className={s.boxTitle} htmlFor="q">Search product</label>
+            <input
+              id="q" className={s.small} autoComplete="off" placeholder="e.g. turmeric, basmati, namkeen"
+              value={query} role="combobox" aria-expanded={open && matches.length > 0} aria-controls="q-list"
+              onChange={(e) => { setQuery(e.target.value); setSlug(''); setOpen(true); }} onFocus={() => setOpen(true)}
+            />
+            {open && matches.length > 0 && (
+              <ul id="q-list" className={s.matches} role="listbox">
+                {matches.map((p) => (
+                  <li key={p.slug} role="option" aria-selected="false">
+                    <button type="button" onClick={() => choose(p)}>{p.name}<small>{p.cat}</small></button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {open && words.length > 0 && !product && !matches.length && <span className={s.unit}>No product matches that.</span>}
+          </div>
+          <p className={s.price}>{product ? (product.tabs[0] === 'fmcg' ? 'FMCG product' : product.cat) : ''}</p>
+        </div>
+
+        <div className={s.step}>
+          <div className={`${s.box} ${productAmount ? s.boxSet : ''}`}>
+            <b className={s.boxTitle}>Product price</b>
+            <span className={s.unit}>Today&apos;s buying price, ₹ per {tab.productUnit}</span>
+            <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder="₹" value={buy} onChange={(e) => setBuy(e.target.value)} aria-label="Product price in rupees" />
+            <div className={s.boxFoot}><Qty value={buyQty} onChange={setBuyQty} label={`Product quantity in ${tab.productUnit}`} /></div>
+          </div>
+          <p className={s.price}>{productAmount ? (num(buyQty) && num(buyQty) !== 1 ? `${inr(num(buy) ?? 0)} × ${num(buyQty)} = ${inr(productAmount)}` : inr(productAmount)) : '—'}</p>
+        </div>
+
+        {tab.heads.filter((h) => !h.freight).map((h) => <div key={`${tabKey}-${h.key}`} className={s.pair}><Op>+</Op>{box(h)}</div>)}
+        <div className={s.pair}><Op>+</Op>{pct('Profit', '% added on all costs above', profit, setProfit, profitAmount)}</div>
+        {tab.heads.filter((h) => h.freight).map((h) => <div key={`${tabKey}-${h.key}`} className={s.pair}><Op>+</Op>{box(h)}</div>)}
+        <div className={s.pair}><Op>+</Op>{pct('Insurance', '% of the CFR price, for CIF', insurance, setInsurance, insuranceAmount)}</div>
+
+        <div className={s.pair}>
+          <Op>=</Op>
+          <div className={s.step}>
+            <div className={`${s.box} ${s.final}`}>
+              <b className={s.boxTitle}>Final price (CIF)</b>
+              <strong className={s.total}>{fx ? usd(cif / fx) : inr(cif)}</strong>
+              {fx && <span className={s.unit}>{inr(cif)}</span>}
+              <dl className={s.breakdown}>
+                <div><dt>FOB</dt><dd>{both(fob)}</dd></div>
+                <div><dt>CFR</dt><dd>{both(cfr)}</dd></div>
+              </dl>
+              <label className={s.rate}>
+                <span>₹ per 1 USD</span>
+                <input className={s.small} type="number" inputMode="decimal" min="0" step="any" placeholder="e.g. 84" value={rate} onChange={(e) => setRate(e.target.value)} />
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {!q ? (
-        <p className={a.empty}>{!product ? 'Choose a product, its packing, today\'s buying price and your profit to see FOB, CFR and CIF prices.' : !packingId ? 'Choose a packing to see the price.' : `Type today's buying price per ${buyUnit} to see the price.`}</p>
-      ) : (
-        <>
-          {q.missing.length > 0 && (
-            <p className={a.warn}>
-              <b>Not complete: {q.missing.length} {q.missing.length === 1 ? 'figure is' : 'figures are'} missing from the costing sheet</b>, so these prices are too low: {q.missing.join(', ')}.
-            </p>
-          )}
-          {!q.usdRate && <p className={a.warn}>The dollar rate is not in the sheet (Settings tab), so prices are shown in rupees.</p>}
-
-          <div className={`${a.card} ${s.result}`}>
-            <p className={s.load}>
-              One {q.packing.container || ''} container of <b>{product.name}</b> in {q.packing.name}:{' '}
-              {q.units.map(([u, n]) => `${qty(n)} ${PER[u]}${n === 1 || u === 'kg' ? '' : 's'}`).join(' · ') || 'packing sizes missing'}
-            </p>
-            <div className={a.tableWrap}>
-              <table className={`${a.table} ${s.prices}`}>
-                <thead>
-                  <tr>
-                    <th scope="col">Price{q.usdRate ? ' (USD)' : ' (₹)'}</th>
-                    <th scope="col">Per container</th>
-                    {q.units.map(([u]) => <th scope="col" key={u}>Per {PER[u]}</th>)}
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((r) => (
-                    <tr key={r.name}>
-                      <th scope="row">{r.name}</th>
-                      {r.rs == null ? (
-                        <td colSpan={1 + q.units.length} className={s.muted}>{r.note}</td>
-                      ) : (
-                        <>
-                          <td><b>{price(r.rs)}</b>{r.note && <small>{r.note}</small>}</td>
-                          {q.units.map(([u, n]) => <td key={u}>{price(r.rs, n)}</td>)}
-                        </>
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {q.usdRate && <p className={s.muted}>At ₹{q.usdRate} per USD. Profit is added on the FOB cost; freight{q.insPct != null ? ` and insurance (${q.insPct}%)` : ''} at cost.</p>}
-          </div>
-
-          <div className={`${a.card} ${s.result}`}>
-            <h2 className={a.h2}>Cost for one container</h2>
-            <div className={a.tableWrap}>
-              <table className={`${a.table} ${s.lines}`}>
-                <thead>
-                  <tr><th scope="col">Cost</th><th scope="col">Amount</th></tr>
-                </thead>
-                <tbody>
-                  {q.lines.filter((l) => !l.freight).map((l) => (
-                    <tr key={l.name} className={l.amount == null ? s.missingRow : undefined}>
-                      <td>
-                        {l.name}
-                        <small>{l.rate != null ? `${inr(l.rate)} ${l.unit.toLowerCase().replace(/ \(.*/, '')}` : 'Amount missing'} × {l.qty != null ? qty(l.qty) : 'packing size missing'}</small>
-                      </td>
-                      <td>{l.amount != null ? inr(l.amount) : '—'}</td>
-                    </tr>
-                  ))}
-                  <tr className={s.total}><td>FOB cost</td><td>{inr(q.fobCost)}</td></tr>
-                  <tr><td>Profit {Number(profit) || 0}%</td><td>{inr(q.profit)}</td></tr>
-                  <tr className={s.total}><td>FOB price</td><td>{inr(q.fob)}</td></tr>
-                  <tr><td>Freight</td><td>{q.freight ? inr(q.freight) : '—'}</td></tr>
-                  <tr className={s.total}><td>CFR price</td><td>{inr(q.cfr)}</td></tr>
-                  <tr><td>Insurance{q.insPct != null ? ` ${q.insPct}%` : ''}</td><td>{q.cif != null ? inr(q.cif - q.cfr) : '—'}</td></tr>
-                  <tr className={s.total}><td>CIF price</td><td>{q.cif != null ? inr(q.cif) : '—'}</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </>
-      )}
     </div>
   );
 }

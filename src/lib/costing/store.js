@@ -3,17 +3,18 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { sb, usingDatabase } from '@/lib/forms/store';
 
-// The uploaded costing sheet (rates, buying prices, packing list), kept as one JSON value. These are the
-// client's internal costs, so they live in the database, never in the code. Table: docs/costing-setup.md.
-const KEY = 'costing';
-const FILE = path.join(process.cwd(), '.data', 'costing.json');
+// The client's saved options for each cost row of the quotation calculator, kept as one JSON value:
+// { [tab]: { [row]: [{ id, label, amount }] } }. These are his internal costs, so they live in the database,
+// never in the code. Table: docs/costing-setup.md.
+const KEY = 'quote-options';
+const FILE = path.join(process.cwd(), '.data', 'quote-options.json');
 
-export async function getCosting() {
-  if (usingDatabase) return (await sb(`admin_data?select=value&key=eq.${KEY}&limit=1`))[0]?.value || null;
-  try { return JSON.parse(await fs.readFile(FILE, 'utf8')); } catch { return null; }
+export async function getOptions() {
+  if (usingDatabase) return (await sb(`admin_data?select=value&key=eq.${KEY}&limit=1`))[0]?.value || {};
+  try { return JSON.parse(await fs.readFile(FILE, 'utf8')); } catch { return {}; }
 }
 
-export async function saveCosting(value) {
+export async function saveOptions(value) {
   if (usingDatabase) {
     return sb('admin_data?on_conflict=key', {
       method: 'POST',
