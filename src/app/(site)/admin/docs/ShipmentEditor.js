@@ -12,6 +12,40 @@ const newLine = (p = {}) => ({ id: uid(), desc: '', group: '', hs: '', pkgs: '',
 const CONSOLIDATE_DOCS = [['proforma', 'Proforma'], ['custom', 'Custom invoice'], ['commercial', 'Commercial invoice'], ['packing', 'Packing list']];
 const KINDS = ['BAG', 'CTN', 'BOX', 'DRUM', 'PKG', 'TIN', 'BALE', 'JAR', 'PCS'];
 
+const has = (v) => Boolean(String(v ?? '').trim());
+const anyContainer = (s) => (s.containers || []).some((c) => has(c.no));
+const STEPS = [
+  { id: 'parties', name: 'Buyer & numbers', hint: 'Consignee, notify, invoice no.', done: (s) => has(s.consignee) && has(s.invNo) },
+  { id: 'shipping', name: 'Shipping', hint: 'Ports, vessel, terms, SB & BL', done: (s) => has(s.pod) && has(s.payment) },
+  { id: 'products', name: 'Products', hint: 'Lines, weights, rates, grouping', done: (s) => s.lines.length > 0 },
+  { id: 'containers', name: 'Containers', hint: 'Seals, VGM, self sealing', done: anyContainer },
+  { id: 'money', name: 'Freight & advance', hint: 'Insurance, advance, RoDTEP', done: (s) => has(s.freight) || has(s.insurance) || has(s.advance) },
+  { id: 'bank', name: 'Bank letters', hint: 'Covering letter, BOE, disposal', done: (s) => has(s.consigneeBank) },
+  { id: 'terms', name: 'Proforma terms', hint: 'Edit the conditions', done: (s) => s.terms.length > 0 },
+  { id: 'cargox', name: 'CargoX (Egypt)', hint: 'Only for Egypt ACID', done: (s) => has(s.cargox?.acid) },
+];
+
+const DOC_GROUPS = [
+  { name: 'Before shipment', docs: ['proforma', 'disposal'] },
+  { name: 'Shipping documents', docs: ['commercial', 'custom', 'packing', 'bl', 'vgm', 'selfsealing'] },
+  { name: 'For the bank', docs: ['bank', 'boe'] },
+  { name: 'Other', docs: ['cargox'] },
+];
+// What each document needs before it is complete. Missing items show under its name.
+const NEEDS = {
+  proforma: [['proforma no.', (s) => has(s.piNo)], ['consignee', (s) => has(s.consignee)], ['products', (s) => s.lines.length > 0]],
+  disposal: [['proforma no.', (s) => has(s.piNo)], ['amount received', (s) => has(s.disposal?.amount)], ['date received', (s) => has(s.disposal?.received)]],
+  commercial: [['invoice no.', (s) => has(s.invNo)], ['consignee', (s) => has(s.consignee)], ['products', (s) => s.lines.length > 0], ['container no.', anyContainer], ['SB no.', (s) => has(s.sbNo)], ['B/L no.', (s) => has(s.blNo)]],
+  custom: [['invoice no.', (s) => has(s.invNo)], ['products', (s) => s.lines.length > 0], ['container no.', anyContainer]],
+  packing: [['invoice no.', (s) => has(s.invNo)], ['products', (s) => s.lines.length > 0], ['container no.', anyContainer]],
+  bl: [['consignee', (s) => has(s.consignee)], ['vessel', (s) => has(s.vessel)], ['port of discharge', (s) => has(s.pod)], ['container no.', anyContainer], ['SB no.', (s) => has(s.sbNo)]],
+  vgm: [['container no.', anyContainer], ['tare weight', (s) => (s.containers || []).some((c) => has(c.tare))]],
+  selfsealing: [['container no.', anyContainer], ['stuffing place', (s) => has(s.seal?.at)]],
+  bank: [['invoice no.', (s) => has(s.invNo)], ['B/L no.', (s) => has(s.blNo)], ['consignee bank', (s) => has(s.consigneeBank)]],
+  boe: [['invoice no.', (s) => has(s.invNo)], ['B/L no.', (s) => has(s.blNo)], ['vessel', (s) => has(s.vessel)]],
+  cargox: [['invoice no.', (s) => has(s.invNo)], ['ACID no.', (s) => has(s.cargox?.acid)], ['products', (s) => s.lines.length > 0]],
+};
+
 function F({ label, hint, wide, children }) {
   return <label className={`${d.f} ${wide ? d.wide : ''}`}><span>{label}{hint && <small> {hint}</small>}</span>{children}</label>;
 }
@@ -50,6 +84,9 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState(savedAt ? 'Saved' : '');
   const [pending, start] = useTransition();
+  const [step, setStep] = useState('parties');
+  const stepIdx = STEPS.findIndex((x) => x.id === step);
+  const goStep = (id) => { setStep(id); window.scrollTo({ top: 0, behavior: 'smooth' }); };
   const ref = useRef(s); ref.current = s;
 
   const up = useCallback((patch) => { setS((p) => ({ ...p, ...(typeof patch === 'function' ? patch(p) : patch) })); setDirty(true); }, []);
@@ -131,13 +168,24 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
         <button type="button" className="btn btn-primary" onClick={save} disabled={pending}>Save</button>
       </div>
 
-      <section className={d.docs} aria-label="Documents">
-        {docs.map((doc) => <button key={doc.slug} type="button" className={d.doc} onClick={() => openDoc(doc)}>{doc.name}{doc.excel ? ' ↓' : ''}</button>)}
-      </section>
-      <p className={d.tot}>{s.lines.length} products · {t.pkgs} {t.kind} · Net {kg(t.net)} kg · Gross {kg(t.gross)} kg{t.cbm ? ` · ${mt(t.cbm)} CBM` : ''} · <b>{cur} {money(t.amount)}</b></p>
+      <div className={d.layout}>
+      <nav className={d.steps} aria-label="Shipment steps">
+        {STEPS.map((x, k) => {
+          const done = x.done(s);
+          return (
+            <button key={x.id} type="button" className={d.step} aria-current={step === x.id ? 'step' : undefined} onClick={() => goStep(x.id)}>
+              <span className={d.stepNo} data-done={done || undefined}>{done ? '✓' : k + 1}</span>
+              <span><b>{x.name}</b><small>{x.hint}</small></span>
+            </button>
+          );
+        })}
+      </nav>
 
-      <details className={d.sec} open>
-        <summary>Numbers and dates</summary>
+      <div className={d.main}>
+
+      {step === 'parties' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Invoice numbers and dates</h2>
         <div className={d.grid}>
           <F label="Proforma no."><input {...bind('piNo')} /></F>
           <F label="Proforma date"><input type="date" {...bind('piDate')} /></F>
@@ -146,10 +194,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Buyer's order no. & date"><input {...bind('buyerOrder')} /></F>
           <F label="Other ref. (proforma)"><input {...bind('otherRef')} /></F>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec} open>
-        <summary>Buyer, consignee and notify</summary>
+      {step === 'parties' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Buyer, consignee and notify party</h2>
         <div className={d.grid}>
           <F label="Consignee" hint="first line = company name" wide><textarea rows={4} {...bind('consignee')} /></F>
           <F label="Buyer" hint="if other than consignee" wide><textarea rows={4} {...bind('buyer')} /></F>
@@ -157,10 +207,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Notify party 2 (BL)" wide><textarea rows={3} {...bind('notify2')} /></F>
           <label className={d.chk}><input type="checkbox" checked={!!s.toOrder} onChange={(e) => up({ toOrder: e.target.checked })} /> Show consignee as &ldquo;TO THE ORDER OF&rdquo; on custom invoice, packing list and BL</label>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec} open>
-        <summary>Shipping and terms</summary>
+      {step === 'shipping' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Shipping and terms</h2>
         <div className={d.grid}>
           <F label="Country of origin"><input {...bind('origin')} /></F>
           <F label="Country of final destination"><input {...bind('destCountry')} /></F>
@@ -184,10 +236,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Shipping line (BL draft)" wide><textarea rows={2} {...bind('shippingLine')} /></F>
           <F label="Shipping marks" wide><textarea rows={2} {...bind('marks')} /></F>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec} open>
-        <summary>Products ({s.lines.length})</summary>
+      {step === 'products' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Products</h2>
         <div className={d.addRow}>
           <div className={d.search}>
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search the catalogue and FMCG list: cumin, chilli powder, haldiram…" />
@@ -216,10 +270,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           </table>
           <datalist id="sx-groups">{groups.map((g) => <option key={g} value={g} />)}</datalist>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec} open>
-        <summary>Consolidation</summary>
+      {step === 'products' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Consolidation</h2>
         <p className={d.help}>Products with the same <b>Group</b> print as one line (packages, weights and amounts added up; rate = average). Tick the documents that should be consolidated.</p>
         <div className={d.checks}>
           {CONSOLIDATE_DOCS.map(([k, label]) => (
@@ -239,10 +295,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
             <tbody>{preview.map((g) => <tr key={g.desc}><td>{g.desc}</td><td>{g.note}</td><td>{g.hs}</td><td className={d.num}>{g.pkgs}</td><td className={d.num}>{kg(g.net)}</td><td className={d.num}>{money(g.amount)}</td></tr>)}</tbody>
           </table>
         )}
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec} open>
-        <summary>Containers ({s.containers.length})</summary>
+      {step === 'containers' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Containers</h2>
         <p className={d.help}>With one container, leave pkgs and weights empty to use the product totals.</p>
         <div className={d.tableWrap}>
           <table className={d.lines}>
@@ -260,10 +318,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           </table>
         </div>
         <button type="button" className="btn btn-outline" onClick={() => up((p) => ({ containers: [...p.containers, { no: '', size: p.containers[0]?.size || '20 Ft', lineSeal: '', exporterSeal: '', vehicle: '', tare: '', pkgs: '', gross: '', net: '' }] }))}>Add container</button>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>Freight, insurance, advance, schemes</summary>
+      {step === 'money' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Freight, insurance and advance</h2>
         <div className={d.grid}>
           <F label={`Freight ${cur}`}><input {...bind('freight')} /></F>
           <F label={`Insurance ${cur}`}><input {...bind('insurance')} /></F>
@@ -272,10 +332,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <label className={d.chk}><input type="checkbox" checked={!!s.rodtep} onChange={(e) => up({ rodtep: e.target.checked })} /> Claim RoDTEP (custom invoice)</label>
           <label className={d.chk}><input type="checkbox" checked={!!s.drawback} onChange={(e) => up({ drawback: e.target.checked })} /> Under Drawback scheme (custom invoice)</label>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>Proforma terms and conditions ({s.terms.length})</summary>
+      {step === 'terms' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Proforma terms and conditions</h2>
         <ol className={d.terms}>
           {s.terms.map((x, i) => (
             <li key={i}>
@@ -288,10 +350,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <button type="button" className="btn btn-outline" onClick={() => up((p) => ({ terms: [...p.terms, ''] }))}>Add term</button>
           <button type="button" className="btn btn-outline" onClick={() => up({ terms: [...DEFAULT_TERMS] })}>Reset to standard 20</button>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>Bank covering letter and bill of exchange</summary>
+      {step === 'bank' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Bank covering letter and bill of exchange</h2>
         <div className={d.grid}>
           <F label="Letter to (bank)" wide><textarea rows={2} {...bind('bankTo')} /></F>
           <F label="Consignee bank details" wide><textarea rows={5} {...bind('consigneeBank')} placeholder={'Abu Dhabi Commercial Bank\nBranch : …\nIBAN : …\nSwift Code : …'} /></F>
@@ -312,10 +376,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           </div>
         ))}
         <button type="button" className="btn btn-outline" onClick={() => up((p) => ({ receipts: [...(p.receipts || []), { ref: '', date: '', amount: '' }] }))}>Add advance receipt</button>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>Bank disposal (advance payment received)</summary>
+      {step === 'bank' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>Bank disposal (advance payment received)</h2>
         <div className={d.grid}>
           <F label="Letter date"><input type="date" {...bindIn('disposal', 'date')} /></F>
           <F label={`Amount received ${cur}`}><input {...bindIn('disposal', 'amount')} /></F>
@@ -324,10 +390,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Forward to branch"><input {...bindIn('disposal', 'isb')} /></F>
           <F label="Purpose" hint="default: advance against this proforma" wide><input {...bindIn('disposal', 'purpose')} /></F>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>VGM and self sealing</summary>
+      {step === 'containers' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>VGM and self sealing</h2>
         <div className={d.grid}>
           <F label="Authorised name"><input {...bindIn('vgm', 'name')} /></F>
           <F label="Designation"><input {...bindIn('vgm', 'designation')} /></F>
@@ -343,10 +411,12 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Self sealing place"><input {...bindIn('seal', 'place')} /></F>
           <F label="Self sealing date"><input type="date" {...bindIn('seal', 'date')} /></F>
         </div>
-      </details>
+      </section>
+      )}
 
-      <details className={d.sec}>
-        <summary>CargoX (Egypt ACID)</summary>
+      {step === 'cargox' && (
+      <section className={d.panel}>
+        <h2 className={d.h2}>CargoX (Egypt ACID)</h2>
         <div className={d.grid}>
           <F label="Importer contact"><input {...bindIn('cargox', 'contact')} /></F>
           <F label="Importer email"><input {...bindIn('cargox', 'email')} /></F>
@@ -357,7 +427,50 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
           <F label="Origin port code" hint="INNSA, INMUN…"><input {...bindIn('cargox', 'polCode')} /></F>
           <F label="Destination port code" hint="EGSOK…"><input {...bindIn('cargox', 'podCode')} /></F>
         </div>
-      </details>
+      </section>
+      )}
+
+      <div className={d.stepNav}>
+        {stepIdx > 0 ? <button type="button" className="btn btn-outline" onClick={() => goStep(STEPS[stepIdx - 1].id)}>← {STEPS[stepIdx - 1].name}</button> : <span />}
+        {stepIdx < STEPS.length - 1 && <button type="button" className="btn btn-primary" onClick={() => goStep(STEPS[stepIdx + 1].id)}>Next: {STEPS[stepIdx + 1].name} →</button>}
+      </div>
+      </div>
+
+      <aside className={d.side} aria-label="Documents">
+        <div className={d.card}>
+          <h2 className={d.sideH}>Shipment total</h2>
+          <p className={d.big}>{cur} {money(t.amount)}</p>
+          <dl className={d.kv}>
+            <dt>Products</dt><dd>{s.lines.length}</dd>
+            <dt>Packages</dt><dd>{t.pkgs} {t.kind}</dd>
+            <dt>Net weight</dt><dd>{kg(t.net)} kg</dd>
+            <dt>Gross weight</dt><dd>{kg(t.gross)} kg</dd>
+            {t.cbm > 0 && <><dt>Volume</dt><dd>{mt(t.cbm)} CBM</dd></>}
+          </dl>
+        </div>
+        {DOC_GROUPS.map((g) => (
+          <div key={g.name} className={d.card}>
+            <h2 className={d.sideH}>{g.name}</h2>
+            <ul className={d.docList}>
+              {g.docs.map((slug) => {
+                const doc = docs.find((x) => x.slug === slug);
+                if (!doc) return null;
+                const missing = (NEEDS[slug] || []).filter(([, ok]) => !ok(s)).map(([n]) => n);
+                return (
+                  <li key={slug}>
+                    <button type="button" className={d.docBtn} onClick={() => openDoc(doc)}>
+                      <span className={d.dot} data-ready={!missing.length || undefined} aria-hidden="true" />
+                      <span className={d.docName}>{doc.name.replace(' (Excel)', '')}<small>{missing.length ? `Needs ${missing.join(', ')}` : doc.excel ? 'Ready · downloads Excel' : 'Ready to print'}</small></span>
+                      <span className={d.open} aria-hidden="true">{doc.excel ? '↓' : '↗'}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </aside>
+      </div>
 
       <form action={deleteAction} className={d.del} onSubmit={(e) => { if (!confirm('Delete this shipment and all its details? This cannot be undone.')) e.preventDefault(); }}>
         <input type="hidden" name="id" value={id} />
