@@ -14,7 +14,11 @@ export default function AdminNav({ tools, logout }) {
     <div className={s.adminBar}>
       <div className={`container ${s.adminBarIn}`}>
         <nav className={s.tabs} aria-label="Admin">
-          {tabs.map((t) => (
+          {tabs.map((t) => t.external ? (
+            <a key={t.slug} href={t.href} className={s.tab} target="_blank" rel="noopener">
+              {t.short || t.name} <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
             <Link key={t.slug} href={t.href} className={s.tab} aria-current={active(t) ? 'page' : undefined}>
               {t.short || t.name}{t.soon && <small>Soon</small>}
             </Link>

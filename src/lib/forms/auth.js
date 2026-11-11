@@ -25,6 +25,15 @@ export async function endSession() {
   (await cookies()).delete(COOKIE);
 }
 
+// One-minute ticket that signs the admin into the costing app (costing.sunitaexports.com) without its own
+// password. Both sides share COSTING_SSO_SECRET; returns null when it isn't set.
+export function costingTicket() {
+  const key = process.env.COSTING_SSO_SECRET;
+  if (!key) return null;
+  const payload = `${Date.now() + 60e3}.${crypto.randomBytes(12).toString('hex')}`;
+  return `${payload}.${crypto.createHmac('sha256', key).update(payload).digest('hex')}`;
+}
+
 export async function isAdmin() {
   if (!adminConfigured()) return false;
   const v = (await cookies()).get(COOKIE)?.value || '';

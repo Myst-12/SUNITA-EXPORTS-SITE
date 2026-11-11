@@ -122,17 +122,21 @@ export default async function AdminHome({ searchParams }) {
       <section className={s.section}>
         <h2 className={s.h2}>Tools</h2>
         <div className={s.tools}>
-          {TOOLS.map((t) => (
-            <Link key={t.slug} href={t.href} className={`${s.tool} ${t.soon ? s.toolSoon : ''}`}>
-              <span className={`icon-tile ${t.soon ? 'turmeric' : ''}`}><Icon name={t.icon} /></span>
-              <span className={s.toolBody}>
-                <b>{t.name}</b>
-                <span>{t.description}</span>
-                {t.soon ? <span className={s.soon}>Coming soon</span> : toolStatus[t.slug] && <small>{toolStatus[t.slug]}</small>}
-              </span>
-              <Icon name="chevron-right" size={20} className={s.toolArrow} />
-            </Link>
-          ))}
+          {TOOLS.map((t) => {
+            const Tag = t.external ? 'a' : Link;
+            return (
+              <Tag key={t.slug} href={t.href} className={`${s.tool} ${t.soon ? s.toolSoon : ''}`}
+                {...(t.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                <span className={`icon-tile ${t.soon ? 'turmeric' : ''}`}><Icon name={t.icon} /></span>
+                <span className={s.toolBody}>
+                  <b>{t.name}</b>
+                  <span>{t.description}</span>
+                  {t.soon ? <span className={s.soon}>Coming soon</span> : toolStatus[t.slug] && <small>{toolStatus[t.slug]}</small>}
+                </span>
+                <Icon name={t.external ? 'arrow-up-right' : 'chevron-right'} size={20} className={s.toolArrow} />
+              </Tag>
+            );
+          })}
         </div>
       </section>
 

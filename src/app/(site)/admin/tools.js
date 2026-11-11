@@ -1,7 +1,17 @@
 // Admin tools shown on the dashboard and in the admin bar. To add a tool: add an entry here and a
 // page at its `href` that starts with `if (!(await isAdmin())) redirect('/admin/');`.
-// `short` is the label in the admin bar; `soon` marks a tool that is not built yet.
+// `short` is the label in the admin bar; `soon` marks a tool that is not built yet; `external` opens it in a
+// new tab with a full page load (the costing app lives on its own server).
 export const TOOLS = [
+  {
+    slug: 'costing',
+    name: 'Costing',
+    short: 'Costing',
+    href: '/admin/costing/',
+    external: true,
+    icon: 'tag',
+    description: 'Export costing: quick price, quotations, daily price lists, suppliers and purchase orders. Opens in a new tab.',
+  },
   {
     slug: 'forms',
     name: 'Event forms',
@@ -25,13 +35,5 @@ export const TOOLS = [
     href: '/admin/reviews/',
     icon: 'star',
     description: 'Reviews written by buyers after ordering. Publish them to show them on the homepage.',
-  },
-  {
-    slug: 'quotation',
-    name: 'Quotation cost calculator',
-    short: 'Quotation',
-    href: '/admin/quotation/',
-    icon: 'tag',
-    description: 'Search a product, fill the cost boxes from your saved options, and get FOB, CFR and CIF prices.',
   },
 ];
