@@ -4,7 +4,12 @@
 
 A full rebuild of the website for **Sunita Agri Exports Pvt. Ltd.**, a Mumbai-based, Govt. Recognised Star Export House shipping Indian spices, rice, pulses, herbs, jaggery and Indian FMCG groceries to 40+ countries since 2010.
 
-It is more than a brochure site. It is a searchable B2B catalogue of nearly 400 products, a multilingual buyer experience, and a lead-capture system the client runs from their phone at international trade fairs.
+It is more than a brochure site. It has:
+- a searchable B2B catalogue of 380 export products;
+- an online ordering shop for 10,000+ Indian FMCG products;
+- real translations in five languages;
+- buyer guides;
+- an admin hub the client runs from their phone: exhibition lead forms, orders, reviews, and a link into the company's export costing software.
 
 ---
 
@@ -12,12 +17,15 @@ It is more than a brochure site. It is a searchable B2B catalogue of nearly 400 
 
 | | |
 |---|---|
-| **Pages** | 440+ pages, all statically generated and listed in the sitemap |
-| **Products** | 374 export products in 14 categories and 40+ subcategories, each with its own page |
+| **Pages** | 590+ pages, all statically generated and listed in the sitemap |
+| **Products** | 380 export products in 14 categories and 40+ subcategories, each with its own page |
+| **FMCG ordering** | 10,189 Indian FMCG products in 25 categories, with buyer accounts, carton ordering and an orders tool |
+| **Content** | Buying guides on the 30 top products, typical specifications for 314 bulk products, 26 buyer-guide blog posts |
 | **Spec sheets** | A one-page PDF specification sheet generated for every product |
-| **Languages** | 28-language site translation, plus product names in 18 languages for local search |
-| **Markets** | 17 export-market pages (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, USA, UK, EU and others) |
-| **Lead capture** | Quote form, WhatsApp everywhere, and an exhibition form builder with QR codes, live dashboard and Excel export |
+| **Languages** | Arabic (home, 60 products, Gulf markets, quote form); French, Spanish, German and Russian (main pages and top 10 products); product names in 18 languages for local search |
+| **Markets** | 21 export-market pages (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, USA, UK, EU and others) |
+| **Lead capture** | Multi-product quote form, WhatsApp everywhere, and an exhibition form builder with QR codes, live dashboard and Excel export |
+| **Admin hub** | Event forms, Orders, Reviews, and Costing (opens the company's costing software already signed in) |
 | **Stack** | Next.js 16 (App Router), React 19, CSS Modules, Supabase, Resend, Vercel |
 
 ---
@@ -25,17 +33,38 @@ It is more than a brochure site. It is a searchable B2B catalogue of nearly 400 
 ## Features
 
 ### Product catalogue
-- **374 products** across spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, animal & bird feed, jaggery & natural sweeteners, raisins and Indian FMCG.
-- **A detail page for every product:** botanical name, HS code, forms, grades, packaging, shelf life, origin and related products.
-- **Searchable and filterable** catalogue with category and subcategory navigation.
+- **380 products** across spices, herbs & botanicals, dehydrated onion & garlic, coconut, pulses, rice, flours, oilseeds, coffee, superfoods, animal & bird feed, jaggery & natural sweeteners, raisins and Indian FMCG.
+- **A detail page for every product:**
+  - botanical name, HS code, forms, grades, packaging, shelf life and origin;
+  - related products;
+  - conventional, IPM and organic options.
+- **Written for buyers:**
+  - a unique introduction for every product;
+  - typical specifications for 314 bulk products;
+  - **buying guides** on the 30 top products (grades, crop calendar, what moves the price).
+- **Searchable and filterable** catalogue with a products mega menu and category and subcategory navigation. The full list loads only when the visitor searches or filters, so the page stays light.
 - **Downloadable PDF spec sheet** for every product, generated on the server with `pdf-lib`. It carries the company letterhead, product photo, specifications table and contact details.
 - **Product names in 18 languages** on every product page (Hindi, Gujarati, Tamil, Arabic, Persian, Chinese, Japanese, Korean, Russian, Turkish and more). They are added to the page's structured data so buyers who search in their own language can find the page.
 - **Catalogue data kept in sync** with the client's master Excel sheet of 425+ rows, including validation status.
 - **Product photos:** the client's own photography, CC-licensed photos (credited on `/credits`), and AI-generated studio shots for products with no usable photo. Every image was reviewed by hand before use.
 
-### Exhibition lead system (`/admin`)
+### FMCG online ordering (`/fmcg`)
+- **10,189 Indian FMCG products** from the client's distributor list, in 25 categories, with search and category filters.
+- **Buyer accounts.** Passwords are hashed with scrypt, and the buyer stays logged in with a signed httpOnly cookie.
+- **Order cards** with quantity in cartons, pack size and brand, a container estimate, and an order review page before sending.
+- **Excel download** of each category, or of the whole list.
+- **Buyer reviews:** buyers review their orders from their account; reviews the client publishes appear on the homepage.
+
+### Admin hub (`/admin`)
+One password-protected dashboard for the client, with a tool for each job and lead numbers at a glance.
+- **Password-protected admin** with a signed, httpOnly session cookie, a show/hide-password toggle and rate-limited login.
+- **Costing:** opens the company's export costing software, a separate private application at `costing.sunitaexports.com`, already signed in. The admin passes it a one-minute, single-use signed link, so there is no second password, and the admin password never leaves this site.
+- **Orders:** FMCG orders placed on the website, with buyer details and an Excel download.
+- **Reviews:** approve buyer reviews before they are published.
+- **Event forms:** the exhibition lead system below.
+
+### Exhibition lead system (`/admin/forms`)
 Built for trade fairs such as Gulfood. The client creates a form on their phone, shows a QR code at the stand, and collects buyer details straight into a database.
-- **Password-protected admin** with a signed, httpOnly session cookie and a show/hide-password toggle.
 - **Form builder:** custom heading, pick from 11 ready-made questions, mark each one required or optional, or add your own questions.
 - **QR code** for every form, with a full-screen view to hold up at the stand and a printable PNG download.
 - **Public form in 10 languages,** including right-to-left Arabic. Answers are always stored in English, so the Excel export stays readable.
@@ -50,8 +79,14 @@ Built for trade fairs such as Gulfood. The client creates a form on their phone,
 - **Spam protection** (hidden honeypot field), server-side validation, and a "closed form" state.
 
 ### Contact & conversion
-- **Quote form** that pre-fills the product name when opened from a product page.
-- **WhatsApp on every page:** a floating button, links on product pages and pre-filled enquiry messages.
+- **Quote form:**
+  - several products in one request, each on its own line;
+  - sample requests;
+  - a reference number for every enquiry;
+  - pre-fills the product when opened from a product page.
+- **WhatsApp on every page:** a floating button and links on product pages. Each opens a short, optional quotation form first that pre-fills the WhatsApp message.
+- **"Ask a question" helper:** instant answers from the site's own FAQs, company facts and catalogue. It runs in the browser with no AI service and no running cost.
+- **Pages for each kind of buyer:** importers, food manufacturers, private label and mixed containers.
 - **WhatsApp channel** link in the footer and the social icons.
 - **"Save our contact" QR code** in the footer: one scan adds both directors' numbers and email to the buyer's phone.
 - **Mixed-container planner** for building a multi-product order and sending it as an enquiry.
@@ -59,23 +94,36 @@ Built for trade fairs such as Gulfood. The client creates a form on their phone,
 ### Trust & credibility
 - **Certificates page** with scanned PDFs and validity dates: ISO 22000, ISO 9001, Kosher, FSSAI, APEDA (RCMC), Spices Board, One Star Export House and IEC.
 - **"Certified & registered" strip** on the homepage. Each certificate opens its PDF.
+- **About page:** the company's journey, leadership, how they work and quality control.
+- **Infrastructure page:** processing units at Unjha, Guntur and Nizamabad, with the client's own plant photos.
 - **Directors' message** section with photos.
+- **Verified Google Business Profile and LinkedIn company page,** linked from the site and its structured data.
 - **Exhibition highlights:** a swipeable photo strip from trade fairs (Gulfood Dubai, WorldFood Istanbul, Vietfood).
 - **Updated downloadable company brochure.**
 
 ### Multilingual
-- **28-language switcher** (Google Translate), with the brand name protected from translation.
-- **"View this site in your language?" bar** shown once, in the visitor's own language, based on their browser setting. It never switches language automatically, so search engines and English readers always get English.
-- **Switching back to English works reliably,** including on the live domain, by clearing the translator's cookie on every domain level.
+- **Real, written translations** instead of machine translation (Google Translate was removed):
+  - **Arabic** at `/ar/`: home, products, 60 product pages, Gulf market pages and the quote form, right to left;
+  - **French, Spanish, German and Russian:** main pages and the top 10 products.
+- **`hreflang` links** across every language version. Each translated page links back to its English page and carries the company schema.
+- **Language menu** that links straight to the translated pages.
 
 ### SEO
 - **Separate landing pages for the searches buyers make:** "Indian grocery exporter", "Indian spices exporter", "Indian FMCG exporter", mixed container and private label.
-- **17 export-market pages,** with longer content for the Gulf: ports, documents, labelling and the products that sell there.
+- **21 export-market pages,** each with that market's import rules, and longer content for the Gulf: ports, documents, labelling and the products that sell there.
+- **Blog of 26 buyer guides,** each with cards for the products it covers.
 - **Structured data (JSON-LD):** Organization, Product (with names in other languages), FAQ and breadcrumbs.
-- **XML sitemap of 440+ URLs,** a `robots.txt` that keeps the admin, form and API pages out of search, and an `llms.txt` for AI assistants.
-- **301 redirects** for every URL from the old PHP site and for removed products, so existing Google rankings carry over.
+- **XML sitemap of 590+ URLs,** a `robots.txt` that keeps the admin, form and API pages out of search, and an `llms.txt` for AI assistants that names the only official domain.
+- **AI-search visibility:** a company facts page, quick answers and a richer Organization schema, so AI assistants describe the company correctly.
+- **301 redirects** for every URL from the old PHP site and for removed products (or `410 Gone` where nothing replaces them), so existing Google rankings carry over.
 - **Canonical URLs:** a product listed in two categories still has only one URL.
 - **Google Search Console** verified and the sitemap submitted.
+
+### Security
+- **Security headers** on every page.
+- **Rate limits** on the admin login, buyer accounts and exhibition form submissions.
+- **Hidden honeypot field** against spam, and validation on the server.
+- **No secrets in the code:** keys and passwords live only in the hosting settings.
 
 ### Analytics & privacy
 - **Google Analytics 4,** loaded only after the visitor accepts the cookie bar.
@@ -100,21 +148,27 @@ Built for trade fairs such as Gulfood. The client creates a form on their phone,
 
 ```
 src/
-  app/                      Next.js App Router pages and API routes
-    products/[category]/[product]/   374 product pages (static)
-    spec-sheets/[file]/     PDF spec sheet generator (pdf-lib)
-    exports/[country]/      17 market pages
-    admin/                  Exhibition form builder (password protected)
-    f/[slug]/               Public exhibition forms
-    api/forms/[slug]/       Form submission endpoint
-  components/               Header, Footer, LanguageSwitcher, Globe, Analytics …
-  data/catalog/             Product data, categories, images, names in 18 languages
-  lib/forms/                Storage (Supabase), auth, Excel (exceljs), email (Resend)
+  app/
+    (site)/                 English site (URLs have no prefix)
+      products/[category]/[product]/   380 product pages (static)
+      spec-sheets/[file]/   PDF spec sheet generator (pdf-lib)
+      exports/[country]/    21 market pages
+      blog/                 Buyer guides
+      fmcg/, order/, account/   FMCG ordering, order review, buyer accounts
+      admin/                Admin hub: event forms, orders, reviews, costing link
+      f/[slug]/             Public exhibition forms
+      api/forms/[slug]/     Form submission endpoint
+    (intl)/[lang]/          Arabic, French, Spanish, German and Russian pages
+  components/               Header, Footer, LanguageSwitcher, Globe, HelpSearch, Analytics …
+  data/catalog/             Product data, categories, images, buying guides, names in 18 languages
+  data/fmcg/                The FMCG range (10,189 products)
+  lib/forms/                Storage (Supabase), admin auth, Excel (exceljs), email (Resend)
+  lib/shop/                 Buyer accounts, orders and reviews
 ```
 
 **Services:**
 - **Vercel:** hosting.
-- **Supabase (Postgres):** form data.
+- **Supabase (Postgres):** form responses, buyer accounts, orders and reviews.
 - **Resend:** email, sending from a verified domain.
 - **Web3Forms:** quote form.
 - **Google Analytics 4** and **Search Console.**
