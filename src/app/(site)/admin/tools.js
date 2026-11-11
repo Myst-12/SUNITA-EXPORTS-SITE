@@ -13,6 +13,14 @@ export const TOOLS = [
     description: 'Export costing: quick price, quotations, daily price lists, suppliers and purchase orders. Opens in a new tab.',
   },
   {
+    slug: 'docs',
+    name: 'Export documents',
+    short: 'Export docs',
+    href: '/admin/docs/',
+    icon: 'file',
+    description: 'Enter a shipment once and print the proforma, invoices, packing list, BL draft, bill of exchange, VGM, bank letters and self sealing.',
+  },
+  {
     slug: 'forms',
     name: 'Event forms',
     short: 'Forms',
