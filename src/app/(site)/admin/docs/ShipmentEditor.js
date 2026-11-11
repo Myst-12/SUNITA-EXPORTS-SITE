@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import Link from 'next/link';
 import { saveShipmentAction } from './actions';
+import DeleteShipment from './DeleteShipment';
 import { DEFAULT_TERMS } from '@/lib/exportdocs/company';
 import { lineCalc, totals, docLines, money, kg, mt, BASIS } from '@/lib/exportdocs/calc';
 import d from './docs.module.css';
@@ -79,7 +80,7 @@ const LineRow = memo(function LineRow({ l, i, onChange, onRemove, groups }) {
   );
 }, (a, b) => a.l === b.l && a.i === b.i && a.groups === b.groups);
 
-export default function ShipmentEditor({ id, initial, savedAt, docs, deleteAction }) {
+export default function ShipmentEditor({ id, initial, savedAt, docs }) {
   const [s, setS] = useState(() => ({ ...initial, lines: (initial.lines || []).map((l) => ({ ...newLine(), ...l, id: l.id || uid() })) }));
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState(savedAt ? 'Saved' : '');
@@ -472,10 +473,7 @@ export default function ShipmentEditor({ id, initial, savedAt, docs, deleteActio
       </aside>
       </div>
 
-      <form action={deleteAction} className={d.del} onSubmit={(e) => { if (!confirm('Delete this shipment and all its details? This cannot be undone.')) e.preventDefault(); }}>
-        <input type="hidden" name="id" value={id} />
-        <button type="submit">Delete shipment</button>
-      </form>
+      <div className={d.del}><DeleteShipment id={id} label={s.title || s.invNo || s.piNo || 'this shipment'}>Delete shipment</DeleteShipment></div>
     </div>
   );
 }

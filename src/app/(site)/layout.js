@@ -1,6 +1,7 @@
 import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
+import PublicOnly from '@/components/PublicOnly';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import HelpSearch from '@/components/HelpSearch';
@@ -104,8 +105,10 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer categories={navCategories} />
-        <HelpSearch />
-        <WhatsAppButton />
+        <PublicOnly>
+          <HelpSearch />
+          <WhatsAppButton />
+        </PublicOnly>
         <Analytics gaId={GA_ID} />
       </body>
     </html>

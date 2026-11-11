@@ -4,9 +4,11 @@ import { isAdmin } from '@/lib/forms/auth';
 import { listShipments } from '@/lib/exportdocs/store';
 import { totals, money, dmy, CURRENCY } from '@/lib/exportdocs/calc';
 import { createShipmentAction } from './actions';
+import DeleteShipment from './DeleteShipment';
 import s from '../admin.module.css';
 
 export const metadata = { title: 'Export documents' };
+const btn = { background: 'none', border: 0, cursor: 'pointer', textDecoration: 'underline', padding: 0, fontFamily: 'inherit', fontSize: '0.85rem', fontWeight: 600 };
 
 export default async function DocsTool({ searchParams }) {
   if (!(await isAdmin())) redirect('/admin/');
@@ -38,7 +40,10 @@ export default async function DocsTool({ searchParams }) {
                 <span className={s.meta}>{[x.invNo || x.piNo, dmy(x.invDate || x.piDate), x.destCountry, `${(x.lines || []).length} products`].filter(Boolean).join(' · ')}</span>
               </Link>
               <div className={s.count}>{CURRENCY[x.currency] || x.currency} {money(t.amount)}
-                <form action={createShipmentAction}><input type="hidden" name="from" value={x.id} /><button type="submit" className={s.meta} style={{ background: 'none', border: 0, cursor: 'pointer', textDecoration: 'underline', padding: '6px 0 0' }}>Copy</button></form>
+                <div style={{ display: 'flex', gap: 14, justifyContent: 'flex-end', paddingTop: 6 }}>
+                  <form action={createShipmentAction}><input type="hidden" name="from" value={x.id} /><button type="submit" className={s.meta} style={btn}>Copy</button></form>
+                  <DeleteShipment id={x.id} label={x.title || x.invNo || x.piNo || 'this shipment'} className={s.meta} style={{ ...btn, color: '#b42318' }}>Delete</DeleteShipment>
+                </div>
               </div>
             </div>
           );
