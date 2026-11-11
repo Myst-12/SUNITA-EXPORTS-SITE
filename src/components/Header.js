@@ -33,6 +33,15 @@ export default function Header({ categories = [], langPaths = {} }) {
   const [mobileSub, setMobileSub] = useState(null);
   const onHero = pathname === '/';
 
+  // Home page always opens at the top, so a reload shows the clear header over the hero photo
+  // instead of the browser restoring the old scroll position (which turns the header white).
+  useEffect(() => {
+    if (!onHero || window.location.hash) return;
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    return () => { history.scrollRestoration = 'auto'; };
+  }, [onHero]);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
