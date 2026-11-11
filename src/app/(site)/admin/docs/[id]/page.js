@@ -1,8 +1,8 @@
 import { redirect, notFound } from 'next/navigation';
 import { isAdmin } from '@/lib/forms/auth';
-import { getShipment } from '@/lib/exportdocs/store';
-import { blankShipment } from '@/lib/exportdocs/company';
-import { DOCS } from '@/lib/exportdocs/render';
+import { getShipment, listShipments, listMasters } from '@/lib/exportdocs/store';
+import { normalizeShipment } from '@/lib/exportdocs/workflow';
+import { nextNumbers } from '@/lib/exportdocs/calc';
 import ShipmentEditor from '../ShipmentEditor';
 
 export const metadata = { title: 'Shipment' };
@@ -10,8 +10,8 @@ export const metadata = { title: 'Shipment' };
 export default async function ShipmentPage({ params }) {
   if (!(await isAdmin())) redirect('/admin/');
   const { id } = await params;
-  const s = await getShipment(id);
+  const [s, all, masters] = await Promise.all([getShipment(id), listShipments(), listMasters()]);
   if (!s) notFound();
-  const { id: _i, createdAt: _c, updatedAt, ...data } = s;
-  return <ShipmentEditor id={id} initial={{ ...blankShipment(), ...data }} savedAt={updatedAt} docs={DOCS.map(({ slug, name, excel }) => ({ slug, name, excel: !!excel }))} />;
+  const others = all.filter((x) => x.id !== id).map(normalizeShipment);
+  return <ShipmentEditor id={id} initial={normalizeShipment(s)} savedAt={s.updatedAt} numbers={nextNumbers(others)} masters={masters} />;
 }

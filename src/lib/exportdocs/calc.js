@@ -11,12 +11,14 @@ export const BASIS = { MT: 'Per MT', KG: 'Per KG', PKG: 'Per Pkg' };
 
 /** One product line with its weights, quantity and amount worked out. */
 export function lineCalc(l) {
-  const pkgs = num(l.pkgs);
+  // Enquiry and quotation lines may give a quantity instead of packages: work the packages out from it.
+  const per = num(l.netPer), q = num(l.qty);
+  const pkgs = num(l.pkgs) || (q && (l.basis || 'MT') === 'PKG' ? q : q && per ? Math.ceil(((l.basis || 'MT') === 'MT' ? q * 1000 : q) / per) : 0);
   const net = r3(pkgs * num(l.netPer));
   const gross = r3(pkgs * (num(l.grossPer) || num(l.netPer)));
   const cbm = r3(pkgs * num(l.cbmPer));
   const basis = l.basis || 'MT';
-  const qty = basis === 'MT' ? r3(net / 1000) : basis === 'KG' ? net : pkgs;
+  const qty = !num(l.pkgs) && q ? q : basis === 'MT' ? r3(net / 1000) : basis === 'KG' ? net : pkgs;
   const amount = r2(num(l.rate) * qty);
   return { ...l, pkgs, net, gross, cbm, basis, qty, rate: num(l.rate), amount };
 }
@@ -123,19 +125,25 @@ export function amountWords(amount, currency = 'USD') {
   return `${CURRENCY[currency] || currency} ${intWords(whole)}${cents ? ` AND ${CENTS[currency] || 'CENTS'} ${intWords(cents)}` : ''} ONLY.`;
 }
 
-// ---- numbering: SAE/PI/EXP/69/25-26 and SAE/EXP/03/26-27 ----
+// ---- numbering: SAE/ENQ/1/26-27, SAE/QT/1/26-27, SAE/PI/EXP/69/25-26, SAE/EXP/03/26-27 ----
 export function financialYear(d = new Date()) {
   const y = d.getFullYear() % 100, start = d.getMonth() >= 3 ? y : y - 1;
   return `${String(start).padStart(2, '0')}-${String(start + 1).padStart(2, '0')}`;
 }
+const SERIES = {
+  enqNo: [/SAE\/ENQ\/(\d+)\/(\d{2}-\d{2})/, (n, fy) => `SAE/ENQ/${n}/${fy}`],
+  quoteNo: [/SAE\/QT\/(\d+)\/(\d{2}-\d{2})/, (n, fy) => `SAE/QT/${n}/${fy}`],
+  piNo: [/PI\/EXP\/(\d+)\/(\d{2}-\d{2})/, (n, fy) => `SAE/PI/EXP/${n}/${fy}`],
+  invNo: [/^SAE\/EXP\/(\d+)\/(\d{2}-\d{2})/, (n, fy) => `SAE/EXP/${String(n).padStart(2, '0')}/${fy}`],
+};
+/** Next free number in each series this financial year, looking at every document of every shipment. */
 export function nextNumbers(shipments, d = new Date()) {
   const fy = financialYear(d);
-  const max = (re) => shipments.reduce((m, s) => {
-    const x = String(re === 'pi' ? s.piNo : s.invNo || '').match(re === 'pi' ? /PI\/EXP\/(\d+)\/(\d{2}-\d{2})/ : /SAE\/EXP\/(\d+)\/(\d{2}-\d{2})/);
-    return x && x[2] === fy ? Math.max(m, Number(x[1])) : m;
-  }, 0);
-  return {
-    piNo: `SAE/PI/EXP/${max('pi') + 1}/${fy}`,
-    invNo: `SAE/EXP/${String(max('inv') + 1).padStart(2, '0')}/${fy}`,
-  };
+  const snaps = shipments.flatMap((s) => (s.docs ? Object.values(s.docs) : [s]));
+  const out = {};
+  for (const [key, [re, fmt]] of Object.entries(SERIES)) {
+    const max = snaps.reduce((m, x) => { const r = String(x?.[key] || '').match(re); return r && r[2] === fy ? Math.max(m, Number(r[1])) : m; }, 0);
+    out[key] = fmt(max + 1, fy);
+  }
+  return out;
 }

@@ -62,10 +62,19 @@ export const BANK_DOCS = [
   ['CERTIFICATE OF ANALYSIS', '', '0'],
 ];
 
-/** A new, empty shipment with sensible defaults. */
+export const DEFAULT_QUOTE_TERMS = [
+  'Prices are valid until the date shown above and subject to confirmation at the time of order.',
+  'Quantities, packing and specifications as listed; samples available on request.',
+  'Shipment within 30 - 45 days from receipt of advance payment and confirmed artwork / packing.',
+  'All bank charges outside India are on the buyer\'s account.',
+  'Prices are subject to change with market fluctuation, freight rates and government regulations.',
+];
+
+/** A new, empty document snapshot with sensible defaults. */
 export function blankShipment() {
   return {
-    title: '',
+    enqNo: '', enqDate: '', source: 'WhatsApp', contact: '', requiredBy: '', notes: '', rawMessage: '',
+    quoteNo: '', quoteDate: '', validTill: '', quoteTerms: [...DEFAULT_QUOTE_TERMS],
     piNo: '', piDate: '', invNo: '', invDate: '', buyerOrder: '', otherRef: '',
     consignee: '', toOrder: true, buyer: '', notify1: '', notify2: '',
     origin: 'INDIA', destCountry: '',
@@ -75,7 +84,7 @@ export function blankShipment() {
     marks: '', freight: '', insurance: '', advance: '', insurancePolicy: '', rodtep: true, drawback: true,
     containers: [{ no: '', size: '20 Ft', lineSeal: '', exporterSeal: '', vehicle: '', tare: '', pkgs: '', gross: '', net: '' }],
     lines: [],
-    consolidate: { proforma: false, custom: false, commercial: false, packing: false },
+    consolidate: false,
     terms: [...DEFAULT_TERMS],
     bankTo: 'Punjab National Bank\nMalad West, Mumbai', bankSubject: 'Export Bill for Collection at Sight', bankDate: '', lcNo: '',
     consigneeBank: '', receipts: [],

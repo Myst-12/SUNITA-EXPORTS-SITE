@@ -5,19 +5,8 @@ import { LOGO } from './logo';
 import { docLines, totals, containerRows, money, kg, mt, dmy, amountWords, num, CURRENCY } from './calc';
 
 // Each export document as a standalone A4 HTML page. The admin prints it or saves it as PDF from the browser.
-export const DOCS = [
-  { slug: 'proforma', name: 'Proforma Invoice' },
-  { slug: 'custom', name: 'Custom Invoice' },
-  { slug: 'commercial', name: 'Commercial Invoice' },
-  { slug: 'packing', name: 'Packing List' },
-  { slug: 'bl', name: 'BL Draft' },
-  { slug: 'boe', name: 'Bill of Exchange' },
-  { slug: 'vgm', name: 'VGM' },
-  { slug: 'bank', name: 'Bank Covering Letter' },
-  { slug: 'selfsealing', name: 'Self Sealing' },
-  { slug: 'disposal', name: 'Bank Disposal (Advance Receipt)' },
-  { slug: 'cargox', name: 'CargoX Invoice (Excel)', excel: true },
-];
+import { STEPS } from './workflow';
+export const DOCS = STEPS;
 
 const esc = (v) => String(v ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const br = (v) => esc(v).replace(/\n/g, '<br>');
@@ -102,7 +91,7 @@ function invoiceHeader(s, doc) {
     `<div class="g c2">${cell('Country of Origin of Goods', esc(s.origin))}${cell('Country of Final Destination', esc(s.destCountry))}</div>`,
     cell('Terms of Delivery and Payment', `${esc(s.incoterm)} ${esc(s.incotermPlace)}<br>${doc === 'custom' ? 'PAYMENT : ' : ''}${br(s.payment)}`),
     pi ? cell('Our Bank Details', bankLines()) : '',
-    doc === 'commercial' ? cell('&nbsp;', `S BILL No. : ${esc(s.sbNo)} &nbsp; Date : ${esc(dmy(s.sbDate))}<br>B/L No. : ${esc(s.blNo)} &nbsp; Date : ${esc(dmy(s.blDate))}`) : '',
+    (doc === 'commercial' || doc === 'cpacking') ? cell('&nbsp;', `S BILL No. : ${esc(s.sbNo)} &nbsp; Date : ${esc(dmy(s.sbDate))}<br>B/L No. : ${esc(s.blNo)} &nbsp; Date : ${esc(dmy(s.blDate))}`) : '',
   ].join('');
   const left = [
     cell('Exporter', exporterBlock()),
@@ -129,7 +118,7 @@ ${rows.map((c, i) => `<tr><td class="ctr">${i + 1}</td><td class="ctr">${esc(c.p
 }
 
 function itemsTable(s, doc) {
-  const lines = docLines(s.lines || [], s.consolidate?.[doc]);
+  const lines = docLines(s.lines || [], s.consolidate === true || s.consolidate?.[doc]);
   const mixed = new Set(lines.map((l) => l.basis)).size > 1;
   const u = mixed ? '' : qtyUnit(lines);
   const marks = br(s.marks);
@@ -137,7 +126,7 @@ function itemsTable(s, doc) {
   if (doc === 'proforma') {
     head = `<th>No. of<br>Pkgs</th><th>Description Of Goods</th><th>HS Code</th><th>Packing</th><th>Master Packing<br>in KGS</th><th>Total<br>CBM</th><th>Total Weight<br>MT</th><th>Quantity<br>${u}</th><th>${rateHead(lines, s)}</th><th>Amount<br>${esc(s.incoterm)} ${cur(s)}</th>`;
     row = (l) => `<td class="ctr">${l.pkgs}</td><td>${descCell(l)}</td><td class="ctr">${esc(l.hs)}</td><td class="ctr">${packCell(l)}</td><td class="ctr">${l.netPer ? `${esc(l.netPer)} KG` : ''}</td><td class="r">${l.cbm ? mt(l.cbm) : ''}</td><td class="r">${mt(l.net / 1000)}</td><td class="r">${qtyFmt(l, mixed)}</td><td class="r">${money(l.rate)}</td><td class="r">${money(l.amount)}</td>`;
-  } else if (doc === 'packing') {
+  } else if (doc === 'packing' || doc === 'cpacking') {
     head = `<th>Marks &amp; Nos/<br>Cont. No.</th><th>No. &amp; Kind<br>of Pkgs.</th><th>Description Of Goods</th><th>HS Code</th><th>Packing</th><th>Master<br>Packing</th><th>Net Wt.<br>KGS</th><th>Gross Wt.<br>KGS</th><th>Quantity<br>${u}</th><th>Batch No.</th><th>Mfg. Dt.</th><th>Exp. Dt.</th>`;
     row = (l, i) => `<td class="small">${i === 0 ? marks : ''}</td><td class="ctr">${l.pkgs} ${esc(l.kind || '')}</td><td>${descCell(l)}</td><td class="ctr">${esc(l.hs)}</td><td class="ctr">${packCell(l)}</td><td class="ctr">${l.netPer ? `${esc(l.netPer)} KG` : ''}</td><td class="r">${kg(l.net)}</td><td class="r">${kg(l.gross)}</td><td class="r">${qtyFmt(l, mixed)}</td><td class="ctr">${esc(l.batch)}</td><td class="ctr">${esc(dmy(l.mfg))}</td><td class="ctr">${esc(dmy(l.exp))}</td>`;
   } else {
@@ -154,7 +143,7 @@ function invoice(s, doc, title) {
   const pi = doc === 'proforma';
   const freight = num(s.freight), ins = num(s.insurance), adv = pi ? num(s.advance) : 0;
   const grand = Math.round((t.amount - adv) * 100) / 100;
-  const sumRows = doc === 'packing' ? '' : `
+  const sumRows = doc === 'packing' || doc === 'cpacking' ? '' : `
     <table style="margin-top:-1px"><tr>
       <td style="width:62%"><span class="lab">Amount Chargeable (in Words)</span><div class="words">${esc(amountWords(grand, s.currency))}</div></td>
       <td><table class="small" style="border:0">${[
@@ -297,15 +286,50 @@ function disposal(s) {
   return [p1, p2];
 }
 
+// ---------- Enquiry (internal record of the buyer's request) ----------
+function enquiry(s) {
+  const lines = (s.lines || []).map((l) => ({ ...l, ...{ q: l.qty || '', u: l.basis === 'PKG' ? 'PKGS' : l.basis || 'MT' } }));
+  return `<h1 class="t">ENQUIRY</h1>
+  <div class="g c2" style="margin:1px 0 0 1px"><div>${cell('From (buyer)', boldFirst(s.consignee), 'style="min-height:70px"')}${cell('Contact person', esc(s.contact))}</div>
+  <div>${cell('Enquiry No. &amp; Date', `<b>${esc(s.enqNo)}</b> Dtd: ${esc(dmy(s.enqDate))}`)}${cell('Received via', esc(s.source))}<div class="g c2">${cell('Destination country', esc(s.destCountry))}${cell('Destination port', esc(s.pod))}</div><div class="g c2">${cell('Terms of delivery', `${esc(s.incoterm)} ${esc(s.incotermPlace)}`)}${cell('Required by', esc(dmy(s.requiredBy)))}</div>${cell('Payment terms asked', br(s.payment))}</div></div>
+  <table style="margin-top:-1px"><thead><tr><th>Sr.</th><th>Product</th><th>Packing</th><th>Quantity</th><th>Target price ${cur(s)}</th></tr></thead><tbody>
+  ${lines.map((l, i) => `<tr><td class="ctr">${i + 1}</td><td>${esc(l.desc)}</td><td>${packCell(l)}</td><td class="r">${esc(l.q)} ${esc(l.q ? l.u : '')}</td><td class="r">${num(l.rate) ? `${money(l.rate)} ${BASIS_TXT[l.basis] || ''}` : ''}</td></tr>`).join('') || '<tr><td colspan="5">&nbsp;</td></tr>'}
+  </tbody></table>
+  ${s.notes ? `<div class="cell" style="margin:-1px 0 0"><span class="lab">Notes</span>${br(s.notes)}</div>` : ''}
+  ${s.rawMessage ? `<div class="cell small" style="margin:6px 0 0"><span class="lab">Original message</span>${br(s.rawMessage)}</div>` : ''}`;
+}
+const BASIS_TXT = { MT: 'per MT', KG: 'per KG', PKG: 'per pkg' };
+
+// ---------- Quotation (sent to the buyer) ----------
+function quotation(s) {
+  const lines = docLines(s.lines || [], false);
+  const total = lines.reduce((a, l) => a + l.amount, 0);
+  const showAmt = lines.some((l) => l.amount);
+  return `<h1 class="t">QUOTATION</h1>
+  <div class="g c2" style="margin:1px 0 0 1px"><div>${cell('From', exporterBlock())}${cell('To', boldFirst(s.consignee), 'style="min-height:70px"')}</div>
+  <div>${cell('Quotation No. &amp; Date', `<b>${esc(s.quoteNo)}</b> Dtd: ${esc(dmy(s.quoteDate))}`)}${cell('Valid till', `<b>${esc(dmy(s.validTill))}</b>`)}${s.enqNo ? cell('Your enquiry', `${esc(s.enqNo)} ${s.enqDate ? `Dtd: ${esc(dmy(s.enqDate))}` : ''}`) : ''}
+  <div class="g c2">${cell('Terms of delivery', `${esc(s.incoterm)} ${esc(s.incotermPlace)}`)}${cell('Currency', esc(s.currency))}</div>
+  <div class="g c2">${cell('Port of loading', esc(s.pol))}${cell('Port of discharge', esc(s.pod))}</div>${cell('Payment terms', br(s.payment))}</div></div>
+  <table style="margin-top:-1px"><thead><tr><th>Sr.</th><th>Description Of Goods</th><th>HS Code</th><th>Packing</th><th>Quantity</th><th>Rate ${cur(s)}</th>${showAmt ? `<th>Amount ${cur(s)}</th>` : ''}</tr></thead><tbody>
+  ${lines.map((l, i) => `<tr><td class="ctr">${i + 1}</td><td>${esc(l.desc)}</td><td class="ctr">${esc(l.hs)}</td><td>${packCell(l)}</td><td class="r">${l.qty ? `${qtyFmt(l)} ${l.basis === 'PKG' ? 'PKGS' : l.basis}` : ''}</td><td class="r">${money(l.rate)} ${BASIS_TXT[l.basis] || ''}</td>${showAmt ? `<td class="r">${l.amount ? money(l.amount) : ''}</td>` : ''}</tr>`).join('')}
+  ${showAmt ? `<tr><td colspan="6" class="r"><b>Total ${cur(s)}</b></td><td class="r"><b>${money(total)}</b></td></tr>` : ''}</tbody></table>
+  ${showAmt ? `<div class="cell" style="margin:-1px 0 0"><span class="lab">Amount in words</span><span class="words">${esc(amountWords(total, s.currency))}</span></div>` : ''}
+  ${(s.quoteTerms || []).filter(Boolean).length ? `<div class="cell terms" style="margin:-1px 0 0"><b>TERMS AND CONDITIONS :</b><ol>${s.quoteTerms.filter(Boolean).map((x) => `<li>${esc(x)}</li>`).join('')}</ol></div>` : ''}
+  <table style="margin-top:-1px"><tr><td style="width:55%"><span class="lab">Our Bank Details :</span>${bankLines()}</td><td><span class="lab">Signature</span>${sig()}</td></tr></table>`;
+}
+
 export function renderDoc(s, slug, back) {
   const doc = DOCS.find((d) => d.slug === slug);
   if (!doc || doc.excel) return null;
-  const title = `${doc.name} – ${s.invNo || s.piNo || s.title || 'Shipment'}`;
+  const title = `${doc.name} – ${s.invNo || s.piNo || s.quoteNo || s.enqNo || 'Shipment'}`;
   const pages = {
+    enquiry: () => [enquiry(s)],
+    quotation: () => [quotation(s)],
     proforma: () => [invoice(s, 'proforma', 'PROFORMA INVOICE')],
     custom: () => [invoice(s, 'custom', 'CUSTOM INVOICE')],
+    custompacking: () => [invoice(s, 'packing', 'CUSTOM PACKING LIST')],
     commercial: () => [invoice(s, 'commercial', 'COMMERCIAL INVOICE')],
-    packing: () => [invoice(s, 'packing', 'PACKING LIST')],
+    packing: () => [invoice(s, 'cpacking', 'PACKING LIST')],
     bl: () => [bl(s)],
     boe: () => boe(s),
     vgm: () => vgm(s),
