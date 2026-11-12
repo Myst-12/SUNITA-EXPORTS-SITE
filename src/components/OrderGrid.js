@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from './Icon';
 import { useCart } from '@/lib/shop/cart';
 import s from './OrderGrid.module.css';

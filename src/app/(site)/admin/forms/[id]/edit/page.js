@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { redirect, notFound } from 'next/navigation';
 import { isAdmin } from '@/lib/forms/auth';
 import { getForm } from '@/lib/forms/store';

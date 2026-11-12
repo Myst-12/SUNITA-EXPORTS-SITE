@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import styles from './Breadcrumb.module.css';
 import { SITE_URL } from '@/config/site';
 

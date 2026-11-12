@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 import { faqs } from '@/data/faq';

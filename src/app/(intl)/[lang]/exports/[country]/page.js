@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { notFound } from 'next/navigation';
 import { TEXT } from '@/data/i18n';
 import { langMarkets, langProducts } from '@/lib/intlData';

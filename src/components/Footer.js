@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import HomeLink from './HomeLink';
 import { COMPANY, CONTACT, fullAddress, mapsLink, ukAddress, ukMapsLink, WHATSAPP_CHANNEL } from '@/config/site';
 import SocialLinks from './SocialLinks';

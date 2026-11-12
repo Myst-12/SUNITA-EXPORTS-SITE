@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from './Icon';
 import { useBasket } from '@/lib/enquiryBasket';
 import { track } from '@/lib/track';

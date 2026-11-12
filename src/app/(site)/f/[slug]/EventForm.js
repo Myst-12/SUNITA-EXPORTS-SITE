@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { track } from '@/lib/track';
 import { whatsappLink, CONTACT } from '@/config/site';
 import { COUNTRY_META } from '@/lib/forms/fields';

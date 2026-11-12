@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { productCategories, getAllProducts } from '@/data/products';
 import ProductExplorer from '@/components/ProductExplorer';
 import { productIndex, PREVIEW } from '@/lib/productIndex';

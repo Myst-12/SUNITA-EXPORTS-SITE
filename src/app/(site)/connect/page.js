@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from '@/components/Icon';
 import SocialLinks from '@/components/SocialLinks';
 import { COMPANY, CONTACT, DIRECTORS, SITE_URL, fullAddress, mapsLink, ukAddress, ukMapsLink, whatsappLink } from '@/config/site';

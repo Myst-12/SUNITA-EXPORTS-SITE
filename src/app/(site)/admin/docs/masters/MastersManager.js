@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { MastersProvider, useMasters } from '../MasterUI';
 import { deleteMasterAction } from '../actions';
 import { MASTER_TYPES } from '@/lib/exportdocs/workflow';

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { isAdmin, adminConfigured } from '@/lib/forms/auth';
 import { listForms, listAllResponses, usingDatabase } from '@/lib/forms/store';
 import { listOrders, listReviews } from '@/lib/shop/store';

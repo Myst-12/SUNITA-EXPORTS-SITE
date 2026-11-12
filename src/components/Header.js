@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useBasket } from '@/lib/enquiryBasket';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import HomeLink from './HomeLink';
 import { usePathname } from 'next/navigation';
 import Icon from './Icon';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from './Icon';
 import { whatsappLink } from '@/config/site';
 import styles from './ContainerPlanner.module.css';

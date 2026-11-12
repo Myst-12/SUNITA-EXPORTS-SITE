@@ -1,5 +1,5 @@
 import { IBM_Plex_Sans_Arabic, Manrope } from 'next/font/google';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { notFound } from 'next/navigation';
 import '../../(site)/globals.css';
 import Analytics from '@/components/Analytics';

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import PageHero from '@/components/PageHero';
 import { COMPANY, CONTACT, DIRECTORS, EXHIBITIONS, SITE_URL, fullAddress, ukAddress } from '@/config/site';
 import { certificates } from '@/data/certificates';

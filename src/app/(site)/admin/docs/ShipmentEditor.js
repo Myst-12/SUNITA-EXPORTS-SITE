@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { saveShipmentAction, readMessageAction } from './actions';
 import DeleteShipment from './DeleteShipment';
 import { MastersProvider, MasterPick, useMasters } from './MasterUI';

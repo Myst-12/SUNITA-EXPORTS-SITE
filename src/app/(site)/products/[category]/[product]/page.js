@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { notFound } from 'next/navigation';
 import { getAllProducts, getCategoryBySlug, getProductBySlug, getRelatedProducts, productUrl, quoteUrl, specSheetUrl } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';

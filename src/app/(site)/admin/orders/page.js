@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { redirect } from 'next/navigation';
 import { isAdmin } from '@/lib/forms/auth';
 import { listOrders, listCustomers, usingDatabase } from '@/lib/shop/store';

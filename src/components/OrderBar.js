@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from './Icon';
 import { useCart } from '@/lib/shop/cart';
 import { orderLoad, fillLabel } from '@/lib/shop/load';

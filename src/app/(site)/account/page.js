@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { redirect } from 'next/navigation';
 import { currentCustomer } from '@/lib/shop/auth';
 import { listOrders, listReviews } from '@/lib/shop/store';

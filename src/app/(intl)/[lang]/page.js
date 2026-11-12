@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { TEXT } from '@/data/i18n';
 import { certificates } from '@/data/certificates';
 import { exportDestinations } from '@/data/countries';

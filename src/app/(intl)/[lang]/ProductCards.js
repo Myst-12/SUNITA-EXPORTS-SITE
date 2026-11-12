@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import s from './intl.module.css';
 
 // Product cards in the visitor's language, with the English name underneath for reference.

@@ -3,7 +3,7 @@
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import Icon from '@/components/Icon';
 import { useCart } from '@/lib/shop/cart';
 import { orderLoad, fillLabel } from '@/lib/shop/load';
